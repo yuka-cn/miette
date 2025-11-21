@@ -1,7 +1,7 @@
 <?php
 
 // テーマの基本設定
-function codeups_theme_setup() {
+function miette_theme_setup() {
   add_theme_support('title-tag');
   add_theme_support('post-thumbnails');
   add_theme_support('html5', ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script']);
@@ -10,72 +10,77 @@ function codeups_theme_setup() {
     'footer' => 'フッターナビゲーション',
   ]);
 }
-add_action('after_setup_theme', 'codeups_theme_setup');
+add_action('after_setup_theme', 'miette_theme_setup');
 
 // アセット読み込み
-function codeups_enqueue_assets() {
+function miette_enqueue_assets() {
   $theme_uri = get_theme_file_uri();
   $theme_version = wp_get_theme()->get('Version');
 
   // Google Fonts
   wp_enqueue_style(
-    'codeups-google-fonts',
-    'https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Gotu&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP&family=Noto+Serif+JP&family=Noto+Serif:ital,wght@1,700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,500;1,500&display=swap',
+    'miette-google-fonts',
+    'https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&family=Zen+Maru+Gothic&display=swap',
     [],
     null
   );
 
   // メインCSS
-  wp_enqueue_style('codeups-style', $theme_uri . '/assets/css/style.css', [], $theme_version);
+  wp_enqueue_style('miette-style', $theme_uri . '/assets/css/style.css', [], $theme_version);
 
   // Swiper CSS
-  wp_enqueue_style('codeups-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', [], '11');
+  wp_enqueue_style('miette-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', [], '11');
 
   // jQuery（WordPress同梱）
   wp_enqueue_script('jquery');
 
   // Swiper JS
-  wp_enqueue_script('codeups-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', ['jquery'], '11', true);
+  wp_enqueue_script('miette-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', ['jquery'], '11', true);
 
   // inview（ローカル）
-  wp_enqueue_script('codeups-inview', $theme_uri . '/assets/js/jquery.inview.min.js', ['jquery'], $theme_version, true);
+  wp_enqueue_script('miette-inview', $theme_uri . '/assets/js/jquery.inview.min.js', ['jquery'], $theme_version, true);
 
   // メインJS（ローカル）
-  wp_enqueue_script('codeups-script', $theme_uri . '/assets/js/script.js', ['jquery'], $theme_version, true);
+  wp_enqueue_script('miette-script', $theme_uri . '/assets/js/script.js', ['jquery'], $theme_version, true);
 }
-add_action('wp_enqueue_scripts', 'codeups_enqueue_assets');
+add_action('wp_enqueue_scripts', 'miette_enqueue_assets');
 
+// Google Fontsのpreconnect
+function miette_google_fonts_preconnect() {
+  echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
+  echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+}
+add_action('wp_head', 'miette_google_fonts_preconnect');
 
 //　　リンクの設定
 function theme_get_links() {
   // カスタム投稿タイプのアーカイブ
-  $campaign = esc_url( get_post_type_archive_link( 'campaign' ) );
-  $voice    = esc_url( get_post_type_archive_link( 'voice' ) );
+  $lesson = esc_url( get_post_type_archive_link( 'lesson' ) );
 
-  // タクソノミー（キャンペーンカテゴリ）
-  $license_term = get_term_by( 'slug', 'license', 'campaign_category' );
-  $trial_term   = get_term_by( 'slug', 'trial-diving', 'campaign_category' );
-  $fun_term     = get_term_by( 'slug', 'fun-diving', 'campaign_category' );
+  // タクソノミー（レッスンカテゴリ）
+  $basic_term        = get_term_by( 'slug', 'basic', 'lesson_category' );
+  $seasonal_term     = get_term_by( 'slug', 'seasonal-sweets', 'lesson_category' );
+  $parent_child_term = get_term_by( 'slug', 'parent-child', 'lesson_category' );
 
-  $campaign_license = $license_term ? esc_url( get_term_link( $license_term ) ) : '#';
-  $campaign_trial   = $trial_term   ? esc_url( get_term_link( $trial_term ) )   : '#';
-  $campaign_fun     = $fun_term     ? esc_url( get_term_link( $fun_term ) )     : '#';
-
+  $lesson_basic        = $basic_term        ? esc_url( get_term_link( $basic_term ) )        : '#';
+  $lesson_seasonal     = $seasonal_term     ? esc_url( get_term_link( $seasonal_term ) )     : '#';
+  $lesson_parent_child = $parent_child_term ? esc_url( get_term_link( $parent_child_term ) ) : '#';
+  
   // 固定ページ
-  $home        = esc_url( home_url( '/' ) );
-  $about       = esc_url( home_url( '/about-us/' ) );
-  $information = esc_url( home_url( '/information/' ) );
-  $blog        = esc_url( home_url( '/blog/' ) );
-  $price       = esc_url( home_url( '/price/' ) );
-  $faq         = esc_url( home_url( '/faq/' ) );
-  $contact     = esc_url( home_url( '/contact/' ) );
-  $privacy     = esc_url( home_url( '/privacypolicy/' ) );
-  $terms       = esc_url( home_url( '/terms-of-service/' ) );
+  $home         = esc_url( home_url( '/' ) );
+  $about        = esc_url( home_url( '/about/' ) );
+  $lesson_guide = esc_url( home_url( '/lesson-guide/' ) );
+  $blog         = esc_url( home_url( '/blog/' ) );
+  $faq          = esc_url( home_url( '/faq/' ) );
+  $access       = esc_url( home_url( '/access/' ) );
+  $contact      = esc_url( home_url( '/contact/' ) );
+  $reservation  = esc_url( home_url( '/reservation/' ) );
+  $privacy      = esc_url( home_url( '/privacypolicy/' ) );
 
   // 配列でまとめる
   $links = compact(
-      'home', 'campaign', 'campaign_license', 'campaign_trial', 'campaign_fun',
-      'about', 'information', 'blog', 'voice', 'price', 'faq', 'contact', 'privacy', 'terms'
+      'home', 'lesson', 'lesson_basic', 'lesson_seasonal', 'lesson_parent_child',
+      'about', 'lesson_guide', 'blog', 'faq', 'access', 'contact', 'reservation', 'privacy'
   );
 
   return $links;
@@ -243,7 +248,7 @@ add_filter('wpcf7_form_tag', 'add_campaign_titles_to_cf7');
 
 // CF7送信後リダイレクト用のカスタムJSを読み込み
 function enqueue_my_cf7_script() {
-  wp_localize_script('codeups-script', 'mySite', array(
+  wp_localize_script('miette-script', 'mySite', array(
       'homeUrl' => get_site_url()
   ));
 }

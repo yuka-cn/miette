@@ -13,6 +13,9 @@ $padding-sp: 15px;
 // フォント設定
 ////////////////////
 
+$base-font-family:"M PLUS Rounded 1c", sans-serif;
+$second-font-family:"Zen Maru Gothic", sans-serif;
+
 $en-font-family: "Gotu", serif;
 $sans-font-family: "Noto Sans JP", serif;
 $serif-font-family: "Noto Serif JP", serif;
@@ -29,16 +32,19 @@ $bold: 700;
 ////////////////////
 
 //色指定（共通性のあるものは出来る限り指定すると良い）
-$black: #111;
 $white: #fff;
 
-$font-color:#0D2936;
-$ac-color:#408F95;
+$font-color:#5A3E2B;
+$main-color:#F5EBDD;
+$sub-color:#A89484;
+$ac-color:#E8B4B8;
+
+
 $bg-color:#DDF0F1;
 
 
 body {
-  font-family: $sans-font-family;
+  font-family: $base-font-family;
   font-weight: $regular;
   color: $font-color;
 }
