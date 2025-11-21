@@ -1,0 +1,11 @@
+@use "global" as *;
+
+.wp-pagenavi{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(12);
+  font-family: "Lato", serif;
+  font-weight: $bold;
+  color: $ac-color;
+}

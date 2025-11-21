@@ -1,0 +1,54 @@
+@use "global" as *;
+
+.voice{
+  @include mq(md){
+    position: relative;
+  }
+}
+
+.voice::before {
+  @include mq(md) {
+    content: "";
+    position: absolute;
+    top: rem(-115);
+    left: calc(50% - min(rem(620),48%));
+    width: rem(301);
+    height: rem(138);
+    background-image: url(../images/common/embellishment_3.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.voice::after {
+  @include mq(md) {
+    content: "";
+    position: absolute;
+    right: calc(50% - min(rem(540),48%));
+    bottom: rem(-67);
+    width: rem(71);
+    height: rem(162);
+    background-image: url(../images/common/embellishment_4.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.voice__header{
+  text-align: center;
+}
+
+.voice__cards{
+  margin-top: rem(44);
+  @include mq(md){
+    margin-top: rem(30);
+  }
+}
+
+.voice__button{
+  margin-top: rem(40);
+  text-align: center;
+  @include mq(md){
+    margin-top: rem(80);
+  }
+}

@@ -1,0 +1,75 @@
+@use "global" as *;
+
+.tab-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(8);
+  padding: rem(10) 0;
+  font-size: rem(14);
+  color: $ac-color;
+  background: $bg-color;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  @include mq("md"){
+    align-items: flex-start;
+    padding: 0;
+    font-size: rem(24);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.tab-button__icon{
+  display: none;
+  @include mq("md"){
+    display: block;
+    flex-shrink: 0;
+    width: rem(64);
+    aspect-ratio: 1;
+    align-self: center;
+    background: currentColor;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+}
+
+.tab-button__text{
+  @include mq("md"){
+    padding: rem(25) 0 rem(27)
+  }
+}
+
+.tab-button__text br{
+  display: inline;
+  @include mq("md"){
+    display: none;
+  }
+}
+
+.tab-button:nth-child(1) .tab-button__icon{
+  mask-image: url(../images/pages/information_4.png);
+}
+
+.tab-button:nth-child(2) .tab-button__icon{
+  mask-image: url(../images/pages/information_5.png);
+}
+
+.tab-button:nth-child(3) .tab-button__icon{
+  mask-image: url(../images/pages/information_6.png);
+}
+
+.tab-button.is-active{
+  color: $white;
+  background: $ac-color;
+}
+
+.tab-button:hover{
+  color: rgba($ac-color, 0.6);
+}
+
+.tab-button.is-active:hover{
+  color: $white;
+}

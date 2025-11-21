@@ -1,0 +1,28 @@
+@use "global" as *;
+
+.category-button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(5);
+  font-size: rem(14);
+  line-height: calc(22 / 14);
+  color: $ac-color;
+  background: $white;
+  border: 1px solid;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.category-button.is-active{
+  color: $white;
+  background: $ac-color;
+}
+
+.category-button:hover{
+  color: rgba($ac-color, 0.6);
+}
+
+.category-button.is-active:hover{
+  color: $white;
+}

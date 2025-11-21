@@ -1,0 +1,91 @@
+@use "global" as *;
+
+.sp-nav {
+  display: none;
+  position: absolute;
+  top: rem(80);
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: calc(100vh - rem(80));
+  overflow-y: auto;
+  padding-top: rem(11);
+  background: $ac-color;
+  font-size: rem(16);
+  color: $white;
+}
+
+.sp-nav.is-active {
+  display: block;
+}
+
+.sp-nav__flex{
+  display: flex; //.sp-navに入れると、更新時にis-activeが表示されてしまう
+}
+
+.sp-nav__left,
+.sp-nav__right {
+  width: 50%;
+}
+
+.sp-nav__left {
+  padding-left: calc(15px + rem(22));
+}
+
+.sp-nav__right {
+  padding-left: rem(22);
+}
+
+.sp-nav__items {
+  margin-top: rem(16);
+  display: flex;
+  flex-direction: column;
+}
+
+.sp-nav__items:first-child {
+  margin-top: 0;
+}
+
+.sp-nav__item:first-child {
+  position: relative;
+  font-weight: $bold;
+}
+
+.sp-nav__item:first-child::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: rem(-22);
+  transform: translateY(-50%);
+  width: rem(18);
+  height: rem(18);
+  background-image: url(../images/common/nav.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.sp-nav__item a{
+  display: flex;
+  align-items: center;
+  padding: rem(9) 0;
+}
+
+.sp-nav__item--multiline{
+  position: relative;
+  line-height: 1.3;
+}
+
+.sp-nav__items .sp-nav__item--multiline::before {
+  display: inline-block;
+  position: absolute;
+  top: 37%;
+  left: rem(-22);
+  transform: translateY(-50%);
+  width: rem(18);
+  height: rem(18);
+  background-image: url(../images/common/nav.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+

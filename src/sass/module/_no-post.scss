@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.no-post{
+  text-align: center;
+  padding-top: rem(40);
+  @include mq("md"){
+    padding-top: rem(0);
+  }
+}

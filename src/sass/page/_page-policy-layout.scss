@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.page-policy-layout {
+  margin-top: rem(47);
+  @include mq("md"){
+    margin-top: rem(143);
+  }
+}

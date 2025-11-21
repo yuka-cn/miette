@@ -1,0 +1,23 @@
+
+@use "global" as *;
+
+.footer-layout{
+  margin-top: rem(100);
+  @include mq(md){
+    margin-top: rem(160);
+  }
+}
+
+.footer-layout--contact{
+  margin-top: rem(145);
+  @include mq("md"){
+  margin-top: rem(132);
+  }
+}
+
+.footer-layout--404{
+  margin-top: rem(-1);
+  @include mq("md"){
+    margin-top: rem(-1);
+  }
+}

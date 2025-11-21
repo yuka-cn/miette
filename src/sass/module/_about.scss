@@ -1,0 +1,160 @@
+@use "global" as *;
+
+.about{
+  @include mq(md){
+    position: relative;
+  }
+}
+
+.about::before {
+  @include mq(md) {
+    content: "";
+    position: absolute;
+    right: calc(50% - min(rem(637),48%));
+    bottom: calc(rem(-181) / 2);
+    width: rem(194);
+    height: rem(181);
+    background-image: url(../images/common/embellishment_1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.about__inner {
+  position: relative;
+}
+
+.about__header {
+  text-align: center;
+}
+
+.about__images {
+  position: relative;
+  margin-top: rem(28);
+  padding-bottom: rem(18);
+  @include mq(md) {
+    margin-top: rem(40);
+    padding-bottom: rem(55);
+  }
+}
+
+.about__left-image {
+  aspect-ratio: 128 / 194;
+  max-width: calc(128 / 375 * 100vw);
+  width: 100%;
+  @media (min-width: 630px) {
+    width: calc(128 / 345 *100%);
+  }
+  @include mq(md) {
+    aspect-ratio: 400 / 606;
+    max-width: rem(400);
+    width: 100%;
+  }
+}
+
+.about__right-image {
+  position: absolute;
+  top: clamp(1.625rem, -0.121rem + 7.451vi, 2.813rem); /* 画面幅375px〜630pxでtopが26px→45pxに変化 */
+  right: 0;
+  aspect-ratio: 281 / 186;
+  max-width: calc(281 / 375 * 100vw);
+  width: 100%;
+  z-index: -1;
+  @media (min-width: 630px) {
+    width: calc(281 / 345 * 100%);
+  }
+  @include mq(md) {
+    top: rem(80);
+    aspect-ratio: 880 / 581;
+    max-width: rem(880);
+    width: 100%;
+  }
+}
+
+.about__left-image img,
+.about__right-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about__body {
+  margin-top: rem(40);
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+  @include mq(md) {
+    flex-direction: row;
+    gap: rem(40);
+    max-width: rem(840);
+    width: 100%;
+    margin-top: 0;
+    position: absolute;
+    top: rem(310);
+    right: rem(66);
+    z-index: 0;
+  }
+}
+
+.about__title {
+  font-size: rem(40);
+  font-family: $en-font-family;
+  font-weight: $regular;
+  line-height: 1;
+  color: $ac-color;
+  @include mq(md) {
+    padding-top: rem(2);
+    font-size: rem(80);
+    line-height: calc(100 / 80);
+    width: calc((100% - rem(40)) / 2);
+    color: $white;
+  }
+}
+
+.about__content {
+  @include mq(md) {
+    width: calc((100% - rem(40)) / 2);
+  }
+}
+
+.about__text {
+  font-size: rem(16);
+  @include mq(md) {
+    color: $white;
+  }
+}
+
+.about__button {
+  margin-top: rem(50);
+  text-align: center;
+  @include mq(md) {
+    margin-top: rem(42);
+  }
+}
+
+.about.about--page-about::before {
+  @include mq(md) {
+    content: none;
+  }
+}
+
+.about--page-about .about__body {
+  @include mq(md) {
+    align-items: center;
+    top: rem(200);
+  }
+}
+
+.about--page-about .about__title {
+  @include mq(md) {
+    padding-top: 0;
+  }
+}
+
+.about--page-about .about__content {
+  @include mq(md) {
+    transform: translateY(rem(-4));
+  }
+}
+
+

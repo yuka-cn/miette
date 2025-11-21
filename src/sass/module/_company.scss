@@ -1,0 +1,63 @@
+@use "global" as *;
+
+.company__name {
+  padding-bottom: rem(6);
+  border-bottom: 1px solid $ac-color;
+  @include mq(md) {
+    padding-bottom: rem(8);
+  }
+}
+
+.company__name img {
+  margin: auto;
+  max-width: rem(174);
+  width: 100%;
+  text-align: center;
+  @include mq(md) {
+    max-width: rem(200);
+  }
+}
+
+.company__flex {
+  margin-top: rem(16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(16);
+  @include mq(md) {
+    margin-top: rem(24);
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+    gap: rem(21);
+  }
+}
+
+.company__details {
+  text-align: center;
+  font-size: rem(16);
+  @include mq(md) {
+    text-align: left;
+  }
+}
+
+.company__details p:not(:first-child) {
+  margin-top: rem(4);
+}
+
+.company__map {
+  width: calc(295 / 375 * 100vw);
+  height: calc(160 / 375 * 100vw);
+  @include mq(md) {
+    max-width: rem(273);
+    width: calc(273 / 1440 * 100vw);
+    // width: calc(58% + (4 * ((100vw - 768px) / 672)));
+    max-height: rem(148);
+    height: calc(148 / 1440 * 100vw);
+  }
+}
+
+.company__map iframe {
+  width: 100%;
+  height: 100%;
+}

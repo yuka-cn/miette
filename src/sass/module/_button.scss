@@ -1,0 +1,111 @@
+@use "global" as *;
+
+.button {
+  margin-bottom: 4px; // 右下の影のような四角形分
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(8);
+  height: inherit;
+  padding: rem(20) rem(40);
+  font-size: rem(14);
+  font-family: $en-font-family;
+  line-height: 1;
+  color: $white;
+  background: $ac-color;
+  border-left: 1px solid $ac-color;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  border-left: none;
+  background: $white;
+  transform: scale(0, 1);
+  transform-origin: left;
+  transition: 0.3s cubic-bezier(0.45, 0, 0.55, 1);
+  z-index: -1;
+}
+
+.button::after {
+  // 右下の影のような四角形
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate(4px, 4px);
+  border: 1px solid $ac-color;
+  background: transparent;
+  z-index: -2;
+}
+
+.button span {
+  // 矢印の直線
+  content: "";
+  position: relative;
+  width: 40px;
+  height: 1px;
+  border-radius: 9999px;
+  background: currentColor;
+}
+
+.button span::before {
+  // 矢印の斜線
+  content: "";
+  position: absolute;
+  top: calc(50% - 2px);
+  right: 0;
+  width: 7px;
+  height: 1px;
+  border-radius: 9999px;
+  transform: rotate(45deg);
+  transform-origin: calc(100% - 2px) 50%;
+  background: currentColor;
+  margin-left: rem(8);
+}
+
+.button:hover {
+  color: $ac-color;
+}
+
+.button:hover::before {
+  transform: scale(1, 1);
+}
+
+.button.button--404{
+  color: $ac-color;
+  background: $white;
+  border-left: 1px solid $white;
+}
+
+.button.button--404::before {
+  border: 1px solid $white;
+  background: $ac-color;
+  border-left: none;
+}
+
+.button.button--404::after {
+  border: 1px solid $white;
+}
+
+.button.button--404 span,
+.button.button--404 span::before {
+  background: currentColor;
+}
+
+.button.button--404:hover {
+  color: $white;
+}
+
+
+
