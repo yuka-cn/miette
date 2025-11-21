@@ -185,7 +185,7 @@ jQuery(function ($) {
   }
 
   // topへ戻るボタン
-  var topBtn = $(".c-to-top");
+  var topBtn = $(".to-top");
   topBtn.hide();
 
   // ボタンの表示設定

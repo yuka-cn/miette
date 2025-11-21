@@ -3,14 +3,37 @@
 .to-top{
   position: fixed;
   right: rem(14);
-  bottom: rem(16);
+  bottom: rem(30);
   width: rem(48);
   height: rem(48);
+  color: $sub-color;
+  border: 0.15em solid $sub-color;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 100;
+  transition: background 0.3s;
   @include mq(md){
-    right: rem(16);
-    bottom: rem(20);
-    width: rem(87);
-    height: rem(87);
+    right: rem(20);
+    bottom: rem(40);
+    width: rem(60);
+    height: rem(60);
   }
 }
+
+.to-top:hover {
+  color: $white;
+  background: $sub-color;
+}
+
+.to-top span {
+  display: block;
+  width: 0.8em;
+  height: 0.8em;
+  border-left: 0.2em solid;
+  border-top: 0.2em solid;
+  transform: rotate(45deg);
+}
+

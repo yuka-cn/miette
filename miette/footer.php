@@ -53,15 +53,9 @@ if (!(is_page($exclude_pages[0]) || is_page($exclude_pages[1])) && !is_404()) :
 <?php endif; ?>
 
   <!-- topへ戻るボタン -->
-  <div class="to-top">
-    <button type="button" class="c-to-top" aria-label="ページの先頭へ戻る">
-      <picture>
-        <source media="(min-width: 768px)" srcset="<?php echo get_theme_file_uri('./assets/images/common/to-top-pc.png'); ?>">
-        <img src="<?php echo get_theme_file_uri('/assets/images/common/to-top-sp.png'); ?>" alt="">
-      </picture>
-    </button>
-  </div>
-
+  <button type="button" class="to-top" aria-label="ページの先頭へ戻る">
+    <span></span>
+  </button>
   <!-- フッター -->
   <footer class="footer footer-layout <?php echo is_404() ? 'footer-layout--404' : ''; ?>">
     <div class="footer__inner inner">

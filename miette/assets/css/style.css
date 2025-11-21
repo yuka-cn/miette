@@ -3052,12 +3052,42 @@ a {
 }
 
 .to-top {
-	bottom: 1rem;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	border: 0.15em solid #A89484;
+	border-radius: 50%;
+	bottom: 1.875rem;
+	color: #A89484;
+	cursor: pointer;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
 	height: 3rem;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
 	position: fixed;
 	right: 0.875rem;
+	-webkit-transition: background 0.3s;
+	transition: background 0.3s;
 	width: 3rem;
 	z-index: 100;
+}
+
+.to-top:hover {
+	background: #A89484;
+	color: #fff;
+}
+
+.to-top span {
+	border-left: 0.2em solid;
+	border-top: 0.2em solid;
+	display: block;
+	height: 0.8em;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	width: 0.8em;
 }
 
 .voice-card-simple__image {
@@ -4408,10 +4438,10 @@ html {
 }
 
 .to-top {
-	bottom: 1.25rem;
-	height: 5.4375rem;
-	right: 1rem;
-	width: 5.4375rem;
+	bottom: 2.5rem;
+	height: 3.75rem;
+	right: 1.25rem;
+	width: 3.75rem;
 }
 
 .voice-card {
