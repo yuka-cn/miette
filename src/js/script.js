@@ -405,27 +405,3 @@ document.addEventListener('DOMContentLoaded', function () {
     window.location.href = mySite.homeUrl + '/thanks/';
   });
 });
-
-// // footerのサブメニュー開閉
-// const navItems = document.querySelectorAll('.nav__item');
-
-// navItems.forEach(item => {
-//   const sub = item.querySelector('.nav__subitem');
-//   if (!sub) return;
-
-//   // サブメニューがある場合、クリック・ホバーでクラスを追加
-//   item.addEventListener('mouseenter', () => {
-//     item.classList.add('nav__item--has-subitem');
-//   });
-
-//   item.addEventListener('mouseleave', () => {
-//     item.classList.remove('nav__item--has-subitem');
-//   });
-
-//   item.querySelector('a').addEventListener('click', e => {
-//     if (window.innerWidth >= 768) {
-//       e.preventDefault();
-//       item.classList.toggle('nav__item--has-subitem');
-//     }
-//   });
-// });

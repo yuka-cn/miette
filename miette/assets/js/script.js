@@ -406,24 +406,3 @@ jQuery(function ($) {
     window.location.href = mySite.homeUrl + '/thanks/';
   });
 });
-
-// footerのサブメニュー開閉
-var navItems = document.querySelectorAll('.nav__item');
-navItems.forEach(function (item) {
-  var sub = item.querySelector('.nav__subitem');
-  if (!sub) return;
-
-  // サブメニューがある場合、クリック・ホバーでクラスを追加
-  item.addEventListener('mouseenter', function () {
-    item.classList.add('nav__item--has-subitem');
-  });
-  item.addEventListener('mouseleave', function () {
-    item.classList.remove('nav__item--has-subitem');
-  });
-  item.querySelector('a').addEventListener('click', function (e) {
-    if (window.innerWidth >= 768) {
-      e.preventDefault();
-      item.classList.toggle('nav__item--has-subitem');
-    }
-  });
-});
