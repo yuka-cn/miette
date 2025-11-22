@@ -62,78 +62,50 @@ if (!(is_page($exclude_pages[0]) || is_page($exclude_pages[1])) && !is_404()) :
       <div class="footer__header">
         <div class="footer__logo">
           <a href="<?php echo $home ?>" class="footer__logolink">
-            <img src="<?php echo get_theme_file_uri('/assets/images/common/codeups.svg'); ?>" alt="CodeUps">
+            <img src="<?php echo get_theme_file_uri('/assets/images/common/miette.svg'); ?>" alt="やさしいおやつ教室Miette">
           </a>
         </div>
         <div class="footer__sns">
-          <a href="#" target="_blank" rel="noopener noreferrer" class="footer__facebooklink">
-            <img src="<?php echo get_theme_file_uri('/assets/images/common/facebook.png'); ?>" alt="facebook">
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" class="footer__instagramlink">
+          <a href="#" target="_blank" rel="noopener noreferrer">
             <img src="<?php echo get_theme_file_uri('/assets/images/common/instagram.png'); ?>" alt="instagram">
           </a>
         </div>
       </div>
 
-      <div class="footer__nav nav">
-        <div class="nav__left">
-          <div class="nav__block">
-            <ul class="nav__items">
-              <li class="nav__item"><a href="<?php echo $campaign; ?>">キャンペーン</a></li>
-              <li class="nav__item"><a href="<?php echo $campaign_license; ?>">ライセンス講習</a></li>
-              <li class="nav__item"><a href="<?php echo $campaign_trial; ?>">体験ダイビング</a></li>
-              <li class="nav__item"><a href="<?php echo $campaign_fun; ?>">ファンダイビング</a></li>
+      <nav class="footer__nav nav js-nav">
+        <ul class="nav__items">
+          <li class="nav__item nav__item--has-subitem">
+            <a href="<?php echo $lesson_guide; ?>">レッスン案内</a>
+            <ul class="nav__subitem">
+              <li><a href="#">ベーシッククラス</a></li>
+              <li><a href="#">季節のおやつクラス</a></li>
+              <li><a href="#">親子クラス</a></li>
             </ul>
-            <ul class="nav__items">
-              <li class="nav__item"><a href="<?php echo $about; ?>">私たちについて</a></li>
+          </li>
+          <li class="nav__item nav__item--has-subitem">
+            <a href="<?php echo $lesson; ?>">レッスンメニュー</a>
+            <ul class="nav__subitem">
+              <li><a href="<?php echo $lesson_basic; ?>">ベーシッククラス</a></li>
+              <li><a href="<?php echo $lesson_seasonal; ?>">季節のおやつクラス</a></li>
+              <li><a href="<?php echo $lesson_parent_child; ?>">親子クラス</a></li>
             </ul>
-          </div>
-          <div class="nav__block">
-            <ul class="nav__items">
-              <li class="nav__item"><a href="<?php echo $information; ?>">ダイビング情報</a></li>
-              <li class="nav__item"><a href="<?php echo $information; ?>#tab-license">ライセンス講習</a></li>
-              <li class="nav__item"><a href="<?php echo $information; ?>#tab-trial-diving">体験ダイビング</a></li>
-              <li class="nav__item"><a href="<?php echo $information; ?>#tab-fun-diving">ファンダイビング</a></li>
-            </ul>
-            <ul class="nav__items">
-              <li class="nav__item"><a href="<?php echo $blog; ?>">ブログ</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="nav__right">
-          <div class="nav__block">
-            <ul class="nav__items">
-              <li class="nav__item"><a href="<?php echo $voice; ?>">お客様の声</a></li>
-            </ul>
-            <ul class="nav__items">
-              <li class="nav__item"><a href="<?php echo $price; ?>">料金一覧</a></li>
-              <li class="nav__item"><a href="<?php echo $price; ?>#price-license">ライセンス講習</a></li>
-              <li class="nav__item"><a href="<?php echo $price; ?>#price-trial-diving">体験ダイビング</a></li>
-              <li class="nav__item"><a href="<?php echo $price; ?>#price-fun-diving">ファンダイビング</a></li>
-            </ul>
-          </div>
-          <div class="nav__block">
-            <ul class="nav__items">
-              <li class="nav__item"><a href="<?php echo $faq; ?>">よくある質問</a></li>
-            </ul>
-            <ul class="nav__items u-mobile">
-              <li class="nav__item nav__item--multiline"><a href="<?php echo $privacy; ?>">プライバシー<br>ポリシー</a></li>
-            </ul>
-            <ul class="nav__items u-desktop">
-              <li class="nav__item"><a href="<?php echo $privacy; ?>">プライバシーポリシー</a></li>
-            </ul>
-            <ul class="nav__items">
-              <li class="nav__item"><a href="<?php echo $terms; ?>">利用規約</a></li>
-            </ul>
-            <ul class="nav__items">
-              <li class="nav__item"><a href="<?php echo $contact; ?>">お問い合わせ</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+          </li>
+          <li class="nav__item"><a href="<?php echo $reservation; ?>">レッスン予約</a></li>
+        </ul>
+        <ul class="nav__items">
+          <li class="nav__item"><a href="<?php echo $about; ?>">教室について</a></li>
+          <li class="nav__item"><a href="<?php echo $access; ?>">アクセス</a></li>
+          <li class="nav__item"><a href="<?php echo $faq; ?>">よくある質問</a></li>
+          <li class="nav__item"><a href="<?php echo $blog; ?>">ブログ</a></li>
+        </ul>
+        <ul class="nav__items">
+          <li class="nav__item"><a href="<?php echo $contact; ?>">お問い合わせ</a></li>
+          <li class="nav__item"><a href="<?php echo $privacy; ?>">プライバシーポリシー</a></li>
+        </ul>
+      </nav>
 
       <p class="footer__copyright">
-        Copyright &copy; 2021 - 2023 CodeUps LLC. All Rights Reserved.
+        &copy; 2025 やさしいおやつ教室 Miette. All Rights Reserved.
       </p>
     </div>
   </footer>
