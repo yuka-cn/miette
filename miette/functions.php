@@ -59,7 +59,7 @@ function theme_get_links() {
 
   // タクソノミー（レッスンカテゴリ）
   $basic_term        = get_term_by( 'slug', 'basic', 'lesson_category' );
-  $seasonal_term     = get_term_by( 'slug', 'seasonal-sweets', 'lesson_category' );
+  $seasonal_term     = get_term_by( 'slug', 'seasonal', 'lesson_category' );
   $parent_child_term = get_term_by( 'slug', 'parent-child', 'lesson_category' );
 
   $lesson_basic        = $basic_term        ? esc_url( get_term_link( $basic_term ) )        : '#';
