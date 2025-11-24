@@ -1,0 +1,30 @@
+@use "global" as *;
+
+.divider {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1440 / 100;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.divider--a {
+  background-image: url('../images/common/bg_1.png');
+}
+
+.divider--b {
+  background-image: url('../images/common/bg_2.png');
+}
+
+.divider--c {
+  background-image: url('../images/common/bg_3.png');
+}
+
+.divider--top {
+  transform: translateY(-98%);
+}
+
+.divider--bottom {
+  transform: translateY(98%);
+}

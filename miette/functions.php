@@ -75,7 +75,7 @@ function theme_get_links() {
   $access       = esc_url( home_url( '/access/' ) );
   $contact      = esc_url( home_url( '/contact/' ) );
   $reservation  = esc_url( home_url( '/reservation/' ) );
-  $privacy      = esc_url( home_url( '/privacypolicy/' ) );
+  $privacy      = esc_url( home_url( '/privacy/' ) );
 
   // 配列でまとめる
   $links = compact(
