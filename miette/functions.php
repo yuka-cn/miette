@@ -92,16 +92,10 @@ function change_posts_per_page($query) {
   if ( is_admin() || ! $query->is_main_query() ) {
       return;
   }
-  if ( $query->is_post_type_archive('campaign') ) {
-      $query->set( 'posts_per_page', 4 );
-  }
-  if ( $query->is_post_type_archive('voice') ) {
+  if ( $query->is_post_type_archive('lesson') ) {
       $query->set( 'posts_per_page', 6 );
   }
-  if ( is_tax('campaign_category') ) {
-      $query->set( 'posts_per_page', 4 );
-  }
-  if ( is_tax('voice_category') ) {
+  if ( is_tax('lesson_category') ) {
       $query->set( 'posts_per_page', 6 );
   }
 }
@@ -302,27 +296,4 @@ add_filter('pre_get_document_title', function($title) {
   }
 
   return $title;
-});
-
-// noindexの出力（トップページ・アーカイブページ）
-add_action('wp_head', function() {
-  $seo_page = get_page_by_path('seo-settings');
-  if (!$seo_page) return;
-
-  $noindex = false;
-
-  if (is_front_page()) {
-      $data = get_field('front_settings', $seo_page->ID);
-      $noindex = $data['noindex'] ?? null;
-  } elseif (is_post_type_archive('campaign')) {
-      $data = get_field('campaign_settings', $seo_page->ID);
-      $noindex = $data['noindex'] ?? null;
-  } elseif (is_post_type_archive('voice')) {
-      $data = get_field('voice_settings', $seo_page->ID);
-      $noindex = $data['noindex'] ?? null;
-  }
-
-  if (!empty($noindex)) {
-      echo '<meta name="robots" content="noindex">' . "\n";
-  }
 });
