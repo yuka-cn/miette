@@ -15,7 +15,9 @@ $header_title = get_the_title();
 // ----------------------
 // blogページ
 if ($template === 'home.php' || $post_type === 'post') {
-    $header_title = 'ブログ';
+  $header_pc = get_theme_file_uri('/assets/images/pages/mv-blog_pc.jpg');
+  $header_sp = get_theme_file_uri('/assets/images/pages/mv-blog_sp.jpg');
+  $header_title = 'ブログ';
 
 // ----------------------
 // lessonページ

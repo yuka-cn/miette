@@ -5,9 +5,8 @@
   align-items: center;
   justify-content: center;
   gap: rem(40);
-  font-family: "Lato", serif;
   font-weight: $bold;
-  color: $ac-color;
+  color: $sub-color;
 }
 
 .pagination--simple{
@@ -23,21 +22,22 @@
   width: rem(38);
   height: rem(38);
   border: 1px solid;
+  border-radius: 50%;
   transition: all 0.3s ease;
 }
 
 .pagination__prev,
 .pagination__next{
   position: relative;
-  font-size: rem(0);
+  font-size: 0;
 }
 
 .pagination__prev::before,
 .pagination__next::before{
   content: "";
   position: absolute;
-  width: rem(11);
-  height: rem(11);
+  width: rem(8);
+  height: rem(8);
   top: 50%;
   left: 50%;
 }
@@ -59,7 +59,7 @@
 .pagination__next:hover,
 .pagination .current{
   color: $white;
-  background: $ac-color;
+  background: $sub-color;
 }
 
 

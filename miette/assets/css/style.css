@@ -2241,11 +2241,10 @@ a {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	color: #E8B4B8;
+	color: #A89484;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	font-family: "Lato", serif;
 	font-weight: 700;
 	gap: 2.5rem;
 	-webkit-box-pack: center;
@@ -2260,6 +2259,7 @@ a {
 .pagination a,
 .pagination span {
 	border: 1px solid;
+	border-radius: 50%;
 	display: inline-block;
 	height: 2.375rem;
 	line-height: 1;
@@ -2272,18 +2272,18 @@ a {
 
 .pagination__prev,
 .pagination__next {
-	font-size: 0rem;
+	font-size: 0;
 	position: relative;
 }
 
 .pagination__prev::before,
 .pagination__next::before {
 	content: "";
-	height: 0.6875rem;
+	height: 0.5rem;
 	left: 50%;
 	position: absolute;
 	top: 50%;
-	width: 0.6875rem;
+	width: 0.5rem;
 }
 
 .pagination__prev::before {
@@ -2304,7 +2304,7 @@ a {
 .pagination__prev:hover,
 .pagination__next:hover,
 .pagination .current {
-	background: #E8B4B8;
+	background: #A89484;
 	color: #fff;
 }
 
@@ -3094,12 +3094,9 @@ a {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	color: #E8B4B8;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	font-family: "Lato", serif;
-	font-weight: 700;
 	gap: 0.75rem;
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
