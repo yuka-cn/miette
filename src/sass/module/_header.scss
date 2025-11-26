@@ -7,6 +7,7 @@
   position: fixed;
   width: 100%;
   transition: 0.3s;
+  color: $white;
   @include mq(md) {
     height: rem(90);
   }
@@ -30,14 +31,12 @@
 
 .header.is-active,
 .header.is-active.is-color {
-  background: $ac-color;
-  @include mq(md) {
-    background: rgba(13, 41, 54, 0.68);
-  }
+  background: $sub-color;
 }
 
 .header.is-color {
-  background: #9a9a9a;
+  color: $font-color;
+  background: $main-color;
 }
 
 .header__inner {
@@ -52,7 +51,6 @@
 }
 
 .header__logo {
-  transform: translateX(rem(-3));
   max-width: rem(108);
   width: 100%;
   height: inherit;

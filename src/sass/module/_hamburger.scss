@@ -19,28 +19,39 @@
 .hamburger span:nth-child(1){
   top: 13%;
 }
+
 .hamburger span:nth-child(2){
   top: 50%;
   opacity: 1;
 }
+
 .hamburger span:nth-child(3){
   top: 87%;
 }
+
+.hamburger.is-color span{
+  background: #C47C6B;
+}
+
+.hamburger.is-color.hamburger.is-active span{
+  background: $white;
+}
+
 .hamburger.is-active span:nth-child(1){
   top: 50%;
   right: rem(-5);
   width: inherit;
   transform: rotate(38deg);
 }
+
 .hamburger.is-active span:nth-child(2){
   top: 50%;
   opacity: 0;
 }
+
 .hamburger.is-active span:nth-child(3){
   top: 50%;
   right: rem(-5);
   width: inherit;
   transform: rotate(-38deg);
 }
-
-

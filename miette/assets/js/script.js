@@ -57,30 +57,44 @@ jQuery(function ($) {
     }
   }
 
-  // MVやページヘッダーとヘッダーの下ラインが重なった時に、ヘッダーに背景色をつける
+  // スクロール位置に応じて、ヘッダーの背景色とロゴ・ハンバーガーメニューの色を変える
   var header = $(".header");
-  var headerHeight = $(".header").height();
+  var headerHeight = header.height();
   var target = $(".mv").length ? $(".mv") : $(".page-header__image");
   var height = target.height();
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > height - headerHeight) {
+  var logo = $(".header__logolink img");
+  var hamburger = $(".hamburger");
+
+  function checkScroll() {
+    var scrollTop = $(window).scrollTop();
+
+    if (scrollTop > height - headerHeight) {
       header.addClass("is-color");
+      logo.attr("src", logo.data("color"));
+      hamburger.addClass("is-color");
     } else {
       header.removeClass("is-color");
+      logo.attr("src", logo.data("white"));
+      hamburger.removeClass("is-color");
+    }
+  }
+
+  $(window).scroll(checkScroll);
+  checkScroll();
+
+  // ハンバーガーメニュー
+  hamburger.click(function () {
+    $(".js-hamburger, .header, .js-sp-nav").toggleClass("is-active");
+
+    if ($(this).hasClass("is-active")) {
+      $("body").css("overflow", "hidden");
+      logo.attr("src", logo.data("white"));
+    } else {
+      $("body").css("overflow", "auto");
+      checkScroll();
     }
   });
 
-  //ドロワーメニュー
-  $(function () {
-    $(".js-hamburger").click(function () {
-      $(".js-hamburger, .header, .js-sp-nav").toggleClass("is-active");
-      if ($(".js-hamburger").hasClass("is-active")) {
-        $("body").css("overflow", "hidden"); //背景がスクロールされないようにする
-      } else {
-        $("body").css("overflow", "auto");
-      }
-    });
-  });
 
   //pc画面幅ではドロワーメニューを非表示にする
   $(window).resize(function () {
