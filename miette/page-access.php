@@ -8,7 +8,7 @@
     ただいま準備中です。<br>公開までしばらくお待ちください。
   </p>
 <?php else: ?>
-  <table class="table access__table">
+  <table class="table">
     <tbody>
       <?php foreach ($access_items as $item): ?>
         <tr>

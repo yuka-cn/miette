@@ -2911,6 +2911,33 @@ a {
 	margin-top: 0.8125rem;
 }
 
+.table tr {
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: start;
+	display: grid;
+	grid-template-columns: 25% 1fr;
+	padding: 0.75rem 0;
+	position: relative;
+}
+
+.table tr::after {
+	background-image: url("../images/common/line-thin.svg");
+	background-repeat: repeat-x;
+	background-size: contain;
+	bottom: 0;
+	content: "";
+	height: 1px;
+	left: 0;
+	position: absolute;
+	right: 0;
+}
+
+.table th {
+	font-weight: 400;
+	text-align: left;
+}
+
 .to-top {
 	-webkit-box-align: center;
 	-ms-flex-align: center;

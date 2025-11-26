@@ -1,0 +1,26 @@
+@use "global" as *;
+
+.table tr {
+  position: relative;
+  padding: rem(12) 0;
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  align-items: start;
+}
+
+.table tr::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-image: url('../images/common/line-thin.svg');
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+
+.table th{
+  text-align: left;
+  font-weight: $regular;
+}
