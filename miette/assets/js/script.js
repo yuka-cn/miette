@@ -58,13 +58,14 @@ jQuery(function ($) {
   }
 
   // スクロール位置に応じて、ヘッダーの背景色とロゴ・ハンバーガーメニューの色を変える
+  var header = $(".header");
+  var logo = $(".header__logolink img");
+  var hamburger = $(".hamburger");
+  
   function checkScroll() {
-    var header = $(".header");
     var headerHeight = header.height();
     var target = $(".mv").length ? $(".mv") : $(".page-header__image");
     var height = target.height();
-    var logo = $(".header__logolink img");
-    var hamburger = $(".hamburger");
 
     var scrollTop = $(window).scrollTop();
 
