@@ -68,7 +68,7 @@ if ($template === 'home.php' || $post_type === 'post') {
 }
 ?>
 
-<div class="page-header">
+<section class="page-header">
   <div class="page-header__image">
     <picture>
       <source srcset="<?php echo esc_url($header_pc); ?>" media="(min-width:768px)">
@@ -84,4 +84,4 @@ if ($template === 'home.php' || $post_type === 'post') {
       </div>
     </div>
   </div>
-</div>
+</section>

@@ -1,5 +1,10 @@
 <?php get_header(); ?>
 
+<?php
+$links = theme_get_links();
+extract($links, EXTR_SKIP);
+?>
+
 <!-- ページコンテンツ -->
 <?php
 $faqs = array_filter(SCF::get('faq'), function($faq){
@@ -22,6 +27,14 @@ $faqs = array_filter(SCF::get('faq'), function($faq){
       <?php endif; ?>
     </div>
   </div>  
+</div>
+
+<!-- レッスンメニュー -->
+<div class="page-faq__button">
+  <a href="<?php echo $lesson; ?>" class="button">
+    今月のお菓子と日程を見る
+    <span></span>
+  </a>
 </div>
 
 <?php get_footer(); ?>
