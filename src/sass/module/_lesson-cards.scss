@@ -1,13 +1,16 @@
 @use "global" as *;
 
 .lesson-cards{
+  padding: 0 rem(10);
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: rem(40);
+  gap: rem(60);
   @include mq("md"){
+    padding: 0;
     grid-template-columns: repeat(3, rem(306));
     column-gap: rem(40);
     row-gap: rem(80);
-    // // align-items: stretch;
+    justify-content: space-between;
+    align-items: stretch;
   }
 }

@@ -279,6 +279,18 @@ a {
 	margin-top: 4.375rem;
 }
 
+.lesson-layout {
+	margin-top: 3.25rem;
+}
+
+.lesson__cards {
+	margin-top: 3.75rem;
+}
+
+.lesson__pagination {
+	margin-top: 5rem;
+}
+
 .page-about-layout {
 	margin-top: 3.25rem;
 }
@@ -1818,7 +1830,7 @@ a {
 
 .lesson-card {
 	background: #fff;
-	border-radius: 2em;
+	border-radius: 2rem;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -1853,8 +1865,8 @@ a {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
+	left: -0.625rem;
 	position: absolute;
-	right: -1.875rem;
 	top: -1.875rem;
 	width: 6.25rem;
 	z-index: 10;
@@ -1871,7 +1883,7 @@ a {
 
 .lesson-card__image img {
 	-o-object-fit: cover;
-	border-radius: 2em 2em 0 0;
+	border-radius: 2rem 2rem 0 0;
 	height: 100%;
 	object-fit: cover;
 	width: 100%;
@@ -1912,10 +1924,11 @@ a {
 }
 
 .lesson-cards {
-	grid-gap: 2.5rem;
+	grid-gap: 3.75rem;
 	display: grid;
-	gap: 2.5rem;
+	gap: 3.75rem;
 	grid-template-columns: repeat(1, 1fr);
+	padding: 0 0.625rem;
 }
 
 .loading {
@@ -3261,6 +3274,10 @@ html {
 	margin-top: 8.75rem;
 }
 
+.lesson-layout {
+	margin-top: 9.375rem;
+}
+
 .page-about-layout {
 	margin-top: 9.375rem;
 }
@@ -3889,6 +3906,10 @@ html {
 	font-size: 2rem;
 }
 
+.lesson-card__badge {
+	left: -1.25rem;
+}
+
 .lesson-card__image {
 	width: 19.125rem;
 }
@@ -3903,9 +3924,16 @@ html {
 
 .lesson-cards {
 	-moz-column-gap: 2.5rem;
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
 	-webkit-column-gap: 2.5rem;
 	column-gap: 2.5rem;
 	grid-template-columns: repeat(3, 19.125rem);
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	padding: 0;
 	row-gap: 5rem;
 }
 

@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.lesson-layout{
+    margin-top: rem(52);
+    @include mq("md"){
+      margin-top: rem(150);
+    }
+  }
+  
