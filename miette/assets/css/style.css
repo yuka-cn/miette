@@ -385,27 +385,6 @@ a {
 	padding-top: 4.3125rem;
 }
 
-.page-policy-layout {
-	margin-top: 2.9375rem;
-}
-
-.page-policy {
-	position: relative;
-}
-
-.page-policy::before {
-	background-image: url(../images/common/embellishment_3.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -1.21875rem;
-	width: 7.5rem;
-	z-index: 0;
-}
-
 .page-price-layout {
 	margin-top: 3.25rem;
 }
@@ -476,6 +455,32 @@ a {
 
 .page-voice__pagination {
 	margin-top: 4.875rem;
+}
+
+.policy-layout {
+	margin-top: 3.125rem;
+}
+
+.policy {
+	position: relative;
+}
+
+.policy::before {
+	background-image: url(../images/common/embellishment_3.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	content: "";
+	height: 3.4375rem;
+	left: 0.9375rem;
+	position: absolute;
+	top: -1.21875rem;
+	width: 7.5rem;
+	z-index: 0;
+}
+
+.policy__button {
+	margin-top: 3.75rem;
+	text-align: center;
 }
 
 .price-layout {
@@ -1759,43 +1764,43 @@ a {
 .legal h2 {
 	font-size: 1.5rem;
 	font-weight: 500;
-	margin-bottom: 2.625rem;
 	position: relative;
-	z-index: 1;
 }
 
 .legal p {
 	line-height: 2;
-	margin-top: 2rem;
-}
-
-.legal--terms-of-service p:not(:last-of-type) {
-	margin-top: 0;
+	margin-top: 2.5rem;
 }
 
 .legal ol {
 	counter-reset: item;
-	margin-top: 2rem;
 	padding-left: 0.375rem;
 }
 
-.legal--privacypolicy ol:not(:first-of-type) {
-	margin-top: 0;
-}
-
-.legal ol li {
+.legal ol > li {
+	font-weight: 500;
 	line-height: 2;
+	margin-top: 1.25rem;
 	padding-left: 1.125rem;
 	position: relative;
 }
 
-.legal ol li::before {
+.legal ol > li::before {
 	content: counter(item) ".";
 	counter-increment: item;
+	font-weight: 700;
 	left: 0;
 	position: absolute;
-	position: absolute;
 	top: 0;
+}
+
+.legal ol > li > ul {
+	font-weight: 400;
+}
+
+.legal ul ul li {
+	list-style: disc;
+	margin-left: 1.875rem;
 }
 
 .lesson-card {
@@ -2217,7 +2222,7 @@ a {
 }
 
 .page-header__title {
-	font-size: 2.25rem;
+	font-size: 2rem;
 	font-weight: 400;
 	position: relative;
 }
@@ -2228,7 +2233,7 @@ a {
 
 .page-header__title::after {
 	background: url(../images/common/line-medium.svg) center center/contain no-repeat;
-	bottom: -1.875rem;
+	bottom: -0.875rem;
 	content: "";
 	height: 0.625rem;
 	left: 0;
@@ -2237,7 +2242,7 @@ a {
 }
 
 .page-header__breadcrumb {
-	margin-top: 0.625rem;
+	margin-top: 1.5rem;
 	text-align: right;
 }
 
@@ -3333,22 +3338,6 @@ html {
 	padding-top: 0;
 }
 
-.page-policy-layout {
-	margin-top: 8.9375rem;
-}
-
-.page-policy::before {
-	height: 8.625rem;
-	left: calc(50% - min(38.75rem, 48%));
-	top: -4rem;
-	width: 18.8125rem;
-}
-
-.page-policy__body {
-	margin: 0 auto;
-	max-width: 53.125rem;
-}
-
 .page-price-layout {
 	margin-top: 9.375rem;
 }
@@ -3385,6 +3374,26 @@ html {
 
 .page-voice__pagination {
 	margin-top: 4.4375rem;
+}
+
+.policy-layout {
+	margin-top: 9.375rem;
+}
+
+.policy::before {
+	height: 8.625rem;
+	left: calc(50% - min(38.75rem, 48%));
+	top: -4rem;
+	width: 18.8125rem;
+}
+
+.policy__body {
+	margin: 0 auto;
+	max-width: 53.125rem;
+}
+
+.policy__button {
+	margin-top: 5rem;
 }
 
 .price-layout {
@@ -3858,7 +3867,6 @@ html {
 
 .legal h2 {
 	font-size: 2rem;
-	margin-bottom: 2.6875rem;
 }
 
 .lesson-card__image {
@@ -3963,6 +3971,18 @@ html {
 .page-header__image img {
 	aspect-ratio: 1440/600;
 	height: 37.5rem;
+}
+
+.page-header__title {
+	font-size: 2.25rem;
+}
+
+.page-header__title::after {
+	bottom: -1.875rem;
+}
+
+.page-header__breadcrumb {
+	margin-top: 0.625rem;
 }
 
 .pagination a.pagination__page--pc {

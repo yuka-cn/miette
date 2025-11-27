@@ -21,8 +21,11 @@
 
 .page-header__title{
   position: relative;
-  font-size: rem(36);
+  font-size: rem(32);
   font-weight: $regular;
+  @include mq("md"){
+    font-size: rem(36);
+  }
 }
 
 .page-header__title::first-letter{
@@ -32,14 +35,20 @@
 .page-header__title::after{
   content: '';
   position: absolute;
-  bottom: rem(-30);
+  bottom: rem(-14);
   left: 0;
   width: rem(86);
   height: rem(10);
   background: url(../images/common/line-medium.svg) center center /contain no-repeat;
+  @include mq("md"){
+    bottom: rem(-30);
+  }
 }
 
 .page-header__breadcrumb{
-  margin-top: rem(10);
+  margin-top: rem(24);
   text-align: right;
+  @include mq("md"){
+    margin-top: rem(10);   
+  }
 }
