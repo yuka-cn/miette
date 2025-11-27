@@ -2432,6 +2432,10 @@ a {
 	transform: scale(1, 1);
 }
 
+.pc-nav.is-color .pc-nav__item a::after {
+	background: #5A3E2B;
+}
+
 .popular-list {
 	grid-gap: 1.5rem;
 	display: grid;

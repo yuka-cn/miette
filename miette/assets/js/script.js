@@ -57,38 +57,47 @@ jQuery(function ($) {
     }
   }
 
-  // MVやページヘッダーとヘッダーの下ラインが重なった時に、ヘッダーに背景色をつける
+  // スクロール位置に応じて、ヘッダーの背景色とロゴ・ハンバーガーメニューの色を変える
   var header = $(".header");
-  var headerHeight = $(".header").height();
-  var target = $(".mv").length ? $(".mv") : $(".page-header__image");
-  var height = target.height();
-  var pcNav = $(".js-pc-nav");
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > height - headerHeight) {
+  var logo = $(".header__logolink img");
+  var hamburger = $(".hamburger");
+  var pcNav = $(".pc-nav");
+  function checkScroll() {
+    var headerHeight = header.height();
+    var target = $(".mv").length ? $(".mv") : $(".page-header__image");
+    var height = target.height();
+    var scrollTop = $(window).scrollTop();
+    if (scrollTop > height - headerHeight) {
       header.addClass("is-color");
+      hamburger.addClass("is-color");
       pcNav.addClass("is-color");
+      logo.attr("src", logo.data("color"));
     } else {
       header.removeClass("is-color");
+      hamburger.removeClass("is-color");
       pcNav.removeClass("is-color");
+      logo.attr("src", logo.data("white"));
     }
-  });
+  }
+  $(window).scroll(checkScroll);
+  checkScroll();
 
-  //ドロワーメニュー
-  $(function () {
-    $(".js-hamburger").click(function () {
-      $(".js-hamburger, .header, .js-sp-nav").toggleClass("is-active");
-      if ($(".js-hamburger").hasClass("is-active")) {
-        $("body").css("overflow", "hidden"); //背景がスクロールされないようにする
-      } else {
-        $("body").css("overflow", "auto");
-      }
-    });
+  // ハンバーガーメニュー
+  hamburger.click(function () {
+    $(".js-hamburger, .header, .sp-nav").toggleClass("is-active");
+    if ($(this).hasClass("is-active")) {
+      $("body").css("overflow", "hidden");
+      logo.attr("src", logo.data("white"));
+    } else {
+      $("body").css("overflow", "auto");
+      checkScroll();
+    }
   });
 
   //pc画面幅ではドロワーメニューを非表示にする
   $(window).resize(function () {
     if ($(window).width() >= 768) {
-      $(".js-sp-nav").removeClass("is-active").css("display", ""); // is-active を削除
+      $(".sp-nav").removeClass("is-active").css("display", ""); // is-active を削除
       $(".header").removeClass("is-active").css("display", ""); // is-active を削除
     }
   });
@@ -310,8 +319,8 @@ jQuery(function ($) {
     }
 
     //sp-navが開いていたら閉じる
-    if ($(".js-sp-nav").hasClass("is-active")) {
-      $(".js-hamburger, .header, .js-sp-nav").removeClass("is-active");
+    if ($(".sp-nav").hasClass("is-active")) {
+      $(".js-hamburger, .header, .sp-nav").removeClass("is-active");
       $("body").css("overflow", "auto");
     }
   }
