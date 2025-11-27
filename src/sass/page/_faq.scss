@@ -1,5 +1,35 @@
 @use "global" as *;
 
+.faq{
+  position: relative;
+}
+
+.faq::before {
+  content: "";
+  position: absolute;
+  top: rem(-19.5);
+  left: rem(15);
+  width: rem(120);
+  height: rem(55);
+  background-image: url(../images/common/embellishment_3.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 0;
+  @include mq(md) {
+    top: rem(-64);
+    left: calc(50% - min(rem(620),48%));
+    width: rem(301);
+    height: rem(138);
+  }
+}
+
+.faq__body{
+  @include mq("md"){
+    margin: 0 auto;
+    max-width: rem(750);
+  }
+}
+
 .faq__item:not(:first-child){
   margin-top: rem(40);
 }
@@ -19,7 +49,7 @@
   }
 }
 
-.faq-item summary::-webkit-details-marker {
+.faq__item summary::-webkit-details-marker {
   display: none;
 }
 
@@ -71,5 +101,13 @@
   transform: translateY(0);
   @include mq("md"){
     padding: rem(40);
+  }
+}
+
+.faq__button{
+  margin-top: rem(60);
+  text-align: center;
+  @include mq("md"){
+    margin-top: rem(80);
   }
 }

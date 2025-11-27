@@ -12,11 +12,11 @@ $faqs = array_filter(SCF::get('faq'), function($faq){
 });
 ?>
 
-<div class="page-faq page-faq-layout">
-  <div class="page-faq__body faq">
+<div class="faq faq-layout">
+  <div class="faq__body faq">
     <div class="faq__inner inner">
       <?php if (empty($faqs)): ?>
-        <p class="page-faq__no-post no-post">ただいま準備中です。<br>公開までしばらくお待ちください。</p>
+        <p class="faq__no-post no-post">ただいま準備中です。<br>公開までしばらくお待ちください。</p>
       <?php else: ?>
         <?php foreach ($faqs as $faq): ?>
           <details class="faq__item" open>
@@ -30,7 +30,7 @@ $faqs = array_filter(SCF::get('faq'), function($faq){
 </div>
 
 <!-- レッスンメニュー -->
-<div class="page-faq__button">
+<div class="faq__button">
   <a href="<?php echo $lesson; ?>" class="button">
     今月のお菓子と日程を見る
     <span></span>
