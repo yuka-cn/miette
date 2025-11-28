@@ -40,13 +40,8 @@ extract($links, EXTR_SKIP);
         <?php endwhile; endif; ?>
 
         <!-- ページネーション -->
-        <nav class="single-blog__pagination pagination pagination--simple">
-          <div class="pagination__prev">
-            <?php previous_post_link('%link', '前へ'); ?>
-          </div>
-          <div class="pagination__next">
-            <?php next_post_link('%link', '次へ'); ?>
-          </div>
+        <nav class="blog-single__pagination pagination pagination--simple">
+          <?php my_single_pagination(); ?>
         </nav>
       </div>
 

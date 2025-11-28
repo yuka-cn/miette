@@ -1,5 +1,16 @@
 @use "global" as *;
 
-.lesson-single{
-  
+.lesson-single__body{
+  @include mq("md"){
+    margin-inline: auto;
+    max-width: rem(700);
+  }
+}
+
+.lesson-single__button{
+  margin-top: rem(40);
+  text-align: center;
+  @include mq("md"){
+    margin-top: rem(80);
+  }
 }

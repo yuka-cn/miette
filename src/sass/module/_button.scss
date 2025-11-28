@@ -5,7 +5,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: rem(8);
+  gap: rem(16);
   height: inherit;
   padding: rem(20) rem(40);
   font-size: rem(14);
@@ -17,32 +17,25 @@
   transition: color 0.3s, background-color 0.3s;
 }
 
-.button span {
-  // 矢印の直線
-  content: "";
-  position: relative;
-  width: 40px;
-  height: 1px;
-  border-radius: 9999px;
-  background: currentColor;
-}
-
-.button span::before {
-  // 矢印の斜線
-  content: "";
-  position: absolute;
-  top: calc(50% - 2px);
-  right: 0;
-  width: 7px;
-  height: 1px;
-  border-radius: 9999px;
-  transform: rotate(45deg);
-  transform-origin: calc(100% - 2px) 50%;
-  background: currentColor;
-  margin-left: rem(8);
+.button span{
+  width: rem(40);
+  height: 0.6em;
+  border-bottom: 0.08em solid ;
+  border-right: 0.08em solid ;
+  transform: translateY(-50%) skew(45deg);
+  transform-origin: center;
 }
 
 .button:hover {
   color: $ac-color;
   background: $white;
+}
+
+.button--green{
+  color: $font-color;
+  background: #C6D8C3;
+}
+
+.button--green:hover{
+  color: $font-color;
 }

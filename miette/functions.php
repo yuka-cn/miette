@@ -196,6 +196,28 @@ function my_custom_pagenavi($html) {
 }
 add_filter('wp_pagenavi', 'my_custom_pagenavi');
 
+function my_single_pagination() {
+  // 前の記事
+  $prev_post = get_previous_post();
+  if ( $prev_post ) {
+      echo '<div class="pagination__prev">';
+      previous_post_link('%link', '前へ');
+      echo '</div>';
+  } else {
+      echo '<div class="pagination__prev pagination__disabled"></div>';
+  }
+
+  // 次の記事
+  $next_post = get_next_post();
+  if ( $next_post ) {
+      echo '<div class="pagination__next">';
+      next_post_link('%link', '次へ');
+      echo '</div>';
+  } else {
+      echo '<div class="pagination__next pagination__disabled"></div>';
+  }
+}
+
 // CF7で自動挿入されるPタグ、brタグを削除
 add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
 function wpcf7_autop_return_false() {

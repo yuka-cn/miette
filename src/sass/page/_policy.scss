@@ -25,7 +25,7 @@
 
 .policy__body {
   @include mq("md"){
-    margin: 0 auto;
+    margin-inline: auto;
     max-width: rem(850);
   }
 }

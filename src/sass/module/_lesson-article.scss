@@ -1,0 +1,55 @@
+@use "global" as *;
+
+
+.lesson-article__meta{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85em 1.2em;
+  font-size: rem(14);
+  line-height: 1;
+  border: 0.08em solid;
+  border-radius: 2em;
+  @include mq("md"){
+    font-size: rem(16);
+  }
+}
+
+.lesson-article__title{
+  margin-top: rem(12);
+  font-size: rem(24);
+  font-weight: $medium;
+  @include mq("md"){
+    font-size: rem(32);
+  }
+}
+
+.lesson-article__image{
+  margin-top: rem(24);
+  aspect-ratio: 700 / 400;
+  @include mq("md"){
+    margin-top: rem(40);
+  }
+}
+
+.lesson-article__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lesson-article__text{
+  margin-top: rem(24);
+  @include mq("md"){
+    margin-top: rem(40);
+  }
+}
+
+.lesson-article__details{
+  margin-top: rem(40);
+  width: 100%;
+  @include mq("md"){
+    margin-top: rem(80);
+    max-width: rem(400);
+  }
+}

@@ -21,7 +21,7 @@ if ($template === 'home.php' || $post_type === 'post') {
 
 // ----------------------
 // lessonページ
-} elseif (is_post_type_archive('lesson') || is_tax('lesson_category')){
+} elseif (is_post_type_archive('lesson') || is_tax('lesson_category') || is_singular('lesson') ){
   $header_pc = get_theme_file_uri('/assets/images/pages/mv-lesson_pc_2.jpg');
   $header_sp = get_theme_file_uri('/assets/images/pages/mv-lesson_sp_2.jpg');
   $header_title = 'レッスンメニュー';

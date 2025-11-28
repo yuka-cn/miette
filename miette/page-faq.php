@@ -29,7 +29,7 @@ $faqs = array_filter(SCF::get('faq'), function($faq){
   </div>  
 </div>
 
-<!-- レッスンメニュー -->
+<!-- レッスンメニューボタン -->
 <div class="faq__button">
   <a href="<?php echo $lesson; ?>" class="button">
     今月のお菓子と日程を見る

@@ -1,16 +1,18 @@
 @use "global" as *;
 
 .page-header__image{
-  width: 100%;
-  height: 100%;
+  aspect-ratio: 375 / 460;
+  @include mq("md"){
+    aspect-ratio: 1440 / 600;
+  }
 }
 
 .page-header__image picture,
 .page-header__image img{
-  aspect-ratio: 375 / 460;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   @include mq("md"){
-    aspect-ratio: 1440 / 600;
     height: rem(600);
   }
 }

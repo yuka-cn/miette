@@ -287,6 +287,11 @@ a {
 	margin-top: 3.25rem;
 }
 
+.lesson-single__button {
+	margin-top: 2.5rem;
+	text-align: center;
+}
+
 .lesson__cards {
 	margin-top: 3.75rem;
 }
@@ -960,6 +965,7 @@ a {
 }
 
 .breadcrumb {
+	color: #A89484;
 	font-size: 0.875rem;
 }
 
@@ -1004,7 +1010,7 @@ a {
 	display: -ms-inline-flexbox;
 	display: inline-flex;
 	font-size: 0.875rem;
-	gap: 0.5rem;
+	gap: 1rem;
 	height: inherit;
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
@@ -1017,33 +1023,28 @@ a {
 }
 
 .button span {
-	background: currentColor;
-	border-radius: 9999px;
-	content: "";
-	height: 1px;
-	position: relative;
-	width: 40px;
-}
-
-.button span::before {
-	background: currentColor;
-	border-radius: 9999px;
-	content: "";
-	height: 1px;
-	margin-left: 0.5rem;
-	position: absolute;
-	right: 0;
-	top: calc(50% - 2px);
-	-webkit-transform: rotate(45deg);
-	transform: rotate(45deg);
-	-webkit-transform-origin: calc(100% - 2px) 50%;
-	transform-origin: calc(100% - 2px) 50%;
-	width: 7px;
+	border-bottom: 0.08em solid;
+	border-right: 0.08em solid;
+	height: 0.6em;
+	-webkit-transform: translateY(-50%) skew(45deg);
+	transform: translateY(-50%) skew(45deg);
+	-webkit-transform-origin: center;
+	transform-origin: center;
+	width: 2.5rem;
 }
 
 .button:hover {
 	background: #fff;
 	color: #E8B4B8;
+}
+
+.button--green {
+	background: #C6D8C3;
+	color: #5A3E2B;
+}
+
+.button--green:hover {
+	color: #5A3E2B;
 }
 
 .campaign__inner {
@@ -1122,8 +1123,8 @@ a {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	line-height: 1.5714285714;
-	padding: 0.3125rem;
+	line-height: 1;
+	padding: 0.85em 1.2em;
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 	z-index: 1;
@@ -1832,6 +1833,50 @@ a {
 	margin-left: 1.875rem;
 }
 
+.lesson-article__meta {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	border: 0.08em solid;
+	border-radius: 2em;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	font-size: 0.875rem;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	line-height: 1;
+	padding: 0.85em 1.2em;
+}
+
+.lesson-article__title {
+	font-size: 1.5rem;
+	font-weight: 500;
+	margin-top: 0.75rem;
+}
+
+.lesson-article__image {
+	aspect-ratio: 700/400;
+	margin-top: 1.5rem;
+}
+
+.lesson-article__image img {
+	-o-object-fit: cover;
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
+.lesson-article__text {
+	margin-top: 1.5rem;
+}
+
+.lesson-article__details {
+	margin-top: 2.5rem;
+	width: 100%;
+}
+
 .lesson-card {
 	background: #fff;
 	border-radius: 2rem;
@@ -1914,8 +1959,8 @@ a {
 	border-radius: 2em;
 	display: inline-block;
 	font-size: 0.75rem;
-	line-height: 1.7;
-	padding: 0.25rem 0.6875rem;
+	line-height: 1;
+	padding: 0.5rem 0.875rem;
 }
 
 .lesson-card__title {
@@ -2236,15 +2281,15 @@ a {
 }
 
 .page-header__image {
-	height: 100%;
-	width: 100%;
+	aspect-ratio: 375/460;
 }
 
 .page-header__image picture,
 .page-header__image img {
 	-o-object-fit: cover;
-	aspect-ratio: 375/460;
+	height: 100%;
 	object-fit: cover;
+	width: 100%;
 }
 
 .page-header__body {
@@ -2291,21 +2336,24 @@ a {
 }
 
 .pagination--simple {
+	color: #fff;
 	gap: 5.125rem;
 }
 
 .pagination a,
 .pagination span {
-	border: 1px solid;
+	border: 1px solid #A89484;
 	border-radius: 50%;
 	display: inline-block;
 	height: 2.375rem;
 	line-height: 1;
 	padding: 0.6875rem 0;
+	position: relative;
 	text-align: center;
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 	width: 2.375rem;
+	z-index: 1;
 }
 
 .pagination__prev,
@@ -2319,9 +2367,11 @@ a {
 	content: "";
 	height: 0.5rem;
 	left: 50%;
+	pointer-events: none;
 	position: absolute;
 	top: 50%;
 	width: 0.5rem;
+	z-index: 2;
 }
 
 .pagination__prev::before {
@@ -2339,11 +2389,14 @@ a {
 }
 
 .pagination a:hover,
-.pagination__prev:hover,
-.pagination__next:hover,
-.pagination .current {
+.pagination .current,
+.pagination--simple a {
 	background: #A89484;
 	color: #fff;
+}
+
+.pagination--simple a:hover {
+	opacity: 0.8;
 }
 
 .pagination a.pagination__page--pc {
@@ -3229,7 +3282,8 @@ html {
 }
 
 .faq__body {
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 	max-width: 46.875rem;
 }
 
@@ -3284,6 +3338,16 @@ html {
 
 .lesson-single-layout {
 	margin-top: 9.375rem;
+}
+
+.lesson-single__body {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 43.75rem;
+}
+
+.lesson-single__button {
+	margin-top: 5rem;
 }
 
 .page-about-layout {
@@ -3458,7 +3522,8 @@ html {
 }
 
 .policy__body {
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 	max-width: 53.125rem;
 }
 
@@ -3682,7 +3747,7 @@ html {
 	-moz-column-gap: 2rem;
 	-webkit-column-gap: 2rem;
 	column-gap: 2rem;
-	grid-template-columns: repeat(auto-fit, 10.125rem);
+	grid-template-columns: repeat(auto-fit, 10.625rem);
 }
 
 .company__name {
@@ -3914,12 +3979,33 @@ html {
 	font-size: 2rem;
 }
 
+.lesson-article__meta {
+	font-size: 1rem;
+}
+
+.lesson-article__title {
+	font-size: 2rem;
+}
+
+.lesson-article__image {
+	margin-top: 2.5rem;
+}
+
+.lesson-article__text {
+	margin-top: 2.5rem;
+}
+
+.lesson-article__details {
+	margin-top: 5rem;
+	max-width: 25rem;
+}
+
 .lesson-card__badge {
 	left: -1.25rem;
 }
 
 .lesson-card__image {
-	width: 19.125rem;
+	max-width: 19.125rem;
 }
 
 .lesson-card__body {
@@ -3927,7 +4013,7 @@ html {
 }
 
 .lesson-card__category {
-	padding: 0.375rem 0.9375rem;
+	padding: 0.5rem 1rem;
 }
 
 .lesson-cards {
@@ -4023,9 +4109,12 @@ html {
 	margin-top: 5rem;
 }
 
+.page-header__image {
+	aspect-ratio: 1440/600;
+}
+
 .page-header__image picture,
 .page-header__image img {
-	aspect-ratio: 1440/600;
 	height: 37.5rem;
 }
 
