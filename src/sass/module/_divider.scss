@@ -10,6 +10,7 @@
 }
 
 .divider--a {
+  aspect-ratio: 1440 / 205;
   background-image: url('../images/common/bg_1.png');
 }
 
@@ -26,5 +27,5 @@
 }
 
 .divider--bottom {
-  transform: translateY(98%);
+  transform: none;
 }

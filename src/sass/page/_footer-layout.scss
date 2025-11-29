@@ -15,9 +15,9 @@
   }
 }
 
-.footer-layout--404{
-  margin-top: rem(-1);
+.footer-layout--no-margin{
+  margin-top: 0;
   @include mq("md"){
-    margin-top: rem(-1);
+    margin-top: 0;
   }
 }

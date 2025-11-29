@@ -1,129 +1,86 @@
 <?php get_header(); ?>
 
+<?php
+$links = theme_get_links();
+extract($links, EXTR_SKIP);
+?>
+
 <!-- ページコンテンツ -->
-<div class="page-about page-about-layout">
-  <!-- SPレイアウト -->
-  <section class="page-about__lead-sp about-lead">
-    <div class="about-lead__inner inner">
-      <div class="about-lead__image">
-        <img src="<?php echo get_theme_file_uri('/assets/images/common/about_2.jpg'); ?>" alt="">
-      </div>
-      <h2 class="about-lead__title">Dive into<br>the Ocean</h2>
-      <p class="about-lead__text">
-        ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
-        <br>
-        ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+<div class="about about-layout">
+  <!-- コンセプト -->
+  <section class="about__concept concept">
+    <div class="concept__inner inner">
+      <h2 class="concept__header section-header">
+        <span class="section-header__ja">コンセプト</span>
+        <span class="section-header__en">concept</span>
+      </h2>
+      <p class="concept__text">
+        毎日の暮らしに寄り添う<br>
+        やさしいお菓子づくりを
+      </p>
+      <p class="concept__text">
+        特別な日じゃなくても<br>
+        焼きたての甘い香りがあるだけで<br>
+        ふと心がやわらぐ
+      </p>
+      <p class="concept__text">
+        忙しい日々の中に<br>
+        ほっと心がほどけるひとときを
+      </p>
+      <p class="concept__text">
+        素材にこだわり<br>
+        子どもと一緒に安心して食べられる<br>
+        やさしいお菓子を家でも気軽に
+      </p>
+      <p class="concept__text">
+        ひとくちで思わず笑顔になる<br>
+        そんな“ミエット（小さなかけら）”のような<br>
+        幸せを届けられますように
       </p>
     </div>
+    <div class="about__divider divider divider--a divider--bottom"></div>
   </section>
 
-  <!-- PCレイアウト -->
-  <section class="page-about__lead-pc about about--page-about">
-    <div class="about__inner inner">
-      <div class="about__images">
-        <div class="about__left-image">
-          <img src="<?php echo get_theme_file_uri('/assets/images/common/about_1.jpg'); ?>" alt="">
+
+  <!-- プロフィール -->
+  <section class="about__profile profile">
+    <div class="profile__inner inner">
+      <h2 class="profile__header section-header">
+        <span class="section-header__ja">プロフィール</span>
+        <span class="section-header__en">profile</span>
+      </h2>
+      <div class="profile__body">
+        <div class="profile__image">
+          <img src="<?php echo get_theme_file_uri('/assets/images/common/profile.jpg'); ?>" alt="">
         </div>
-        <div class="about__right-image">
-          <img src="<?php echo get_theme_file_uri('/assets/images/common/about_2.jpg'); ?>" alt="">
-        </div>
-      </div>
-      <div class="about__body">
-        <h2 class="about__title">Dive into<br>the Ocean</h2>
-        <div class="about__content">
-          <p class="about__text">
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
-            <br>
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
-          </p>
+        <div class="profile__text">
+          <div class="profile__info">
+            <p class="profile__name">高橋 ことね</p>
+            <ul class="profile__career">
+              <li>こもれび製菓専門学校卒</li>
+              <li>パティスリー勤務歴3年</li>
+              <li>2022年から自宅教室を開講</li>
+            </ul>
+          </div>
+          <div class="profile__message">
+            <p>
+              仕事や家事の合間に<br>
+              お菓子づくりが心を整える時間になればと思い<br>
+              出産を機に、小さな教室をはじめました。
+            </p>
+            <p>
+              無理なく続けられるやさしいレシピを中心に<br>
+              暮らしの中に寄り添うお菓子づくりを<br class="u-mobile">お伝えしています。
+            </p>
+            <p>
+              焼きたてのお菓子で、ふと笑顔になれる時間を<br>
+              一緒に楽しんでいただけたらうれしいです。
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
-  <?php
-  $gallery = array_filter(SCF::get('gallery'), function($item){
-    return !empty($item['image']);
-  });
-  ?>
-
-  <!-- Gallery -->
-  <div class="page-about__gallery gallery">
-    <div class="gallery__inner inner">
-      <div class="gallery__header section-header">
-        <p class="section-header__entitle">Gallery</p>
-        <h2 class="section-header__jatitle">フォト</h2>
-      </div>
-      <div class="gallery__body">
-        <?php if (empty($gallery)): ?>
-          <p class="gallery__no-post no-post">ただいま準備中です。<br>掲載までしばらくお待ちください。</p>
-        <?php else: ?>
-
-        <?php $index = 0; ?>
-        <?php foreach ($gallery as $item): ?>
-          <?php
-            $img = $item['image'] ?? null;
-            $alt = $item['alt'] ?? '';
-            if (!$img) continue;
-
-            $slot = ($index % 6) + 1;
-          ?>
-
-          <?php if ($slot === 1): ?>
-            <div class="gallery__column">
-              <button class="gallery__item gallery__item--single" type="button">
-                <img src="<?php echo esc_url(wp_get_attachment_url($img)); ?>" alt="<?php echo esc_attr($alt); ?>">
-              </button>
-          
-          <?php elseif ($slot === 2): ?>
-              <div class="gallery__stack">
-                <button class="gallery__item gallery__item--stacked" type="button">
-                  <img src="<?php echo esc_url(wp_get_attachment_url($img)); ?>" alt="<?php echo esc_attr($alt); ?>">
-                </button>
-          
-          <?php elseif ($slot === 3): ?>
-                <button class="gallery__item gallery__item--stacked" type="button">
-                  <img src="<?php echo esc_url(wp_get_attachment_url($img)); ?>" alt="<?php echo esc_attr($alt); ?>">
-                </button>
-              </div>
-            </div>
-          
-          <?php elseif ($slot === 4): ?>
-            <div class="gallery__column gallery__column--reverse">
-              <div class="gallery__stack">
-                <button class="gallery__item gallery__item--stacked" type="button">
-                  <img src="<?php echo esc_url(wp_get_attachment_url($img)); ?>" alt="<?php echo esc_attr($alt); ?>">
-                </button>
-          
-          <?php elseif ($slot === 5): ?>
-                <button class="gallery__item gallery__item--stacked" type="button">
-                  <img src="<?php echo esc_url(wp_get_attachment_url($img)); ?>" alt="<?php echo esc_attr($alt); ?>">
-                </button>
-              </div>
-          
-          <?php elseif ($slot === 6): ?>
-              <button class="gallery__item gallery__item--single" type="button">
-                <img src="<?php echo esc_url(wp_get_attachment_url($img)); ?>" alt="<?php echo esc_attr($alt); ?>">
-              </button>
-            </div>
-          <?php endif; ?>
-          
-          <?php $index++; ?>
-        <?php endforeach; ?>
-
-        <?php endif; ?>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- モーダル -->
-<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
-  <div class="modal__overlay"></div>
-  <div class="modal__background">
-    <div class="modal__background-inner inner"></div>
-  </div>
-  <div class="modal__content"></div>
 </div>
 
 <?php get_footer(); ?>

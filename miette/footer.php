@@ -9,7 +9,7 @@ extract($links, EXTR_SKIP);
     <span></span>
   </button>
   <!-- フッター -->
-  <footer class="footer footer-layout <?php echo is_404() ? 'footer-layout--404' : ''; ?>">
+  <footer class="footer footer-layout <?php echo (is_404() || is_page('about')) ? 'footer-layout--no-margin' : ''; ?>">
     <div class="footer__inner inner">
       <div class="footer__header">
         <div class="footer__logo">
