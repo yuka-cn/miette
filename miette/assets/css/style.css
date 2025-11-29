@@ -257,68 +257,11 @@ a {
 	z-index: 0;
 }
 
-.faq__item:not(:first-child) {
-	margin-top: 2.5rem;
-}
-
-.faq__item summary {
-	background: #A89484;
-	border-radius: 1rem;
-	color: #fff;
-	cursor: pointer;
-	list-style: none;
-	padding: 1rem 3.125rem 1rem 1.25rem;
-	position: relative;
-}
-
-.faq__item summary::-webkit-details-marker {
-	display: none;
-}
-
-.faq__item summary::after {
-	border-bottom: 0.125rem solid;
-	border-left: 0.125rem solid;
-	content: "";
-	height: 0.75rem;
-	position: absolute;
-	right: 1.25rem;
-	top: 50%;
-	-webkit-transform: translateY(-50%) rotate(-45deg);
-	transform: translateY(-50%) rotate(-45deg);
-	-webkit-transition: -webkit-transform 0.4s ease-in-out;
-	transition: -webkit-transform 0.4s ease-in-out;
-	transition: transform 0.4s ease-in-out;
-	transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
-	width: 0.75rem;
-}
-
-.faq__item[open] summary {
-	border-radius: 1rem 1rem 0 0;
-}
-
-.faq__item[open] summary::after {
-	-webkit-transform: translateY(-50%) rotate(135deg);
-	transform: translateY(-50%) rotate(135deg);
-}
-
-.faq__item p {
-	background: #fff;
-	border-radius: 0 0 1rem 1rem;
-	line-height: 1.4;
-	opacity: 0;
-	padding: 1.25rem;
-	-webkit-transform: translateY(-0.5em);
-	transform: translateY(-0.5em);
-	-webkit-transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
-	transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
-	transition: opacity 0.6s ease, transform 0.6s ease;
-	transition: opacity 0.6s ease, transform 0.6s ease, -webkit-transform 0.6s ease;
-}
-
-.faq__item[open] p {
-	opacity: 1;
-	-webkit-transform: translateY(0);
-	transform: translateY(0);
+.faq__items {
+	grid-gap: 2.5rem;
+	display: grid;
+	gap: 2.5rem;
+	grid-template-columns: repeat(1, 1fr);
 }
 
 .faq__button {
@@ -1265,6 +1208,66 @@ a {
 .divider--bottom {
 	-webkit-transform: translateY(98%);
 	transform: translateY(98%);
+}
+
+.faq-item summary {
+	background: #A89484;
+	border-radius: 1rem;
+	color: #fff;
+	cursor: pointer;
+	list-style: none;
+	padding: 1rem 3.125rem 1rem 1.25rem;
+	position: relative;
+}
+
+.faq-item summary::-webkit-details-marker {
+	display: none;
+}
+
+.faq-item summary::after {
+	border-bottom: 0.125rem solid;
+	border-left: 0.125rem solid;
+	content: "";
+	height: 0.75rem;
+	position: absolute;
+	right: 1.25rem;
+	top: 50%;
+	-webkit-transform: translateY(-50%) rotate(-45deg);
+	transform: translateY(-50%) rotate(-45deg);
+	-webkit-transition: -webkit-transform 0.4s ease-in-out;
+	transition: -webkit-transform 0.4s ease-in-out;
+	transition: transform 0.4s ease-in-out;
+	transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+	width: 0.75rem;
+}
+
+.faq-item[open] summary {
+	border-radius: 1rem 1rem 0 0;
+}
+
+.faq-item[open] summary::after {
+	-webkit-transform: translateY(-50%) rotate(135deg);
+	transform: translateY(-50%) rotate(135deg);
+}
+
+.faq-item p {
+	background: #fff;
+	border-radius: 0 0 1rem 1rem;
+	line-height: 1.4;
+	opacity: 0;
+	padding: 1.25rem;
+	-webkit-transform: translateY(-0.5em);
+	transform: translateY(-0.5em);
+	-webkit-transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
+	transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
+	transition: opacity 0.6s ease, transform 0.6s ease;
+	transition: opacity 0.6s ease, transform 0.6s ease, -webkit-transform 0.6s ease;
+}
+
+.faq-item[open] p {
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
 }
 
 .footer {
@@ -3288,31 +3291,6 @@ html {
 	max-width: 46.875rem;
 }
 
-.faq__item summary {
-	border-radius: 1.5rem;
-	font-size: 1.25rem;
-	padding: 1.5rem 5rem 1.5rem 2.5rem;
-}
-
-.faq__item summary::after {
-	height: 1rem;
-	right: 2.5rem;
-	width: 1rem;
-}
-
-.faq__item[open] summary {
-	border-radius: 1.5rem 1.5rem 0 0;
-}
-
-.faq__item p {
-	border-radius: 0 0 1.5rem 1.5rem;
-	padding: 2.5rem;
-}
-
-.faq__item[open] p {
-	padding: 2.5rem;
-}
-
 .faq__button {
 	margin-top: 5rem;
 }
@@ -3738,6 +3716,31 @@ html {
 
 .contact__text {
 	margin-top: 0.4375rem;
+}
+
+.faq-item summary {
+	border-radius: 1.5rem;
+	font-size: 1.25rem;
+	padding: 1.5rem 5rem 1.5rem 2.5rem;
+}
+
+.faq-item summary::after {
+	height: 1rem;
+	right: 2.5rem;
+	width: 1rem;
+}
+
+.faq-item[open] summary {
+	border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.faq-item p {
+	border-radius: 0 0 1.5rem 1.5rem;
+	padding: 2.5rem;
+}
+
+.faq-item[open] p {
+	padding: 2.5rem;
 }
 
 .footer {

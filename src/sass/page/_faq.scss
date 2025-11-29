@@ -30,78 +30,10 @@
   }
 }
 
-.faq__item:not(:first-child){
-  margin-top: rem(40);
-}
-
-.faq__item summary {
-  position: relative;
-  cursor: pointer;
-  list-style: none;
-  padding: rem(16) rem(50) rem(16) rem(20);
-  color: $white;
-  background: $sub-color;
-  border-radius: 1rem;
-  @include mq("md"){
-    font-size: rem(20);
-    padding: rem(24) rem(80) rem(24) rem(40);
-    border-radius: 1.5rem;
-  }
-}
-
-.faq__item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq__item summary::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: rem(20);
-  width: rem(12);
-  height: rem(12);
-  border-left: rem(2) solid;
-  border-bottom: rem(2) solid;
-  transform: translateY(-50%) rotate(-45deg);
-  transition: transform 0.4s ease-in-out;
-  @include mq("md"){
-    right: rem(40);
-    width: rem(16);
-    height: rem(16);
-  }
-}
-
-.faq__item[open] summary{
-  border-radius: 1rem 1rem 0 0 ;
-  @include mq("md"){
-    border-radius: 1.5rem 1.5rem 0 0 ;
-  }
-}
-
-.faq__item[open] summary::after {
-  transform: translateY(-50%) rotate(135deg);
-}
-
-.faq__item p{
-  padding: rem(20);
-  line-height: 1.4;
-  background: $white;
-  border-radius: 0 0 1rem 1rem;
-  opacity: 0;
-  transform: translateY(-0.5em);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  @include mq("md"){
-    padding: rem(40);
-    border-radius: 0 0 1.5rem 1.5rem;
-  }
-}
-
-.faq__item[open] p {
-  opacity: 1;
-  transform: translateY(0);
-  @include mq("md"){
-    padding: rem(40);
-  }
+.faq__items{
+  display: grid;
+  gap: rem(40);
+  grid-template-columns: repeat(1, 1fr);
 }
 
 .faq__button{
