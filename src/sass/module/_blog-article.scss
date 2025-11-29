@@ -3,36 +3,23 @@
 .blog-article__date {
   display: block;
   font-size: rem(14);
-  font-family: $en-font-family;
   line-height: 1;
 }
 
 .blog-article__title {
-  position: relative;
   margin-top: rem(8);
-  padding-bottom: rem(7);
+  padding-bottom: rem(6);
   font-size: rem(24);
   font-weight: $medium;
+  border-bottom: 0.08em dotted;
   @include mq("md"){
-    margin-top: rem(5);
-    padding-bottom: rem(5);
     font-size: rem(32);
   }
 }
 
-.blog-article__title::after {
-  // 両端が丸い下線
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: $ac-color;
-  border-radius: 1px;
-}
-
+.blog-article__content,
 .blog-article__figure,
+.blog-article__text,
 .blog-article__text p,
 .blog-article__text figure,
 .blog-article__text ul{

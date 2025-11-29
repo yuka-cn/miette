@@ -76,12 +76,6 @@ img {
 	width: 100%;
 }
 
-/* Natural flow and rhythm in articles by default */
-
-article > * + * {
-	margin-top: 1em;
-}
-
 /* Inherit fonts for inputs and buttons */
 
 input,
@@ -152,6 +146,42 @@ a {
 
 .blog-layout {
 	margin-top: 3.25rem;
+}
+
+.blog-single-layout {
+	margin-top: 3.25rem;
+}
+
+.blog-single {
+	position: relative;
+}
+
+.blog-single::before {
+	background-image: url(../images/common/embellishment_3.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	content: "";
+	height: 3.4375rem;
+	left: 0.9375rem;
+	position: absolute;
+	top: -1.5rem;
+	width: 7.5rem;
+	z-index: 0;
+}
+
+.blog-single__inner {
+	grid-gap: 5rem;
+	display: grid;
+	gap: 5rem;
+	grid-template-columns: repeat(1, 1fr);
+}
+
+.blog-single__pagination {
+	margin-top: 2.5rem;
+}
+
+.blog-single__sidebar {
+	padding: 0 1.5625rem;
 }
 
 .blog {
@@ -585,47 +615,6 @@ a {
 	margin-top: 5rem;
 }
 
-.single-blog-layout {
-	margin-top: 3.25rem;
-}
-
-.single-blog {
-	position: relative;
-}
-
-.single-blog::before {
-	background-image: url(../images/common/embellishment_3.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -1.5rem;
-	width: 7.5rem;
-	z-index: 0;
-}
-
-.single-blog__inner {
-	grid-gap: 5rem;
-	display: grid;
-	gap: 5rem;
-	grid-template-columns: repeat(1, 1fr);
-}
-
-.single-blog__cards {
-	position: relative;
-	z-index: 1;
-}
-
-.single-blog__pagination {
-	margin-top: 2.5rem;
-}
-
-.single-blog__sidebar {
-	padding: 0 1.5625rem;
-}
-
 .voice-layout {
 	margin-top: 5rem;
 }
@@ -790,31 +779,21 @@ a {
 
 .blog-article__date {
 	display: block;
-	font-family: "Gotu", serif;
 	font-size: 0.875rem;
 	line-height: 1;
 }
 
 .blog-article__title {
+	border-bottom: 0.08em dotted;
 	font-size: 1.5rem;
 	font-weight: 500;
 	margin-top: 0.5rem;
-	padding-bottom: 0.4375rem;
-	position: relative;
+	padding-bottom: 0.375rem;
 }
 
-.blog-article__title::after {
-	background: #E8B4B8;
-	border-radius: 1px;
-	bottom: 0;
-	content: "";
-	height: 1px;
-	left: 0;
-	position: absolute;
-	width: 100%;
-}
-
+.blog-article__content,
 .blog-article__figure,
+.blog-article__text,
 .blog-article__text p,
 .blog-article__text figure,
 .blog-article__text ul {
@@ -2014,11 +1993,6 @@ a {
 	transform: translateY(-0.25rem);
 }
 
-.lesson-card--sidebar:hover {
-	-webkit-transform: none;
-	transform: none;
-}
-
 .lesson-cards {
 	grid-gap: 3.75rem;
 	display: grid;
@@ -2328,7 +2302,8 @@ a {
 }
 
 .page-header__image {
-	aspect-ratio: 375/460;
+	height: max(0px, min(122.6666666667vw, 28.75rem));
+	position: relative;
 }
 
 .page-header__image picture,
@@ -3244,6 +3219,32 @@ html {
 	margin-top: 9.375rem;
 }
 
+.blog-single-layout {
+	margin-top: 9.375rem;
+}
+
+.blog-single::before {
+	height: 8.625rem;
+	left: calc(50% - min(38.75rem, 48%));
+	top: -4.375rem;
+	width: 18.8125rem;
+}
+
+.blog-single__inner {
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: start;
+	grid-template-columns: 7fr 3fr;
+}
+
+.blog-single__pagination {
+	margin-top: 5rem;
+}
+
+.blog-single__sidebar {
+	padding: 0;
+}
+
 .blog::before {
 	height: 8.625rem;
 	left: calc(50% - min(38.75rem, 48%));
@@ -3517,33 +3518,6 @@ html {
 	margin-top: 8.75rem;
 }
 
-.single-blog-layout {
-	margin-top: 9.375rem;
-}
-
-.single-blog::before {
-	height: 8.625rem;
-	left: calc(50% - min(38.75rem, 48%));
-	top: -4.375rem;
-	width: 18.8125rem;
-}
-
-.single-blog__inner {
-	-webkit-box-align: start;
-	-ms-flex-align: start;
-	align-items: start;
-	gap: 5.375rem;
-	grid-template-columns: 700fr 294fr;
-}
-
-.single-blog__pagination {
-	margin-top: 5rem;
-}
-
-.single-blog__sidebar {
-	padding: 0;
-}
-
 .voice-layout {
 	margin-top: 8.375rem;
 }
@@ -3639,11 +3613,11 @@ html {
 
 .blog-article__title {
 	font-size: 2rem;
-	margin-top: 0.3125rem;
-	padding-bottom: 0.3125rem;
 }
 
+.blog-article__content,
 .blog-article__figure,
+.blog-article__text,
 .blog-article__text p,
 .blog-article__text figure,
 .blog-article__text ul {
@@ -4097,12 +4071,7 @@ html {
 }
 
 .page-header__image {
-	aspect-ratio: 1440/600;
-}
-
-.page-header__image picture,
-.page-header__image img {
-	height: 37.5rem;
+	height: max(0px, min(41.6666666667vw, 37.5rem));
 }
 
 .page-header__title {

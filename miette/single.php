@@ -6,10 +6,10 @@ extract($links, EXTR_SKIP);
 ?>
 
 <!-- ページコンテンツ -->
-<div class="single-blog single-blog-layout">
-  <div class="single-blog__content">
-    <div class="single-blog__inner inner">
-      <div class="single-blog__body">
+<div class="blog-single blog-single-layout">
+  <div class="blog-single__content">
+    <div class="blog-single__inner inner">
+      <div class="blog-single__body">
 
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
           <?php 
@@ -18,7 +18,7 @@ extract($links, EXTR_SKIP);
           }
           ?>
 
-          <article class="single-blog__article blog-article">
+          <article class="blog-single__article blog-article">
             <header class="blog-article__header">
               <time datetime="<?php echo get_the_date('Y-m-d'); ?>" class="blog-article__date">
                 <?php echo get_the_date('Y.m.d'); ?>
