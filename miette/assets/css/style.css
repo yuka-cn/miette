@@ -177,7 +177,7 @@ a {
 }
 
 .blog-single__pagination {
-	margin-top: 2.5rem;
+	margin-top: 5rem;
 }
 
 .blog-single__sidebar {
@@ -3235,10 +3235,6 @@ html {
 	-ms-flex-align: start;
 	align-items: start;
 	grid-template-columns: 7fr 3fr;
-}
-
-.blog-single__pagination {
-	margin-top: 5rem;
 }
 
 .blog-single__sidebar {
