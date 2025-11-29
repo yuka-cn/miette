@@ -43,3 +43,8 @@
 .archive-list__year.is-open .archive-list__year-button::after {
   transform: translateY(-50%) rotate(-135deg);
 }
+
+.archive-list__year-button:hover,
+.archive-list__month:hover{
+  opacity: 0.7;
+}

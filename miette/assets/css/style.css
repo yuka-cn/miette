@@ -715,6 +715,11 @@ a {
 	transform: translateY(-50%) rotate(-135deg);
 }
 
+.archive-list__year-button:hover,
+.archive-list__month:hover {
+	opacity: 0.7;
+}
+
 .blog-article__date {
 	display: block;
 	font-size: 0.875rem;
@@ -2404,7 +2409,7 @@ a {
 }
 
 .pagination--simple a:hover {
-	opacity: 0.8;
+	opacity: 0.7;
 }
 
 .pagination a.pagination__page--pc {
@@ -2829,6 +2834,10 @@ a {
 
 .sidebar-box__category-item {
 	padding: 0.375rem 2rem;
+}
+
+.sidebar-box__category-item:hover {
+	opacity: 0.7;
 }
 
 .sidebar {
