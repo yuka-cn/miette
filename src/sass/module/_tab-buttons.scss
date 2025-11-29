@@ -3,8 +3,4 @@
 .tab-buttons{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: rem(19);
-  @include mq("md") {
-    column-gap: rem(90);
-  }
 }

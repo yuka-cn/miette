@@ -40,6 +40,7 @@
 
 .lesson-article__text{
   margin-top: rem(24);
+  line-height: 2;
   @include mq("md"){
     margin-top: rem(40);
   }

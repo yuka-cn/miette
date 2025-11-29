@@ -1,7 +1,7 @@
 @use "global" as *;
 
-.page-information-layout{
-  margin-top: rem(52);
+.lesson-guide-layout{
+  margin-top: rem(48);
   @include mq("md"){
     margin-top: rem(150);
   }
