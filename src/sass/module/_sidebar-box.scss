@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   gap: rem(8);
-  border-left: 8px solid $ac-color;
+  border-left: rem(8) solid $sub-color;
 }
 
 .sidebar-box__icon{
@@ -19,6 +19,7 @@
 
 .sidebar-box__title{
   font-size: rem(24);
+  font-weight: $regular;
 }
 
 .sidebar-box__body{
@@ -30,10 +31,24 @@
   text-align: center;
 }
 
-.sidebar-box__voice-card{
-  padding-bottom: rem(17);
+.sidebar-box__lesson-card{
+  margin-top: rem(40);
+  margin-right: rem(10);
+  @include mq("md"){
+    margin-right: rem(20);
+  }
 }
 
-.sidebar-box__campaign-card:not(:first-child){
-  margin-top: rem(40);
+.sidebar-box__blog-cards{
+  display: grid;
+  gap: rem(24);
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.sidebar-box__category-list{
+  font-size: rem(20);
+}
+
+.sidebar-box__category-item{
+  padding: rem(6) rem(32);
 }

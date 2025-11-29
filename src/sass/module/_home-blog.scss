@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.blog {
+.home-blog {
   @include mq(md) {
     position: relative;
     padding-top: rem(95);
@@ -15,7 +15,7 @@
   }
 }
 
-.blog::before {
+.home-blog::before {
   @include mq(md) {
     content: "";
     position: absolute;
@@ -29,18 +29,18 @@
   }
 }
 
-.blog__header {
+.home-blog__header {
   text-align: center;
 }
 
-.blog__cards {
+.home-blog__cards {
   margin-top: rem(28);
   @include mq(md) {
     margin-top: rem(80);
   }
 }
 
-.blog__button {
+.home-blog__button {
   margin-top: rem(40);
   text-align: center;
   @include mq(md) {

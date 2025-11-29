@@ -61,7 +61,6 @@ jQuery(function ($) {
   var hamburger = $(".hamburger");
   var pcNav = $(".pc-nav");
 
-  
   function checkScroll() {
     var headerHeight = header.height();
     var target = $(".mv").length ? $(".mv") : $(".page-header__image");
@@ -96,7 +95,6 @@ jQuery(function ($) {
       checkScroll();
     }
   });
-
 
   //pc画面幅ではドロワーメニューを非表示にする
   $(window).resize(function () {
@@ -268,7 +266,6 @@ jQuery(function ($) {
     }
   }
 
-
 // informationのタブ
   const tabButtons = document.querySelectorAll(".tab-button");
   const tabPanels = document.querySelectorAll(".tab-panel");
@@ -335,30 +332,31 @@ jQuery(function ($) {
 
 
 // サイドバーのアーカイブ開閉
-document.addEventListener('DOMContentLoaded', function () {
-  const archiveYears = document.querySelectorAll('.archive-list__year');
-  archiveYears.forEach(year => {
-    const button = year.querySelector('.archive-list__year-button');
-    const months = year.querySelector('.archive-list__months');
-    if (!button || !months) return;
+document.querySelectorAll('.archive-list__year-button').forEach(button => {
+  const year = button.closest('.archive-list__year');
+  const months = year.querySelector('.archive-list__months');
 
-    // 初期ARIAセット
-    const isOpen = year.classList.contains('is-open');
-    const monthsId = months.id || `archive-months-${Math.random().toString(36).slice(2, 9)}`;
-    months.id = monthsId;
-    button.setAttribute('aria-controls', monthsId);
-    button.setAttribute('aria-expanded', String(isOpen));
-    months.hidden = !isOpen;
+  // 初期状態
+  const isOpen = year.classList.contains('is-open');
+  months.style.height = isOpen ? months.scrollHeight + 'px' : '0';
+  button.setAttribute('aria-expanded', isOpen);
 
-    // クリックでトグル
-    button.addEventListener('click', () => {
-      const expanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', String(!expanded));
-      year.classList.toggle('is-open');
-      months.hidden = expanded;
-    });
+  // クリックイベント
+  button.addEventListener('click', () => {
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!expanded));
+    year.classList.toggle('is-open');
+
+    if (!expanded) {
+      months.style.height = months.scrollHeight + 'px';
+      months.style.opacity = '1';
+    } else {
+      months.style.height = '0';
+      months.style.opacity = '0';
+    }
   });
 });
+
 
 
 //contact

@@ -6,16 +6,16 @@ extract($links, EXTR_SKIP);
 ?>
 
 <!-- ページコンテンツ -->
-<div class="page-blog page-blog-layout">
-  <div class="page-blog__content">
-    <div class="page-blog__inner inner">
-      <div class="page-blog__body">
+<div class="blog blog-layout">
+  <div class="blog__content">
+    <div class="blog__inner inner">
+      <div class="blog__body">
         <?php if (!have_posts()): ?>
-          <p class="page-blog__no-post no-post">現在、投稿はありません。</p>
+          <p class="blog__no-post no-post">現在、投稿はありません。</p>
         <?php else: ?>
-          <div class="page-blog__cards blog-cards">
+          <div class="blog__cards">
             <?php while (have_posts()): the_post(); ?>
-              <article class="blog-cards__item blog-card">
+              <article class="blog__card blog-card">
                 <a href="<?php the_permalink(); ?>">
                   <div class="blog-card__body">
                     <div class="blog-card__meta">
@@ -53,13 +53,14 @@ extract($links, EXTR_SKIP);
                       <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
                     <?php endif; ?>
                   </div>
+                  <span class="blog-card__mask"></span>
                 </a>
               </article>
             <?php endwhile; ?>
           </div>
 
           <!-- ページネーション -->
-          <nav class="page-blog__pagination pagination">
+          <nav class="blog__pagination pagination">
             <?php wp_pagenavi(); ?>
           </nav>
         <?php endif; ?>

@@ -1,10 +1,10 @@
 @use "global" as *;
 
-.page-blog {
+.blog {
   position: relative;
 }
 
-.page-blog::before {
+.blog::before {
   content: "";
   position: absolute;
   top: rem(-24);
@@ -23,36 +23,28 @@
   }
 }
 
-.page-blog__inner{
+.blog__inner{
   display: grid;
   gap: rem(80);
   grid-template-columns: repeat(1,1fr);
   @include mq("md") {
     align-items: start;
-    grid-template-columns: 706fr 294fr;
+    grid-template-columns: 7fr 3fr;
   }
 }
 
-.page-blog__cards{
+.blog__cards{
   position: relative;
   z-index: 1;
   display: grid;
   gap: rem(40);
-  // @include mq("md"){
-  //   grid-template-columns: repeat(2,1fr);
-  //   column-gap: rem(40);
-  //   row-gap: rem(81);
-  // }
 }
 
-.page-blog__pagination{
-  margin-top: rem(78);
-  @include mq("md"){
-    margin-top: rem(80);
-  }
+.blog__pagination{
+  margin-top: rem(80);
 }
 
-.page-blog__sidebar{
+.blog__sidebar{
   padding: 0 rem(25);
   @include mq("md"){
     padding: 0;

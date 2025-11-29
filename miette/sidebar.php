@@ -3,7 +3,65 @@ $links = theme_get_links();
 extract($links, EXTR_SKIP);
 ?>
 
-<aside class="page-blog__sidebar sidebar">
+<aside class="blog__sidebar sidebar">
+
+  <!-- レッスンメニュー -->
+  <section class="sidebar__box sidebar-box">
+    <h2 class="sidebar-box__heading">
+      <span class="sidebar-box__icon"></span>
+      <span class="sidebar-box__title">レッスンメニュー</span>
+    </h2>
+    <div class="sidebar-box__body">
+      <?php
+        $lesson_query = new WP_Query(array(
+          'posts_per_page' => 1,
+          'post_type'      => 'lesson',
+          'orderby'        => 'date',
+          'order'          => 'DESC'
+        ));
+        if(!$lesson_query->have_posts()): ?>
+          <p class="sidebar-box__no-post no-post">ただいま準備中です。</p>
+        <?php else: ?>
+          <?php while($lesson_query->have_posts()): $lesson_query->the_post();
+            $lesson_terms = get_the_terms(get_the_ID(), 'lesson_category');
+            $lesson_term_name = '';
+
+            if ($lesson_terms && !is_wp_error($lesson_terms)) {
+                $lesson_term = $lesson_terms[0];
+                $lesson_term_name = $lesson_term->name;
+            }
+
+            $lesson_img = get_field('lesson_image');
+            $lesson_month = get_field('lesson_month');
+          ?>
+          <a href="<?php the_permalink(); ?>" class="sidebar-box__lesson-card lesson-card lesson-card--sidebar">
+            <div class="lesson-card__badge">
+              <p class="lesson-card__month"><?php echo esc_html($lesson_month); ?>月</p>
+            </div>
+            <div class="lesson-card__image">
+              <?php if ($lesson_img): ?>
+                <?php echo wp_get_attachment_image($lesson_img, 'medium', false, ['alt' => '']); ?>
+              <?php else: ?>
+                <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
+              <?php endif; ?>
+            </div>
+            <div class="lesson-card__body">
+              <p class="lesson-card__category"><?php echo esc_html($lesson_term_name); ?></p>
+              <p class="lesson-card__title"><?php the_title(); ?></p>
+            </div>
+            <span class="lesson-card__mask"></span>
+          </a>
+          <div class="sidebar-box__button">
+            <a href="<?php echo $lesson; ?>" class="button">
+              もっと見る
+              <span></span>
+            </a>
+          </div>
+          <?php endwhile; ?>
+        <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
+    </div>
+  </section>
 
   <!-- 人気記事 -->
   <section class="sidebar__box sidebar-box">
@@ -24,24 +82,28 @@ extract($links, EXTR_SKIP);
         if (!$popular->have_posts()): ?>
           <p class="sidebar-box__no-post no-post">現在、投稿はありません。</p>
         <?php else: ?>
-          <div class="sidebar-box__popular-list popular-list">
+          <div class="sidebar-box__blog-cards">
             <?php while($popular->have_posts()): $popular->the_post(); ?>
-              <a href="<?php the_permalink(); ?>" class="popular-list__item">
-                <div class="popular-list__image">
-                  <?php if (has_post_thumbnail()): ?>
-                    <?php the_post_thumbnail('medium'); ?>
-                  <?php else: ?>
-                    <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
-                  <?php endif; ?>
-                </div>
-                <div class="popular-list__body">
-                  <time datetime="<?php echo get_the_date('Y-m-d'); ?>" class="popular-list__date">
-                    <?php echo get_the_date('Y.m.d'); ?>
-                  </time>
-                  <p class="popular-list__title"><?php the_title(); ?></p>
-                </div>
-                <span class="popular-list__mask"></span>
-              </a>
+              <article class="sidebar-box__blog-card blog-card blog-card--sidebar">
+                <a href="<?php the_permalink(); ?>"">
+                  <div class="blog-card__body">
+                    <div class="blog-card__meta">
+                      <time datetime="<?php echo get_the_date('Y-m-d'); ?>" class="blog-card__date">
+                        <?php echo get_the_date('Y.m.d'); ?>
+                      </time>
+                    </div>
+                    <p class="blog-card__title"><?php the_title(); ?></p>
+                  </div>
+                  <div class="blog-card__image">
+                    <?php if (has_post_thumbnail()): ?>
+                      <?php the_post_thumbnail('medium'); ?>
+                    <?php else: ?>
+                      <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
+                    <?php endif; ?>
+                  </div>
+                  <span class="blog-card__mask"></span>
+                </a>
+              </article>
             <?php endwhile; ?>
           </div>
         <?php endif; ?>
@@ -49,101 +111,35 @@ extract($links, EXTR_SKIP);
     </div>
   </section>
 
-  <!-- 口コミ -->
+  <!-- カテゴリー -->
   <section class="sidebar__box sidebar-box">
     <h2 class="sidebar-box__heading">
       <span class="sidebar-box__icon"></span>
-      <span class="sidebar-box__title">口コミ</span>
+      <span class="sidebar-box__title">カテゴリー</span>
     </h2>
     <div class="sidebar-box__body">
-      <?php
-        $voice_query = new WP_Query(array(
-          'posts_per_page' => 1,
-          'post_type'      => 'voice',
-          'orderby'        => 'date',
-          'order'          => 'DESC'
+      <?php 
+        $categories = get_categories(array(
+          'orderby' => 'name',
+          'order'   => 'ASC',
+          'hide_empty' => true
         ));
-        if(!$voice_query->have_posts()): ?>
+        if(!$categories): ?>
           <p class="sidebar-box__no-post no-post">現在、投稿はありません。</p>
         <?php else: ?>
-          <?php while($voice_query->have_posts()): $voice_query->the_post();
-            $voice_img = get_post_meta(get_the_ID(), 'voice_image', true);
-            $voice_demographic = get_post_meta(get_the_ID(), 'voice_demographic', true);
-          ?>
-          <div class="sidebar-box__voice-card voice-card-simple">
-            <div class="voice-card-simple__image">
-              <?php if ($voice_img): ?>
-                <?php echo wp_get_attachment_image($voice_img, 'medium', false, ['alt' => '']); ?>
-              <?php else: ?>
-                <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-user.jpg'); ?>" alt="">
-              <?php endif; ?>
-            </div>
-            <p class="voice-card-simple__demographic"><?php echo esc_html($voice_demographic); ?></p>
-            <p class="voice-card-simple__title"><?php the_title(); ?></p>
-          </div>
-          <div class="sidebar-box__button">
-            <a href="<?php echo $voice; ?>" class="button">
-              View more
-              <span></span>
-            </a>
-          </div>
-          <?php endwhile; ?>
-        <?php endif; ?>
-        <?php wp_reset_postdata(); ?>
+          <ul class="sidebar-box__category-list">
+            <?php foreach($categories as $category): ?>
+              <li class="sidebar-box__category-item">
+                <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>">
+                  <?php echo esc_html($category->name); ?>
+                </a>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+      <?php endif; ?>
     </div>
   </section>
 
-  <!-- キャンペーン -->
-  <section class="sidebar__box sidebar-box">
-    <h2 class="sidebar-box__heading">
-      <span class="sidebar-box__icon"></span>
-      <span class="sidebar-box__title">キャンペーン</span>
-    </h2>
-    <div class="sidebar-box__body">
-      <?php
-        $campaign_query = new WP_Query(array(
-          'posts_per_page' => 2,
-          'post_type'      => 'campaign',
-          'orderby'        => 'date',
-          'order'          => 'DESC'
-        ));
-        if(!$campaign_query->have_posts()): ?>
-          <p class="sidebar-box__no-post no-post">実施中のキャンペーンはありません。</p>
-        <?php else: ?>
-          <?php while($campaign_query->have_posts()): $campaign_query->the_post();
-            $campaign_img = get_post_meta(get_the_ID(), 'campaign_image', true);
-            $campaign_note = get_post_meta(get_the_ID(), 'campaign_note', true);
-            $campaign_selling = get_post_meta(get_the_ID(), 'campaign_price_selling', true);
-            $campaign_special = get_post_meta(get_the_ID(), 'campaign_price_special', true);
-          ?>
-          <div class="sidebar-box__campaign-card campaign-card">
-            <div class="campaign-card__image campaign-card__image--side">
-              <?php if ($campaign_img): ?>
-                <?php echo wp_get_attachment_image($campaign_img, 'medium', false, ['alt' => '']); ?>
-              <?php else: ?>
-                <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
-              <?php endif; ?>
-            </div>
-            <div class="campaign-card__body campaign-card__body--side">
-              <p class="campaign-card__title campaign-card__title--side"><?php the_title(); ?></p>
-              <p class="campaign-card__note campaign-card__note--side"><?php echo esc_html($campaign_note); ?></p>
-              <div class="campaign-card__price campaign-card__price--side">
-                <p class="campaign-card__selling campaign-card__selling--side"><?php echo esc_html($campaign_selling); ?></p>
-                <p class="campaign-card__special campaign-card__special--side"><?php echo esc_html($campaign_special); ?></p>
-              </div>
-            </div>
-          </div>
-          <?php endwhile; ?>
-          <div class="sidebar-box__button">
-            <a href="<?php echo $campaign ;?>" class="button">
-              View more
-              <span></span>
-            </a>
-          </div>
-        <?php endif; ?>
-        <?php wp_reset_postdata(); ?>
-    </div>
-  </section>
 
   <!-- アーカイブ -->
   <section class="sidebar__box sidebar-box">

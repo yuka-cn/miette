@@ -10,11 +10,6 @@
   transition: transform 0.3s cubic-bezier(.25,.46,.45,.94);
 }
 
-.lesson-card:hover{
-  transform: translateY(rem(-4));
-  opacity: 0.9;
-}
-
 .lesson-card__badge{
   position: absolute;
   top: rem(-30);
@@ -79,4 +74,35 @@
   flex-grow: 1;
   font-size: rem(20);
   font-weight: $regular;
+}
+
+.lesson-card--sidebar .lesson-card__badge{
+  left: auto;
+  right: rem(-10);
+  @include mq("md"){
+    right: rem(-20);
+  }
+}
+
+.lesson-card__mask{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2em;
+}
+
+.lesson-card:hover .lesson-card__mask {
+  opacity: 1;
+}
+
+.lesson-card:hover{
+  transform: translateY(rem(-4));
+}
+
+.lesson-card--sidebar:hover{
+  transform: none;
 }

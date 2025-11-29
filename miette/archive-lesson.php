@@ -74,11 +74,11 @@ extract($links, EXTR_SKIP);
                   <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
                 <?php endif; ?>
               </div>
-
               <div class="lesson-card__body">
                 <p class="lesson-card__category"><?php echo esc_html($term_name); ?></p>
                 <h2 class="lesson-card__title"><?php the_title(); ?></h2>
               </div>
+              <span class="lesson-card__mask"></span>
             </a>
 
           <?php endwhile; ?>

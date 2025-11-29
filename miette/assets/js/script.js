@@ -328,28 +328,27 @@ jQuery(function ($) {
   window.addEventListener('hashchange', scrollToHash);
 
   // サイドバーのアーカイブ開閉
-  document.addEventListener('DOMContentLoaded', function () {
-    var archiveYears = document.querySelectorAll('.archive-list__year');
-    archiveYears.forEach(function (year) {
-      var button = year.querySelector('.archive-list__year-button');
-      var months = year.querySelector('.archive-list__months');
-      if (!button || !months) return;
+  document.querySelectorAll('.archive-list__year-button').forEach(function (button) {
+    var year = button.closest('.archive-list__year');
+    var months = year.querySelector('.archive-list__months');
 
-      // 初期ARIAセット
-      var isOpen = year.classList.contains('is-open');
-      var monthsId = months.id || "archive-months-".concat(Math.random().toString(36).slice(2, 9));
-      months.id = monthsId;
-      button.setAttribute('aria-controls', monthsId);
-      button.setAttribute('aria-expanded', String(isOpen));
-      months.hidden = !isOpen;
+    // 初期状態
+    var isOpen = year.classList.contains('is-open');
+    months.style.height = isOpen ? months.scrollHeight + 'px' : '0';
+    button.setAttribute('aria-expanded', isOpen);
 
-      // クリックでトグル
-      button.addEventListener('click', function () {
-        var expanded = button.getAttribute('aria-expanded') === 'true';
-        button.setAttribute('aria-expanded', String(!expanded));
-        year.classList.toggle('is-open');
-        months.hidden = expanded;
-      });
+    // クリックイベント
+    button.addEventListener('click', function () {
+      var expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!expanded));
+      year.classList.toggle('is-open');
+      if (!expanded) {
+        months.style.height = months.scrollHeight + 'px';
+        months.style.opacity = '1';
+      } else {
+        months.style.height = '0';
+        months.style.opacity = '0';
+      }
     });
   });
 
