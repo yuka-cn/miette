@@ -347,27 +347,33 @@ a {
 }
 
 .home-concept-layout {
-	margin-top: 6.25rem;
+	margin-top: 12.5rem;
 }
 
-.home-concept {
-	aspect-ratio: 4/3;
+.home-concept__content {
+	grid-gap: 3.75rem;
+	display: grid;
+	gap: 3.75rem;
+	grid-template-columns: 1fr;
+}
+
+.home-concept__image {
+	aspect-ratio: 2/3;
 	background-image: url(../images/common/about_1.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	line-height: 2;
-	max-width: 25rem;
-	width: 100%;
+	width: max(11.25rem, 50%);
 }
 
 .home-concept__text {
-	padding-top: 5rem;
+	line-height: 2;
 	text-align: center;
 }
 
 .home-concept__button {
 	margin-top: 3.75rem;
+	padding-bottom: 3.75rem;
 	text-align: center;
 }
 
@@ -1085,6 +1091,10 @@ a {
 
 .button--green:hover {
 	color: #5A3E2B;
+}
+
+.button--outline {
+	border: 0.08em solid #E8B4B8;
 }
 
 .campaign__inner {
@@ -1826,8 +1836,11 @@ a {
 	height: inherit;
 }
 
-.home-blog__header {
-	text-align: center;
+.home-blog__inner {
+	grid-gap: 3.75rem;
+	display: grid;
+	gap: 3.75rem;
+	grid-template-columns: 1fr;
 }
 
 .home-blog__cards {
@@ -3454,11 +3467,25 @@ html {
 }
 
 .home-concept-layout {
-	margin-top: 13.75rem;
+	margin-top: 18.75rem;
+}
+
+.home-concept__content {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	gap: 0;
+	grid-template-columns: 25% 50% auto;
+}
+
+.home-concept__image {
+	max-width: 25rem;
+	width: 100%;
 }
 
 .home-concept__button {
 	margin-top: 5rem;
+	padding-bottom: 0;
 }
 
 .home-lesson-guide {
@@ -3966,11 +3993,11 @@ html {
 }
 
 .home-blog {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, transparent), color-stop(60%, #fff)), url(../images/common/blog-bg-pc.jpg);
-	background: linear-gradient(to bottom, transparent 60%, #fff 60%), url(../images/common/blog-bg-pc.jpg);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, transparent), color-stop(60%, #fff)), url(../images/common/blog_1.jpg);
+	background: linear-gradient(to bottom, transparent 60%, #fff 60%), url(../images/common/blog_1.jpg);
 	background-position: top center;
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: cover;
 	padding-top: 5.9375rem;
 	position: relative;
 }
@@ -3985,6 +4012,10 @@ html {
 	position: absolute;
 	top: 1.5rem;
 	width: 27.3125rem;
+}
+
+.home-blog__inner {
+	grid-template-columns: 43.75rem auto;
 }
 
 .home-blog__cards {

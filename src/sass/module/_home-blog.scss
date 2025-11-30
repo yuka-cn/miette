@@ -5,8 +5,8 @@
     position: relative;
     padding-top: rem(95);
     background: linear-gradient(to bottom, transparent 60%, $white 60%),
-      url(../images/common/blog-bg-pc.jpg);
-    background-size: contain;
+      url(../images/common/blog_1.jpg);
+    background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
   }
@@ -29,8 +29,13 @@
   }
 }
 
-.home-blog__header {
-  text-align: center;
+.home-blog__inner{
+  display: grid;
+  gap: rem(60);
+  grid-template-columns: 1fr;
+  @include mq("md") {
+   grid-template-columns: rem(700) auto;
+  }
 }
 
 .home-blog__cards {

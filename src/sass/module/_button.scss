@@ -39,3 +39,7 @@
 .button--green:hover{
   color: $font-color;
 }
+
+.button--outline{
+  border: 0.08em solid $ac-color;
+}

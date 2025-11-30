@@ -1,25 +1,40 @@
 @use "global" as *;
 
-.home-concept{
-  line-height: 2;
-  width: 100%;
-  max-width: rem(400);
-  aspect-ratio: 4 / 3;
+.home-concept__content{
+  display: grid;
+  gap: rem(60);
+  grid-template-columns: 1fr;
+  @include mq("md") {
+    gap: 0;
+    grid-template-columns: 25% 50% auto;
+    align-items: center;
+  }
+}
+
+.home-concept__image{
+  width: max(rem(180),50%);
+  aspect-ratio: 2 / 3;
   background-image: url(../images/common/about_1.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  @include mq("md"){
+    max-width: rem(400);
+    width: 100%;
+  }
 }
 
 .home-concept__text{
   text-align: center;
-  padding-top: rem(80);
+  line-height: 2;
 }
 
 .home-concept__button{
   margin-top: rem(60);
+  padding-bottom: rem(60);
   text-align: center;
   @include mq("md"){
     margin-top: rem(80);
+    padding-bottom: 0;
   }
 }
