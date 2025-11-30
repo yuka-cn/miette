@@ -10,7 +10,7 @@ extract($links, EXTR_SKIP);
   <!-- コンセプト -->
   <section class="about__concept concept">
     <div class="concept__inner inner">
-      <h2 class="concept__header section-header">
+      <h2 class="concept__header section-header section-header--center">
         <span class="section-header__ja">コンセプト</span>
         <span class="section-header__en">concept</span>
       </h2>

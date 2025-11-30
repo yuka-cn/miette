@@ -104,7 +104,7 @@ jQuery(function ($) {
     }
   });
 
-// キャンペーンカードのスライダー
+// レッスンメニューカードのスライダー
   // inner幅の基準値を設定
   const INNER_WIDTH = 1080;
 
@@ -113,44 +113,50 @@ jQuery(function ($) {
     let windowWidth = window.innerWidth;
 
     if (windowWidth <= 375) {
-      return windowWidth * (6.4 / 100); // 375px以下は 6.4vw ←(24px/375px)×100
+      return windowWidth * (10.6 / 100); // 375px以下は 10.6vw ←(40px/375px)×100
     } else if (windowWidth > 375 && windowWidth < 768) {
-      return 24; // 376px〜767px は固定 24px
+      return 40; // 376px〜767px は固定 24px
     } else if (windowWidth >= 768 && windowWidth < INNER_WIDTH) {
-      return windowWidth * (3.7 / 100); // 768px〜inner幅未満は 3.7vw ←(40px/1080px)×100
+      return windowWidth * (7.4 / 100); // 768px〜inner幅未満は 7.4vw ←(80px/1080px)×100
     } else {
-      return 40; // inner幅以上は固定 40px
+      return 80; // inner幅以上は固定 80px
     }
   }
   
   // Swiperインスタンスを管理する変数
-  let campaignSwiper;
+  let lessonSwiper;
 
   function initSwiper() {
-    if (!document.querySelector(".js-campaignSwiper")) return;
+    if (!document.querySelector(".js-lessonSwiper")) return;
     // 既存のSwiperを削除
-    if (campaignSwiper) {
-      campaignSwiper.destroy(true, true);
+    if (lessonSwiper) {
+      lessonSwiper.destroy(true, true);
     }
 
     // 計算した spaceBetween を適用
     let spaceBetweenValue = getSpaceBetween();
 
     // Swiperを再初期化
-    campaignSwiper = new Swiper(".js-campaignSwiper", {
+    lessonSwiper = new Swiper(".js-lessonSwiper", {
 
       spaceBetween: spaceBetweenValue,
       slidesPerView: "auto",
       loop: true,
       loopedSlides: 4,
+      autoHeight: true,
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
-      autoplay: {
-        delay: 2000,
-        disableOnInteraction: false
-      }
+      // autoplay: {
+      //   delay: 2000,
+      //   disableOnInteraction: false
+      // }
+      a11y: {
+        enabled: true,
+        prevSlideMessage: '前へ',
+        nextSlideMessage: '次へ',
+      },
     });
 
   }

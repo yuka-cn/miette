@@ -1,5 +1,13 @@
 @use "global" as *;
 
+.section-header{
+  text-align: left;
+}
+
+.section-header--center{
+  text-align: center;
+}
+
 .section-header span{
   display: block;
 }

@@ -55,8 +55,8 @@ extract($links, EXTR_SKIP);
               $term_name = '';
 
               if ($terms && !is_wp_error($terms)) {
-                  $term = $terms[0];
-                  $term_name = $term->name;
+                $term = $terms[0];
+                $term_name = $term->name;
               }
 
               $image = get_field('lesson_image');

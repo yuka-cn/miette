@@ -1,0 +1,21 @@
+@use "global" as *;
+
+.home-lesson-guide{
+  padding: rem(120) 0 rem(100);
+  background: $white;
+  @include mq("md"){
+    padding: rem(250) 0 rem(160);
+  }
+}
+
+.home-lesson-guide__text{
+  margin-top: rem(40);
+  line-height: 2;
+}
+
+.home-lesson-guide__button{
+  margin-top: rem(60);
+  @include mq("md"){
+    margin-top: rem(80);
+  }
+}

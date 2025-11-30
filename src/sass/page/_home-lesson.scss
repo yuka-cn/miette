@@ -1,0 +1,101 @@
+@use "global" as *;
+
+.home-lesson{
+  overflow-x: clip;
+}
+
+.home-lesson__body {
+  position: relative;
+  margin-top: rem(28);
+  margin-right: calc(50% - 50vw);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
+
+.home-lesson__cards.swiper {
+  padding-top: rem(30);
+  padding-bottom: rem(16);
+  padding-left: rem(10);
+  @include mq("md"){
+    padding-left: rem(20);
+  }
+}
+
+.home-lesson__slide.swiper-slide {
+  max-width: rem(280);
+  height: auto;
+  flex-shrink: 0;
+  width: 100%;
+  @include mq("md"){
+    max-width: rem(306);
+  }
+}
+
+.home-lesson__buttons{
+  position: absolute;
+  margin-top: rem(40);
+}
+
+.home-lesson__button-prev.swiper-button-prev, 
+.home-lesson__button-next.swiper-button-next{
+  position: absolute;
+  top: initial;
+  left: rem(10);
+  right: initial;
+  width: rem(50);
+  height: rem(50);
+  color: $white;
+  background: $sub-color;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 1;
+  @include mq("md"){
+    left: rem(20);
+  }
+}
+
+.home-lesson__button-next.swiper-button-next{
+  margin-left: rem(90);
+}
+
+.home-lesson__button-prev.swiper-button-prev::before{
+  content: "";
+  position: absolute;
+  width: rem(10);
+  height: rem(10);
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  pointer-events: none;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  transform: translate(-30%,-50%) rotate(45deg);
+}
+ 
+.home-lesson__button-next.swiper-button-next::before{
+  content: "";
+  position: absolute;
+  width: rem(10);
+  height: rem(10);
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  pointer-events: none;
+  border-right: 1px solid;
+  border-top: 1px solid;
+  transform: translate(-70%,-50%) rotate(45deg);
+}
+
+.home-lesson__button-prev::after, 
+.home-lesson__button-next::after{
+  display: none;
+}
+
+.home-lesson__button-prev:focus-visible,
+.home-lesson__button-next:focus-visible {
+  outline: 3px solid #1a73e8;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
