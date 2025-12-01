@@ -51,7 +51,9 @@
 }
 
 .home-blog__intro{
+  padding-top: rem(40);
   @include mq("md"){
+    padding-top: 0;
     grid-column: 2;
     transform: translateY(40%);
   }

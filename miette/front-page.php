@@ -192,18 +192,30 @@ extract($links, EXTR_SKIP);
   <?php wp_reset_postdata();?>
 
   <!-- 予約 -->
-  <section class="home-reservation home-reservation-layout">
+  <section class="home-reservation">
+    <div class="home-reservation__inner inner">
+      <div class="home-reservation__content">
+        <h2 class="home-reservation__header section-header">
+          <span class="section-header__ja">ご予約方法</span>
+          <span class="section-header__en">reservation</span>
+        </h2>
+        <p class="home-reservation__text">
+          毎月20日頃に、翌月のメニューと開催日程を当ホームページとインスタグラムでお知らせしています。<br>
+          ご興味のあるレッスンがありましたら、当ホームページの予約フォームよりお申し込みください。<br>
+          定員になり次第締め切りとなります。
+        </p>
+        <div class="home-reservation__button">
+          <a href="<?php echo $reservation; ?>" class="button button--green">
+            ご予約はこちら
+            <span></span>
+          </a>
+        </div>
+      </div>
+      <div class="home-reservation__image">
+        <img src="<?php echo get_theme_file_uri('/assets/images/common/reservation_1.png'); ?>" alt="">
+      </div>
+    </div>
 
   </section>
-
-  <!-- ボタン -->
-  <div class="lesson__button">
-    <a href="<?php echo $lesson; ?>" class="button">
-      もっと知る
-      <span></span>
-    </a>
-  </div>
-
-
 
 <?php get_footer(); ?>

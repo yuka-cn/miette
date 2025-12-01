@@ -1,10 +1,19 @@
 @use "global" as *;
 
 .home-reservation{
-  padding: rem(120) 0 rem(100);
+  padding: rem(120) 0 rem(180);
   background: $white;
   @include mq("md"){
-    padding: rem(250) 0 rem(160);
+    padding: rem(220) 0 rem(250);
+  }
+}
+
+.home-reservation__inner{
+  display: grid;
+  gap: rem(60);
+  grid-template-columns: 1fr;
+  @include mq("md") {
+   grid-template-columns: rem(460) auto;
   }
 }
 
@@ -18,4 +27,36 @@
   @include mq("md"){
     margin-top: rem(80);
   }
+}
+
+.home-reservation__image{
+  position: relative;
+  justify-self: right;
+  width: max(rem(180),50%);
+  aspect-ratio: 300 / 380;
+  @include mq("md"){
+    max-width: rem(300);
+    width: 100%;
+  }
+}
+
+.home-reservation__image img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+
+.home-reservation__image::after{
+  content: "";
+  position: absolute;
+  left: -40%;
+  bottom: -15%;
+  width: 90%;
+  aspect-ratio: calc(280 / 150);
+  border-radius: 2em;
+  background: $main-color;
+  z-index: 1;
 }
