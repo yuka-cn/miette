@@ -1,0 +1,70 @@
+@use "global" as *;
+
+.home-blog {
+  position: relative;
+  padding-top: rem(180);
+  @include mq("md"){
+    padding-top: rem(200);
+  }
+}
+
+.home-blog::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  z-index: -1;
+  background-image: url(../images/common/blog_1.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top left;
+  @include mq("md"){
+    height: 45%;
+    background-size: cover;
+  }
+}
+
+.home-blog__inner{
+  padding-bottom: rem(60);
+  display: grid;
+  gap: rem(40);
+  align-items: end;
+  grid-template-columns: 1fr;
+  @include mq("md") {
+    grid-template-columns: rem(700) auto;
+    row-gap: 0;
+    column-gap: rem(60);
+  }
+}
+
+.home-blog__cards {
+  display: grid;
+  gap: rem(40);
+  grid-template-columns: 1fr;
+  @include mq("md"){
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+}
+
+.home-blog__intro{
+  @include mq("md"){
+    grid-column: 2;
+    transform: translateY(40%);
+  }
+}
+
+.home-blog__text{
+  margin-top: rem(40);
+}
+
+.home-blog__button {
+  margin-top: rem(20);
+  text-align: center;
+  @include mq(md) {
+    grid-column: 2;
+  }
+}

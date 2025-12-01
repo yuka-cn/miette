@@ -123,8 +123,17 @@ extract($links, EXTR_SKIP);
   $has_blog = $posts->have_posts();
   if ($has_blog): 
   ?>
-  <section class="home-blog home-blog-layout">
+  <section class="home-blog">
     <div class="home-blog__inner inner">
+      <div class="home-blog__intro">
+        <h2 class="home-blog__header section-header">
+          <span class="section-header__ja">ブログ</span>
+          <span class="section-header__en">blog</span>
+        </h2>
+        <p class="home-blog__text">
+        教室での様子やアレンジアイデア、素材や道具の話、教室からのお知らせなどをお届けします。
+        </p>
+      </div>
       <div class="home-blog__cards">
         <?php while ($posts->have_posts()): $posts->the_post();?>
           <article class="home-blog__card blog-card">
@@ -170,27 +179,22 @@ extract($links, EXTR_SKIP);
           </article>
         <?php endwhile; ?>
       </div>
-      <div class="home-blog__intro">
-        <h2 class="home-blog__header section-header">
-          <span class="section-header__ja">ブログ</span>
-          <span class="section-header__en">blog</span>
-        </h2>
-        <p class="home-blog__text">
-        教室での様子やアレンジアイデア、素材や道具の話、教室からのお知らせなどをお届けします。
-        </p>
-        <div class="home-blog__button">
-          <a href="<?php echo $blog; ?>" class="button">
-            もっと見る
-            <span></span>
-          </a>
-        </div>
+      <div class="home-blog__button">
+        <a href="<?php echo $blog; ?>" class="button">
+          もっと見る
+          <span></span>
+        </a>
       </div>
     </div>
-
+    <div class="home-concept__divider divider divider--b divider--bottom"></div>
   </section>
   <?php endif; ?>
   <?php wp_reset_postdata();?>
+
   <!-- 予約 -->
+  <section class="home-reservation home-reservation-layout">
+
+  </section>
 
   <!-- ボタン -->
   <div class="lesson__button">

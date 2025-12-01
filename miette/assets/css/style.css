@@ -346,6 +346,53 @@ a {
 	top: 0;
 }
 
+.home-blog {
+	padding-top: 11.25rem;
+	position: relative;
+}
+
+.home-blog::before {
+	background-attachment: fixed;
+	background-image: url(../images/common/blog_1.jpg);
+	background-position: top left;
+	background-repeat: no-repeat;
+	background-size: contain;
+	content: "";
+	height: 10%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+.home-blog__inner {
+	grid-gap: 2.5rem;
+	-webkit-box-align: end;
+	-ms-flex-align: end;
+	align-items: end;
+	display: grid;
+	gap: 2.5rem;
+	grid-template-columns: 1fr;
+	padding-bottom: 3.75rem;
+}
+
+.home-blog__cards {
+	grid-gap: 2.5rem;
+	display: grid;
+	gap: 2.5rem;
+	grid-template-columns: 1fr;
+}
+
+.home-blog__text {
+	margin-top: 2.5rem;
+}
+
+.home-blog__button {
+	margin-top: 1.25rem;
+	text-align: center;
+}
+
 .home-concept-layout {
 	margin-top: 12.5rem;
 }
@@ -482,6 +529,20 @@ a {
 	border-radius: 6px;
 	outline: 3px solid #1a73e8;
 	outline-offset: 4px;
+}
+
+.home-reservation {
+	background: #fff;
+	padding: 7.5rem 0 6.25rem;
+}
+
+.home-reservation__text {
+	line-height: 2;
+	margin-top: 2.5rem;
+}
+
+.home-reservation__button {
+	margin-top: 3.75rem;
 }
 
 .information-layout {
@@ -1834,22 +1895,6 @@ a {
 .header__pc-nav {
 	display: none;
 	height: inherit;
-}
-
-.home-blog__inner {
-	grid-gap: 3.75rem;
-	display: grid;
-	gap: 3.75rem;
-	grid-template-columns: 1fr;
-}
-
-.home-blog__cards {
-	margin-top: 1.75rem;
-}
-
-.home-blog__button {
-	margin-top: 2.5rem;
-	text-align: center;
 }
 
 .information {
@@ -3466,6 +3511,38 @@ html {
 	margin-top: 0;
 }
 
+.home-blog {
+	padding-top: 12.5rem;
+}
+
+.home-blog::before {
+	background-size: cover;
+	height: 45%;
+}
+
+.home-blog__inner {
+	-moz-column-gap: 3.75rem;
+	-webkit-column-gap: 3.75rem;
+	column-gap: 3.75rem;
+	grid-template-columns: 43.75rem auto;
+	row-gap: 0;
+}
+
+.home-blog__cards {
+	grid-column: 1;
+	grid-row: 1/span 2;
+}
+
+.home-blog__intro {
+	grid-column: 2;
+	-webkit-transform: translateY(40%);
+	transform: translateY(40%);
+}
+
+.home-blog__button {
+	grid-column: 2;
+}
+
 .home-concept-layout {
 	margin-top: 18.75rem;
 }
@@ -3511,6 +3588,14 @@ html {
 .home-lesson__button-prev.swiper-button-prev,
 .home-lesson__button-next.swiper-button-next {
 	left: 1.25rem;
+}
+
+.home-reservation {
+	padding: 15.625rem 0 10rem;
+}
+
+.home-reservation__button {
+	margin-top: 5rem;
 }
 
 .information-layout {
@@ -3992,40 +4077,6 @@ html {
 	display: flex;
 }
 
-.home-blog {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, transparent), color-stop(60%, #fff)), url(../images/common/blog_1.jpg);
-	background: linear-gradient(to bottom, transparent 60%, #fff 60%), url(../images/common/blog_1.jpg);
-	background-position: top center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	padding-top: 5.9375rem;
-	position: relative;
-}
-
-.home-blog::before {
-	background-image: url(../images/common/embellishment_2.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 12.5625rem;
-	left: calc(50% - min(38.75rem, 48%));
-	position: absolute;
-	top: 1.5rem;
-	width: 27.3125rem;
-}
-
-.home-blog__inner {
-	grid-template-columns: 43.75rem auto;
-}
-
-.home-blog__cards {
-	margin-top: 5rem;
-}
-
-.home-blog__button {
-	margin-top: 5.0625rem;
-}
-
 .information {
 	padding-bottom: 6.25rem;
 	padding-top: 6rem;
@@ -4490,14 +4541,6 @@ html {
 
 html {
 	font-size: 16px;
-}
-
-}
-
-@media (min-width: 2390px) {
-
-.home-blog {
-	background-size: cover;
 }
 
 }
