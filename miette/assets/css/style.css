@@ -575,7 +575,7 @@ a {
 .home-reservation__image::after {
 	aspect-ratio: 1.8666666667;
 	background: #F5EBDD;
-	border-radius: 2em;
+	border-radius: 1.5rem;
 	bottom: -15%;
 	content: "";
 	left: -40%;
@@ -3645,6 +3645,10 @@ html {
 .home-reservation__image {
 	max-width: 18.75rem;
 	width: 100%;
+}
+
+.home-reservation__image::after {
+	border-radius: 2rem;
 }
 
 .information-layout {

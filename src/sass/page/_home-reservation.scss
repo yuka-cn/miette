@@ -56,7 +56,10 @@
   bottom: -15%;
   width: 90%;
   aspect-ratio: calc(280 / 150);
-  border-radius: 2em;
+  border-radius: 1.5rem;
   background: $main-color;
   z-index: 1;
+  @include mq("md"){
+    border-radius: 2rem;
+  }
 }
