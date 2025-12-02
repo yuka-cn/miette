@@ -3,59 +3,43 @@
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
 
-  // メインビューのスライダー
-  function mvSwiper() {
-    if (document.querySelector(".js-mvSwiper")) {
-      new Swiper(".js-mvSwiper", {
-        effect: "fade",
-        fadeEffect: {
-          crossFade: true
-        },
-        speed: 3000,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false
-        },
-        loop: true
-      });
-    }
-  }
-
   // pcの初回表示のみローディングアニメーション
-  if (window.matchMedia("(max-width: 767px)").matches) {
-    mvSwiper();
-  } else {
-    var loadingEl = document.querySelector(".loading");
-    var _header = document.querySelector(".header");
-    var mvHeader = document.querySelector(".mv__header");
-    var isFirstVisit = !sessionStorage.getItem("firstVisit");
-    if (loadingEl && isFirstVisit) {
-      sessionStorage.setItem("firstVisit", "done");
-      loadingEl.style.display = "block";
-      document.body.style.overflow = "hidden";
-      loadingEl.addEventListener("animationend", function () {
-        if (mvHeader) {
-          mvHeader.style.opacity = "1";
-        }
-        setTimeout(mvSwiper, 1000);
-        setTimeout(function () {
-          loadingEl.style.opacity = "0";
-        }, 1000);
-        setTimeout(function () {
-          loadingEl.style.display = "none";
-          document.body.style.overflow = "";
-        }, 2000);
-      });
-    } else {
-      if (mvHeader) {
-        mvHeader.style.opacity = "1";
-      }
-      if (_header) {
-        _header.classList.remove("header--top");
-      }
-      mvSwiper();
-    }
-  }
+  // if (window.matchMedia("(max-width: 767px)").matches) {
+  //   mvSwiper();
+  // } else {
+  //   const loadingEl = document.querySelector(".loading");
+  //   const header = document.querySelector(".header");
+  //   const mvHeader = document.querySelector(".mv__header");
+  //   const isFirstVisit = !sessionStorage.getItem("firstVisit");
+
+  //   if (loadingEl && isFirstVisit) {
+  //     sessionStorage.setItem("firstVisit", "done");
+
+  //     loadingEl.style.display = "block";
+  //     document.body.style.overflow = "hidden";
+  //     loadingEl.addEventListener("animationend", function () {
+  //       if(mvHeader){
+  //         mvHeader.style.opacity = "1";
+  //       }
+  //       setTimeout(mvSwiper, 1000);
+  //       setTimeout(function () {
+  //         loadingEl.style.opacity = "0";
+  //       }, 1000);
+  //       setTimeout(function () {
+  //         loadingEl.style.display = "none";
+  //         document.body.style.overflow = "";
+  //       }, 2000);
+  //     });
+  //   } else {
+  //     if(mvHeader){
+  //       mvHeader.style.opacity = "1";
+  //     }
+  //     if (header) {
+  //       header.classList.remove("header--top");
+  //     }
+  //     mvSwiper();
+  //   }
+  // }
 
   // スクロール位置に応じて、ヘッダーの背景色とロゴ・ハンバーガーメニューの色を変える
   var header = $(".header");
@@ -64,7 +48,8 @@ jQuery(function ($) {
   var pcNav = $(".pc-nav");
   function checkScroll() {
     var headerHeight = header.height();
-    var target = $(".mv").length ? $(".mv") : $(".page-header__image");
+    var isFront = $(".mv").length > 0; // front-page を判定
+    var target = isFront ? $(".mv") : $(".page-header__image");
     var height = target.height();
     var scrollTop = $(window).scrollTop();
     if (scrollTop > height - headerHeight) {
@@ -73,10 +58,14 @@ jQuery(function ($) {
       pcNav.addClass("is-color");
       logo.attr("src", logo.data("color"));
     } else {
-      header.removeClass("is-color");
-      hamburger.removeClass("is-color");
-      pcNav.removeClass("is-color");
-      logo.attr("src", logo.data("white"));
+      if (isFront) {
+        header.addClass("is-hidden");
+      } else {
+        header.removeClass("is-color");
+        hamburger.removeClass("is-color");
+        pcNav.removeClass("is-color");
+        logo.attr("src", logo.data("white"));
+      }
     }
   }
   $(window).scroll(checkScroll);
@@ -97,8 +86,8 @@ jQuery(function ($) {
   //pc画面幅ではドロワーメニューを非表示にする
   $(window).resize(function () {
     if ($(window).width() >= 768) {
-      $(".sp-nav").removeClass("is-active").css("display", ""); // is-active を削除
-      $(".header").removeClass("is-active").css("display", ""); // is-active を削除
+      $(".sp-nav").removeClass("is-active").css("display", "");
+      $(".header").removeClass("is-active").css("display", "");
     }
   });
 

@@ -39,6 +39,11 @@
   background: $main-color;
 }
 
+.header.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .header__inner {
   height: inherit;
   display: flex;

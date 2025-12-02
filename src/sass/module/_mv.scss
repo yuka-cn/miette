@@ -1,63 +1,71 @@
 @use "global" as *;
 
 .mv {
-  height: 100vh;
+  position: relative;
 }
 
-.mv__slider {
+
+.mv__logo{
+  position: absolute;
+  top:rem(20);
+  left: rem(15);
+  max-width: rem(108);
   width: 100%;
-  height: inherit;
+  z-index: 100;
+  @include mq(md) {
+    top:rem(60);
+    left: rem(40);
+    max-width: rem(140);
+  }
 }
 
-.mv__slide {
-  width: 100%;
-  aspect-ratio: 375 / 667;
-  overflow: hidden;
-  opacity: 0;
-  transition: opacity 1s ease;
+.mv__content{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "image" "title";
+  @include mq("md") {
+    align-items: center;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "title image";
+  }
 }
 
-.mv__slide img {
+.mv__image{
+  position: relative;
+  justify-self: right;
+  width: clamp(15.625rem, 5.7rem + 42.347vi, 43.813rem); //250px-701px
+  aspect-ratio: 701 / 740;
+}
+
+.mv__image img{
+  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 2;
 }
 
-.mv__slide.swiper-slide-active {
-  opacity: 1;
-}
-
-.mv__header {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 100;
-  color: $white;
-  @include mq(md) {
-    opacity: 0;
+.mv__inner{
+  @include mq("md"){
+    text-align: center;
   }
 }
 
-.mv__title {
-  font-size: rem(40);
-  font-family: "Lato", serif;
+.mv__title{
+  display:grid;
+  font-size: clamp(2rem, 1.648rem + 1.502vi, 3rem); //32px-48px
+  font-family: $second-font-family;
   font-weight: $regular;
-  line-height: 1.2;
-  letter-spacing: 0.53em;
-  text-indent: 0.53em;
-  transform: translateY(rem(-2));
-  @include mq(md) {
-    font-size: rem(80);
-    transform: translateY(rem(2));
+  line-height: 2.5;
+  @include mq("md"){
+    line-height: 3;
   }
 }
 
-.mv__subtitle {
-  font-size: rem(20);
-  font-family: $en-font-family;
-  @include mq(md) {
-    margin-top: rem(5);
-  }
+.mv__title span{
+  display: inline-block;
+}
+
+.mv__title span:last-child{
+  text-indent: clamp(4.375rem, 3.055rem + 5.634vi, 8.125rem);
 }

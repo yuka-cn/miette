@@ -442,6 +442,10 @@ a {
 	margin-top: 3.75rem;
 }
 
+.home-lesson-layout {
+	margin-top: 9.375rem;
+}
+
 .home-lesson {
 	overflow-x: clip;
 }
@@ -1896,6 +1900,11 @@ a {
 	color: #5A3E2B;
 }
 
+.header.is-hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
 .header__inner {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
@@ -2362,59 +2371,57 @@ a {
 }
 
 .mv {
-	height: 100vh;
+	position: relative;
 }
 
-.mv__slider {
-	height: inherit;
-	width: 100%;
-}
-
-.mv__slide {
-	aspect-ratio: 375/667;
-	opacity: 0;
-	overflow: hidden;
-	-webkit-transition: opacity 1s ease;
-	transition: opacity 1s ease;
-	width: 100%;
-}
-
-.mv__slide img {
-	-o-object-fit: cover;
-	height: 100%;
-	object-fit: cover;
-	width: 100%;
-}
-
-.mv__slide.swiper-slide-active {
-	opacity: 1;
-}
-
-.mv__header {
-	color: #fff;
-	left: 50%;
+.mv__logo {
+	left: 0.9375rem;
+	max-width: 6.75rem;
 	position: absolute;
-	text-align: center;
-	top: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
+	top: 1.25rem;
+	width: 100%;
 	z-index: 100;
 }
 
-.mv__title {
-	font-family: "Lato", serif;
-	font-size: 2.5rem;
-	font-weight: 400;
-	letter-spacing: 0.53em;
-	line-height: 1.2;
-	text-indent: 0.53em;
-	-webkit-transform: translateY(-0.125rem);
-	transform: translateY(-0.125rem);
+.mv__content {
+	display: grid;
+	grid-template-areas: "image" "title";
+	grid-template-columns: 1fr;
 }
 
-.mv__subtitle {
-	font-family: "Gotu", serif;
-	font-size: 1.25rem;
+.mv__image {
+	aspect-ratio: 701/740;
+	justify-self: right;
+	position: relative;
+	width: clamp(15.625rem, 5.7rem + 42.347vw, 43.813rem);
+	width: clamp(15.625rem, 5.7rem + 42.347vi, 43.813rem);
+}
+
+.mv__image img {
+	-o-object-fit: cover;
+	height: 100%;
+	object-fit: cover;
+	position: relative;
+	width: 100%;
+	z-index: 2;
+}
+
+.mv__title {
+	display: grid;
+	font-family: "Zen Maru Gothic", sans-serif;
+	font-size: clamp(2rem, 1.648rem + 1.502vw, 3rem);
+	font-size: clamp(2rem, 1.648rem + 1.502vi, 3rem);
+	font-weight: 400;
+	line-height: 2.5;
+}
+
+.mv__title span {
+	display: inline-block;
+}
+
+.mv__title span:last-child {
+	text-indent: clamp(4.375rem, 3.055rem + 5.634vw, 8.125rem);
+	text-indent: clamp(4.375rem, 3.055rem + 5.634vi, 8.125rem);
 }
 
 .nav {
@@ -3613,6 +3620,10 @@ html {
 	margin-top: 5rem;
 }
 
+.home-lesson-layout {
+	margin-top: 18.75rem;
+}
+
 .home-lesson__body {
 	margin-top: 2.5rem;
 }
@@ -4245,18 +4256,26 @@ html {
 	visibility: visible;
 }
 
-.mv__header {
-	opacity: 0;
+.mv__logo {
+	left: 2.5rem;
+	max-width: 8.75rem;
+	top: 3.75rem;
+}
+
+.mv__content {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	grid-template-areas: "title image";
+	grid-template-columns: 50% 50%;
+}
+
+.mv__inner {
+	text-align: center;
 }
 
 .mv__title {
-	font-size: 5rem;
-	-webkit-transform: translateY(0.125rem);
-	transform: translateY(0.125rem);
-}
-
-.mv__subtitle {
-	margin-top: 0.3125rem;
+	line-height: 3;
 }
 
 .nav {
