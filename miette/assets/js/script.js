@@ -368,7 +368,7 @@ jQuery(function ($) {
   //エラー時の処理
   document.addEventListener('wpcf7invalid', function () {
     //エラーメッセージの表示
-    var errorContainer = document.querySelector('.page-contact__error');
+    var errorContainer = document.querySelector('.contact__error');
     if (errorContainer) {
       errorContainer.innerHTML = '※必須項目が入力されていません。<br>入力してください。';
       errorContainer.style.display = 'block';

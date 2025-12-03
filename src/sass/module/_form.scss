@@ -44,13 +44,6 @@
   }
 }
 
-.form__input.wpcf7-form-control:-webkit-autofill,
-textarea{
-  color: $font-color;
-  -webkit-text-fill-color: $font-color;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
 .form__input--select{
   padding-left: rem(8);
   font-size: rem(12);
@@ -191,6 +184,16 @@ textarea{
 .form__agreement--error input[type="checkbox"] {
   border: 1px solid #E08A94;
   background: rgba(#E08A94, 0.2);
+}
+
+.form__input.wpcf7-form-control:-webkit-autofill,
+textarea{
+  color: $font-color;
+  -webkit-text-fill-color: $font-color;
+}
+
+.form__input.wpcf7-form-control:-webkit-autofill{
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .form__input--select:focus-visible,

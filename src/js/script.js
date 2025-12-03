@@ -373,7 +373,7 @@ document.querySelectorAll('.archive-list__year-button').forEach(button => {
   document.addEventListener('wpcf7invalid', function() {
 
     //エラーメッセージの表示
-    const errorContainer = document.querySelector('.page-contact__error');
+    const errorContainer = document.querySelector('.contact__error');
     if (errorContainer) {
       errorContainer.innerHTML = '※必須項目が入力されていません。<br>入力してください。';
       errorContainer.style.display = 'block';
