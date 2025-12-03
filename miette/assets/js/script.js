@@ -53,13 +53,18 @@ jQuery(function ($) {
     var height = target.height();
     var scrollTop = $(window).scrollTop();
     if (scrollTop > height - headerHeight) {
-      header.addClass("is-color");
-      hamburger.addClass("is-color");
-      pcNav.addClass("is-color");
-      logo.attr("src", logo.data("color"));
+      if (isFront) {
+        header.addClass("is-show");
+        logo.attr("src", logo.data("color"));
+      } else {
+        header.addClass("is-color");
+        hamburger.addClass("is-color");
+        pcNav.addClass("is-color");
+        logo.attr("src", logo.data("color"));
+      }
     } else {
       if (isFront) {
-        header.addClass("is-hidden");
+        header.removeClass("is-show");
       } else {
         header.removeClass("is-color");
         hamburger.removeClass("is-color");

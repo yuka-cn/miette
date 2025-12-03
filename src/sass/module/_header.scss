@@ -14,19 +14,21 @@
 }
 
 .header--top{
-  @include mq(md) {
-    opacity: 0;
-    animation: headerFadeIn 1s ease 3s forwards;
-  }
+  opacity: 0;
+  color: $font-color;
+  background: $main-color;
 }
 
-@keyframes headerFadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+// @keyframes headerFadeIn {
+//   0% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
+.header.is-show {
+  opacity: 1;
 }
 
 .header.is-active,
@@ -37,11 +39,6 @@
 .header.is-color {
   color: $font-color;
   background: $main-color;
-}
-
-.header.is-hidden {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .header__inner {
