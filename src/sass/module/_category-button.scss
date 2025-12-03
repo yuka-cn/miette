@@ -7,8 +7,8 @@
   padding: 0.85em 1.2em;
   font-size: rem(14);
   line-height: 1;
-  color: #A89484;
-  border: 0.08em solid;
+  color: $sub-color;
+  border: 0.08em solid $sub-color;
   border-radius: 2em;
   transition: all 0.3s ease;
   z-index: 1;
@@ -16,11 +16,11 @@
 
 .category-button.is-active{
   color: $white;
-  background: #A89484;
+  background: $sub-color;
 }
 
 .category-button:hover{
-  color: rgba(#A89484, 0.6);
+  color: rgba($sub-color, 0.6);
 }
 
 .category-button.is-active:hover{

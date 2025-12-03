@@ -459,7 +459,7 @@ a {
 .home-lesson__cards.swiper {
 	padding-bottom: 1rem;
 	padding-left: 0.625rem;
-	padding-top: 1.875rem;
+	padding-top: 2.5rem;
 }
 
 .home-lesson__slide.swiper-slide {
@@ -1151,7 +1151,9 @@ a {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	background: #E8B4B8;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F1CCCF), to(#E8B4B8));
+	background: linear-gradient(to bottom, #F1CCCF 0%, #E8B4B8 100%);
+	border: 0.08em solid transparent;
 	border-radius: 5em;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -1160,6 +1162,7 @@ a {
 	display: -ms-inline-flexbox;
 	display: inline-flex;
 	font-size: 0.875rem;
+	font-weight: 500;
 	gap: 1rem;
 	height: inherit;
 	-webkit-box-pack: center;
@@ -1173,8 +1176,8 @@ a {
 }
 
 .button span {
-	border-bottom: 0.08em solid;
-	border-right: 0.08em solid;
+	border-bottom: 0.16em solid;
+	border-right: 0.16em solid;
 	height: 0.6em;
 	-webkit-transform: translateY(-50%) skew(45deg);
 	transform: translateY(-50%) skew(45deg);
@@ -1189,15 +1192,16 @@ a {
 }
 
 .button--green {
-	background: #C6D8C3;
-	color: #5A3E2B;
+	background: -webkit-gradient(linear, left top, left bottom, from(#B8D0B6), to(#A9BEA0));
+	background: linear-gradient(to bottom, #B8D0B6 0%, #A9BEA0 100%);
 }
 
 .button--green:hover {
-	color: #5A3E2B;
+	border: 0.08em solid #A9BEA0;
+	color: #A9BEA0;
 }
 
-.button--outline {
+.button--outline:hover {
 	border: 0.08em solid #E8B4B8;
 }
 
@@ -1267,7 +1271,7 @@ a {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	border: 0.08em solid;
+	border: 0.08em solid #A89484;
 	border-radius: 2em;
 	color: #A89484;
 	display: -webkit-inline-box;

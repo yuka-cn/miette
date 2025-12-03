@@ -9,10 +9,13 @@
   height: inherit;
   padding: rem(20) rem(40);
   font-size: rem(14);
+  font-weight: $medium;
   line-height: 1;
   color: $white;
-  background: $ac-color;
-  border-radius: 5em;
+  // background: $ac-color;
+  background: linear-gradient(to bottom,#F1CCCF 0%, $ac-color 100%);
+  border: 0.08em solid transparent;
+  border-radius: 5em;  
   box-sizing: border-box;
   transition: color 0.3s, background-color 0.3s;
 }
@@ -20,8 +23,8 @@
 .button span{
   width: rem(40);
   height: 0.6em;
-  border-bottom: 0.08em solid ;
-  border-right: 0.08em solid ;
+  border-bottom: 0.16em solid ;
+  border-right: 0.16em solid ;
   transform: translateY(-50%) skew(45deg);
   transform-origin: center;
 }
@@ -32,14 +35,15 @@
 }
 
 .button--green{
-  color: $font-color;
-  background: #C6D8C3;
+  // background: #A9BEA0;
+  background: linear-gradient(to bottom,#B8D0B6 0%,#A9BEA0 100%);
 }
 
 .button--green:hover{
-  color: $font-color;
+  color: #A9BEA0;
+  border: 0.08em solid #A9BEA0;
 }
 
-.button--outline{
+.button--outline:hover{
   border: 0.08em solid $ac-color;
 }
