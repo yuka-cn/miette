@@ -36,6 +36,7 @@
   padding: rem(8) rem(15) rem(14);
   width: 100%;
   height: rem(40);
+  color: $font-color;
   background: $white;
   border: 1px solid $sub-color;
   border-radius: 0.5em;
@@ -193,7 +194,7 @@ textarea{
 }
 
 .form__input.wpcf7-form-control:-webkit-autofill{
-  transition: background-color 5000s ease-in-out 0s;
+  // transition: background-color 5000s ease-in-out 0s;
 }
 
 .form__input--select:focus-visible,

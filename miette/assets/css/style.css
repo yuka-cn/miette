@@ -855,6 +855,55 @@ a {
 	margin-top: 5rem;
 }
 
+.reservation-layout {
+	margin-top: 3.375rem;
+}
+
+.reservation {
+	position: relative;
+}
+
+.reservation::before {
+	background-image: url(../images/common/embellishment_3.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	content: "";
+	height: 3.4375rem;
+	left: 0.9375rem;
+	position: absolute;
+	top: -1.6875rem;
+	width: 7.5rem;
+	z-index: 0;
+}
+
+.reservation__inner {
+	position: relative;
+	z-index: 1;
+}
+
+.reservation__error {
+	color: #dc3232;
+	display: none;
+	font-size: 0.875rem;
+	line-height: 1;
+	margin: 0 auto;
+	max-width: 16em;
+	padding-bottom: 3.25rem;
+	padding-left: 1em;
+	text-indent: -1em;
+}
+
+.reservation__thanks-title {
+	line-height: 1;
+	text-align: center;
+}
+
+.reservation__thanks-body {
+	line-height: 2;
+	margin-top: 2.4375rem;
+	text-align: center;
+}
+
 .voice-layout {
 	margin-top: 5rem;
 }
@@ -1535,6 +1584,7 @@ a {
 	background: #fff;
 	border: 1px solid #A89484;
 	border-radius: 0.5em;
+	color: #5A3E2B;
 	height: 2.5rem;
 	padding: 0.5rem 0.9375rem 0.875rem;
 	width: 100%;
@@ -1720,11 +1770,6 @@ a {
 textarea {
 	-webkit-text-fill-color: #5A3E2B;
 	color: #5A3E2B;
-}
-
-.form__input.wpcf7-form-control:-webkit-autofill {
-	-webkit-transition: background-color 5000s ease-in-out 0s;
-	transition: background-color 5000s ease-in-out 0s;
 }
 
 .form__input--select:focus-visible,
@@ -3808,6 +3853,39 @@ html {
 
 .price-layout {
 	margin-top: 8.75rem;
+}
+
+.reservation-layout {
+	margin-top: 9.375rem;
+}
+
+.reservation::before {
+	height: 8.625rem;
+	left: calc(50% - min(38.75rem, 48%));
+	top: -4.375rem;
+	width: 18.8125rem;
+}
+
+.reservation__error {
+	max-width: none;
+	padding-bottom: 2.9375rem;
+	padding-left: 0;
+	text-align: center;
+}
+
+.reservation__error br,
+.reservation__thanks-body br {
+	display: none;
+}
+
+.reservation__body,
+.wpcf7-form {
+	margin: 0 auto;
+	max-width: 43.75rem;
+}
+
+.reservation__thanks-body {
+	margin-top: 2.5rem;
 }
 
 .voice-layout {

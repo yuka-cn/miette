@@ -1,0 +1,76 @@
+@use "global" as *;
+
+.reservation {
+  position: relative;
+}
+
+.reservation::before {
+  content: "";
+  position: absolute;
+  top: rem(-27);
+  left: rem(15);
+  width: rem(120);
+  height: rem(55);
+  background-image: url(../images/common/embellishment_3.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 0;
+  @include mq(md) {
+    top: rem(-70);
+    left: calc(50% - min(rem(620),48%));
+    width: rem(301);
+    height: rem(138);
+  }
+}
+
+.reservation__inner{
+  position: relative;
+  z-index: 1;
+}
+
+.reservation__error{
+  display: none;
+  font-size: rem(14);
+  max-width: 16em;
+  margin: 0 auto;
+  padding-bottom: rem(52);
+  padding-left: 1em;
+  text-indent: -1em;
+  line-height: 1;
+  color: #dc3232;
+  @include mq("md"){
+    max-width: none;
+    padding-bottom: rem(47);
+    padding-left: 0;
+    text-align: center;
+  }
+}
+
+.reservation__error br,
+.reservation__thanks-body br{
+  @include mq("md"){
+  display: none;
+  }
+}
+
+.reservation__body,
+.wpcf7-form{
+  @include mq("md"){
+    margin: 0 auto;
+    max-width: rem(700);
+  }
+}
+
+.reservation__thanks-title{
+  text-align: center;
+  line-height: 1;
+}
+
+.reservation__thanks-body{
+  margin-top: rem(39);
+  text-align: center;
+  line-height: 2;
+  @include mq("md"){
+    margin-top: rem(40);
+  }
+}

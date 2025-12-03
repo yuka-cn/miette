@@ -34,6 +34,13 @@ if ($template === 'home.php' || $post_type === 'post') {
   $header_title = 'お問い合わせ';
 
 // ----------------------
+// reservationページ
+} elseif ($slug === 'reservation' || $slug === 'thanks') {
+  $header_pc = get_theme_file_uri('/assets/images/pages/mv-reservation_pc.jpg');
+  $header_sp = get_theme_file_uri('/assets/images/pages/mv-reservation_sp.jpg');
+  $header_title = 'レッスン予約';
+
+// ----------------------
 // その他ページ
 } else {
     switch ($slug) {
