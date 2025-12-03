@@ -132,15 +132,12 @@ jQuery(function ($) {
       slidesPerView: "auto",
       loop: true,
       loopedSlides: 4,
+      speed: 3000,
       autoHeight: true,
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"
       },
-      // autoplay: {
-      //   delay: 2000,
-      //   disableOnInteraction: false
-      // }
       a11y: {
         enabled: true,
         prevSlideMessage: '前へ',
