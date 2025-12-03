@@ -735,7 +735,7 @@ a {
 }
 
 .page-contact__thanks-body {
-	line-height: 1.45;
+	line-height: 2;
 	margin-top: 2.4375rem;
 	text-align: center;
 }
@@ -1559,7 +1559,7 @@ a {
 
 .form__row {
 	grid-gap: 1.25rem;
-	border-bottom: 1px dotted #E8B4B8;
+	border-bottom: 1px dotted #A89484;
 	display: grid;
 	gap: 1.25rem;
 	grid-template-columns: repeat(1, 1fr);
@@ -1572,12 +1572,12 @@ a {
 }
 
 .form__label {
-	font-weight: 700;
 	line-height: 1;
 }
 
 .form__label span {
-	background: #C94800;
+	background: #E08A94;
+	border-radius: 0.5em;
 	color: #fff;
 	font-size: 0.75rem;
 	font-weight: 400;
@@ -1587,10 +1587,20 @@ a {
 }
 
 .form__input {
-	border: 1px solid #E8B4B8;
+	background: #fff;
+	border: 1px solid #A89484;
+	border-radius: 0.5em;
 	height: 2.5rem;
 	padding: 0.5rem 0.9375rem 0.875rem;
 	width: 100%;
+}
+
+.form__input.wpcf7-form-control:-webkit-autofill,
+textarea {
+	-webkit-transition: background-color 5000s ease-in-out 0s;
+	-webkit-text-fill-color: #5A3E2B;
+	color: #5A3E2B;
+	transition: background-color 5000s ease-in-out 0s;
 }
 
 .form__input--select {
@@ -1604,23 +1614,23 @@ a {
 }
 
 .form__input::-moz-placeholder {
-	color: #DDF0F1;
+	color: #CFC1B9;
 }
 
 .form__input::-webkit-input-placeholder {
-	color: #DDF0F1;
+	color: #CFC1B9;
 }
 
 .form__input:-ms-input-placeholder {
-	color: #DDF0F1;
+	color: #CFC1B9;
 }
 
 .form__input::-ms-input-placeholder {
-	color: #DDF0F1;
+	color: #CFC1B9;
 }
 
 .form__input::placeholder {
-	color: #DDF0F1;
+	color: #CFC1B9;
 }
 
 .form__input-wrapper {
@@ -1630,7 +1640,7 @@ a {
 .form__input-wrapper::after {
 	border-left: 0.3125rem solid transparent;
 	border-right: 0.3125rem solid transparent;
-	border-top: 0.625rem solid #E8B4B8;
+	border-top: 0.625rem solid #A89484;
 	content: "";
 	height: 0;
 	opacity: 1;
@@ -1688,7 +1698,8 @@ a {
 .form__checkbox input[type=checkbox],
 .form__agreement input[type=checkbox] {
 	all: unset;
-	border: 1px solid #E8B4B8;
+	background: #fff;
+	border: 1px solid #A89484;
 	cursor: pointer;
 	position: relative;
 }
@@ -1707,7 +1718,7 @@ a {
 
 .form__checkbox input[type=checkbox]:checked::after,
 .form__agreement input[type=checkbox]:checked::after {
-	border: solid #C94800;
+	border: solid #E08A94;
 	border-width: 0 2px 2px 0;
 	content: "";
 	left: 50%;
@@ -1738,8 +1749,8 @@ a {
 }
 
 .form__row--error .form__input {
-	background: rgba(201, 72, 0, 0.2);
-	border: 1px solid #C94800;
+	background: rgba(224, 138, 148, 0.2);
+	border: 1px solid #E08A94;
 }
 
 .form__row--error .form__input::-moz-placeholder {
@@ -1764,8 +1775,8 @@ a {
 
 .form__row--error .form__checkbox input[type=checkbox],
 .form__agreement--error input[type=checkbox] {
-	background: rgba(201, 72, 0, 0.2);
-	border: 1px solid #C94800;
+	background: rgba(224, 138, 148, 0.2);
+	border: 1px solid #E08A94;
 }
 
 .form__input--select:focus-visible,
@@ -3782,7 +3793,6 @@ html {
 }
 
 .page-contact__thanks-body {
-	line-height: 1.2;
 	margin-top: 2.5rem;
 }
 

@@ -69,9 +69,8 @@
 .page-contact__thanks-body{
   margin-top: rem(39);
   text-align: center;
-  line-height: 1.45;
+  line-height: 2;
   @include mq("md"){
     margin-top: rem(40);
-    line-height: 1.2;
   }
 }
