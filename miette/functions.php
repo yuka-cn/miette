@@ -224,43 +224,98 @@ function wpcf7_autop_return_false() {
   return false;
 }
 
-// CF7のドロップダウンメニューの選択肢を「キャンペーン」から挿入
-function add_campaign_titles_to_cf7($tag) {
-  // 対象タグ名を確認
-  if ($tag['name'] !== 'campaign') {
-    return $tag;
+// レッスン予約の日程取得
+function get_reservation_dates() {
+  $page = get_page_by_path('reservation');
+  if (!$page) return [];
+  $page_id = $page->ID;
+
+  $classes = [
+    'ベーシッククラス' => 'reservation_basic',
+    '季節のおやつクラス' => 'reservation_seasonal',
+    '親子クラス' => 'reservation_parent_child'
+  ];
+
+  $results = [];
+
+  foreach ($classes as $class_label => $class_field) {
+    $class_data = get_field($class_field, $page_id);
+    if (!$class_data) continue;
+
+    for ($i = 1; $i <= 4; $i++) {
+      if (empty($class_data['date_'.$i]['date'])) continue;
+
+      $raw_date  = $class_data['date_'.$i]['date'];
+      $status    = $class_data['date_'.$i]['status'];
+      $timestamp = strtotime($raw_date);
+
+      $display_date = date_i18n('Y/m/j(D) H:i〜', $timestamp);
+
+      $results[] = [
+        'class'     => $class_label,
+        'timestamp' => $timestamp,
+        'label'     => $display_date . '（' . $status . '）'
+      ];
+    }
   }
 
-  // カスタム投稿「campaign」から投稿を取得
-  $args = array(
-    'post_type'      => 'campaign',
-    'posts_per_page' => -1,
-    'post_status'    => 'publish',
-  );
-  $posts = get_posts($args);
+  return $results;
+}
 
-  if (!$posts) return $tag;
+// CF7レッスン予約の希望日程の選択肢に反映
+add_filter('wpcf7_form_tag', 'schedule_to_cf7');
 
-  // 投稿タイトルを選択肢として追加
-  $titles = [];
-  foreach ($posts as $post) {
-    $titles[] = get_the_title($post->ID);
+function schedule_to_cf7($tag) {
+  if ($tag['name'] !== 'schedule') return $tag;
+
+  $dates = get_reservation_dates();
+  
+  // 日付順に並び替え
+  usort($dates, function($a, $b) {
+    return $a['timestamp'] <=> $b['timestamp'];
+  });
+
+  // 選択肢を作成して反映
+  $options = ['以下から選択してください'];
+  foreach ($dates as $item) {
+    $options[] = $item['label'];
   }
 
-  // 重複を除外して（もし同名タイトルがある場合）
-  $unique_titles = array_unique($titles);
-
-  // 先頭に「キャンペーン内容を選択」を追加
-  array_unshift($unique_titles, 'キャンペーン内容を選択');
-
-  // CF7に値を渡す
-  $tag['raw_values'] = $unique_titles;
-  $tag['values'] = $unique_titles;
-  $tag['labels'] = $unique_titles;
+  $tag['raw_values'] = $options;
+  $tag['values']     = $options;
+  $tag['labels']     = $options;
 
   return $tag;
 }
-add_filter('wpcf7_form_tag', 'add_campaign_titles_to_cf7');
+
+// JS
+add_action('wp_ajax_get_class_dates', 'ajax_get_class_dates');
+add_action('wp_ajax_nopriv_get_class_dates', 'ajax_get_class_dates');
+
+function ajax_get_class_dates() {
+
+  $class_name = $_POST['class_name'] ?? '';
+
+  $dates = get_reservation_dates();
+
+  // クラスで絞り込み
+  $filtered = array_filter($dates, function($item) use ($class_name) {
+    return $item['class'] === $class_name;
+  });
+
+  // 並び替え
+  usort($filtered, function($a, $b) {
+    return $a['timestamp'] <=> $b['timestamp'];
+  });
+
+  // ラベル化
+  $options = array_map(function($item) {
+    return $item['label'];
+  }, $filtered);
+
+  wp_send_json($options);
+}
+
 
 // CF7送信後リダイレクト用のカスタムJSを読み込み
 function enqueue_my_cf7_script() {

@@ -349,7 +349,7 @@ jQuery(function ($) {
     });
   });
 
-  //contact
+  //contact,reservation
   //独自送信ボタン
   var submitBtn = document.getElementById('submit');
   if (submitBtn) {
@@ -412,5 +412,27 @@ jQuery(function ($) {
   //送信成功時の処理
   document.addEventListener('wpcf7mailsent', function (event) {
     window.location.href = mySite.homeUrl + '/thanks/';
+  });
+});
+
+//
+$('input[name="lesson"]').on('change', function () {
+  var className = $(this).val();
+  var select = $('#schedule');
+  select.empty().append('<option>読み込み中...</option>');
+  $.ajax({
+    url: ajaxurl,
+    type: 'POST',
+    data: {
+      action: 'get_class_dates',
+      class_name: className
+    },
+    success: function success(options) {
+      select.empty();
+      select.append('<option value="">以下から選択してください</option>');
+      options.forEach(function (opt) {
+        select.append('<option>' + opt + '</option>');
+      });
+    }
   });
 });

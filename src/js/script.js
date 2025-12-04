@@ -286,7 +286,7 @@ jQuery(function ($) {
     });
   }
 
-  //ハッシュリンク対応スクロール
+//ハッシュリンク対応スクロール
   function scrollToHash() {
     const hash = window.location.hash;
     if (!hash) return;
@@ -356,7 +356,7 @@ document.querySelectorAll('.archive-list__year-button').forEach(button => {
 
 
 
-//contact
+//contact,reservation
   //独自送信ボタン
   const submitBtn = document.getElementById('submit');
   if (submitBtn) {
@@ -415,5 +415,29 @@ document.querySelectorAll('.archive-list__year-button').forEach(button => {
   //送信成功時の処理
   document.addEventListener('wpcf7mailsent', function(event) {
     window.location.href = mySite.homeUrl + '/thanks/';
+  });
+});
+
+//
+$('input[name="lesson"]').on('change', function () {
+  const className = $(this).val();
+  const select = $('#schedule');
+
+  select.empty().append('<option>読み込み中...</option>');
+
+  $.ajax({
+    url: ajaxurl,
+    type: 'POST',
+    data: {
+      action: 'get_class_dates',
+      class_name: className
+    },
+    success: function (options) {
+      select.empty();
+      select.append('<option value="">以下から選択してください</option>');
+      options.forEach(function (opt) {
+        select.append('<option>' + opt + '</option>');
+      });
+    }
   });
 });
