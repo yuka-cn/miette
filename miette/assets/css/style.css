@@ -1734,6 +1734,10 @@ a {
 	width: 0.5rem;
 }
 
+.form__agreement a {
+	border-bottom: 0.08em solid;
+}
+
 .form__participants {
 	display: grid;
 	grid-template-columns: 50% 50%;

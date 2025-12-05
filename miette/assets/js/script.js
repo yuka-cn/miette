@@ -161,7 +161,8 @@ jQuery(function ($) {
   //     }
   //   }
 
-  //
+  // reservaiton
+  // 　選択クラスに応じて日程を更新する
   $('input[name="lesson_class"]').on('change', function () {
     var className = $(this).val();
     var select = $('#schedule');
@@ -333,25 +334,22 @@ document.querySelectorAll('.archive-list__year-button').forEach(function (button
 });
 
 //contact,reservation
-//独自送信ボタン
-var submitBtn = document.getElementById('submit');
-if (submitBtn) {
-  submitBtn.addEventListener('click', function () {
-    var form = document.getElementById('my-cf7-form');
-    if (form) {
-      var submitEvent = new Event('submit', {
-        bubbles: true,
-        cancelable: true
-      });
-      form.dispatchEvent(submitEvent);
-    }
-  });
-}
+// //独自送信ボタン
+// const submitBtn = document.getElementById('submit');
+// if (submitBtn) {
+//   submitBtn.addEventListener('click', function() {
+//     const form = document.getElementById('my-cf7-form');
+//     if (form) {
+//       const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
+//       form.dispatchEvent(submitEvent);
+//     }
+//   });
+// }
 
 //エラー時の処理
 document.addEventListener('wpcf7invalid', function () {
   //エラーメッセージの表示
-  var errorContainer = document.querySelector('.contact__error');
+  var errorContainer = document.querySelector('.contact__error') || document.querySelector('.reservation__error');
   if (errorContainer) {
     errorContainer.innerHTML = '※必須項目が入力されていません。<br>入力してください。';
     errorContainer.style.display = 'block';
