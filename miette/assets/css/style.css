@@ -1556,7 +1556,7 @@ a {
 	border-bottom: 1px dotted #A89484;
 	display: grid;
 	gap: 1.25rem;
-	grid-template-columns: repeat(1, 1fr);
+	grid-template-columns: 1fr;
 	padding: 1.5625rem 0;
 	position: relative;
 }
@@ -1582,11 +1582,11 @@ a {
 
 .form__input {
 	background: #fff;
-	border: 1px solid #A89484;
+	border: 0.08em solid #A89484;
 	border-radius: 0.5em;
 	color: #5A3E2B;
 	height: 2.5rem;
-	padding: 0.5rem 0.9375rem 0.875rem;
+	padding: 0.625rem 0.9375rem 0.625rem;
 	width: 100%;
 }
 
@@ -1627,7 +1627,7 @@ a {
 .form__input-wrapper::after {
 	border-left: 0.3125rem solid transparent;
 	border-right: 0.3125rem solid transparent;
-	border-top: 0.625rem solid #A89484;
+	border-top: 0.5rem solid #A89484;
 	content: "";
 	height: 0;
 	opacity: 1;
@@ -1642,7 +1642,7 @@ a {
 	width: 0;
 }
 
-.form__checkbox {
+.form__radio {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -1653,7 +1653,7 @@ a {
 	gap: 0.1875rem;
 }
 
-.form__checkbox label {
+.form__radio label {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
@@ -1682,31 +1682,45 @@ a {
 	justify-content: center;
 }
 
-.form__checkbox input[type=checkbox],
+.form__radio input[type=radio],
 .form__agreement input[type=checkbox] {
 	all: unset;
 	background: #fff;
-	border: 1px solid #A89484;
+	border: 0.08em solid #A89484;
 	cursor: pointer;
 	position: relative;
 }
 
-.form__checkbox input[type=checkbox] {
+.form__radio input[type=radio] {
+	border-radius: 50%;
 	height: 0.75rem;
 	width: 0.75rem;
 }
 
 .form__agreement input[type=checkbox] {
+	border-radius: 0.5em;
 	height: 1.25rem;
 	-webkit-transform: translateY(-0.125rem);
 	transform: translateY(-0.125rem);
 	width: 1.25rem;
 }
 
-.form__checkbox input[type=checkbox]:checked::after,
+.form__radio input[type=radio]:checked::after {
+	background: #E08A94;
+	border-radius: 50%;
+	content: "";
+	height: 0.5rem;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	width: 0.5rem;
+}
+
 .form__agreement input[type=checkbox]:checked::after {
 	border: solid #E08A94;
-	border-width: 0 2px 2px 0;
+	border-width: 0 0.16em 0.16em 0;
 	content: "";
 	left: 50%;
 	position: absolute;
@@ -1715,14 +1729,25 @@ a {
 	transform: translate(-50%, -50%) rotate(55deg);
 }
 
-.form__checkbox input[type=checkbox]:checked::after {
-	height: 0.625rem;
-	width: 0.3125rem;
-}
-
 .form__agreement input[type=checkbox]:checked::after {
 	height: 1rem;
 	width: 0.5rem;
+}
+
+.form__participants {
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+.form__participant {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	gap: 0.75rem;
+}
+
+.form__participant select {
+	width: 5.625rem;
 }
 
 .form__button {
@@ -1737,7 +1762,7 @@ a {
 
 .form__row--error .form__input {
 	background: rgba(224, 138, 148, 0.2);
-	border: 1px solid #E08A94;
+	border: 0.08em solid #E08A94;
 }
 
 .form__row--error .form__input::-moz-placeholder {
@@ -1760,10 +1785,12 @@ a {
 	color: #fff;
 }
 
+.form__row--error select,
+.form__row--error .form__radio input[type=radio],
 .form__row--error .form__checkbox input[type=checkbox],
 .form__agreement--error input[type=checkbox] {
 	background: rgba(224, 138, 148, 0.2);
-	border: 1px solid #E08A94;
+	border: 0.08em solid #E08A94;
 }
 
 .form__input.wpcf7-form-control:-webkit-autofill,
@@ -4072,8 +4099,8 @@ html {
 	gap: 1rem;
 }
 
-.form__agreement br {
-	display: none;
+.form__participant select {
+	width: 7.5rem;
 }
 
 .form__button {

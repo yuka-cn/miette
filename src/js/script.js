@@ -98,6 +98,101 @@ jQuery(function ($) {
     }
   });
 
+// topへ戻るボタン
+  let topBtn = $(".to-top");
+  topBtn.hide();
+
+  // ボタンの表示設定
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 90) {
+      // 指定px以上のスクロールでボタンを表示
+      topBtn.fadeIn();
+    } else {
+      // 画面が指定pxより上ならボタンを非表示
+      topBtn.fadeOut();
+    }
+  });
+
+  // ボタンをクリックしたらスクロールして上に戻る
+  topBtn.click(function () {
+    $("body,html").animate(
+      {
+        scrollTop: 0,
+      },
+      300,
+      "swing"
+    );
+    return false;
+  });
+
+
+// // aboutページのモーダル
+//   const modal = document.getElementById('modal');
+//   if (modal) {
+//     const overlay = modal.querySelector('.modal__overlay');
+//     const backgroundInner = modal.querySelector('.modal__background .inner');
+//     const content = modal.querySelector('.modal__content');
+
+//   // クリック時の処理
+//     if (window.innerWidth >= 768) {
+//     document.querySelectorAll('.gallery__item img').forEach(img => {
+//       img.addEventListener('click', () => {
+//         const column = img.closest('.gallery__column');
+//         if (!column) return;
+//         // モーダル内に画像を複製
+//         const clickedImg = img.cloneNode(true);
+//         content.innerHTML = '';
+//         content.appendChild(clickedImg);
+//         // 背景として.gallery__columnを複製
+//         backgroundInner.innerHTML = '';
+//         backgroundInner.appendChild(column.cloneNode(true));
+//         // モーダル表示 + スクロール禁止
+//         document.body.style.overflow = 'hidden';
+//         modal.setAttribute('aria-hidden', 'false');
+//       });
+//     });
+
+//   // 閉じる処理
+//     function closeModal() {
+//       modal.setAttribute('aria-hidden', 'true');
+//       content.innerHTML = '';
+//       backgroundInner.innerHTML = '';
+//       document.body.style.overflow = '';
+//     }
+//     overlay.addEventListener('click', closeModal);
+//     document.addEventListener('keydown', (e) => {
+//       if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+//         closeModal();
+//         }
+//       });
+//     }
+//   }
+  
+  //
+  $('input[name="lesson_class"]').on('change', function () {
+    const className = $(this).val();
+    const select = $('#schedule');
+    
+    select.empty();
+    
+    $.ajax({
+      url: wpAjax.ajaxurl,
+      type: 'POST',
+      data: {
+        action: 'get_class_dates',
+        class_name: className
+      },
+      success: function (options) {
+        select.empty();
+        select.append('<option value="">以下から選択してください</option>');
+        options.forEach(function (opt) {
+          select.append('<option>' + opt + '</option>');
+        });
+      }
+    });
+  });
+});
+
 // レッスンメニューカードのスライダー
   // inner幅の基準値を設定
   const INNER_WIDTH = 1080;
@@ -158,112 +253,7 @@ jQuery(function ($) {
   // リサイズ時にSwiperを再初期化
   window.addEventListener("resize", initSwiper);
 
-// 画像アニメーション
-  // 要素の取得とスピードの設定
-  let imageAnimation = $(".information__image, .voice-card__image, .price__image"),
-    speed = 700;
-
-  // ..information__image, .voice-card__image, .price__image の付いた全ての要素に対して処理を行う
-  if (imageAnimation.length) {
-    imageAnimation.each(function () {
-      let $this = $(this);
-
-      // <div class="color"></div> を追加
-      $this.append('<div class="color"></div>');
-
-      let color = $this.find(".color"),
-        image = $this.find("img"),
-        counter = 0;
-
-      // 初期スタイル設定
-      image.css("opacity", "0");
-      color.css("width", "0%");
-
-      // inviewイベントを適用（背景色が画面に現れたら処理をする）
-      $this.on("inview", function (event, isInView) {
-        if (isInView && counter === 0) {
-          color.delay(200).animate({ width: "100%" }, speed, function () {
-            image.css("opacity", "1");
-            $(this).css({ left: "0", right: "auto" });
-            $(this).animate({ width: "0%" }, speed);
-          });
-          counter = 1; // 2回目の起動を制御
-        }
-      });
-    });
-  }
-
-// topへ戻るボタン
-  let topBtn = $(".to-top");
-  topBtn.hide();
-
-  // ボタンの表示設定
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 90) {
-      // 指定px以上のスクロールでボタンを表示
-      topBtn.fadeIn();
-    } else {
-      // 画面が指定pxより上ならボタンを非表示
-      topBtn.fadeOut();
-    }
-  });
-
-  // ボタンをクリックしたらスクロールして上に戻る
-  topBtn.click(function () {
-    $("body,html").animate(
-      {
-        scrollTop: 0,
-      },
-      300,
-      "swing"
-    );
-    return false;
-  });
-
-
-// aboutページのモーダル
-  const modal = document.getElementById('modal');
-  if (modal) {
-    const overlay = modal.querySelector('.modal__overlay');
-    const backgroundInner = modal.querySelector('.modal__background .inner');
-    const content = modal.querySelector('.modal__content');
-
-  // クリック時の処理
-    if (window.innerWidth >= 768) {
-    document.querySelectorAll('.gallery__item img').forEach(img => {
-      img.addEventListener('click', () => {
-        const column = img.closest('.gallery__column');
-        if (!column) return;
-        // モーダル内に画像を複製
-        const clickedImg = img.cloneNode(true);
-        content.innerHTML = '';
-        content.appendChild(clickedImg);
-        // 背景として.gallery__columnを複製
-        backgroundInner.innerHTML = '';
-        backgroundInner.appendChild(column.cloneNode(true));
-        // モーダル表示 + スクロール禁止
-        document.body.style.overflow = 'hidden';
-        modal.setAttribute('aria-hidden', 'false');
-      });
-    });
-
-  // 閉じる処理
-    function closeModal() {
-      modal.setAttribute('aria-hidden', 'true');
-      content.innerHTML = '';
-      backgroundInner.innerHTML = '';
-      document.body.style.overflow = '';
-    }
-    overlay.addEventListener('click', closeModal);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
-        closeModal();
-        }
-      });
-    }
-  }
-
-// informationのタブ
+  // lesson-guideのタブ
   const tabButtons = document.querySelectorAll(".tab-button");
   const tabPanels = document.querySelectorAll(".tab-panel");
   
@@ -354,8 +344,6 @@ document.querySelectorAll('.archive-list__year-button').forEach(button => {
   });
 });
 
-
-
 //contact,reservation
   //独自送信ボタン
   const submitBtn = document.getElementById('submit');
@@ -416,28 +404,3 @@ document.querySelectorAll('.archive-list__year-button').forEach(button => {
   document.addEventListener('wpcf7mailsent', function(event) {
     window.location.href = mySite.homeUrl + '/thanks/';
   });
-});
-
-//
-$('input[name="lesson"]').on('change', function () {
-  const className = $(this).val();
-  const select = $('#schedule');
-
-  select.empty().append('<option>読み込み中...</option>');
-
-  $.ajax({
-    url: ajaxurl,
-    type: 'POST',
-    data: {
-      action: 'get_class_dates',
-      class_name: className
-    },
-    success: function (options) {
-      select.empty();
-      select.append('<option value="">以下から選択してください</option>');
-      options.forEach(function (opt) {
-        select.append('<option>' + opt + '</option>');
-      });
-    }
-  });
-});

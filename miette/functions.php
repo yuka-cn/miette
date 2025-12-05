@@ -14,7 +14,8 @@ add_action('after_setup_theme', 'miette_theme_setup');
 
 // アセット読み込み
 function miette_enqueue_assets() {
-  $theme_uri = get_theme_file_uri();
+  // $theme_uri = get_theme_file_uri();
+  $theme_uri = get_template_directory_uri(); 
   $theme_version = wp_get_theme()->get('Version');
 
   // Google Fonts
@@ -42,6 +43,9 @@ function miette_enqueue_assets() {
 
   // メインJS（ローカル）
   wp_enqueue_script('miette-script', $theme_uri . '/assets/js/script.js', ['jquery'], $theme_version, true);
+
+  // ajaxurl
+  wp_localize_script('miette-script', 'wpAjax', ['ajaxurl' => admin_url('admin-ajax.php')]);
 }
 add_action('wp_enqueue_scripts', 'miette_enqueue_assets');
 
@@ -288,7 +292,7 @@ function schedule_to_cf7($tag) {
   return $tag;
 }
 
-// JS
+// AJAX（JS → PHP）: 選択されたクラスに応じて日付を返す
 add_action('wp_ajax_get_class_dates', 'ajax_get_class_dates');
 add_action('wp_ajax_nopriv_get_class_dates', 'ajax_get_class_dates');
 

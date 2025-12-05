@@ -96,103 +96,6 @@ jQuery(function ($) {
     }
   });
 
-  // レッスンメニューカードのスライダー
-  // inner幅の基準値を設定
-  var INNER_WIDTH = 1080;
-
-  // SwiperのspaceBetweenを計算
-  function getSpaceBetween() {
-    var windowWidth = window.innerWidth;
-    if (windowWidth <= 375) {
-      return windowWidth * (10.6 / 100); // 375px以下は 10.6vw ←(40px/375px)×100
-    } else if (windowWidth > 375 && windowWidth < 768) {
-      return 40; // 376px〜767px は固定 24px
-    } else if (windowWidth >= 768 && windowWidth < INNER_WIDTH) {
-      return windowWidth * (7.4 / 100); // 768px〜inner幅未満は 7.4vw ←(80px/1080px)×100
-    } else {
-      return 80; // inner幅以上は固定 80px
-    }
-  }
-
-  // Swiperインスタンスを管理する変数
-  var lessonSwiper;
-  function initSwiper() {
-    if (!document.querySelector(".js-lessonSwiper")) return;
-    // 既存のSwiperを削除
-    if (lessonSwiper) {
-      lessonSwiper.destroy(true, true);
-    }
-
-    // 計算した spaceBetween を適用
-    var spaceBetweenValue = getSpaceBetween();
-
-    // Swiperを再初期化
-    lessonSwiper = new Swiper(".js-lessonSwiper", {
-      spaceBetween: spaceBetweenValue,
-      slidesPerView: "auto",
-      loop: true,
-      loopedSlides: 4,
-      speed: 3000,
-      autoHeight: true,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
-      },
-      a11y: {
-        enabled: true,
-        prevSlideMessage: '前へ',
-        nextSlideMessage: '次へ'
-      }
-    });
-  }
-
-  // 初回実行
-  initSwiper();
-
-  // リサイズ時にSwiperを再初期化
-  window.addEventListener("resize", initSwiper);
-
-  // 画像アニメーション
-  // 要素の取得とスピードの設定
-  var imageAnimation = $(".information__image, .voice-card__image, .price__image"),
-    speed = 700;
-
-  // ..information__image, .voice-card__image, .price__image の付いた全ての要素に対して処理を行う
-  if (imageAnimation.length) {
-    imageAnimation.each(function () {
-      var $this = $(this);
-
-      // <div class="color"></div> を追加
-      $this.append('<div class="color"></div>');
-      var color = $this.find(".color"),
-        image = $this.find("img"),
-        counter = 0;
-
-      // 初期スタイル設定
-      image.css("opacity", "0");
-      color.css("width", "0%");
-
-      // inviewイベントを適用（背景色が画面に現れたら処理をする）
-      $this.on("inview", function (event, isInView) {
-        if (isInView && counter === 0) {
-          color.delay(200).animate({
-            width: "100%"
-          }, speed, function () {
-            image.css("opacity", "1");
-            $(this).css({
-              left: "0",
-              right: "auto"
-            });
-            $(this).animate({
-              width: "0%"
-            }, speed);
-          });
-          counter = 1; // 2回目の起動を制御
-        }
-      });
-    });
-  }
-
   // topへ戻るボタン
   var topBtn = $(".to-top");
   topBtn.hide();
@@ -216,223 +119,280 @@ jQuery(function ($) {
     return false;
   });
 
-  // aboutページのモーダル
-  var modal = document.getElementById('modal');
-  if (modal) {
-    var overlay = modal.querySelector('.modal__overlay');
-    var backgroundInner = modal.querySelector('.modal__background .inner');
-    var content = modal.querySelector('.modal__content');
+  // // aboutページのモーダル
+  //   const modal = document.getElementById('modal');
+  //   if (modal) {
+  //     const overlay = modal.querySelector('.modal__overlay');
+  //     const backgroundInner = modal.querySelector('.modal__background .inner');
+  //     const content = modal.querySelector('.modal__content');
 
-    // クリック時の処理
-    if (window.innerWidth >= 768) {
-      // 閉じる処理
-      var closeModal = function closeModal() {
-        modal.setAttribute('aria-hidden', 'true');
-        content.innerHTML = '';
-        backgroundInner.innerHTML = '';
-        document.body.style.overflow = '';
-      };
-      document.querySelectorAll('.gallery__item img').forEach(function (img) {
-        img.addEventListener('click', function () {
-          var column = img.closest('.gallery__column');
-          if (!column) return;
-          // モーダル内に画像を複製
-          var clickedImg = img.cloneNode(true);
-          content.innerHTML = '';
-          content.appendChild(clickedImg);
-          // 背景として.gallery__columnを複製
-          backgroundInner.innerHTML = '';
-          backgroundInner.appendChild(column.cloneNode(true));
-          // モーダル表示 + スクロール禁止
-          document.body.style.overflow = 'hidden';
-          modal.setAttribute('aria-hidden', 'false');
+  //   // クリック時の処理
+  //     if (window.innerWidth >= 768) {
+  //     document.querySelectorAll('.gallery__item img').forEach(img => {
+  //       img.addEventListener('click', () => {
+  //         const column = img.closest('.gallery__column');
+  //         if (!column) return;
+  //         // モーダル内に画像を複製
+  //         const clickedImg = img.cloneNode(true);
+  //         content.innerHTML = '';
+  //         content.appendChild(clickedImg);
+  //         // 背景として.gallery__columnを複製
+  //         backgroundInner.innerHTML = '';
+  //         backgroundInner.appendChild(column.cloneNode(true));
+  //         // モーダル表示 + スクロール禁止
+  //         document.body.style.overflow = 'hidden';
+  //         modal.setAttribute('aria-hidden', 'false');
+  //       });
+  //     });
+
+  //   // 閉じる処理
+  //     function closeModal() {
+  //       modal.setAttribute('aria-hidden', 'true');
+  //       content.innerHTML = '';
+  //       backgroundInner.innerHTML = '';
+  //       document.body.style.overflow = '';
+  //     }
+  //     overlay.addEventListener('click', closeModal);
+  //     document.addEventListener('keydown', (e) => {
+  //       if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+  //         closeModal();
+  //         }
+  //       });
+  //     }
+  //   }
+
+  //
+  $('input[name="lesson_class"]').on('change', function () {
+    var className = $(this).val();
+    var select = $('#schedule');
+    select.empty();
+    $.ajax({
+      url: wpAjax.ajaxurl,
+      type: 'POST',
+      data: {
+        action: 'get_class_dates',
+        class_name: className
+      },
+      success: function success(options) {
+        select.empty();
+        select.append('<option value="">以下から選択してください</option>');
+        options.forEach(function (opt) {
+          select.append('<option>' + opt + '</option>');
         });
-      });
-      overlay.addEventListener('click', closeModal);
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
-          closeModal();
-        }
-      });
-    }
-  }
-
-  // informationのタブ
-  var tabButtons = document.querySelectorAll(".tab-button");
-  var tabPanels = document.querySelectorAll(".tab-panel");
-  if (tabButtons.length && tabPanels.length) {
-    tabButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        var targetId = this.getAttribute("data-target");
-        var targetPanel = document.querySelector(targetId);
-
-        // ボタンのactive切り替え
-        tabButtons.forEach(function (btn) {
-          return btn.classList.remove("is-active");
-        });
-        this.classList.add("is-active");
-
-        // パネルの表示切り替え
-        tabPanels.forEach(function (panel) {
-          return panel.classList.remove("is-active");
-        });
-        if (targetPanel) {
-          targetPanel.classList.add("is-active");
-        }
-      });
-    });
-  }
-
-  //ハッシュリンク対応スクロール
-  function scrollToHash() {
-    var hash = window.location.hash;
-    if (!hash) return;
-    var headerOffset = document.querySelector('header').offsetHeight;
-
-    //informationページ
-    var targetTabButton = document.querySelector("[data-target=\"".concat(hash, "\"]"));
-    var targetPanel = document.querySelector(hash);
-    if (targetTabButton && targetPanel) {
-      document.querySelectorAll('.tab-button.is-active, .tab-panel.is-active').forEach(function (el) {
-        el.classList.remove('is-active');
-      });
-      targetTabButton.classList.add('is-active');
-      targetPanel.classList.add('is-active');
-      var buttonTop = targetTabButton.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({
-        top: buttonTop - headerOffset,
-        behavior: 'smooth'
-      });
-    } else {
-      //priceページ
-      var targetSection = document.querySelector(hash);
-      if (targetSection) {
-        var sectionTop = targetSection.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({
-          top: sectionTop - headerOffset,
-          behavior: 'smooth'
-        });
-      }
-    }
-
-    //sp-navが開いていたら閉じる
-    if ($(".sp-nav").hasClass("is-active")) {
-      $(".js-hamburger, .header, .sp-nav").removeClass("is-active");
-      $("body").css("overflow", "auto");
-    }
-  }
-  window.addEventListener('load', scrollToHash);
-  window.addEventListener('hashchange', scrollToHash);
-
-  // サイドバーのアーカイブ開閉
-  document.querySelectorAll('.archive-list__year-button').forEach(function (button) {
-    var year = button.closest('.archive-list__year');
-    var months = year.querySelector('.archive-list__months');
-
-    // 初期状態
-    var isOpen = year.classList.contains('is-open');
-    months.style.height = isOpen ? months.scrollHeight + 'px' : '0';
-    button.setAttribute('aria-expanded', isOpen);
-
-    // クリックイベント
-    button.addEventListener('click', function () {
-      var expanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', String(!expanded));
-      year.classList.toggle('is-open');
-      if (!expanded) {
-        months.style.height = months.scrollHeight + 'px';
-        months.style.opacity = '1';
-      } else {
-        months.style.height = '0';
-        months.style.opacity = '0';
       }
     });
-  });
-
-  //contact,reservation
-  //独自送信ボタン
-  var submitBtn = document.getElementById('submit');
-  if (submitBtn) {
-    submitBtn.addEventListener('click', function () {
-      var form = document.getElementById('my-cf7-form');
-      if (form) {
-        var submitEvent = new Event('submit', {
-          bubbles: true,
-          cancelable: true
-        });
-        form.dispatchEvent(submitEvent);
-      }
-    });
-  }
-
-  //エラー時の処理
-  document.addEventListener('wpcf7invalid', function () {
-    //エラーメッセージの表示
-    var errorContainer = document.querySelector('.contact__error');
-    if (errorContainer) {
-      errorContainer.innerHTML = '※必須項目が入力されていません。<br>入力してください。';
-      errorContainer.style.display = 'block';
-      var headerOffset = document.querySelector('header').offsetHeight;
-      var errorTop = errorContainer.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({
-        top: errorTop - headerOffset,
-        behavior: 'smooth'
-      });
-    }
-
-    //エラー枠の強調
-    setTimeout(function () {
-      document.querySelectorAll('.wpcf7-not-valid').forEach(function (inputEl) {
-        var row = inputEl.closest('.form__row');
-        if (row) row.classList.add('form__row--error');
-      });
-
-      // acceptance チェックボックスの未チェックを直接判定
-      var acceptanceInput = document.querySelector('.form__agreement input[type="checkbox"]');
-      if (acceptanceInput && !acceptanceInput.checked) {
-        var agreement = acceptanceInput.closest('.form__agreement');
-        if (agreement) agreement.classList.add('form__agreement--error');
-      }
-    }, 10);
-  });
-
-  // 入力中にエラー枠の強調を外す
-  document.addEventListener('input', function (event) {
-    var _event$target$closest;
-    var row = event.target.closest('.form__row');
-    if (row && row.classList.contains('form__row--error')) {
-      row.classList.remove('form__row--error');
-    }
-    if (event.target.type === 'checkbox' && (_event$target$closest = event.target.closest('.form__agreement')) !== null && _event$target$closest !== void 0 && _event$target$closest.classList.contains('form__agreement--error')) {
-      var agreement = event.target.closest('.form__agreement');
-      agreement.classList.remove('form__agreement--error');
-    }
-  });
-
-  //送信成功時の処理
-  document.addEventListener('wpcf7mailsent', function (event) {
-    window.location.href = mySite.homeUrl + '/thanks/';
   });
 });
 
-//
-$('input[name="lesson"]').on('change', function () {
-  var className = $(this).val();
-  var select = $('#schedule');
-  select.empty().append('<option>読み込み中...</option>');
-  $.ajax({
-    url: ajaxurl,
-    type: 'POST',
-    data: {
-      action: 'get_class_dates',
-      class_name: className
+// レッスンメニューカードのスライダー
+// inner幅の基準値を設定
+var INNER_WIDTH = 1080;
+
+// SwiperのspaceBetweenを計算
+function getSpaceBetween() {
+  var windowWidth = window.innerWidth;
+  if (windowWidth <= 375) {
+    return windowWidth * (10.6 / 100); // 375px以下は 10.6vw ←(40px/375px)×100
+  } else if (windowWidth > 375 && windowWidth < 768) {
+    return 40; // 376px〜767px は固定 24px
+  } else if (windowWidth >= 768 && windowWidth < INNER_WIDTH) {
+    return windowWidth * (7.4 / 100); // 768px〜inner幅未満は 7.4vw ←(80px/1080px)×100
+  } else {
+    return 80; // inner幅以上は固定 80px
+  }
+}
+
+// Swiperインスタンスを管理する変数
+var lessonSwiper;
+function initSwiper() {
+  if (!document.querySelector(".js-lessonSwiper")) return;
+  // 既存のSwiperを削除
+  if (lessonSwiper) {
+    lessonSwiper.destroy(true, true);
+  }
+
+  // 計算した spaceBetween を適用
+  var spaceBetweenValue = getSpaceBetween();
+
+  // Swiperを再初期化
+  lessonSwiper = new Swiper(".js-lessonSwiper", {
+    spaceBetween: spaceBetweenValue,
+    slidesPerView: "auto",
+    loop: true,
+    loopedSlides: 4,
+    speed: 3000,
+    autoHeight: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
     },
-    success: function success(options) {
-      select.empty();
-      select.append('<option value="">以下から選択してください</option>');
-      options.forEach(function (opt) {
-        select.append('<option>' + opt + '</option>');
-      });
+    a11y: {
+      enabled: true,
+      prevSlideMessage: '前へ',
+      nextSlideMessage: '次へ'
     }
   });
+}
+
+// 初回実行
+initSwiper();
+
+// リサイズ時にSwiperを再初期化
+window.addEventListener("resize", initSwiper);
+
+// lesson-guideのタブ
+var tabButtons = document.querySelectorAll(".tab-button");
+var tabPanels = document.querySelectorAll(".tab-panel");
+if (tabButtons.length && tabPanels.length) {
+  tabButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var targetId = this.getAttribute("data-target");
+      var targetPanel = document.querySelector(targetId);
+
+      // ボタンのactive切り替え
+      tabButtons.forEach(function (btn) {
+        return btn.classList.remove("is-active");
+      });
+      this.classList.add("is-active");
+
+      // パネルの表示切り替え
+      tabPanels.forEach(function (panel) {
+        return panel.classList.remove("is-active");
+      });
+      if (targetPanel) {
+        targetPanel.classList.add("is-active");
+      }
+    });
+  });
+}
+
+//ハッシュリンク対応スクロール
+function scrollToHash() {
+  var hash = window.location.hash;
+  if (!hash) return;
+  var headerOffset = document.querySelector('header').offsetHeight;
+
+  //informationページ
+  var targetTabButton = document.querySelector("[data-target=\"".concat(hash, "\"]"));
+  var targetPanel = document.querySelector(hash);
+  if (targetTabButton && targetPanel) {
+    document.querySelectorAll('.tab-button.is-active, .tab-panel.is-active').forEach(function (el) {
+      el.classList.remove('is-active');
+    });
+    targetTabButton.classList.add('is-active');
+    targetPanel.classList.add('is-active');
+    var buttonTop = targetTabButton.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({
+      top: buttonTop - headerOffset,
+      behavior: 'smooth'
+    });
+  } else {
+    //priceページ
+    var targetSection = document.querySelector(hash);
+    if (targetSection) {
+      var sectionTop = targetSection.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: sectionTop - headerOffset,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  //sp-navが開いていたら閉じる
+  if ($(".sp-nav").hasClass("is-active")) {
+    $(".js-hamburger, .header, .sp-nav").removeClass("is-active");
+    $("body").css("overflow", "auto");
+  }
+}
+window.addEventListener('load', scrollToHash);
+window.addEventListener('hashchange', scrollToHash);
+
+// サイドバーのアーカイブ開閉
+document.querySelectorAll('.archive-list__year-button').forEach(function (button) {
+  var year = button.closest('.archive-list__year');
+  var months = year.querySelector('.archive-list__months');
+
+  // 初期状態
+  var isOpen = year.classList.contains('is-open');
+  months.style.height = isOpen ? months.scrollHeight + 'px' : '0';
+  button.setAttribute('aria-expanded', isOpen);
+
+  // クリックイベント
+  button.addEventListener('click', function () {
+    var expanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!expanded));
+    year.classList.toggle('is-open');
+    if (!expanded) {
+      months.style.height = months.scrollHeight + 'px';
+      months.style.opacity = '1';
+    } else {
+      months.style.height = '0';
+      months.style.opacity = '0';
+    }
+  });
+});
+
+//contact,reservation
+//独自送信ボタン
+var submitBtn = document.getElementById('submit');
+if (submitBtn) {
+  submitBtn.addEventListener('click', function () {
+    var form = document.getElementById('my-cf7-form');
+    if (form) {
+      var submitEvent = new Event('submit', {
+        bubbles: true,
+        cancelable: true
+      });
+      form.dispatchEvent(submitEvent);
+    }
+  });
+}
+
+//エラー時の処理
+document.addEventListener('wpcf7invalid', function () {
+  //エラーメッセージの表示
+  var errorContainer = document.querySelector('.contact__error');
+  if (errorContainer) {
+    errorContainer.innerHTML = '※必須項目が入力されていません。<br>入力してください。';
+    errorContainer.style.display = 'block';
+    var headerOffset = document.querySelector('header').offsetHeight;
+    var errorTop = errorContainer.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({
+      top: errorTop - headerOffset,
+      behavior: 'smooth'
+    });
+  }
+
+  //エラー枠の強調
+  setTimeout(function () {
+    document.querySelectorAll('.wpcf7-not-valid').forEach(function (inputEl) {
+      var row = inputEl.closest('.form__row');
+      if (row) row.classList.add('form__row--error');
+    });
+
+    // acceptance チェックボックスの未チェックを直接判定
+    var acceptanceInput = document.querySelector('.form__agreement input[type="checkbox"]');
+    if (acceptanceInput && !acceptanceInput.checked) {
+      var agreement = acceptanceInput.closest('.form__agreement');
+      if (agreement) agreement.classList.add('form__agreement--error');
+    }
+  }, 10);
+});
+
+// 入力中にエラー枠の強調を外す
+document.addEventListener('input', function (event) {
+  var _event$target$closest;
+  var row = event.target.closest('.form__row');
+  if (row && row.classList.contains('form__row--error')) {
+    row.classList.remove('form__row--error');
+  }
+  if (event.target.type === 'checkbox' && (_event$target$closest = event.target.closest('.form__agreement')) !== null && _event$target$closest !== void 0 && _event$target$closest.classList.contains('form__agreement--error')) {
+    var agreement = event.target.closest('.form__agreement');
+    agreement.classList.remove('form__agreement--error');
+  }
+});
+
+//送信成功時の処理
+document.addEventListener('wpcf7mailsent', function (event) {
+  window.location.href = mySite.homeUrl + '/thanks/';
 });
