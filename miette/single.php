@@ -19,7 +19,7 @@ extract($links, EXTR_SKIP);
           ?>
 
           <article class="blog-single__article blog-article">
-            <header class="blog-article__header">
+            <header class="blog-article__header js-fadeIn">
               <time datetime="<?php echo get_the_date('Y-m-d'); ?>" class="blog-article__date">
                 <?php echo get_the_date('Y.m.d'); ?>
               </time>
@@ -28,11 +28,11 @@ extract($links, EXTR_SKIP);
 
             <div class="blog-article__content">
               <?php if (has_post_thumbnail()) : ?>
-                <figure class="blog-article__figure">
+                <figure class="blog-article__figure js-fadeIn">
                   <?php the_post_thumbnail('large'); ?>
                 </figure>
               <?php endif; ?>
-              <div class="blog-article__text">
+              <div class="blog-article__text js-fadeIn">
                 <?php the_content(); ?>
               </div>
             </div>

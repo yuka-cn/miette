@@ -1,9 +1,11 @@
 "use strict";
 
-jQuery(function ($) {
-  // この中であればWordpressでも「$」が使用可能になる
+/* ----------------------------------------------------
+ * jQuery scripts
+ * ---------------------------------------------------- */
 
-  // pcの初回表示のみローディングアニメーション
+jQuery(function ($) {
+  /* pcの初回表示のみローディングアニメーション */
   // if (window.matchMedia("(max-width: 767px)").matches) {
   //   mvSwiper();
   // } else {
@@ -41,7 +43,7 @@ jQuery(function ($) {
   //   }
   // }
 
-  // スクロール位置に応じて、ヘッダーの背景色とロゴ・ハンバーガーメニューの色を変える
+  /* スクロール位置に応じて、ヘッダーの背景色とロゴ・ハンバーガーメニューの色を変える */
   var header = $(".header");
   var logo = $(".header__logolink img");
   var hamburger = $(".hamburger");
@@ -76,7 +78,7 @@ jQuery(function ($) {
   $(window).scroll(checkScroll);
   checkScroll();
 
-  // ハンバーガーメニュー
+  /* ハンバーガーメニュー */
   hamburger.click(function () {
     $(".js-hamburger, .header, .sp-nav").toggleClass("is-active");
     if ($(this).hasClass("is-active")) {
@@ -88,7 +90,7 @@ jQuery(function ($) {
     }
   });
 
-  //pc画面幅ではドロワーメニューを非表示にする
+  //pc画面幅ではハンバーガーメニューを非表示にする
   $(window).resize(function () {
     if ($(window).width() >= 768) {
       $(".sp-nav").removeClass("is-active").css("display", "");
@@ -96,7 +98,7 @@ jQuery(function ($) {
     }
   });
 
-  // topへ戻るボタン
+  /* topへ戻るボタン */
   var topBtn = $(".to-top");
   topBtn.hide();
 
@@ -119,7 +121,7 @@ jQuery(function ($) {
     return false;
   });
 
-  // galleryのモーダル
+  /* galleryのモーダル */
   var modal = document.getElementById('modal');
   if (modal) {
     var overlay = modal.querySelector('.modal__overlay');
@@ -155,8 +157,8 @@ jQuery(function ($) {
     }
   }
 
-  // reservation
-  // 　選択クラスに応じて日程を更新する
+  /* 予約ページの希望日程 */
+  // 選択クラスに応じて日程を更新する
   $('input[name="lesson_class"]').on('change', function () {
     var className = $(this).val();
     var select = $('#schedule');
@@ -179,7 +181,11 @@ jQuery(function ($) {
   });
 });
 
-// レッスンメニューカードのスライダー
+/* ----------------------------------------------------
+ * Vanilla JavaScript (Native JS)
+ * ---------------------------------------------------- */
+
+/* レッスンメニューのカードスライダー */
 // inner幅の基準値を設定
 var INNER_WIDTH = 1080;
 
@@ -235,7 +241,7 @@ initSwiper();
 // リサイズ時にSwiperを再初期化
 window.addEventListener("resize", initSwiper);
 
-// lesson-guideのタブ
+/* レッスン案内ページのタブ */
 var tabButtons = document.querySelectorAll(".tab-button");
 var tabPanels = document.querySelectorAll(".tab-panel");
 if (tabButtons.length && tabPanels.length) {
@@ -327,19 +333,7 @@ document.querySelectorAll('.archive-list__year-button').forEach(function (button
   });
 });
 
-//contact,reservation
-// //独自送信ボタン
-// const submitBtn = document.getElementById('submit');
-// if (submitBtn) {
-//   submitBtn.addEventListener('click', function() {
-//     const form = document.getElementById('my-cf7-form');
-//     if (form) {
-//       const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
-//       form.dispatchEvent(submitEvent);
-//     }
-//   });
-// }
-
+/* お問い合わせとレッスン予約の送信 */
 //エラー時の処理
 document.addEventListener('wpcf7invalid', function () {
   //エラーメッセージの表示
@@ -387,4 +381,21 @@ document.addEventListener('input', function (event) {
 //送信成功時の処理
 document.addEventListener('wpcf7mailsent', function (event) {
   window.location.href = mySite.homeUrl + '/thanks/';
+});
+
+/* フェードイン */
+var fadeInTargets = document.querySelectorAll(".js-fadeIn");
+var options = {
+  threshold: 0.25
+};
+var observer = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("is-active");
+      observer.unobserve(entry.target);
+    }
+  });
+}, options);
+fadeInTargets.forEach(function (target) {
+  return observer.observe(target);
 });

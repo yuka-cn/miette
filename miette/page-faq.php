@@ -20,7 +20,7 @@ $faqs = array_filter(SCF::get('faq'), function($faq){
       <?php else: ?>
         <div class="faq__items">
           <?php foreach ($faqs as $faq): ?>
-            <details class="faq__item faq-item" open>
+            <details class="faq__item faq-item js-fadeIn" open>
               <summary><?php echo esc_html($faq['question']); ?></summary>
               <p><?php echo nl2br(esc_html($faq['answer'])); ?></p>
             </details>

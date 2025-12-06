@@ -6,7 +6,7 @@ extract($links, EXTR_SKIP);
 <aside class="blog__sidebar sidebar">
 
   <!-- レッスンメニュー -->
-  <section class="sidebar__box sidebar-box">
+  <section class="sidebar__box sidebar-box js-fadeIn">
     <h2 class="sidebar-box__heading">
       <span class="sidebar-box__icon"></span>
       <span class="sidebar-box__title">レッスンメニュー</span>
@@ -64,7 +64,7 @@ extract($links, EXTR_SKIP);
   </section>
 
   <!-- 人気記事 -->
-  <section class="sidebar__box sidebar-box">
+  <section class="sidebar__box sidebar-box js-fadeIn">
     <h2 class="sidebar-box__heading">
       <span class="sidebar-box__icon"></span>
       <span class="sidebar-box__title">人気記事</span>
@@ -112,7 +112,7 @@ extract($links, EXTR_SKIP);
   </section>
 
   <!-- カテゴリー -->
-  <section class="sidebar__box sidebar-box">
+  <section class="sidebar__box sidebar-box js-fadeIn">
     <h2 class="sidebar-box__heading">
       <span class="sidebar-box__icon"></span>
       <span class="sidebar-box__title">カテゴリー</span>
@@ -142,7 +142,7 @@ extract($links, EXTR_SKIP);
 
 
   <!-- アーカイブ -->
-  <section class="sidebar__box sidebar-box">
+  <section class="sidebar__box sidebar-box js-fadeIn">
     <h2 class="sidebar-box__heading">
       <span class="sidebar-box__icon"></span>
       <span class="sidebar-box__title">アーカイブ</span>

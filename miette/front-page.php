@@ -35,11 +35,11 @@ extract($links, EXTR_SKIP);
   if ($lessons->have_posts()): ?>
   <section class="home-lesson home-lesson-layout">
     <div class="home-lesson__inner inner">
-      <h2 class="home-lesson__header section-header">
+      <h2 class="home-lesson__header section-header js-fadeIn">
         <span class="section-header__ja">レッスンメニュー</span>
         <span class="section-header__en">Monthly Menu</span>
       </h2>
-      <div class="home-lesson__body">
+      <div class="home-lesson__body js-fadeIn">
         <div class="home-lesson__cards swiper js-lessonSwiper">
           <div class="home-lesson__flex swiper-wrapper">
             <?php while ($lessons->have_posts()): $lessons->the_post();
@@ -87,8 +87,8 @@ extract($links, EXTR_SKIP);
   <!-- コンセプト -->
   <section class="home-concept home-concept-layout">
     <div class="home-concept__content">
-      <div class="home-concept__image"></div>
-      <div class="home-concept__inner inner">
+      <div class="home-concept__image js-fadeIn"></div>
+      <div class="home-concept__inner inner js-fadeIn">
         <p class="home-concept__text">
           特別な日じゃなくても<br>
           焼きたての甘い香りがあるだけで<br>
@@ -110,7 +110,7 @@ extract($links, EXTR_SKIP);
 
   <!-- レッスン案内 -->
   <section class="home-lesson-guide">
-    <div class="home-lesson-guide__inner inner">
+    <div class="home-lesson-guide__inner inner js-fadeIn">
       <h2 class="home-lesson-guide__header section-header">
         <span class="section-header__ja">レッスン案内</span>
         <span class="section-header__en">lesson</span>
@@ -150,7 +150,7 @@ extract($links, EXTR_SKIP);
       </div>
       <div class="home-blog__cards">
         <?php while ($posts->have_posts()): $posts->the_post();?>
-          <article class="home-blog__card blog-card">
+          <article class="home-blog__card blog-card js-fadeIn">
             <a href="<?php the_permalink(); ?>">
               <div class="blog-card__body">
                 <div class="blog-card__meta">
@@ -208,7 +208,7 @@ extract($links, EXTR_SKIP);
   <!-- 予約 -->
   <section class="home-reservation">
     <div class="home-reservation__inner inner">
-      <div class="home-reservation__content">
+      <div class="home-reservation__content js-fadeIn">
         <h2 class="home-reservation__header section-header">
           <span class="section-header__ja">ご予約方法</span>
           <span class="section-header__en">reservation</span>
@@ -225,7 +225,7 @@ extract($links, EXTR_SKIP);
           </a>
         </div>
       </div>
-      <div class="home-reservation__image">
+      <div class="home-reservation__image js-fadeIn">
         <img src="<?php echo get_theme_file_uri('/assets/images/common/reservation_1.png'); ?>" alt="">
       </div>
     </div>

@@ -35,7 +35,7 @@ extract($links, EXTR_SKIP);
       ?>
 
         <article class="lesson-single__article lesson-article">
-          <header class="lesson-article__header">
+          <header class="lesson-article__header js-fadeIn">
             <div class="lesson-article__meta">
               <p class="lesson-article__month"><?php echo esc_html($month); ?>月　</p>
               <p class="lesson-article__category"><?php echo esc_html($term_name); ?></p>
@@ -43,15 +43,15 @@ extract($links, EXTR_SKIP);
             <h2 class="lesson-article__title"><?php the_title(); ?></h2>
           </header>
           <div class="lesson-article__body">
-            <div class="lesson-article__image">
+            <div class="lesson-article__image js-fadeIn">
               <?php if ($image): ?>
                 <?php echo wp_get_attachment_image($image, 'large', false, ['alt' => '']); ?>
               <?php else: ?>
                 <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
               <?php endif; ?>
             </div>
-            <p class="lesson-article__text"><?php echo nl2br(esc_html($text)); ?></p>
-            <table class="lesson-article__details table">
+            <p class="lesson-article__text js-fadeIn"><?php echo nl2br(esc_html($text)); ?></p>
+            <table class="lesson-article__details table js-fadeIn">
               <tbody>
                 <tr>
                   <th scope="row">開催日</th>
@@ -79,7 +79,7 @@ extract($links, EXTR_SKIP);
         </article>
 
         <!-- 予約ボタン -->
-        <div class="lesson-single__button">
+        <div class="lesson-single__button js-fadeIn">
           <a href="<?php echo $reservation; ?>" class="button button--green">
             ご予約はこちら
             <span></span>

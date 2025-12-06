@@ -15,7 +15,7 @@ extract($links, EXTR_SKIP);
         <?php else: ?>
           <div class="blog__cards">
             <?php while (have_posts()): the_post(); ?>
-              <article class="blog__card blog-card">
+              <article class="blog__card blog-card js-fadeIn">
                 <a href="<?php the_permalink(); ?>">
                   <div class="blog-card__body">
                     <div class="blog-card__meta">

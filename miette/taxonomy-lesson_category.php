@@ -63,7 +63,7 @@ extract($links, EXTR_SKIP);
               $month = get_field('lesson_month');
             ?>
 
-            <a href="<?php the_permalink(); ?>" class="lesson-cards__item lesson-card">
+            <a href="<?php the_permalink(); ?>" class="lesson-cards__item lesson-card js-fadeIn">
               <div class="lesson-card__badge">
                 <p class="lesson-card__month"><?php echo esc_html($month); ?>月</p>
               </div>

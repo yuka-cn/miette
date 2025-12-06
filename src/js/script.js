@@ -1,7 +1,9 @@
-jQuery(function ($) {
-  // この中であればWordpressでも「$」が使用可能になる
+/* ----------------------------------------------------
+ * jQuery scripts
+ * ---------------------------------------------------- */
 
-// pcの初回表示のみローディングアニメーション
+jQuery(function ($) {
+/* pcの初回表示のみローディングアニメーション */
   // if (window.matchMedia("(max-width: 767px)").matches) {
   //   mvSwiper();
   // } else {
@@ -39,7 +41,7 @@ jQuery(function ($) {
   //   }
   // }
 
-  // スクロール位置に応じて、ヘッダーの背景色とロゴ・ハンバーガーメニューの色を変える
+/* スクロール位置に応じて、ヘッダーの背景色とロゴ・ハンバーガーメニューの色を変える */
   var header = $(".header");
   var logo = $(".header__logolink img");
   var hamburger = $(".hamburger");
@@ -77,7 +79,7 @@ jQuery(function ($) {
   $(window).scroll(checkScroll);
   checkScroll();
 
-  // ハンバーガーメニュー
+/* ハンバーガーメニュー */
   hamburger.click(function () {
     $(".js-hamburger, .header, .sp-nav").toggleClass("is-active");
 
@@ -90,7 +92,7 @@ jQuery(function ($) {
     }
   });
 
-  //pc画面幅ではドロワーメニューを非表示にする
+  //pc画面幅ではハンバーガーメニューを非表示にする
   $(window).resize(function () {
     if ($(window).width() >= 768) {
       $(".sp-nav").removeClass("is-active").css("display", "");
@@ -98,7 +100,7 @@ jQuery(function ($) {
     }
   });
 
-// topへ戻るボタン
+/* topへ戻るボタン */
   let topBtn = $(".to-top");
   topBtn.hide();
 
@@ -125,8 +127,7 @@ jQuery(function ($) {
     return false;
   });
 
-
-// galleryのモーダル
+/* galleryのモーダル */
   const modal = document.getElementById('modal');
   if (modal) {
     const overlay = modal.querySelector('.modal__overlay');
@@ -163,8 +164,8 @@ jQuery(function ($) {
     }
   }
   
-  // reservation
-  // 　選択クラスに応じて日程を更新する
+/* 予約ページの希望日程 */
+  // 選択クラスに応じて日程を更新する
   $('input[name="lesson_class"]').on('change', function () {
     const className = $(this).val();
     const select = $('#schedule');
@@ -187,9 +188,14 @@ jQuery(function ($) {
       }
     });
   });
+
 });
 
-// レッスンメニューカードのスライダー
+/* ----------------------------------------------------
+ * Vanilla JavaScript (Native JS)
+ * ---------------------------------------------------- */
+
+/* レッスンメニューのカードスライダー */
   // inner幅の基準値を設定
   const INNER_WIDTH = 1080;
 
@@ -249,7 +255,7 @@ jQuery(function ($) {
   // リサイズ時にSwiperを再初期化
   window.addEventListener("resize", initSwiper);
 
-  // lesson-guideのタブ
+/* レッスン案内ページのタブ */
   const tabButtons = document.querySelectorAll(".tab-button");
   const tabPanels = document.querySelectorAll(".tab-panel");
   
@@ -315,44 +321,32 @@ jQuery(function ($) {
 
 
 // サイドバーのアーカイブ開閉
-document.querySelectorAll('.archive-list__year-button').forEach(button => {
-  const year = button.closest('.archive-list__year');
-  const months = year.querySelector('.archive-list__months');
+  document.querySelectorAll('.archive-list__year-button').forEach(button => {
+    const year = button.closest('.archive-list__year');
+    const months = year.querySelector('.archive-list__months');
 
-  // 初期状態
-  const isOpen = year.classList.contains('is-open');
-  months.style.height = isOpen ? months.scrollHeight + 'px' : '0';
-  button.setAttribute('aria-expanded', isOpen);
+    // 初期状態
+    const isOpen = year.classList.contains('is-open');
+    months.style.height = isOpen ? months.scrollHeight + 'px' : '0';
+    button.setAttribute('aria-expanded', isOpen);
 
-  // クリックイベント
-  button.addEventListener('click', () => {
-    const expanded = button.getAttribute('aria-expanded') === 'true';
-    button.setAttribute('aria-expanded', String(!expanded));
-    year.classList.toggle('is-open');
+    // クリックイベント
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!expanded));
+      year.classList.toggle('is-open');
 
-    if (!expanded) {
-      months.style.height = months.scrollHeight + 'px';
-      months.style.opacity = '1';
-    } else {
-      months.style.height = '0';
-      months.style.opacity = '0';
-    }
+      if (!expanded) {
+        months.style.height = months.scrollHeight + 'px';
+        months.style.opacity = '1';
+      } else {
+        months.style.height = '0';
+        months.style.opacity = '0';
+      }
+    });
   });
-});
 
-//contact,reservation
-  // //独自送信ボタン
-  // const submitBtn = document.getElementById('submit');
-  // if (submitBtn) {
-  //   submitBtn.addEventListener('click', function() {
-  //     const form = document.getElementById('my-cf7-form');
-  //     if (form) {
-  //       const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
-  //       form.dispatchEvent(submitEvent);
-  //     }
-  //   });
-  // }
-
+/* お問い合わせとレッスン予約の送信 */
   //エラー時の処理
   document.addEventListener('wpcf7invalid', function() {
 
@@ -400,3 +394,21 @@ document.querySelectorAll('.archive-list__year-button').forEach(button => {
   document.addEventListener('wpcf7mailsent', function(event) {
     window.location.href = mySite.homeUrl + '/thanks/';
   });
+
+/* フェードイン */
+  const fadeInTargets = document.querySelectorAll(".js-fadeIn");
+
+  const options = {
+    threshold: 0.25,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  fadeInTargets.forEach((target) => observer.observe(target));

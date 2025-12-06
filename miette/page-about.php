@@ -10,29 +10,29 @@ extract($links, EXTR_SKIP);
   <!-- コンセプト -->
   <section class="about__concept concept">
     <div class="concept__inner inner">
-      <h2 class="concept__header section-header section-header--center">
+      <h2 class="concept__header section-header section-header--center js-fadeIn">
         <span class="section-header__ja">コンセプト</span>
         <span class="section-header__en">concept</span>
       </h2>
-      <p class="concept__text">
+      <p class="concept__text js-fadeIn">
         毎日の暮らしに寄り添う<br>
         やさしいお菓子づくりを
       </p>
-      <p class="concept__text">
+      <p class="concept__text js-fadeIn">
         特別な日じゃなくても<br>
         焼きたての甘い香りがあるだけで<br>
         ふと心がやわらぐ
       </p>
-      <p class="concept__text">
+      <p class="concept__text js-fadeIn">
         忙しい日々の中に<br>
         ほっと心がほどけるひとときを
       </p>
-      <p class="concept__text">
+      <p class="concept__text js-fadeIn">
         素材にこだわり<br>
         子どもと一緒に安心して食べられる<br>
         やさしいお菓子を家でも気軽に
       </p>
-      <p class="concept__text">
+      <p class="concept__text js-fadeIn">
         ひとくちで思わず笑顔になる<br>
         そんな“ミエット（小さなかけら）”のような<br>
         幸せを届けられますように
@@ -45,15 +45,15 @@ extract($links, EXTR_SKIP);
   <!-- プロフィール -->
   <section class="about__profile profile">
     <div class="profile__inner inner">
-      <h2 class="profile__header section-header">
+      <h2 class="profile__header section-header js-fadeIn">
         <span class="section-header__ja">プロフィール</span>
         <span class="section-header__en">profile</span>
       </h2>
       <div class="profile__body">
-        <div class="profile__image">
+        <div class="profile__image js-fadeIn">
           <img src="<?php echo get_theme_file_uri('/assets/images/common/profile.jpg'); ?>" alt="">
         </div>
-        <div class="profile__text">
+        <div class="profile__text js-fadeIn">
           <div class="profile__info">
             <p class="profile__name">高橋 ことね</p>
             <ul class="profile__career">

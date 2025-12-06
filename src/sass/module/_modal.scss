@@ -14,7 +14,7 @@
 .modal__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(32, 32, 32, 0.8);
+  background: rgba($sub-color, 0.6);
   z-index: 1;
 }
 
