@@ -916,38 +916,6 @@ a {
 	display: none;
 }
 
-.about-lead__inner {
-	position: relative;
-}
-
-.about-lead__image {
-	aspect-ratio: 345/228;
-	position: relative;
-	z-index: -1;
-}
-
-.about-lead__image img {
-	-o-object-fit: cover;
-	height: 100%;
-	object-fit: cover;
-	width: 100%;
-}
-
-.about-lead__title {
-	color: #fff;
-	font-family: "Gotu", serif;
-	font-size: 2.5rem;
-	font-weight: 400;
-	left: 10.4vw;
-	line-height: 1;
-	position: absolute;
-	top: 6.4vw;
-}
-
-.about-lead__text {
-	margin-top: 2.5rem;
-}
-
 .archive-list {
 	font-size: 1.25rem;
 }
@@ -1246,68 +1214,6 @@ a {
 	border: 0.08em solid #E8B4B8;
 }
 
-.campaign__inner {
-	position: relative;
-}
-
-.campaign__header {
-	text-align: center;
-}
-
-.campaign__body {
-	margin-right: calc(50% - 50vw);
-	margin-top: 1.75rem;
-}
-
-.campaign__cards.swiper {
-	padding-bottom: 0.4375rem;
-}
-
-.campaign__slide.swiper-slide {
-	-ms-flex-negative: 0;
-	flex-shrink: 0;
-	height: auto;
-	max-width: 17.5rem;
-	width: 100%;
-}
-
-.campaign__swiper-button-next.swiper-button-next,
-.campaign__swiper-button-prev.swiper-button-prev {
-	display: none;
-}
-
-.campaign__swiper-button-next.swiper-button-next {
-	right: 25px;
-}
-
-.campaign__swiper-button-prev.swiper-button-prev {
-	left: auto;
-	right: calc(25px + 10rem);
-}
-
-.campaign__swiper-button-next::after,
-.campaign__swiper-button-prev::after {
-	display: none;
-}
-
-.campaign__swiper-button-next img,
-.campaign__swiper-button-prev img {
-	max-width: 5rem;
-	width: 100%;
-}
-
-.campaign__swiper-button-prev:focus-visible,
-.campaign__swiper-button-next:focus-visible {
-	border-radius: 6px;
-	outline: 3px solid #1a73e8;
-	outline-offset: 4px;
-}
-
-.campaign__button {
-	margin-top: 2.0625rem;
-	text-align: center;
-}
-
 .category-button {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
@@ -1353,50 +1259,8 @@ a {
 	row-gap: 1rem;
 }
 
-.company__name {
-	border-bottom: 1px solid #E8B4B8;
-	padding-bottom: 0.375rem;
-}
-
-.company__name img {
-	margin: auto;
-	max-width: 10.875rem;
-	text-align: center;
-	width: 100%;
-}
-
-.company__flex {
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	gap: 1rem;
-	margin-top: 1rem;
-}
-
-.company__details {
-	font-size: 1rem;
-	text-align: center;
-}
-
-.company__details p:not(:first-child) {
-	margin-top: 0.25rem;
-}
-
-.company__map {
-	height: 42.6666666667vw;
-	width: 78.6666666667vw;
-}
-
-.company__map iframe {
-	height: 100%;
-	width: 100%;
+.concept {
+	position: relative;
 }
 
 .concept__text {
@@ -1421,6 +1285,7 @@ a {
 	left: 0;
 	position: absolute;
 	width: 100%;
+	z-index: 1;
 }
 
 .divider--a {
@@ -2995,6 +2860,27 @@ textarea {
 .profile {
 	background: #fff;
 	padding: 7.5rem 0 6.25rem;
+	position: relative;
+}
+
+.profile::before {
+	-webkit-mask-image: url(../images/common/decor_4.png);
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	aspect-ratio: 208/70;
+	background: #5A3E2B;
+	bottom: 0.625rem;
+	content: "";
+	mask-image: url(../images/common/decor_4.png);
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	position: absolute;
+	right: calc(50% - min(31.25rem, 45%));
+	-webkit-transform: rotate(-20deg);
+	transform: rotate(-20deg);
+	width: 10rem;
 }
 
 .profile__body {
@@ -3073,22 +2959,28 @@ textarea {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	border-left: 0.5rem solid #A89484;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	gap: 0.5rem;
-	padding-left: 1rem;
 }
 
 .sidebar-box__icon {
+	-webkit-mask-image: url(../images/common/decor_1.png);
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
 	-ms-flex-item-align: center;
 	align-self: center;
-	background: url(../images/pages/blog_7.png) center center/contain no-repeat;
+	aspect-ratio: 155/140;
+	background: #5A3E2B;
 	display: block;
 	-ms-flex-negative: 0;
 	flex-shrink: 0;
-	height: 3.125rem;
+	mask-image: url(../images/common/decor_1.png);
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
 	width: 3.125rem;
 }
 
@@ -3959,28 +3851,6 @@ html {
 	padding: 1rem;
 }
 
-.campaign__body {
-	margin-top: 2.5rem;
-}
-
-.campaign__slide.swiper-slide {
-	max-width: calc((1080px - 5rem) / 3);
-}
-
-.campaign__swiper-button-next.swiper-button-next,
-.campaign__swiper-button-prev.swiper-button-prev {
-	display: block;
-	height: inherit;
-	margin-top: 0;
-	position: absolute;
-	top: 0.375rem;
-	width: auto;
-}
-
-.campaign__button {
-	margin-top: 4.5625rem;
-}
-
 .category-buttons {
 	-moz-column-gap: 2rem;
 	-webkit-column-gap: 2rem;
@@ -3988,38 +3858,36 @@ html {
 	grid-template-columns: repeat(auto-fit, 10.625rem);
 }
 
-.company__name {
-	padding-bottom: 0.5rem;
+.concept::before,
+.concept::after {
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	background: #5A3E2B;
+	content: "";
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	position: absolute;
 }
 
-.company__name img {
-	max-width: 12.5rem;
+.concept::before {
+	-webkit-mask-image: url(../images/common/decor_2.png);
+	aspect-ratio: 125/130;
+	left: calc(50% - min(28.125rem, 40%));
+	mask-image: url(../images/common/decor_2.png);
+	top: 12.5rem;
+	width: 7.8125rem;
 }
 
-.company__flex {
-	-webkit-box-align: start;
-	-ms-flex-align: start;
-	align-items: start;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	gap: 1.3125rem;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	margin-top: 1.5rem;
-}
-
-.company__details {
-	text-align: left;
-}
-
-.company__map {
-	height: 10.2777777778vw;
-	max-height: 9.25rem;
-	max-width: 17.0625rem;
-	width: 18.9583333333vw;
+.concept::after {
+	-webkit-mask-image: url(../images/common/decor_3.png);
+	aspect-ratio: 110/100;
+	bottom: -3.125rem;
+	mask-image: url(../images/common/decor_3.png);
+	right: calc(50% - 21.875rem);
+	width: 6.875rem;
+	z-index: 2;
 }
 
 .concept__text {
@@ -4480,6 +4348,11 @@ html {
 
 .profile {
 	padding: 15.625rem 0 10rem;
+}
+
+.profile::before {
+	bottom: 8.125rem;
+	width: 12.5rem;
 }
 
 .profile__body {

@@ -1,5 +1,42 @@
 @use "global" as *;
 
+.concept {
+  position: relative;
+}
+
+.concept::before,
+.concept::after {
+  @include mq(md) {
+    content: "";
+    position: absolute;
+    background: $font-color;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+}
+
+.concept::before {
+  @include mq(md) {
+    top: rem(200);
+    left: calc(50% - min(rem(450),40%));
+    width: rem(125);
+    aspect-ratio: 125 / 130;
+    mask-image: url(../images/common/decor_2.png);
+  }
+}
+
+.concept::after {
+  @include mq(md) {
+    bottom: rem(-50);
+    right: calc(50% - rem(350));
+    width: rem(110);
+    aspect-ratio: 110 / 100;
+    mask-image: url(../images/common/decor_3.png);
+    z-index: 2;
+  }
+}
+
 
 .concept__text{
   margin-top: rem(30);

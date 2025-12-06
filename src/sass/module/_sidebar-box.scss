@@ -1,20 +1,22 @@
 @use "global" as *;
 
 .sidebar-box__heading{
-  padding-left: rem(16);
   display: flex;
   align-items: center;
   gap: rem(8);
-  border-left: rem(8) solid $sub-color;
 }
 
 .sidebar-box__icon{
   display: block;
   flex-shrink: 0;
   width: rem(50);
-  height: rem(50);
+  aspect-ratio: 155 / 140;
   align-self: center;
-  background: url(../images/pages/blog_7.png) center center /contain no-repeat;
+  background: $font-color;
+  mask-image: url(../images/common/decor_1.png);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }
 
 .sidebar-box__title{

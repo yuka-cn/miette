@@ -18,7 +18,7 @@ extract($links, EXTR_SKIP);
       </picture>
       <div class="mv__inner inner" style="grid-area: title;">
         <h2 class="mv__title">
-          <span>やさしいお菓子と</span>
+          <span>やさしいおやつと</span>
           <span>小さなしあわせを</span>
         </h2>
       </div>

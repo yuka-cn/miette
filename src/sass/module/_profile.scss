@@ -1,10 +1,30 @@
 @use "global" as *;
 
 .profile{
+  position: relative;
   padding: rem(120) 0 rem(100);
   background: $white;
   @include mq("md"){
     padding: rem(250) 0 rem(160);
+  }
+}
+
+.profile::before {
+  content: "";
+  position: absolute;
+  bottom: rem(10);
+  right: calc(50% - min(rem(500),45%));
+  width: rem(160);
+  aspect-ratio: 208 / 70;
+  background: $font-color;
+  mask-image: url(../images/common/decor_4.png);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  transform: rotate(-20deg);
+  @include mq("md"){
+    bottom: rem(130);
+    width: rem(200);
   }
 }
 
