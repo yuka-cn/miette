@@ -75,14 +75,56 @@ extract($links, EXTR_SKIP);
       </div>
     </div>
   </div>
+  
+  <!-- レッスンメニューボタン -->
+  <div class="lesson-guide__button">
+    <a href="<?php echo $lesson; ?>" class="button">
+      今月のお菓子と日程を見る
+      <span></span>
+    </a>
+  </div>
+  
+  <!-- ギャラリー -->
+  <?php
+  $gallery = array_filter(SCF::get('gallery'), function($item){
+    return !empty($item['image']);
+  });
+  ?>
+
+  <div class="lesson-guide__gallery gallery">
+    <div class="gallery__inner inner">
+      <h2 class="gallery__header section-header">
+        <span class="section-header__ja">ギャラリー</span>
+        <span class="section-header__en">gallery</span>
+      </h2>
+      <div class="gallery__body">
+        <?php if (empty($gallery)): ?>
+          <p class="gallery__no-post no-post">ただいま準備中です。<br>掲載までしばらくお待ちください。</p>
+        <?php else: ?>
+          <div class="gallery__items">
+            <?php foreach ($gallery as $item): ?>
+              <button class="gallery__item" type="button">
+                <?php
+                  echo wp_get_attachment_image(
+                    $item['image'],
+                    'large',
+                    false,
+                    ['alt' => esc_attr($item['alt'] ?? '')]
+                  );
+                ?>
+              </button>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- レッスンメニューボタン -->
-<div class="lesson-guide__button">
-  <a href="<?php echo $lesson; ?>" class="button">
-    今月のお菓子と日程を見る
-    <span></span>
-  </a>
+<!-- モーダル -->
+<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal__overlay"></div>
+  <div class="modal__content"></div>
 </div>
 
 <?php get_footer(); ?>

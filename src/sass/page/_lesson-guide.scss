@@ -7,3 +7,10 @@
     margin-top: rem(80);
   }
 }
+
+.lesson-guide__gallery{
+  margin-top: rem(100);
+  @include mq("md"){
+    margin-top: rem(150);
+  }
+}

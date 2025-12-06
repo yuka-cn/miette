@@ -29,14 +29,14 @@ $faqs = array_filter(SCF::get('faq'), function($faq){
       <?php endif; ?>
     </div>
   </div>  
-</div>
-
-<!-- レッスンメニューボタン -->
-<div class="faq__button">
-  <a href="<?php echo $lesson; ?>" class="button">
-    今月のお菓子と日程を見る
-    <span></span>
-  </a>
+  
+  <!-- レッスンメニューボタン -->
+  <div class="faq__button">
+    <a href="<?php echo $lesson; ?>" class="button">
+      今月のお菓子と日程を見る
+      <span></span>
+    </a>
+  </div>
 </div>
 
 <?php get_footer(); ?>

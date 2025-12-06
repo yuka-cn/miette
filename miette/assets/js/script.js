@@ -119,49 +119,41 @@ jQuery(function ($) {
     return false;
   });
 
-  // // aboutページのモーダル
-  //   const modal = document.getElementById('modal');
-  //   if (modal) {
-  //     const overlay = modal.querySelector('.modal__overlay');
-  //     const backgroundInner = modal.querySelector('.modal__background .inner');
-  //     const content = modal.querySelector('.modal__content');
+  // galleryのモーダル
+  var modal = document.getElementById('modal');
+  if (modal) {
+    var overlay = modal.querySelector('.modal__overlay');
+    var content = modal.querySelector('.modal__content');
 
-  //   // クリック時の処理
-  //     if (window.innerWidth >= 768) {
-  //     document.querySelectorAll('.gallery__item img').forEach(img => {
-  //       img.addEventListener('click', () => {
-  //         const column = img.closest('.gallery__column');
-  //         if (!column) return;
-  //         // モーダル内に画像を複製
-  //         const clickedImg = img.cloneNode(true);
-  //         content.innerHTML = '';
-  //         content.appendChild(clickedImg);
-  //         // 背景として.gallery__columnを複製
-  //         backgroundInner.innerHTML = '';
-  //         backgroundInner.appendChild(column.cloneNode(true));
-  //         // モーダル表示 + スクロール禁止
-  //         document.body.style.overflow = 'hidden';
-  //         modal.setAttribute('aria-hidden', 'false');
-  //       });
-  //     });
+    // クリック時の処理
+    if (window.innerWidth >= 768) {
+      // 閉じる処理
+      var closeModal = function closeModal() {
+        modal.setAttribute('aria-hidden', 'true');
+        content.innerHTML = '';
+        document.body.style.overflow = '';
+      };
+      document.querySelectorAll('.gallery__item img').forEach(function (img) {
+        img.addEventListener('click', function () {
+          // モーダル内に画像を複製
+          var clickedImg = img.cloneNode(true);
+          content.innerHTML = '';
+          content.appendChild(clickedImg);
+          // モーダル表示 + スクロール禁止
+          document.body.style.overflow = 'hidden';
+          modal.setAttribute('aria-hidden', 'false');
+        });
+      });
+      overlay.addEventListener('click', closeModal);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+          closeModal();
+        }
+      });
+    }
+  }
 
-  //   // 閉じる処理
-  //     function closeModal() {
-  //       modal.setAttribute('aria-hidden', 'true');
-  //       content.innerHTML = '';
-  //       backgroundInner.innerHTML = '';
-  //       document.body.style.overflow = '';
-  //     }
-  //     overlay.addEventListener('click', closeModal);
-  //     document.addEventListener('keydown', (e) => {
-  //       if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
-  //         closeModal();
-  //         }
-  //       });
-  //     }
-  //   }
-
-  // reservaiton
+  // reservation
   // 　選択クラスに応じて日程を更新する
   $('input[name="lesson_class"]').on('change', function () {
     var className = $(this).val();

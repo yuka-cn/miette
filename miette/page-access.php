@@ -36,14 +36,14 @@ extract($links, EXTR_SKIP);
       <?php endif; ?> 
     </div>
   </div>
-</div>
-
-<!-- レッスンメニューボタン -->
-<div class="access__button">
-  <a href="<?php echo $lesson; ?>" class="button">
-    今月のお菓子と日程を見る
-    <span></span>
-  </a>
+  
+  <!-- レッスンメニューボタン -->
+  <div class="access__button">
+    <a href="<?php echo $lesson; ?>" class="button">
+      今月のお菓子と日程を見る
+      <span></span>
+    </a>
+  </div>
 </div>
 
 <?php get_footer(); ?>

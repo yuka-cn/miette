@@ -1,58 +1,29 @@
 @use "global" as *;
 
-.gallery {
-  position: relative;
-}
-
-.gallery::before {
-  @include mq(md) {
-    content: "";
-    position: absolute;
-    top: rem(-75);
-    right: calc(50% - min(rem(640),48%));
-    width: rem(301);
-    height: rem(138);
-    background-image: url(../images/common/embellishment_5.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-}
-
-.gallery__header {
-  text-align: center;
-}
 
 .gallery__body{
   margin-top: rem(40);
-  display: flex;
-  flex-direction: column;
-  gap: rem(8);
-  @include mq("md"){
-    margin-top: rem(80);
-  }
 }
 
-.gallery__column {
+.gallery__items{
   display: grid;
-  gap: rem(8);
-  grid-template-columns: repeat(1, 1fr);
+  gap: rem(20);
+  grid-template-columns: repeat(auto-fit, minmax(rem(140), 1fr));
   @include mq("md") {
-    grid-template-columns: 492fr 580fr;
+    gap: rem(40);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-.gallery__column--reverse{
-  @include mq("md") {
-    grid-template-columns: 580fr 492fr;
-  }
-}
-
-.gallery__stack {
-  display: grid;
-  gap: rem(8);
+.gallery__item{
+  padding: 0;
+  max-width: rem(240);
+  aspect-ratio: 1 / 1;
+  border-radius: 1em;
+  overflow: hidden;
   @include mq("md"){
-    grid-template-rows: repeat(2, 1fr);
-  };
+    border-radius: 2em;
+  }
 }
 
 .gallery__item img{
@@ -61,16 +32,3 @@
   object-fit: cover;
 }
 
-.gallery__item--single{
-  aspect-ratio: 345 / 523;
-  @include mq("md"){
-    aspect-ratio: 492 / 746;
-  }
-}
-
-.gallery__item--stacked{
-  aspect-ratio: 345 / 219;
-  @include mq("md"){
-    aspect-ratio: 580 / 369;
-  }
-}
