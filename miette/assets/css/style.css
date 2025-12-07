@@ -2371,26 +2371,9 @@ textarea {
 }
 
 .not-found {
-	background-color: #E8B4B8;
-	color: #fff;
-	padding-bottom: 2.5rem;
+	background-color: #F5EBDD;
+	color: #A89484;
 	padding-top: 5rem;
-	position: relative;
-}
-
-.not-found::before {
-	background-image: url("../images/pages/404_bg.png");
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 21.5625rem;
-	left: 50%;
-	position: absolute;
-	top: 5rem;
-	-webkit-transform: translateX(-50%);
-	transform: translateX(-50%);
-	width: 21.5625rem;
-	z-index: 0;
 }
 
 .not-found__breadcrumb {
@@ -4161,17 +4144,7 @@ html {
 }
 
 .not-found {
-	padding-bottom: 9.25rem;
 	padding-top: 5.625rem;
-}
-
-.not-found::before {
-	height: 43.625rem;
-	left: calc(50% - min(33.75rem, 37.5%));
-	top: 5.625rem;
-	-webkit-transform: translateX(0);
-	transform: translateX(0);
-	width: 43.625rem;
 }
 
 .not-found__code {

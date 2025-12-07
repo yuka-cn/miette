@@ -1,35 +1,11 @@
 @use "global" as *;
 
 .not-found {
-  position: relative;
   padding-top: rem(80);
-  padding-bottom: rem(40);
-  color: $white;
-  background-color: $ac-color;
+  color: $sub-color;
+  background-color: $main-color;
   @include mq("md"){
     padding-top: rem(90);
-    padding-bottom: rem(148);
-  }
-}
-
-.not-found::before{
-  content: "";
-  position: absolute;
-  top: rem(80);
-  left: 50%;
-  transform: translateX(-50%);
-  width: rem(345);
-  height: rem(345);
-  background-image: url("../images/pages/404_bg.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 0;
-  @include mq("md"){
-    top: rem(90);
-    left: calc(50% - min(rem(540),37.5%));
-    transform: translateX(0);
-    width: rem(698);
-    height: rem(698);
   }
 }
 
