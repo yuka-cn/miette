@@ -21,7 +21,7 @@
 
 .page-header__title{
   position: relative;
-  padding-bottom: rem(14);
+  padding: rem(40) 0 rem(14);
   font-size: rem(32);
   font-weight: $regular;
   background-image: url('../images/common/line-medium.svg');
@@ -29,7 +29,7 @@
   background-position: bottom left;
   background-size: rem(86) 0.1em;
   @include mq("md"){
-    padding-bottom: rem(30);
+    padding: 0 0 rem(30);
     font-size: rem(36);
   }
 }

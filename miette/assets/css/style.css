@@ -2452,7 +2452,7 @@ textarea {
 	background-size: 5.375rem 0.1em;
 	font-size: 2rem;
 	font-weight: 400;
-	padding-bottom: 0.875rem;
+	padding: 2.5rem 0 0.875rem;
 	position: relative;
 }
 
@@ -4193,7 +4193,7 @@ html {
 
 .page-header__title {
 	font-size: 2.25rem;
-	padding-bottom: 1.875rem;
+	padding: 0 0 1.875rem;
 }
 
 .page-header__breadcrumb {
