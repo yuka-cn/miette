@@ -484,7 +484,7 @@ a {
 }
 
 .home-lesson-layout {
-	margin-top: 9.375rem;
+	margin-top: 6.25rem;
 }
 
 .home-lesson {
@@ -1164,8 +1164,8 @@ a {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	background: -webkit-gradient(linear, left top, left bottom, from(#F1CCCF), to(#E8B4B8));
-	background: linear-gradient(to bottom, #F1CCCF 0%, #E8B4B8 100%);
+	background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.15)), to(transparent)), #E8B4B8;
+	background: linear-gradient(to top, rgba(255, 255, 255, 0.15), transparent), #E8B4B8;
 	border: 0.08em solid transparent;
 	border-radius: 5em;
 	-webkit-box-sizing: border-box;
@@ -1205,8 +1205,8 @@ a {
 }
 
 .button--green {
-	background: -webkit-gradient(linear, left top, left bottom, from(#B8D0B6), to(#A9BEA0));
-	background: linear-gradient(to bottom, #B8D0B6 0%, #A9BEA0 100%);
+	background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.2)), to(transparent)), #A9BEA0;
+	background: linear-gradient(to top, rgba(255, 255, 255, 0.2), transparent), #A9BEA0;
 }
 
 .button--green:hover {
@@ -2040,7 +2040,8 @@ textarea {
 	-ms-flex-align: center;
 	align-items: center;
 	aspect-ratio: 1/1;
-	background: #E8B4B8;
+	background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.15)), to(transparent)), #E8B4B8;
+	background: linear-gradient(to top, rgba(255, 255, 255, 0.15), transparent), #E8B4B8;
 	border-radius: 50%;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -2264,6 +2265,10 @@ textarea {
 }
 
 .mv {
+	display: grid;
+	grid-template-areas: "image" "title";
+	grid-template-columns: 1fr;
+	height: 100vh;
 	position: relative;
 }
 
@@ -2276,18 +2281,14 @@ textarea {
 	z-index: 100;
 }
 
-.mv__content {
-	display: grid;
-	grid-template-areas: "image" "title";
-	grid-template-columns: 1fr;
-}
-
 .mv__image {
+	-ms-flex-item-align: start;
+	align-self: start;
 	aspect-ratio: 701/740;
 	justify-self: right;
 	position: relative;
-	width: clamp(15.625rem, 5.7rem + 42.347vw, 43.813rem);
-	width: clamp(15.625rem, 5.7rem + 42.347vi, 43.813rem);
+	width: clamp(18.75rem, 9.947rem + 37.559vw, 43.75rem);
+	width: clamp(18.75rem, 9.947rem + 37.559vi, 43.75rem);
 }
 
 .mv__image img {
@@ -3548,10 +3549,6 @@ html {
 	margin-top: 5rem;
 }
 
-.home-lesson-layout {
-	margin-top: 18.75rem;
-}
-
 .home-lesson__body {
 	margin-top: 2.5rem;
 }
@@ -4097,18 +4094,18 @@ html {
 	visibility: visible;
 }
 
-.mv__logo {
-	left: 2.5rem;
-	max-width: 8.75rem;
-	top: 3.75rem;
-}
-
-.mv__content {
+.mv {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
 	grid-template-areas: "title image";
 	grid-template-columns: 50% 50%;
+}
+
+.mv__logo {
+	left: 2.5rem;
+	max-width: 8.75rem;
+	top: 3.75rem;
 }
 
 .mv__inner {

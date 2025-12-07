@@ -1,9 +1,17 @@
 @use "global" as *;
 
-.mv {
+.mv{
   position: relative;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "image" "title";
+  @include mq("md") {
+    align-items: center;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "title image";
+  }
 }
-
 
 .mv__logo{
   position: absolute;
@@ -19,21 +27,11 @@
   }
 }
 
-.mv__content{
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "image" "title";
-  @include mq("md") {
-    align-items: center;
-    grid-template-columns: 50% 50%;
-    grid-template-areas: "title image";
-  }
-}
-
 .mv__image{
   position: relative;
+  align-self: start;
   justify-self: right;
-  width: clamp(15.625rem, 5.7rem + 42.347vi, 43.813rem); //250px-701px
+  width: clamp(18.75rem, 9.947rem + 37.559vi, 43.75rem); //300px-700px
   aspect-ratio: 701 / 740;
 }
 

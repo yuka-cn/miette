@@ -15,7 +15,7 @@
   position: absolute;
   top: rem(-30);
   left: rem(-10);
-  background: $ac-color;
+  background: linear-gradient(to top, rgba(255,255,255,0.15), transparent),$ac-color;
   width: rem(100);
   aspect-ratio: 1 / 1;
   border-radius: 50%;

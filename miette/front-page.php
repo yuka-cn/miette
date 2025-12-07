@@ -7,21 +7,19 @@ extract($links, EXTR_SKIP);
 
 <main>
   <!-- ファーストビュー -->
-  <section class="mv">
+    <section class="mv">
     <div class="mv__logo">
       <img src="<?php echo get_theme_file_uri('/assets/images/common/miette-color.svg'); ?>" alt="やさしいおやつ教室Miette">
     </div>
-    <div class="mv__content">
-      <picture class="mv__image" style="grid-area: image;">
-        <source srcset="<?php echo get_theme_file_uri('/assets/images/common/mv_pc.png'); ?>" media="(min-width: 768px)">
-        <img src="<?php echo get_theme_file_uri('/assets/images/common/mv_pc.png'); ?>" alt="">
-      </picture>
-      <div class="mv__inner inner" style="grid-area: title;">
-        <h2 class="mv__title">
-          <span>やさしいおやつと</span>
-          <span>小さなしあわせを</span>
-        </h2>
-      </div>
+    <picture class="mv__image" style="grid-area: image;">
+      <source srcset="<?php echo get_theme_file_uri('/assets/images/common/mv_pc.png'); ?>" media="(min-width: 768px)">
+      <img src="<?php echo get_theme_file_uri('/assets/images/common/mv_pc.png'); ?>" alt="">
+    </picture>
+    <div class="mv__inner inner" style="grid-area: title;">
+      <h2 class="mv__title">
+        <span>やさしいおやつと</span>
+        <span>小さなしあわせを</span>
+      </h2>
     </div>
   </section>
 
@@ -59,7 +57,7 @@ extract($links, EXTR_SKIP);
                   </div>
                   <div class="lesson-card__image">
                     <?php if ($image): ?>
-                      <?php echo wp_get_attachment_image($image, 'medium', false, ['alt' => '']); ?>
+                      <?php echo wp_get_attachment_image($image, 'large', false, ['alt' => '']); ?>
                     <?php else: ?>
                       <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
                     <?php endif; ?>

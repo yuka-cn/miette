@@ -1,8 +1,5 @@
 @use "global" as *;
 
 .home-lesson-layout{
-  margin-top: rem(150);
-  @include mq("md"){
-    margin-top: rem(300);
-  }
+  margin-top: rem(100);
 }

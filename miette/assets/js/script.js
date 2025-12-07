@@ -221,7 +221,7 @@ function initSwiper() {
     slidesPerView: "auto",
     loop: true,
     loopedSlides: 4,
-    speed: 3000,
+    speed: 1500,
     autoHeight: true,
     navigation: {
       nextEl: ".swiper-button-next",
