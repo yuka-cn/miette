@@ -54,25 +54,26 @@ jQuery(function ($) {
     var height = target.height();
     var scrollTop = $(window).scrollTop();
 
-    if (scrollTop > height - headerHeight) {
+    var over = scrollTop > height - headerHeight;
+
+    if (over) {
+      hamburger.addClass("is-color");
+      pcNav.addClass("is-color");
+      logo.attr("src", logo.data("color"));
       if (isFront) {
         header.addClass("is-show");
-        hamburger.addClass("is-color");
-        logo.attr("src", logo.data("color"));
       } else {
         header.addClass("is-color");
-        hamburger.addClass("is-color");
-        pcNav.addClass("is-color");
-        logo.attr("src", logo.data("color"));
-      } 
-    } else {
+      }
+    }
+    else {
+      hamburger.removeClass("is-color");
+      pcNav.removeClass("is-color");
+      logo.attr("src", logo.data("white"));
       if (isFront) {
         header.removeClass("is-show");
       } else {
         header.removeClass("is-color");
-        hamburger.removeClass("is-color");
-        pcNav.removeClass("is-color");
-        logo.attr("src", logo.data("white"));
       }
     }
   }
