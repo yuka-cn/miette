@@ -1780,10 +1780,14 @@ textarea {
 	background: #F5EBDD;
 	color: #5A3E2B;
 	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
 }
 
 .header.is-show {
 	opacity: 1;
+	pointer-events: auto;
+	visibility: visible;
 }
 
 .header.is-active,

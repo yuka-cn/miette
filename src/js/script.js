@@ -57,6 +57,7 @@ jQuery(function ($) {
     if (scrollTop > height - headerHeight) {
       if (isFront) {
         header.addClass("is-show");
+        hamburger.addClass("is-color");
         logo.attr("src", logo.data("color"));
       } else {
         header.addClass("is-color");

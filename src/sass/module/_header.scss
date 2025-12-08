@@ -15,20 +15,16 @@
 
 .header--top{
   opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
   color: $font-color;
   background: $main-color;
 }
 
-// @keyframes headerFadeIn {
-//   0% {
-//     opacity: 0;
-//   }
-//   100% {
-//     opacity: 1;
-//   }
-// }
 .header.is-show {
   opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
 }
 
 .header.is-active,
