@@ -69,7 +69,7 @@ extract($links, EXTR_SKIP);
               </div>
               <div class="lesson-card__image">
                 <?php if ($image): ?>
-                  <?php echo wp_get_attachment_image($image, 'medium', false, ['alt' => '']); ?>
+                  <?php echo wp_get_attachment_image($image, 'medium', false, ['alt' => '' ,'sizes' => '(min-width: 1440px) 306px, 100vw']); ?>
                 <?php else: ?>
                   <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
                 <?php endif; ?>

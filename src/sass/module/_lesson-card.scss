@@ -97,9 +97,13 @@
 }
 
 .lesson-card:hover .lesson-card__mask {
-  opacity: 1;
+  @include mq("md"){
+    opacity: 1;
+  }
 }
 
 .lesson-card:hover{
-  transform: translateY(rem(-4));
+  @include mq("md"){
+    transform: translateY(rem(-4));
+  }
 }

@@ -20,9 +20,13 @@
 }
 
 .category-button:hover{
-  color: rgba($sub-color, 0.6);
+  @include mq("md"){
+    color: rgba($sub-color, 0.6);
+  }
 }
 
 .category-button.is-active:hover{
-  color: $white;
+  @include mq("md"){
+    color: $white;
+  }
 }

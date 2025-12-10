@@ -24,8 +24,10 @@
 }
 
 .to-top:hover {
-  color: $white;
-  background: $sub-color;
+  @include mq("md"){
+    color: $white;
+    background: $sub-color;
+  }
 }
 
 .to-top span {

@@ -3,13 +3,16 @@
 .mv{
   position: relative;
   height: 100vh;
+  height: 100svh;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: "image" "title";
+  grid-template-rows: min-content 1fr;
   @include mq("md") {
     align-items: center;
     grid-template-columns: 50% 50%;
     grid-template-areas: "title image";
+    grid-template-rows: auto;
   }
 }
 
@@ -44,6 +47,9 @@
 }
 
 .mv__inner{
+  display: grid;
+  place-content: center;
+  height: 100%;
   @include mq("md"){
     text-align: center;
   }
@@ -55,8 +61,10 @@
   font-family: $second-font-family;
   font-weight: $regular;
   line-height: 2.5;
+  transform: translateY(-20%);
   @include mq("md"){
     line-height: 3;
+    transform: none;
   }
 }
 

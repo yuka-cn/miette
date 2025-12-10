@@ -76,11 +76,15 @@
 }
 
 .blog-card a:hover .blog-card__mask {
-  opacity: 1;
+  @include mq("md"){
+    opacity: 1;
+  }
 }
 
 .blog-card a:hover .blog-card__image img {
-  transform: scale(1.05);
+  @include mq("md"){
+    transform: scale(1.05);
+  }
 }
 
 .blog-card--sidebar a{
@@ -110,5 +114,7 @@
 }
 
 .blog-card--sidebar a:hover .blog-card__image img {
-  transform:  none;
+  @include mq("md"){
+    transform:  none;
+  }
 }

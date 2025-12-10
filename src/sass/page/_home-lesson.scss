@@ -92,6 +92,13 @@
   display: none;
 }
 
+.home-lesson__button-prev:hover,
+.home-lesson__button-next:hover {
+  @include mq("md"){
+    opacity: 0.7;
+  }
+}
+
 .home-lesson__button-prev:focus-visible,
 .home-lesson__button-next:focus-visible {
   outline: 3px solid #1a73e8;

@@ -7,7 +7,7 @@ extract($links, EXTR_SKIP);
 
 <main>
   <!-- ファーストビュー -->
-    <section class="mv">
+  <section class="mv">
     <div class="mv__logo">
       <img src="<?php echo get_theme_file_uri('/assets/images/common/miette-color.svg'); ?>" alt="やさしいおやつ教室Miette">
     </div>
@@ -83,7 +83,7 @@ extract($links, EXTR_SKIP);
   <?php wp_reset_postdata();?>
 
   <!-- コンセプト -->
-  <section class="home-concept home-concept-layout">
+  <div class="home-concept home-concept-layout">
     <div class="home-concept__content">
       <div class="home-concept__image js-fadeIn"></div>
       <div class="home-concept__inner inner js-fadeIn">
@@ -104,7 +104,7 @@ extract($links, EXTR_SKIP);
       </div>
     </div>
     <div class="home-concept__divider divider divider--a divider--bottom"></div>
-  </section>
+  </div>
 
   <!-- レッスン案内 -->
   <section class="home-lesson-guide">

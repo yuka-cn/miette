@@ -41,7 +41,7 @@ extract($links, EXTR_SKIP);
     <?php endif; ?>
 
     <!-- ハンバーガー -->
-    <button class="header__drawer hamburger js-hamburger">
+    <button class="header__drawer hamburger js-hamburger" aria-expanded="false" aria-label="メニューを開く">
       <span></span>
       <span></span>
       <span></span>

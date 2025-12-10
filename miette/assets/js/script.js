@@ -81,6 +81,9 @@ jQuery(function ($) {
   /* ハンバーガーメニュー */
   hamburger.click(function () {
     $(".js-hamburger, .header, .sp-nav").toggleClass("is-active");
+    var isActive = $(this).hasClass("is-active");
+    $(this).attr("aria-expanded", isActive);
+    $(this).attr("aria-label", isActive ? "メニューを閉じる" : "メニューを開く");
     if ($(this).hasClass("is-active")) {
       $("body").css("overflow", "hidden");
       logo.attr("src", logo.data("white"));

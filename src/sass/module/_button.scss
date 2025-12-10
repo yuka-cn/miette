@@ -16,7 +16,7 @@
   border: 0.08em solid transparent;
   border-radius: 5em;  
   box-sizing: border-box;
-  transition: color 0.3s, background-color 0.3s;
+  transition: .3s;
 }
 
 .button span{
@@ -28,20 +28,26 @@
   transform-origin: center;
 }
 
-.button:hover {
-  color: $ac-color;
-  background: $white;
+.button:hover{
+  @include mq("md"){
+    color: $ac-color;
+    background: $white;
+  }
 }
 
 .button--green{
-  background: linear-gradient(to top, rgba(255,255,255,0.2), transparent),#A9BEA0;
+  background: linear-gradient(to top, rgba(255,255,255,0.18), transparent),#A9BEA0;
 }
 
 .button--green:hover{
-  color: #A9BEA0;
-  border: 0.08em solid #A9BEA0;
+  @include mq("md"){
+    color: #A9BEA0;
+    border: 0.08em solid #A9BEA0;
+  }
 }
 
 .button--outline:hover{
-  border: 0.08em solid $ac-color;
+  @include mq("md"){
+    border: 0.08em solid $ac-color;
+  }
 }
