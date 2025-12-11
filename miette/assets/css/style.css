@@ -156,23 +156,6 @@ a {
 	margin-top: 3rem;
 }
 
-.access {
-	position: relative;
-}
-
-.access::before {
-	background-image: url(../images/common/embellishment_3.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -1.21875rem;
-	width: 7.5rem;
-	z-index: 0;
-}
-
 .access__items {
 	grid-gap: 2.5rem;
 	-webkit-box-align: end;
@@ -210,23 +193,6 @@ a {
 	margin-top: 3rem;
 }
 
-.blog-single {
-	position: relative;
-}
-
-.blog-single::before {
-	background-image: url(../images/common/embellishment_3.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -1.5rem;
-	width: 7.5rem;
-	z-index: 0;
-}
-
 .blog-single__inner {
 	grid-gap: 5rem;
 	display: grid;
@@ -240,23 +206,6 @@ a {
 
 .blog-single__sidebar {
 	padding: 0 1.5625rem;
-}
-
-.blog {
-	position: relative;
-}
-
-.blog::before {
-	background-image: url(../images/common/embellishment_3.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -1.5rem;
-	width: 7.5rem;
-	z-index: 0;
 }
 
 .blog__inner {
@@ -316,23 +265,6 @@ a {
 
 .faq-layout {
 	margin-top: 3rem;
-}
-
-.faq {
-	position: relative;
-}
-
-.faq::before {
-	background-image: url(../images/common/embellishment_3.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -1.21875rem;
-	width: 7.5rem;
-	z-index: 0;
 }
 
 .faq__items {
@@ -759,23 +691,6 @@ a {
 	margin-top: 3rem;
 }
 
-.policy {
-	position: relative;
-}
-
-.policy::before {
-	background-image: url(../images/common/embellishment_3.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -1.21875rem;
-	width: 7.5rem;
-	z-index: 0;
-}
-
 .policy__button {
 	margin-top: 3.75rem;
 	text-align: center;
@@ -783,23 +698,6 @@ a {
 
 .reservation-layout {
 	margin-top: 3.375rem;
-}
-
-.reservation {
-	position: relative;
-}
-
-.reservation::before {
-	background-image: url(../images/common/embellishment_3.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -1.6875rem;
-	width: 7.5rem;
-	z-index: 0;
 }
 
 .reservation__inner {
@@ -886,11 +784,6 @@ a {
 .archive-list__year.is-open .archive-list__year-button::after {
 	-webkit-transform: translateY(-50%) rotate(-135deg);
 	transform: translateY(-50%) rotate(-135deg);
-}
-
-.archive-list__year-button:hover,
-.archive-list__month:hover {
-	opacity: 0.7;
 }
 
 .blog-article__date {
@@ -1729,8 +1622,7 @@ textarea {
 
 .js-fadeIn {
 	opacity: 0;
-	-webkit-transform: translateY(3.125rem);
-	transform: translateY(3.125rem);
+	translate: 0 3.125rem;
 }
 
 .js-fadeIn.is-active {
@@ -2711,13 +2603,6 @@ html {
 	margin-top: 6.25rem;
 }
 
-.access::before {
-	height: 8.625rem;
-	left: calc(50% - min(38.75rem, 48%));
-	top: -4rem;
-	width: 18.8125rem;
-}
-
 .access__items {
 	grid-template-columns: 34.375rem 1fr;
 }
@@ -2734,13 +2619,6 @@ html {
 	margin-top: 9.375rem;
 }
 
-.blog-single::before {
-	height: 8.625rem;
-	left: calc(50% - min(38.75rem, 48%));
-	top: -4.375rem;
-	width: 18.8125rem;
-}
-
 .blog-single__inner {
 	-webkit-box-align: start;
 	-ms-flex-align: start;
@@ -2750,13 +2628,6 @@ html {
 
 .blog-single__sidebar {
 	padding: 0;
-}
-
-.blog::before {
-	height: 8.625rem;
-	left: calc(50% - min(38.75rem, 48%));
-	top: -4.375rem;
-	width: 18.8125rem;
 }
 
 .blog__inner {
@@ -2798,13 +2669,6 @@ html {
 
 .faq-layout {
 	margin-top: 9.375rem;
-}
-
-.faq::before {
-	height: 8.625rem;
-	left: calc(50% - min(38.75rem, 48%));
-	top: -4rem;
-	width: 18.8125rem;
 }
 
 .faq__body {
@@ -3015,13 +2879,6 @@ html {
 	margin-top: 9.375rem;
 }
 
-.policy::before {
-	height: 8.625rem;
-	left: calc(50% - min(38.75rem, 48%));
-	top: -4rem;
-	width: 18.8125rem;
-}
-
 .policy__body {
 	margin-left: auto;
 	margin-right: auto;
@@ -3034,13 +2891,6 @@ html {
 
 .reservation-layout {
 	margin-top: 9.375rem;
-}
-
-.reservation::before {
-	height: 8.625rem;
-	left: calc(50% - min(38.75rem, 48%));
-	top: -4.375rem;
-	width: 18.8125rem;
 }
 
 .reservation__error {
@@ -3063,6 +2913,11 @@ html {
 
 .reservation__thanks-body {
 	margin-top: 2.5rem;
+}
+
+.archive-list__year-button:hover,
+.archive-list__month:hover {
+	opacity: 0.7;
 }
 
 .blog-article__title {
@@ -3549,14 +3404,12 @@ html {
 
 0% {
 	opacity: 0;
-	-webkit-transform: translateY(3.125rem);
-	transform: translateY(3.125rem);
+	translate: 0 3.125rem;
 }
 
 100% {
 	opacity: 1;
-	-webkit-transform: translateY(0);
-	transform: translateY(0);
+	translate: 0 0;
 }
 
 }
@@ -3565,14 +3418,12 @@ html {
 
 0% {
 	opacity: 0;
-	-webkit-transform: translateY(3.125rem);
-	transform: translateY(3.125rem);
+	translate: 0 3.125rem;
 }
 
 100% {
 	opacity: 1;
-	-webkit-transform: translateY(0);
-	transform: translateY(0);
+	translate: 0 0;
 }
 
 }
