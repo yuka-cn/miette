@@ -47,7 +47,7 @@ extract($links, EXTR_SKIP);
             </div>
             <div class="lesson-card__body">
               <p class="lesson-card__category"><?php echo esc_html($lesson_term_name); ?></p>
-              <p class="lesson-card__title"><?php the_title(); ?></p>
+              <h3 class="lesson-card__title"><?php the_title(); ?></h3>
             </div>
             <span class="lesson-card__mask"></span>
           </a>
@@ -85,14 +85,14 @@ extract($links, EXTR_SKIP);
           <div class="sidebar-box__blog-cards">
             <?php while($popular->have_posts()): $popular->the_post(); ?>
               <article class="sidebar-box__blog-card blog-card blog-card--sidebar">
-                <a href="<?php the_permalink(); ?>"">
+                <a href="<?php the_permalink(); ?>">
                   <div class="blog-card__body">
                     <div class="blog-card__meta">
                       <time datetime="<?php echo get_the_date('Y-m-d'); ?>" class="blog-card__date">
                         <?php echo get_the_date('Y.m.d'); ?>
                       </time>
                     </div>
-                    <p class="blog-card__title"><?php the_title(); ?></p>
+                    <h3 class="blog-card__title"><?php the_title(); ?></h3>
                   </div>
                   <div class="blog-card__image">
                     <?php if (has_post_thumbnail()): ?>

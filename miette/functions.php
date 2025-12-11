@@ -12,6 +12,9 @@ function miette_theme_setup() {
 }
 add_action('after_setup_theme', 'miette_theme_setup');
 
+// WordPress が sizes="auto" を自動で付けるのを停止
+add_filter('wp_img_tag_add_auto_sizes', '__return_false');
+
 // アセット読み込み
 function miette_enqueue_assets() {
   // $theme_uri = get_theme_file_uri();

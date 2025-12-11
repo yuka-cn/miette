@@ -11,6 +11,5 @@
       <?php echo do_shortcode('[contact-form-7 id="bdd0e72" title="お問い合わせ"]'); ?>
     </div>
   </div>
-</main>
 
 <?php get_footer(); ?>

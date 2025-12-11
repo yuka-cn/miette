@@ -11,6 +11,5 @@
       <?php echo do_shortcode('[contact-form-7 id="166489f" title="レッスン予約"]'); ?>
     </div>
   </div>
-</main>
 
 <?php get_footer(); ?>
