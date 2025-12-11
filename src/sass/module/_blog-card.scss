@@ -22,6 +22,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  gap: rem(16);
   font-size: rem(14);
 }
 
@@ -101,7 +102,7 @@
 
 .blog-card--sidebar .blog-card__title{
   margin-top: rem(4);
-  padding-bottom: none;
+  padding-bottom: 0;
   border-bottom: none;
 }
 

@@ -786,6 +786,13 @@ a {
 	transform: translateY(-50%) rotate(-135deg);
 }
 
+.archive-list__year-button:focus-visible,
+.archive-list__month:focus-visible {
+	border-radius: 6px;
+	outline: 3px solid #1a73e8;
+	outline-offset: 4px;
+}
+
 .blog-article__date {
 	display: block;
 	font-size: 0.875rem;
@@ -847,6 +854,7 @@ a {
 	display: -ms-flexbox;
 	display: flex;
 	font-size: 0.875rem;
+	gap: 1rem;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
@@ -913,7 +921,7 @@ a {
 .blog-card--sidebar .blog-card__title {
 	border-bottom: none;
 	margin-top: 0.25rem;
-	padding-bottom: none;
+	padding-bottom: 0;
 }
 
 .blog-card--sidebar .blog-card__image {
@@ -1431,7 +1439,6 @@ a {
 
 .form__row--error select,
 .form__row--error .form__radio input[type=radio],
-.form__row--error .form__checkbox input[type=checkbox],
 .form__agreement--error input[type=checkbox] {
 	background: rgba(224, 138, 148, 0.2);
 	border: 0.08em solid #E08A94;
@@ -1444,7 +1451,7 @@ textarea {
 }
 
 .form__input--select:focus-visible,
-.form__checkbox input:focus-visible,
+.form__radio input:focus-visible,
 .form__agreement input:focus-visible,
 .button:focus-visible {
 	outline: 2px solid #1a73e8;
@@ -1475,6 +1482,12 @@ textarea {
 	height: 100%;
 	object-fit: cover;
 	width: 100%;
+}
+
+.gallery__item:focus-visible {
+	border-radius: 6px;
+	outline: 3px solid #1a73e8;
+	outline-offset: 4px;
 }
 
 .hamburger {
@@ -2467,6 +2480,12 @@ textarea {
 	background-position: bottom left;
 	background-repeat: no-repeat;
 	background-size: 100% 0.25em;
+}
+
+.tab-button:focus-visible {
+	border-radius: 6px;
+	outline: 3px solid #1a73e8;
+	outline-offset: 4px;
 }
 
 .tab-buttons {

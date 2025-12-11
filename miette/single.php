@@ -23,7 +23,7 @@ extract($links, EXTR_SKIP);
               <time datetime="<?php echo get_the_date('Y-m-d'); ?>" class="blog-article__date">
                 <?php echo get_the_date('Y.m.d'); ?>
               </time>
-              <h2 class="blog-article__title"><?php the_title(); ?></h2>
+              <h1 class="blog-article__title"><?php the_title(); ?></h1>
             </header>
 
             <div class="blog-article__content">

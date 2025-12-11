@@ -206,7 +206,6 @@
 
 .form__row--error select,
 .form__row--error .form__radio input[type="radio"],
-.form__row--error .form__checkbox input[type="checkbox"],
 .form__agreement--error input[type="checkbox"] {
   border: 0.08em solid #E08A94;
   background: rgba(#E08A94, 0.2);
@@ -223,10 +222,9 @@ textarea{
 }
 
 .form__input--select:focus-visible,
-.form__checkbox input:focus-visible,
+.form__radio input:focus-visible,
 .form__agreement input:focus-visible,
 .button:focus-visible{
   outline: 2px solid #1a73e8;
   outline-offset: 2px;
 }
-      

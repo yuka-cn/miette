@@ -40,7 +40,7 @@ extract($links, EXTR_SKIP);
               <p class="lesson-article__month"><?php echo esc_html($month); ?>月　</p>
               <p class="lesson-article__category"><?php echo esc_html($term_name); ?></p>
             </div>
-            <h2 class="lesson-article__title"><?php the_title(); ?></h2>
+            <h1 class="lesson-article__title"><?php the_title(); ?></h1>
           </header>
           <div class="lesson-article__body">
             <div class="lesson-article__image js-fadeIn">

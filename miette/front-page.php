@@ -64,7 +64,7 @@ extract($links, EXTR_SKIP);
                   </div>
                   <div class="lesson-card__body">
                     <p class="lesson-card__category"><?php echo esc_html($term_name); ?></p>
-                    <h2 class="lesson-card__title"><?php the_title(); ?></h2>
+                    <h3 class="lesson-card__title"><?php the_title(); ?></h3>
                   </div>
                   <span class="lesson-card__mask"></span>
                 </a>
@@ -164,7 +164,7 @@ extract($links, EXTR_SKIP);
                     <?php echo get_the_date('Y.m.d'); ?>
                   </time>
                 </div>
-                <h2 class="blog-card__title"><?php the_title(); ?></h2>
+                <h3 class="blog-card__title"><?php the_title(); ?></h3>
                 <p class="blog-card__text">
                   <?php
                     if (has_excerpt()) {

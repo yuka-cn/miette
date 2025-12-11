@@ -225,7 +225,7 @@ function initSwiper() {
     loop: true,
     loopedSlides: 4,
     speed: 1500,
-    autoHeight: true,
+    autoHeight: false,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev"

@@ -85,7 +85,11 @@ if ($template === 'home.php' || $post_type === 'post') {
   <div class="page-header__body">
     <div class="page-header__divider divider divider--c divider--top"></div>
     <div class="page-header__inner inner">
-      <h1 class="page-header__title"><?php echo esc_html($header_title); ?></h1>
+      <?php if (is_singular('post') || is_singular('lesson')) : ?>
+        <p class="page-header__title"><?php echo esc_html($header_title); ?></p>
+      <?php else : ?>
+        <h1 class="page-header__title"><?php echo esc_html($header_title); ?></h1>
+      <?php endif; ?>
       <div class="page-header__breadcrumb">
         <?php get_template_part('template-parts/breadcrumb'); ?>
       </div>

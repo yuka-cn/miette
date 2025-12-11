@@ -50,3 +50,10 @@
     opacity: 0.7;
   }
 }
+
+.archive-list__year-button:focus-visible,
+.archive-list__month:focus-visible{
+  outline: 3px solid #1a73e8;
+  outline-offset: 4px;
+  border-radius: 6px;
+}

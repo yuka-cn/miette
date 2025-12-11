@@ -33,3 +33,9 @@
     opacity: 0.7;
   }
 }
+
+.tab-button:focus-visible{
+  outline: 3px solid #1a73e8;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
