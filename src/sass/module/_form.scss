@@ -40,9 +40,6 @@
   background: $white;
   border: 0.08em solid $sub-color;
   border-radius: 0.5em;
-  @include mq("md"){
-    transform: translateY(rem(-2));
-  }
 }
 
 .form__input--select{
@@ -98,8 +95,7 @@
   }
 }
 
-.form__agreement label,
-.form__agreement-inner{
+.form__agreement label{
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -128,7 +124,6 @@
 .form__agreement input[type="checkbox"] {
   width: rem(20);
   height: rem(20);
-  transform: translateY(rem(-2));
   border-radius: 0.5em;
 }
 
@@ -151,19 +146,17 @@
   position: absolute;
   top: 40%;
   left: 50%;
+  width:  rem(8);
+  height: rem(16);
   border: solid #E08A94;
   border-width: 0 0.16em 0.16em 0;
   transform: translate(-50% ,-50%) rotate(55deg);
 }
 
-.form__agreement input[type="checkbox"]:checked::after{
-  width:  rem(8);
-  height: rem(16);
-}
-
 .form__agreement a{
   border-bottom: 0.08em solid ;
 }
+
 .form__participants{
   display: grid;
   grid-template-columns: 50% 50%;

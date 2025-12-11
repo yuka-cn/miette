@@ -9,7 +9,7 @@ extract($links, EXTR_SKIP);
   <!-- ファーストビュー -->
   <section class="mv">
     <div class="mv__logo">
-      <img src="<?php echo get_theme_file_uri('/assets/images/common/miette-color.svg'); ?>" alt="やさしいおやつ教室Miette">
+      <img src="<?php echo get_theme_file_uri('/assets/images/common/miette-color.png'); ?>" alt="やさしいおやつ教室Miette">
     </div>
     <picture class="mv__image" style="grid-area: image;">
       <source srcset="<?php echo get_theme_file_uri('/assets/images/common/mv_pc.png'); ?>" media="(min-width: 768px)">

@@ -1315,8 +1315,7 @@ a {
 	margin-top: 2.5rem;
 }
 
-.form__agreement label,
-.form__agreement-inner {
+.form__agreement label {
 	-webkit-box-align: start;
 	-ms-flex-align: start;
 	align-items: flex-start;
@@ -1348,8 +1347,6 @@ a {
 .form__agreement input[type=checkbox] {
 	border-radius: 0.5em;
 	height: 1.25rem;
-	-webkit-transform: translateY(-0.125rem);
-	transform: translateY(-0.125rem);
 	width: 1.25rem;
 }
 
@@ -1370,15 +1367,12 @@ a {
 	border: solid #E08A94;
 	border-width: 0 0.16em 0.16em 0;
 	content: "";
+	height: 1rem;
 	left: 50%;
 	position: absolute;
 	top: 40%;
 	-webkit-transform: translate(-50%, -50%) rotate(55deg);
 	transform: translate(-50%, -50%) rotate(55deg);
-}
-
-.form__agreement input[type=checkbox]:checked::after {
-	height: 1rem;
 	width: 0.5rem;
 }
 
@@ -3121,17 +3115,11 @@ html {
 	padding: 2.5rem 0;
 }
 
-.form__input {
-	-webkit-transform: translateY(-0.125rem);
-	transform: translateY(-0.125rem);
-}
-
 .form__agreement {
 	margin-top: 5rem;
 }
 
-.form__agreement label,
-.form__agreement-inner {
+.form__agreement label {
 	gap: 1rem;
 }
 

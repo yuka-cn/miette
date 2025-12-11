@@ -14,7 +14,7 @@ extract($links, EXTR_SKIP);
       <div class="footer__header">
         <div class="footer__logo">
           <a href="<?php echo $home ?>" class="footer__logolink">
-            <img src="<?php echo get_theme_file_uri('/assets/images/common/miette.svg'); ?>" alt="やさしいおやつ教室Miette">
+            <img src="<?php echo get_theme_file_uri('/assets/images/common/miette.png'); ?>" alt="やさしいおやつ教室Miette">
           </a>
         </div>
         <div class="footer__sns">

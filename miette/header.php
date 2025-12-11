@@ -20,9 +20,9 @@ extract($links, EXTR_SKIP);
       <h1 class="header__logo">
         <a href="<?php echo $home; ?>" class="header__logolink">
           <img
-            src="<?php echo get_theme_file_uri('/assets/images/common/miette.svg'); ?>"
-            data-color="<?php echo get_theme_file_uri('/assets/images/common/miette-color.svg'); ?>"
-            data-white="<?php echo get_theme_file_uri('/assets/images/common/miette.svg'); ?>"
+            src="<?php echo get_theme_file_uri('/assets/images/common/miette.png'); ?>"
+            data-color="<?php echo get_theme_file_uri('/assets/images/common/miette-color.png'); ?>"
+            data-white="<?php echo get_theme_file_uri('/assets/images/common/miette.png'); ?>"
             alt="やさしいおやつ教室Miette"
           >
         </a>
@@ -31,9 +31,9 @@ extract($links, EXTR_SKIP);
       <div class="header__logo">
         <a href="<?php echo $home; ?>" class="header__logolink">
           <img
-            src="<?php echo get_theme_file_uri('/assets/images/common/miette.svg'); ?>"
-            data-color="<?php echo get_theme_file_uri('/assets/images/common/miette-color.svg'); ?>"
-            data-white="<?php echo get_theme_file_uri('/assets/images/common/miette.svg'); ?>"
+            src="<?php echo get_theme_file_uri('/assets/images/common/miette.png'); ?>"
+            data-color="<?php echo get_theme_file_uri('/assets/images/common/miette-color.png'); ?>"
+            data-white="<?php echo get_theme_file_uri('/assets/images/common/miette.png'); ?>"
             alt="やさしいおやつ教室Miette"
           >
         </a>
