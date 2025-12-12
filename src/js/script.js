@@ -81,6 +81,7 @@ jQuery(function ($) {
   $(window).scroll(checkScroll);
   checkScroll();
 
+
 /* ハンバーガーメニュー */
   hamburger.click(function () {
     $(".js-hamburger, .header, .sp-nav").toggleClass("is-active");
@@ -170,6 +171,21 @@ jQuery(function ($) {
       });
     }
   }
+
+/* レッスンメニューページのカテゴリーボタンクリック時のスムーススクロール */
+  $(window).on("load", function () {
+
+    const $target = $("#category-top");
+
+    if ($target.length) {
+      const offset = $target.offset().top - $(".header").outerHeight();
+
+      $("html, body").animate(
+        { scrollTop: offset },
+        600
+      );
+    }
+  });
   
 /* 予約ページの希望日程 */
   // 選択クラスに応じて日程を更新する
@@ -305,15 +321,6 @@ jQuery(function ($) {
 
       const buttonTop = targetTabButton.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({ top: buttonTop - headerOffset, behavior: 'smooth' });
-    } else{
-
-    //priceページ
-      const targetSection = document.querySelector(hash);
-
-      if (targetSection) {
-        const sectionTop = targetSection.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({ top: sectionTop - headerOffset, behavior: 'smooth' });
-      }
     }
     
     //sp-navが開いていたら閉じる

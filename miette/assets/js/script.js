@@ -160,6 +160,17 @@ jQuery(function ($) {
     }
   }
 
+  /* レッスンメニューページのカテゴリーボタンクリック時のスムーススクロール */
+  $(window).on("load", function () {
+    var $target = $("#category-top");
+    if ($target.length) {
+      var offset = $target.offset().top - $(".header").outerHeight();
+      $("html, body").animate({
+        scrollTop: offset
+      }, 600);
+    }
+  });
+
   /* 予約ページの希望日程 */
   // 選択クラスに応じて日程を更新する
   $('input[name="lesson_class"]').on('change', function () {
@@ -290,16 +301,6 @@ function scrollToHash() {
       top: buttonTop - headerOffset,
       behavior: 'smooth'
     });
-  } else {
-    //priceページ
-    var targetSection = document.querySelector(hash);
-    if (targetSection) {
-      var sectionTop = targetSection.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({
-        top: sectionTop - headerOffset,
-        behavior: 'smooth'
-      });
-    }
   }
 
   //sp-navが開いていたら閉じる

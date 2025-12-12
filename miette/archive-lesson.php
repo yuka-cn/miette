@@ -20,7 +20,7 @@ extract($links, EXTR_SKIP);
         <div class="lesson__category-buttons category-buttons" id="category-top">
           <a
             class="category-buttons__item category-button <?php if (!is_tax()) echo 'is-active'; ?>" 
-            href="<?php echo $lesson; ?>#category-top"
+            href="<?php echo $lesson; ?>"
           >
             すべてのクラス
           </a>
@@ -38,7 +38,7 @@ extract($links, EXTR_SKIP);
           ?>
               <a 
                 class="category-buttons__item category-button <?php if (is_tax($taxonomy, $term->slug)) echo 'is-active'; ?>" 
-                href="<?php echo esc_url(get_term_link($term)); ?>#category-top"
+                href="<?php echo esc_url(get_term_link($term)); ?>"
               >
                 <?php echo esc_html($term->name); ?>
               </a>
