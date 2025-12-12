@@ -31,9 +31,12 @@
 
 .blog-article__figure,
 .blog-article__text figure{
-  aspect-ratio: 345 / 231;
+  aspect-ratio: 345 / 230;
+  border-radius: 1.5em;
+  overflow: hidden;
   @include mq("md"){
-    aspect-ratio: 700 / 468;
+    aspect-ratio: 700 / 460;
+    border-radius: 2em;
   }
 }
 

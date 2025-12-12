@@ -4,13 +4,14 @@
   padding: rem(18) 0;
   font-size: rem(14);
   color: $font-color;
-  background-image: url('../images/common/line-thin.svg');
+  background-image: url('../images/common/line-thin_200.png');
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: 100% 0.1em;
   transition: opacity 0.3s ease;
   @include mq("md"){
     font-size: rem(20);
+    background-image: url('../images/common/line-thin_360.png');
   }
 }
 
@@ -22,10 +23,14 @@
 }
 
 .tab-button.is-active{
-  background-image: url('../images/common/line-thick.svg');
+  font-weight: $medium;
+  background-image: url('../images/common/line-thick_200.png');
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: 100% 0.25em;
+  @include mq("md"){
+    background-image: url('../images/common/line-thick_360.png');
+  }
 }
 
 .tab-button:hover{

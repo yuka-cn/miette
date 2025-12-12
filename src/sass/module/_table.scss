@@ -6,10 +6,13 @@
   display: grid;
   grid-template-columns: 25% 1fr;
   align-items: start;
-  background-image: url('../images/common/line-thin.svg');
+  background-image: url('../images/common/line-thin_360.png');
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: 100% 0.1em;
+  @include mq("md"){
+    background-image: url('../images/common/line-thin_550.png');
+  }
 }
 
 .table th{

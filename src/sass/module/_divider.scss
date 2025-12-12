@@ -4,23 +4,36 @@
   position: absolute;
   left: 0;
   width: 100%;
-  aspect-ratio: 1440 / 100;
+  aspect-ratio: 375 / 40;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 1;
+  @include mq("md"){
+    aspect-ratio: 1440 / 100;
+  }
 }
 
 .divider--a {
-  aspect-ratio: 1440 / 205;
-  background-image: url('../images/common/bg_1.png');
+  aspect-ratio: 375 / 60;
+  background-image: url('../images/common/bg_sp_1.png');
+  @include mq("md"){
+    aspect-ratio: 1440 / 205;
+    background-image: url('../images/common/bg_pc_1.png');
+  }
 }
 
 .divider--b {
-  background-image: url('../images/common/bg_2.png');
+  background-image: url('../images/common/bg_sp_2.png');
+  @include mq("md"){
+    background-image: url('../images/common/bg_pc_2.png');
+  }
 }
 
 .divider--c {
-  background-image: url('../images/common/bg_3.png');
+  background-image: url('../images/common/bg_sp_3.png');
+  @include mq("md"){
+    background-image: url('../images/common/bg_pc_3.png');
+  }
 }
 
 .divider--top {

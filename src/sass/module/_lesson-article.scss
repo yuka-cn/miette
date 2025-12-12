@@ -26,9 +26,12 @@
 
 .lesson-article__image{
   margin-top: rem(24);
-  aspect-ratio: 700 / 400;
+  aspect-ratio: 700 / 460;
+  border-radius: 1.5em;
+  overflow: hidden;
   @include mq("md"){
     margin-top: rem(40);
+    border-radius: 2em;
   }
 }
 
