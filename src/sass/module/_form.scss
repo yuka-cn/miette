@@ -90,6 +90,7 @@
 
 .form__agreement{
   margin-top: rem(40);
+  text-align: center;
   @include mq("md"){
     margin-top: rem(80);
   }
@@ -98,7 +99,6 @@
 .form__agreement label{
   display: flex;
   align-items: flex-start;
-  justify-content: center;
   gap: rem(8);
   font-size: rem(14);
   @include mq("md"){
