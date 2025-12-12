@@ -160,16 +160,25 @@ jQuery(function ($) {
     }
   }
 
-  /* レッスンメニューページのカテゴリーボタンクリック時のスムーススクロール */
-  $(window).on("load", function () {
-    var $target = $("#category-top");
-    if ($target.length) {
-      var offset = $target.offset().top - $(".header").outerHeight();
-      $("html, body").animate({
-        scrollTop: offset
-      }, 600);
-    }
-  });
+  // /* レッスンメニューページのカテゴリーボタンクリック時のスムーススクロール */
+  //   // ブラウザの自動スクロール復元を無効化
+  //   if ('scrollRestoration' in history) {
+  //     history.scrollRestoration = 'manual';
+  //   }
+
+  //   $(window).on("load", function () {
+
+  //     const $target = $("#category-top");
+
+  //     if ($target.length) {
+  //       const offset = $target.offset().top - $(".header").outerHeight();
+
+  //       $("html, body").animate(
+  //         { scrollTop: offset },
+  //         600
+  //       );
+  //     }
+  //   });
 
   /* 予約ページの希望日程 */
   // 選択クラスに応じて日程を更新する
@@ -281,13 +290,12 @@ if (tabButtons.length && tabPanels.length) {
   });
 }
 
-//ハッシュリンク対応スクロール
+//タブ切り替え時のハッシュスクロール
 function scrollToHash() {
   var hash = window.location.hash;
   if (!hash) return;
-  var headerOffset = document.querySelector('header').offsetHeight;
-
-  //informationページ
+  var header = document.querySelector(".header");
+  var headerHeight = header ? header.offsetHeight : 0;
   var targetTabButton = document.querySelector("[data-target=\"".concat(hash, "\"]"));
   var targetPanel = document.querySelector(hash);
   if (targetTabButton && targetPanel) {
@@ -298,19 +306,39 @@ function scrollToHash() {
     targetPanel.classList.add('is-active');
     var buttonTop = targetTabButton.getBoundingClientRect().top + window.scrollY;
     window.scrollTo({
-      top: buttonTop - headerOffset,
+      top: buttonTop - headerHeight,
       behavior: 'smooth'
     });
   }
 
   //sp-navが開いていたら閉じる
-  if ($(".sp-nav").hasClass("is-active")) {
-    $(".js-hamburger, .header, .sp-nav").removeClass("is-active");
-    $("body").css("overflow", "auto");
+  var spNav = document.querySelector(".sp-nav");
+  if (spNav && spNav.classList.contains("is-active")) {
+    document.querySelectorAll(".js-hamburger, .header, .sp-nav").forEach(function (el) {
+      return el.classList.remove("is-active");
+    });
+    document.body.style.overflow = "auto";
   }
 }
 window.addEventListener('load', scrollToHash);
 window.addEventListener('hashchange', scrollToHash);
+
+/* レッスンメニューページのカテゴリーボタンクリック時のスクロール */
+// ブラウザの自動スクロール復元を無効化
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+window.addEventListener("load", function () {
+  var target = document.getElementById("category-top");
+  if (!target) return;
+  var header = document.querySelector(".header");
+  var headerHeight = header ? header.offsetHeight : 0;
+  var buttonTop = target.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({
+    top: buttonTop - headerHeight,
+    behavior: 'smooth'
+  });
+});
 
 // サイドバーのアーカイブ開閉
 document.querySelectorAll('.archive-list__year-button').forEach(function (button) {

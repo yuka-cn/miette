@@ -29,9 +29,9 @@ extract($links, EXTR_SKIP);
           <li class="nav__item nav__item--has-subitem">
             <a href="<?php echo $lesson_guide; ?>">レッスン案内</a>
             <ul class="nav__subitem">
-              <li><a href="#">ベーシッククラス</a></li>
-              <li><a href="#">季節のおやつクラス</a></li>
-              <li><a href="#">親子クラス</a></li>
+              <li><a href="<?php echo $lesson_guide; ?>#tab-basic">ベーシッククラス</a></li>
+              <li><a href="<?php echo $lesson_guide; ?>#tab-seasonal">季節のおやつクラス</a></li>
+              <li><a href="<?php echo $lesson_guide; ?>#tab-parent-child">親子クラス</a></li>
             </ul>
           </li>
           <li class="nav__item nav__item--has-subitem">
