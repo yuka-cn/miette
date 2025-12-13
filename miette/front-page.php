@@ -137,7 +137,7 @@ extract($links, EXTR_SKIP);
   ?>
   <section class="home-blog">
     <div class="home-blog__inner inner">
-      <div class="home-blog__intro">
+      <div class="home-blog__intro js-fadeIn">
         <h2 class="home-blog__header section-header">
           <span class="section-header__ja">ブログ</span>
           <span class="section-header__en">blog</span>
@@ -191,7 +191,7 @@ extract($links, EXTR_SKIP);
           </article>
         <?php endwhile; ?>
       </div>
-      <div class="home-blog__button">
+      <div class="home-blog__button js-fadeIn">
         <a href="<?php echo $blog; ?>" class="button">
           もっと見る
           <span></span>
