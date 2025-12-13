@@ -299,18 +299,17 @@ a {
 }
 
 .home-blog {
-	padding-top: 11.25rem;
+	padding-top: 13.75rem;
 	position: relative;
 }
 
 .home-blog::before {
-	background-attachment: fixed;
 	background-image: url(../images/common/blog_1.jpg);
-	background-position: top left;
+	background-position: center left;
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: cover;
 	content: "";
-	height: 10%;
+	height: 12%;
 	left: 0;
 	position: absolute;
 	top: 0;
@@ -2721,7 +2720,8 @@ html {
 }
 
 .home-blog::before {
-	background-size: cover;
+	background-attachment: fixed;
+	background-position: top left;
 	height: 45%;
 }
 
