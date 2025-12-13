@@ -40,157 +40,6 @@ jQuery(function ($) {
   //     mvSwiper();
   //   }
   // }
-
-/* スクロール位置に応じて、ヘッダーの背景色とロゴ・ハンバーガーメニューの色を変える */
-  var header = $(".header");
-  var logo = $(".header__logolink img");
-  var hamburger = $(".hamburger");
-  var pcNav = $(".pc-nav");
-
-  function checkScroll() {
-    var headerHeight = header.height();
-    var isFront = $(".mv").length > 0; // front-page を判定
-    var target = isFront ? $(".mv") : $(".page-header__image");
-    var height = target.height();
-    var scrollTop = $(window).scrollTop();
-
-    var over = scrollTop > height - headerHeight;
-
-    if (over) {
-      hamburger.addClass("is-color");
-      pcNav.addClass("is-color");
-      logo.attr("src", logo.data("color"));
-      if (isFront) {
-        header.addClass("is-show");
-      } else {
-        header.addClass("is-color");
-      }
-    }
-    else {
-      hamburger.removeClass("is-color");
-      pcNav.removeClass("is-color");
-      logo.attr("src", logo.data("white"));
-      if (isFront) {
-        header.removeClass("is-show");
-      } else {
-        header.removeClass("is-color");
-      }
-    }
-  }
-
-  $(window).scroll(checkScroll);
-  checkScroll();
-
-
-/* ハンバーガーメニュー */
-  hamburger.click(function () {
-    $(".js-hamburger, .header, .sp-nav").toggleClass("is-active");
-
-    const isActive = $(this).hasClass("is-active");
-
-    $(this).attr("aria-expanded", isActive);
-    $(this).attr("aria-label", isActive ? "メニューを閉じる" : "メニューを開く");
-
-    if ($(this).hasClass("is-active")) {
-      $("body").css("overflow", "hidden");
-      logo.attr("src", logo.data("white"));
-    } else {
-      $("body").css("overflow", "auto");
-      checkScroll();
-    }
-  });
-
-  //pc画面幅ではハンバーガーメニューを非表示にする
-  $(window).resize(function () {
-    if ($(window).width() >= 768) {
-      $(".sp-nav").removeClass("is-active").css("display", "");
-      $(".header").removeClass("is-active").css("display", "");
-    }
-  });
-
-/* topへ戻るボタン */
-  let topBtn = $(".to-top");
-  topBtn.hide();
-
-  // ボタンの表示設定
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 90) {
-      // 指定px以上のスクロールでボタンを表示
-      topBtn.fadeIn();
-    } else {
-      // 画面が指定pxより上ならボタンを非表示
-      topBtn.fadeOut();
-    }
-  });
-
-  // ボタンをクリックしたらスクロールして上に戻る
-  topBtn.click(function () {
-    $("body,html").animate(
-      {
-        scrollTop: 0,
-      },
-      300,
-      "swing"
-    );
-    return false;
-  });
-
-/* galleryのモーダル */
-  const modal = document.getElementById('modal');
-  if (modal) {
-    const overlay = modal.querySelector('.modal__overlay');
-    const content = modal.querySelector('.modal__content');
-
-  // クリック時の処理
-    if (window.innerWidth >= 768) {
-    document.querySelectorAll('.gallery__item img').forEach(img => {
-      img.addEventListener('click', () => {
-        // モーダル内に画像を複製
-        const clickedImg = img.cloneNode(true);
-        content.innerHTML = '';
-        content.appendChild(clickedImg);
-        // モーダル表示 + スクロール禁止
-        const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-        document.body.style.overflow = 'hidden';
-        document.body.style.paddingRight = scrollBarWidth + 'px';
-        modal.setAttribute('aria-hidden', 'false');
-      });
-    });
-
-  // 閉じる処理
-    function closeModal() {
-      modal.setAttribute('aria-hidden', 'true');
-      content.innerHTML = '';
-      document.body.style.overflow = '';
-    }
-    overlay.addEventListener('click', closeModal);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
-        closeModal();
-        }
-      });
-    }
-  }
-
-// /* レッスンメニューページのカテゴリーボタンクリック時のスムーススクロール */
-//   // ブラウザの自動スクロール復元を無効化
-//   if ('scrollRestoration' in history) {
-//     history.scrollRestoration = 'manual';
-//   }
-
-//   $(window).on("load", function () {
-
-//     const $target = $("#category-top");
-
-//     if ($target.length) {
-//       const offset = $target.offset().top - $(".header").outerHeight();
-
-//       $("html, body").animate(
-//         { scrollTop: offset },
-//         600
-//       );
-//     }
-//   });
   
 /* 予約ページの希望日程 */
   // 選択クラスに応じて日程を更新する
@@ -222,6 +71,112 @@ jQuery(function ($) {
 /* ----------------------------------------------------
  * Vanilla JavaScript (Native JS)
  * ---------------------------------------------------- */
+/* スクロール位置に応じてヘッダーの色を切り替える */
+{
+  const header = document.querySelector('.header');
+  const logo = document.querySelector('.header__logolink img');
+  const hamburger = document.querySelector('.hamburger');
+  const pcNav = document.querySelector('.pc-nav');
+
+  function checkScroll() {
+    if (!header) return;
+
+    const headerHeight = header.offsetHeight;
+    const isFront = document.querySelector('.mv') !== null;
+    const target = isFront
+      ? document.querySelector('.mv')
+      : document.querySelector('.page-header__image');
+
+    if (!target) return;
+
+    const scrollTop = window.pageYOffset;
+    const over = scrollTop > target.offsetHeight - headerHeight;
+
+    if (over) {
+      hamburger?.classList.add('is-color');
+      pcNav?.classList.add('is-color');
+      logo?.setAttribute('src', logo.dataset.color);
+
+      header.classList.toggle('is-show', isFront);
+      header.classList.toggle('is-color', !isFront);
+    } else {
+      hamburger?.classList.remove('is-color');
+      pcNav?.classList.remove('is-color');
+      logo?.setAttribute('src', logo.dataset.white);
+
+      header.classList.remove('is-show');
+      header.classList.remove('is-color');
+    }
+  }
+
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll();
+
+  // ハンバーガー閉時にロゴ・ヘッダーの色を更新するためのカスタムイベント
+  window.addEventListener('forceScrollCheck', checkScroll);
+}
+
+/* ハンバーガーメニュー */
+{
+  const hamburger = document.querySelector('.hamburger');
+  const header = document.querySelector('.header');
+  const spNav = document.querySelector('.sp-nav');
+  const logo = document.querySelector('.header__logolink img');
+
+  hamburger && hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('is-active');
+    header?.classList.toggle('is-active');
+    spNav?.classList.toggle('is-active');
+
+    const isActive = hamburger.classList.contains('is-active');
+
+    hamburger.setAttribute('aria-expanded', isActive);
+    hamburger.setAttribute(
+      'aria-label',
+      isActive ? 'メニューを閉じる' : 'メニューを開く'
+    );
+
+    if (isActive) {
+      document.body.style.overflow = 'hidden';
+      logo?.setAttribute('src', logo.dataset.white);
+    } else {
+      document.body.style.overflow = '';
+      window.dispatchEvent(new Event('forceScrollCheck'));
+    }
+  });
+
+  //pc画面幅ではハンバーガーメニューを非表示にする
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+      spNav?.classList.remove('is-active');
+      header?.classList.remove('is-active');
+
+      spNav?.style.removeProperty('display');
+      header?.style.removeProperty('display');
+    }
+  });
+}
+
+/* トップに戻るボタン */
+{
+  const topBtn = document.querySelector('.to-top');
+  if (topBtn){
+    const toggleTopButton = () => {
+      topBtn.classList.toggle('is-show', window.scrollY > 90);
+    };
+
+    window.addEventListener('scroll', toggleTopButton, { passive: true });
+    toggleTopButton();
+
+    topBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+}
 
 /* レッスンメニューのカードスライダー */
   // inner幅の基準値を設定
@@ -365,6 +320,43 @@ jQuery(function ($) {
       behavior: 'smooth'
     });
   });
+
+/* galleryのモーダル */
+  const modal = document.getElementById('modal');
+  if (modal) {
+    const overlay = modal.querySelector('.modal__overlay');
+    const content = modal.querySelector('.modal__content');
+
+  // クリック時の処理
+    if (window.innerWidth >= 768) {
+    document.querySelectorAll('.gallery__item img').forEach(img => {
+      img.addEventListener('click', () => {
+        // モーダル内に画像を複製
+        const clickedImg = img.cloneNode(true);
+        content.innerHTML = '';
+        content.appendChild(clickedImg);
+        // モーダル表示 + スクロール禁止
+        const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.body.style.overflow = 'hidden';
+        document.body.style.paddingRight = scrollBarWidth + 'px';
+        modal.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+  // 閉じる処理
+    function closeModal() {
+      modal.setAttribute('aria-hidden', 'true');
+      content.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+    overlay.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+        closeModal();
+        }
+      });
+    }
+  }
 
 // サイドバーのアーカイブ開閉
   document.querySelectorAll('.archive-list__year-button').forEach(button => {

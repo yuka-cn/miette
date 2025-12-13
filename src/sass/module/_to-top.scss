@@ -9,12 +9,14 @@
   color: $sub-color;
   border: 1px solid $sub-color;
   border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  transition: background 0.3s;
+  transition: opacity 0.3s ease, background 0.3s ease, color 0.3s ease;
   @include mq(md){
     right: rem(20);
     bottom: rem(40);
@@ -43,3 +45,7 @@
   }
 }
 
+.to-top.is-show{
+  opacity: 1;
+  visibility: visible;
+}
