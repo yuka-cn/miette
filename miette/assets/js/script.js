@@ -329,7 +329,7 @@ if (modal) {
   }
 }
 
-// サイドバーのアーカイブ開閉
+/* サイドバーのアーカイブ開閉 */
 document.querySelectorAll('.archive-list__year-button').forEach(function (button) {
   var year = button.closest('.archive-list__year');
   var months = year.querySelector('.archive-list__months');

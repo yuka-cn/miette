@@ -1143,20 +1143,7 @@ a {
 	background: #fff;
 	border-radius: 0 0 1rem 1rem;
 	line-height: 1.4;
-	opacity: 0;
 	padding: 1.25rem;
-	-webkit-transform: translateY(-0.5em);
-	transform: translateY(-0.5em);
-	-webkit-transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
-	transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
-	transition: opacity 0.6s ease, transform 0.6s ease;
-	transition: opacity 0.6s ease, transform 0.6s ease, -webkit-transform 0.6s ease;
-}
-
-.faq-item[open] p {
-	opacity: 1;
-	-webkit-transform: translateY(0);
-	transform: translateY(0);
 }
 
 .footer {

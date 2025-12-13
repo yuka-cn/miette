@@ -358,7 +358,7 @@ jQuery(function ($) {
     }
   }
 
-// サイドバーのアーカイブ開閉
+/* サイドバーのアーカイブ開閉 */
   document.querySelectorAll('.archive-list__year-button').forEach(button => {
     const year = button.closest('.archive-list__year');
     const months = year.querySelector('.archive-list__months');
