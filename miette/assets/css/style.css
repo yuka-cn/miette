@@ -2997,12 +2997,15 @@ html {
 }
 
 .button--green:hover {
-	border: 0.08em solid #A9BEA0;
 	color: #A9BEA0;
 }
 
 .button--outline:hover {
 	border: 0.08em solid #E8B4B8;
+}
+
+.button--outline.button--green:hover {
+	border: 0.08em solid #A9BEA0;
 }
 
 .category-button:hover {

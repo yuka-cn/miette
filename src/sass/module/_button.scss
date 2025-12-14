@@ -42,12 +42,17 @@
 .button--green:hover{
   @include mq("md"){
     color: #A9BEA0;
-    border: 0.08em solid #A9BEA0;
   }
 }
 
 .button--outline:hover{
   @include mq("md"){
     border: 0.08em solid $ac-color;
+  }
+}
+
+.button--outline.button--green:hover{
+  @include mq("md"){
+    border: 0.08em solid #A9BEA0;
   }
 }

@@ -217,7 +217,7 @@ extract($links, EXTR_SKIP);
           定員になり次第締め切りとなります。
         </p>
         <div class="home-reservation__button">
-          <a href="<?php echo $reservation; ?>" class="button button--green">
+          <a href="<?php echo $reservation; ?>" class="button button--green button--outline">
             ご予約はこちら
             <span></span>
           </a>
