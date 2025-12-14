@@ -306,20 +306,29 @@ jQuery(function ($) {
     history.scrollRestoration = "manual";
   }
 
-  window.addEventListener("load", () => {
+  /* カテゴリーボタンクリック時のみスクロール */
+  document.querySelectorAll('.category-button').forEach(button => {
+    button.addEventListener('click', () => {
+      sessionStorage.setItem('scrollCategoryTop', 'true');
+    });
+  });
 
-    const target = document.getElementById("category-top");
+  window.addEventListener('load', () => {
+    if (sessionStorage.getItem('scrollCategoryTop') !== 'true') return;
+    sessionStorage.removeItem('scrollCategoryTop');
+  
+    const target = document.getElementById('category-top');
     if (!target) return;
   
-    const header = document.querySelector(".header");
-    const headerHeight = header ? header.offsetHeight : 0;
-
-    const buttonTop = target.getBoundingClientRect().top + window.scrollY;
+    const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+    const top = target.getBoundingClientRect().top + window.scrollY;
+  
     window.scrollTo({
-      top: buttonTop - headerHeight,
+      top: top - headerHeight,
       behavior: 'smooth'
     });
   });
+
 
 /* galleryのモーダル */
   const modal = document.getElementById('modal');

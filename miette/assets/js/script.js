@@ -281,14 +281,23 @@ window.addEventListener('hashchange', scrollToHash);
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
-window.addEventListener("load", function () {
-  var target = document.getElementById("category-top");
+
+/* カテゴリーボタンクリック時のみスクロール */
+document.querySelectorAll('.category-button').forEach(function (button) {
+  button.addEventListener('click', function () {
+    sessionStorage.setItem('scrollCategoryTop', 'true');
+  });
+});
+window.addEventListener('load', function () {
+  var _document$querySelect;
+  if (sessionStorage.getItem('scrollCategoryTop') !== 'true') return;
+  sessionStorage.removeItem('scrollCategoryTop');
+  var target = document.getElementById('category-top');
   if (!target) return;
-  var header = document.querySelector(".header");
-  var headerHeight = header ? header.offsetHeight : 0;
-  var buttonTop = target.getBoundingClientRect().top + window.scrollY;
+  var headerHeight = ((_document$querySelect = document.querySelector('.header')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.offsetHeight) || 0;
+  var top = target.getBoundingClientRect().top + window.scrollY;
   window.scrollTo({
-    top: buttonTop - headerHeight,
+    top: top - headerHeight,
     behavior: 'smooth'
   });
 });
