@@ -315,6 +315,7 @@ if (modal) {
       modal.setAttribute('aria-hidden', 'true');
       content.innerHTML = '';
       document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
     };
     document.querySelectorAll('.gallery__item img').forEach(function (img) {
       img.addEventListener('click', function () {

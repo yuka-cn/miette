@@ -357,6 +357,7 @@ jQuery(function ($) {
       modal.setAttribute('aria-hidden', 'true');
       content.innerHTML = '';
       document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
     }
     overlay.addEventListener('click', closeModal);
     document.addEventListener('keydown', (e) => {
