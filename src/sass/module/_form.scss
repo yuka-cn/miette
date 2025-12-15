@@ -178,11 +178,19 @@
   position: absolute;
   top: 40%;
   left: 50%;
-  width:  rem(8);
-  height: rem(16);
+  width:  8px;
+  height: 16px;
   border: solid #E08A94;
-  border-width: 0 0.16em 0.16em 0;
+  border-width: 0 2px 2px 0;
   transform: translate(-50% ,-50%) rotate(55deg);
+  @include mq("md"){
+    width: 6px;
+    height: 12px;
+  }
+  @include mq("lg"){
+    width: 8px;
+    height: 16px;
+  }
 }
 
 .form__agreement a{
@@ -240,10 +248,6 @@
 textarea{
   color: $font-color;
   -webkit-text-fill-color: $font-color;
-}
-
-.form__input.wpcf7-form-control:-webkit-autofill{
-  // transition: background-color 5000s ease-in-out 0s;
 }
 
 .form__input--select:focus-visible,

@@ -411,7 +411,17 @@ document.addEventListener('input', function (event) {
 
 //送信成功時の処理
 document.addEventListener('wpcf7mailsent', function (event) {
-  window.location.href = mySite.homeUrl + '/thanks/';
+  var formId = event.detail.contactFormId;
+
+  // お問い合わせフォーム
+  if (formId === 5) {
+    window.location.href = mySite.homeUrl + '/contact-thanks/';
+  }
+
+  // レッスン予約フォーム
+  if (formId === 128) {
+    window.location.href = mySite.homeUrl + '/reservation-thanks/';
+  }
 });
 
 /* フェードイン */

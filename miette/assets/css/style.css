@@ -1363,15 +1363,15 @@ a {
 
 .form__agreement input[type=checkbox]:checked::after {
 	border: solid #E08A94;
-	border-width: 0 0.16em 0.16em 0;
+	border-width: 0 2px 2px 0;
 	content: "";
-	height: 1rem;
+	height: 16px;
 	left: 50%;
 	position: absolute;
 	top: 40%;
 	-webkit-transform: translate(-50%, -50%) rotate(55deg);
 	transform: translate(-50%, -50%) rotate(55deg);
-	width: 0.5rem;
+	width: 8px;
 }
 
 .form__agreement a {
@@ -3179,6 +3179,11 @@ html {
 	width: 6px;
 }
 
+.form__agreement input[type=checkbox]:checked::after {
+	height: 12px;
+	width: 6px;
+}
+
 .form__participant select {
 	width: 7.5rem;
 }
@@ -3484,6 +3489,11 @@ html {
 
 .form__radio input[type=radio]:checked::after {
 	height: 8px;
+	width: 8px;
+}
+
+.form__agreement input[type=checkbox]:checked::after {
+	height: 16px;
 	width: 8px;
 }
 
