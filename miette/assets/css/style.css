@@ -815,6 +815,10 @@ a {
 	margin-top: 1.5rem;
 }
 
+.blog-article__text h2 {
+	font-size: 1.25rem;
+}
+
 .blog-article__figure,
 .blog-article__text figure {
 	aspect-ratio: 345/230;
@@ -970,9 +974,9 @@ a {
 	height: 5.66px;
 	left: 0.4375rem;
 	position: absolute;
-	top: 50%;
-	-webkit-transform: translateY(-50%) rotate(-45deg);
-	transform: translateY(-50%) rotate(-45deg);
+	top: 0.5em;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
 	width: 5.66px;
 }
 
@@ -1232,18 +1236,16 @@ a {
 	border-radius: 0.5em;
 	color: #5A3E2B;
 	height: 2.5rem;
-	padding: 0.625rem 0.9375rem 0.625rem;
+	padding: 0.625rem 0.9375rem;
 	width: 100%;
 }
 
 .form__input--select {
 	font-size: 0.75rem;
-	padding-left: 0.5rem;
 }
 
 .form__input--textarea {
 	height: auto;
-	padding: 0.1875rem 1rem;
 }
 
 .form__input::-moz-placeholder {
@@ -1271,15 +1273,15 @@ a {
 }
 
 .form__input-wrapper::after {
-	border-left: 0.3125rem solid transparent;
-	border-right: 0.3125rem solid transparent;
-	border-top: 0.5rem solid #A89484;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 8px solid #A89484;
 	content: "";
 	height: 0;
 	opacity: 1;
 	pointer-events: none;
 	position: absolute;
-	right: 0.5rem;
+	right: 0.75rem;
 	top: 50%;
 	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
@@ -1336,27 +1338,27 @@ a {
 
 .form__radio input[type=radio] {
 	border-radius: 50%;
-	height: 0.75rem;
-	width: 0.75rem;
+	height: 12px;
+	width: 12px;
 }
 
 .form__agreement input[type=checkbox] {
-	border-radius: 0.5em;
-	height: 1.25rem;
-	width: 1.25rem;
+	border-radius: 6px;
+	height: 20px;
+	width: 20px;
 }
 
 .form__radio input[type=radio]:checked::after {
 	background: #E08A94;
 	border-radius: 50%;
 	content: "";
-	height: 0.5rem;
+	height: 8px;
 	left: 50%;
 	position: absolute;
 	top: 50%;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	width: 0.5rem;
+	width: 8px;
 }
 
 .form__agreement input[type=checkbox]:checked::after {
@@ -2952,6 +2954,10 @@ html {
 	margin-top: 2.5rem;
 }
 
+.blog-article__text h2 {
+	font-size: 1.5rem;
+}
+
 .blog-article__figure,
 .blog-article__text figure {
 	aspect-ratio: 700/460;
@@ -3143,12 +3149,34 @@ html {
 	padding: 2.5rem 0;
 }
 
+.form__input-wrapper::after {
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 7px solid #A89484;
+}
+
 .form__agreement {
 	margin-top: 5rem;
 }
 
 .form__agreement label {
 	gap: 1rem;
+}
+
+.form__radio input[type=radio] {
+	height: 10px;
+	width: 10px;
+}
+
+.form__agreement input[type=checkbox] {
+	border-radius: 5px;
+	height: 16px;
+	width: 16px;
+}
+
+.form__radio input[type=radio]:checked::after {
+	height: 6px;
+	width: 6px;
 }
 
 .form__participant select {
@@ -3431,6 +3459,32 @@ html {
 .to-top span {
 	height: 0.75rem;
 	width: 0.75rem;
+}
+
+}
+
+@media screen and (min-width: 1024px) {
+
+.form__input-wrapper::after {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 8px solid #A89484;
+}
+
+.form__radio input[type=radio] {
+	height: 12px;
+	width: 12px;
+}
+
+.form__agreement input[type=checkbox] {
+	border-radius: 6px;
+	height: 20px;
+	width: 20px;
+}
+
+.form__radio input[type=radio]:checked::after {
+	height: 8px;
+	width: 8px;
 }
 
 }

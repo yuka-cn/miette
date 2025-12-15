@@ -33,7 +33,7 @@
 }
 
 .form__input{
-  padding: rem(10) rem(15) rem(10);
+  padding: rem(10) rem(15);
   width: 100%;
   height: rem(40);
   color: $font-color;
@@ -43,13 +43,11 @@
 }
 
 .form__input--select{
-  padding-left: rem(8);
   font-size: rem(12);
 }
 
 .form__input--textarea{
   height: auto;
-  padding: rem(3) rem(16);
 }
 
 .form__input::placeholder{
@@ -64,16 +62,26 @@
   content: "";
   position: absolute;
   top: 50%;
-  right: rem(8);
+  right: rem(12);
   transform: translateY(-50%);
   width: 0;
   height: 0;
-  border-left: rem(5) solid transparent;
-  border-right: rem(5) solid transparent;
-  border-top: rem(8) solid $sub-color;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid $sub-color;
   pointer-events: none;
   opacity: 1;
   transition: opacity 0.2s;
+  @include mq("md"){
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 7px solid $sub-color;
+  }
+  @include mq("lg"){
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid $sub-color;
+  }
 }
 
 .form__radio {
@@ -116,15 +124,33 @@
 }
 
 .form__radio input[type="radio"]{
-  width: rem(12);
-  height: rem(12);
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
+  @include mq("md"){
+    width: 10px;
+    height: 10px;
+  }
+  @include mq("lg"){
+    width: 12px;
+    height: 12px;
+  }
 }
 
 .form__agreement input[type="checkbox"] {
-  width: rem(20);
-  height: rem(20);
-  border-radius: 0.5em;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  @include mq("md"){
+    width: 16px;
+    height: 16px;
+    border-radius: 5px;
+  }
+  @include mq("lg"){
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+  }
 }
 
 .form__radio input[type="radio"]:checked::after{
@@ -133,12 +159,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  // inset: 0;
-  // margin: auto;
-  width: rem(8);
-  height: rem(8);
+  width: 8px;
+  height: 8px;
   background: #E08A94;
   border-radius: 50%;
+  @include mq("md"){
+    width: 6px;
+    height: 6px;
+  }
+  @include mq("lg"){
+    width: 8px;
+    height: 8px;
+  }
 }
 
 .form__agreement input[type="checkbox"]:checked::after{

@@ -21,11 +21,11 @@
 .archive::before{
   content: "";
   position: absolute;
-  top: 50%;
+  top: 0.5em;
   left: rem(7);
   width: 5.66px;
   height: 5.66px;
   border-right: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
-  transform: translateY(-50%) rotate(-45deg);
+  transform: rotate(-45deg);
 }
