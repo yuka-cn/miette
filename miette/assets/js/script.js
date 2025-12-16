@@ -5,44 +5,6 @@
  * ---------------------------------------------------- */
 
 jQuery(function ($) {
-  /* pcの初回表示のみローディングアニメーション */
-  // if (window.matchMedia("(max-width: 767px)").matches) {
-  //   mvSwiper();
-  // } else {
-  //   const loadingEl = document.querySelector(".loading");
-  //   const header = document.querySelector(".header");
-  //   const mvHeader = document.querySelector(".mv__header");
-  //   const isFirstVisit = !sessionStorage.getItem("firstVisit");
-
-  //   if (loadingEl && isFirstVisit) {
-  //     sessionStorage.setItem("firstVisit", "done");
-
-  //     loadingEl.style.display = "block";
-  //     document.body.style.overflow = "hidden";
-  //     loadingEl.addEventListener("animationend", function () {
-  //       if(mvHeader){
-  //         mvHeader.style.opacity = "1";
-  //       }
-  //       setTimeout(mvSwiper, 1000);
-  //       setTimeout(function () {
-  //         loadingEl.style.opacity = "0";
-  //       }, 1000);
-  //       setTimeout(function () {
-  //         loadingEl.style.display = "none";
-  //         document.body.style.overflow = "";
-  //       }, 2000);
-  //     });
-  //   } else {
-  //     if(mvHeader){
-  //       mvHeader.style.opacity = "1";
-  //     }
-  //     if (header) {
-  //       header.classList.remove("header--top");
-  //     }
-  //     mvSwiper();
-  //   }
-  // }
-
   /* 予約ページの希望日程 */
   // 選択クラスに応じて日程を更新する
   $('input[name="lesson_class"]').on('change', function () {
