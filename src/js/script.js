@@ -71,6 +71,39 @@ jQuery(function ($) {
 /* ----------------------------------------------------
  * Vanilla JavaScript (Native JS)
  * ---------------------------------------------------- */
+
+/* ローディングアニメーション*/
+  document.addEventListener('DOMContentLoaded', () => {
+    const loading = document.getElementById('loading');
+    const logo = document.querySelector('.loading__logo');
+
+    if (!loading || !logo) return;
+
+    const isVisited = sessionStorage.getItem('visited');
+
+    if (!isVisited) {
+      sessionStorage.setItem('visited', 'true');
+      document.body.classList.add('is-loading');
+
+      // reduced-motionでanimationedが発火しなくてもローディング終了
+      const fallbackTimer = setTimeout(() => {
+        loading.style.display = 'none';
+        document.body.classList.remove('is-loading');
+        document.body.classList.add('is-loaded');
+      }, 2000);
+
+      logo.addEventListener('animationend', () => {
+        clearTimeout(fallbackTimer);
+        loading.style.display = 'none';
+        document.body.classList.remove('is-loading');
+        document.body.classList.add('is-loaded');
+      }, { once: true });
+    } else {
+      loading.style.display = 'none';
+      document.body.classList.add('is-loaded');
+    }
+  });
+
 /* スクロール位置に応じてヘッダーの色を切り替える */
 {
   const header = document.querySelector('.header');

@@ -16,7 +16,7 @@ extract($links, EXTR_SKIP);
       </h2>
       <p class="concept__text js-fadeIn">
         毎日の暮らしに寄り添う<br>
-        やさしいお菓子づくりを
+        やさしいおやつづくりを
       </p>
       <p class="concept__text js-fadeIn">
         特別な日じゃなくても<br>
@@ -30,7 +30,7 @@ extract($links, EXTR_SKIP);
       <p class="concept__text js-fadeIn">
         素材にこだわり<br>
         子どもと一緒に安心して食べられる<br>
-        やさしいお菓子を家でも気軽に
+        やさしいおやつを家でも気軽に
       </p>
       <p class="concept__text js-fadeIn">
         ひとくちで思わず笑顔になる<br>
@@ -57,7 +57,7 @@ extract($links, EXTR_SKIP);
           <div class="profile__info">
             <p class="profile__name">高橋 ことね</p>
             <ul class="profile__career">
-              <li>こもれび製菓専門学校卒</li>
+              <li>兵庫県の製菓専門学校卒</li>
               <li>パティスリー勤務歴3年</li>
               <li>2022年から自宅教室を開講</li>
             </ul>
@@ -65,15 +65,15 @@ extract($links, EXTR_SKIP);
           <div class="profile__message">
             <p>
               仕事や家事の合間に<br>
-              お菓子づくりが心を整える時間になればと思い<br>
+              おやつづくりが心を整える時間になればと思い<br>
               出産を機に、小さな教室をはじめました。
             </p>
             <p>
               無理なく続けられるやさしいレシピを中心に<br>
-              暮らしの中に寄り添うお菓子づくりを<br class="u-mobile">お伝えしています。
+              暮らしの中に寄り添うおやつづくりを<br class="u-mobile">お伝えしています。
             </p>
             <p>
-              焼きたてのお菓子で、ふと笑顔になれる時間を<br>
+              焼きたてのおやつで、ふと笑顔になれる時間を<br>
               一緒に楽しんでいただけたらうれしいです。
             </p>
           </div>

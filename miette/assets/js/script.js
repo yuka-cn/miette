@@ -70,6 +70,37 @@ jQuery(function ($) {
 /* ----------------------------------------------------
  * Vanilla JavaScript (Native JS)
  * ---------------------------------------------------- */
+
+/* ローディングアニメーション*/
+document.addEventListener('DOMContentLoaded', function () {
+  var loading = document.getElementById('loading');
+  var logo = document.querySelector('.loading__logo');
+  if (!loading || !logo) return;
+  var isVisited = sessionStorage.getItem('visited');
+  if (!isVisited) {
+    sessionStorage.setItem('visited', 'true');
+    document.body.classList.add('is-loading');
+
+    // reduced-motionでanimationedが発火しなくてもローディング終了
+    var fallbackTimer = setTimeout(function () {
+      loading.style.display = 'none';
+      document.body.classList.remove('is-loading');
+      document.body.classList.add('is-loaded');
+    }, 2000);
+    logo.addEventListener('animationend', function () {
+      clearTimeout(fallbackTimer);
+      loading.style.display = 'none';
+      document.body.classList.remove('is-loading');
+      document.body.classList.add('is-loaded');
+    }, {
+      once: true
+    });
+  } else {
+    loading.style.display = 'none';
+    document.body.classList.add('is-loaded');
+  }
+});
+
 /* スクロール位置に応じてヘッダーの色を切り替える */
 {
   var checkScroll = function checkScroll() {

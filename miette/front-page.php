@@ -5,6 +5,12 @@ $links = theme_get_links();
 extract($links, EXTR_SKIP);
 ?>
 
+<div id="loading" class="loading">
+  <div class="loading__logo">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/miette-color.png" alt="miette">
+  </div>
+</div>
+
 <main>
   <!-- ファーストビュー -->
   <section class="mv">
@@ -93,7 +99,7 @@ extract($links, EXTR_SKIP);
           ふと心がやわらぐ <br>
           <br>
           毎日の暮らしに寄り添う<br>
-          やさしいお菓子づくりを<br>
+          やさしいおやつづくりを<br>
         </p>
         <div class="home-concept__button">
           <a href="<?php echo $about; ?>" class="button">

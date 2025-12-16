@@ -1,6 +1,8 @@
 @use "global" as *;
 
 .mv{
+  opacity: 0;
+  transition: opacity 3s ease;
   position: relative;
   height: 100vh;
   height: 100svh;
@@ -14,6 +16,14 @@
     grid-template-areas: "title image";
     grid-template-rows: auto;
   }
+  @media (prefers-reduced-motion: reduce){
+    opacity: 1;
+    transition: none;
+  }
+}
+
+body.is-loaded .mv{
+  opacity: 1;
 }
 
 .mv__logo{
