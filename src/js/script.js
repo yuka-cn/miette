@@ -43,8 +43,9 @@ jQuery(function ($) {
     if (!loading || !logo) return;
 
     const isVisited = sessionStorage.getItem('visited');
+    const isLoaded = sessionStorage.getItem('loaded');
 
-    if (!isVisited) {
+    if (!isVisited || !isLoaded) {
       sessionStorage.setItem('visited', 'true');
       document.body.classList.add('is-loading');
 
@@ -52,14 +53,13 @@ jQuery(function ($) {
       const fallbackTimer = setTimeout(() => {
         loading.style.display = 'none';
         document.body.classList.remove('is-loading');
-        document.body.classList.add('is-loaded');
       }, 2000);
 
       logo.addEventListener('animationend', () => {
         clearTimeout(fallbackTimer);
         loading.style.display = 'none';
         document.body.classList.remove('is-loading');
-        document.body.classList.add('is-loaded');
+        sessionStorage.setItem('loaded', 'true');
       }, { once: true });
     } else {
       loading.style.display = 'none';

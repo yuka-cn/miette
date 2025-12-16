@@ -11,6 +11,9 @@
   visibility: visible;
   z-index: 9999;
   background: $white;
+  @media (prefers-reduced-motion: reduce){
+    opacity: 0;
+  }
 }
 
 .loading__logo{
@@ -22,7 +25,6 @@
     animation-duration: 1.2s;
   }
   @media (prefers-reduced-motion: reduce){
-    opacity: 1;
     animation: none;
   }
 }

@@ -2,7 +2,7 @@
 
 .mv{
   opacity: 0;
-  transition: opacity 3s ease;
+  animation: fadeIn 3s ease forwards;
   position: relative;
   height: 100vh;
   height: 100svh;
@@ -18,12 +18,22 @@
   }
   @media (prefers-reduced-motion: reduce){
     opacity: 1;
-    transition: none;
+    animation: none;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
 body.is-loaded .mv{
   opacity: 1;
+  animation: none;
 }
 
 .mv__logo{

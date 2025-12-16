@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var logo = document.querySelector('.loading__logo');
   if (!loading || !logo) return;
   var isVisited = sessionStorage.getItem('visited');
-  if (!isVisited) {
+  var isLoaded = sessionStorage.getItem('loaded');
+  if (!isVisited || !isLoaded) {
     sessionStorage.setItem('visited', 'true');
     document.body.classList.add('is-loading');
 
@@ -47,13 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var fallbackTimer = setTimeout(function () {
       loading.style.display = 'none';
       document.body.classList.remove('is-loading');
-      document.body.classList.add('is-loaded');
     }, 2000);
     logo.addEventListener('animationend', function () {
       clearTimeout(fallbackTimer);
       loading.style.display = 'none';
       document.body.classList.remove('is-loading');
-      document.body.classList.add('is-loaded');
+      sessionStorage.setItem('loaded', 'true');
     }, {
       once: true
     });
