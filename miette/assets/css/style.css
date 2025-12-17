@@ -1877,7 +1877,7 @@ textarea {
 	animation: loading 0.8s ease forwards;
 	aspect-ratio: 396/168;
 	opacity: 0;
-	width: 12.5rem;
+	width: 9.375rem;
 }
 
 .loading__logo img {
@@ -3303,6 +3303,7 @@ html {
 .loading__logo {
 	-webkit-animation-duration: 1.2s;
 	animation-duration: 1.2s;
+	width: 12.5rem;
 }
 
 .nav {

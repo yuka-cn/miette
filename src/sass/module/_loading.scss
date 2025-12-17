@@ -17,11 +17,12 @@
 }
 
 .loading__logo{
-  width: rem(200);
+  width: rem(150);
   aspect-ratio: 396 / 168;
   opacity: 0;
   animation: loading 0.8s ease forwards;
   @include mq("md"){
+    width: rem(200);
     animation-duration: 1.2s;
   }
   @media (prefers-reduced-motion: reduce){
