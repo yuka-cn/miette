@@ -57,7 +57,7 @@ extract($links, EXTR_SKIP);
               $month = get_field('lesson_month');
             ?>
               <div class="home-lesson__slide swiper-slide">
-                <a href="<?php the_permalink(); ?>" class="lesson-cards__item lesson-card">
+                <a href="<?php the_permalink(); ?>" class="home-lesson__card lesson-card">
                   <div class="lesson-card__badge">
                     <p class="lesson-card__month"><?php echo esc_html($month); ?>月</p>
                   </div>
