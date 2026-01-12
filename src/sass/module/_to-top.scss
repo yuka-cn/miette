@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: center;
   z-index: 100;
-  transition: opacity 0.3s ease, background 0.3s ease, color 0.3s ease;
+  transition: opacity .3s ease, background .3s ease, color .3s ease;
   @include mq(md){
     right: rem(20);
     bottom: rem(40);

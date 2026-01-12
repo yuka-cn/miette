@@ -22,10 +22,10 @@ extract($links, EXTR_SKIP);
       <img src="<?php echo get_theme_file_uri('/assets/images/common/mv_pc.png'); ?>" alt="">
     </picture>
     <div class="mv__inner inner" style="grid-area: title;">
-      <h2 class="mv__title">
+      <h1 class="mv__title">
         <span>やさしいおやつと</span>
         <span>小さなしあわせを</span>
-      </h2>
+      </h1>
     </div>
   </section>
 
@@ -39,10 +39,10 @@ extract($links, EXTR_SKIP);
   if ($lessons->have_posts()): ?>
   <section class="home-lesson home-lesson-layout">
     <div class="home-lesson__inner inner">
-      <h2 class="home-lesson__header section-header js-fadeIn">
-        <span class="section-header__ja">レッスンメニュー</span>
-        <span class="section-header__en">Monthly Menu</span>
-      </h2>
+      <hgroup class="home-lesson__header section-header js-fadeIn">
+        <h2 class="section-header__ja">レッスンメニュー</h2>
+        <p class="section-header__en">Monthly Menu</p>
+      </hgroup>
       <div class="home-lesson__body js-fadeIn">
         <div class="home-lesson__cards swiper js-lessonSwiper">
           <div class="home-lesson__flex swiper-wrapper">
@@ -72,7 +72,6 @@ extract($links, EXTR_SKIP);
                     <p class="lesson-card__category"><?php echo esc_html($term_name); ?></p>
                     <h3 class="lesson-card__title"><?php the_title(); ?></h3>
                   </div>
-                  <span class="lesson-card__mask"></span>
                 </a>
               </div>
             <?php endwhile; ?>
@@ -115,10 +114,10 @@ extract($links, EXTR_SKIP);
   <!-- レッスン案内 -->
   <section class="home-lesson-guide">
     <div class="home-lesson-guide__inner inner js-fadeIn">
-      <h2 class="home-lesson-guide__header section-header">
-        <span class="section-header__ja">レッスン案内</span>
-        <span class="section-header__en">lesson</span>
-      </h2>
+      <hgroup class="home-lesson-guide__header section-header">
+        <h2 class="">レッスン案内</h2>
+        <p class="section-header__en">lesson</p>
+      </hgroup>
       <p class="home-lesson-guide__text">
         家庭でも作りやすい人気のおやつを中心に、基本の技術や材料選びを丁寧に学べる「ベーシッククラス」と、旬の素材や行事に合わせた季節感あふれるメニューに挑戦する「季節のおやつクラス」、そして小さなお子さまと一緒に“作る楽しさ”を感じていただける「親子クラス」の3つをご用意しています。それぞれのクラスで、出来たてのおいしさと手作りならではの温かみを楽しんでいただけます。
       </p>
@@ -144,10 +143,10 @@ extract($links, EXTR_SKIP);
   <section class="home-blog">
     <div class="home-blog__inner inner">
       <div class="home-blog__intro js-fadeIn">
-        <h2 class="home-blog__header section-header">
-          <span class="section-header__ja">ブログ</span>
-          <span class="section-header__en">blog</span>
-        </h2>
+        <hgroup class="home-blog__header section-header">
+          <h2 class="section-header__ja">ブログ</h2>
+          <p class="section-header__en">blog</p>
+        </hgroup>
         <p class="home-blog__text">
         教室での様子やアレンジアイデア、素材や道具の話、教室からのお知らせなどをお届けします。
         </p>
@@ -192,7 +191,6 @@ extract($links, EXTR_SKIP);
                   <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
                 <?php endif; ?>
               </div>
-              <span class="blog-card__mask"></span>
             </a>
           </article>
         <?php endwhile; ?>
@@ -213,10 +211,10 @@ extract($links, EXTR_SKIP);
   <section class="home-reservation">
     <div class="home-reservation__inner inner">
       <div class="home-reservation__content js-fadeIn">
-        <h2 class="home-reservation__header section-header">
-          <span class="section-header__ja">ご予約方法</span>
-          <span class="section-header__en">reservation</span>
-        </h2>
+        <hgroup class="home-reservation__header section-header">
+          <h2 class="section-header__ja">ご予約方法</h2>
+          <p class="section-header__en">reservation</p>
+        </hgroup>
         <p class="home-reservation__text">
           毎月20日頃に、翌月のメニューと開催日程を当ホームページとインスタグラムでお知らせしています。<br>
           ご興味のあるレッスンがありましたら、当ホームページの予約フォームよりお申し込みください。<br>

@@ -53,7 +53,6 @@ extract($links, EXTR_SKIP);
                       <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
                     <?php endif; ?>
                   </div>
-                  <span class="blog-card__mask"></span>
                 </a>
               </article>
             <?php endwhile; ?>

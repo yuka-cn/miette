@@ -3,6 +3,7 @@ body {
 	color: #5A3E2B;
 	font-family: "M PLUS Rounded 1c", sans-serif;
 	font-weight: 400;
+	letter-spacing: 0.05em;
 }
 
 .u-desktop {
@@ -158,9 +159,9 @@ a {
 
 .access__items {
 	grid-gap: 2.5rem;
-	-webkit-box-align: end;
-	-ms-flex-align: end;
-	align-items: end;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: start;
 	display: grid;
 	gap: 2.5rem;
 	grid-template-columns: 1fr;
@@ -171,13 +172,13 @@ a {
 }
 
 .access__map {
-	aspect-ratio: 490/220;
+	aspect-ratio: 3/2;
 }
 
 .access__map iframe {
 	border: 0;
-	height: 100%;
-	width: 100%;
+	max-height: 100%;
+	max-width: 100%;
 }
 
 .access__button {
@@ -391,6 +392,7 @@ a {
 
 .home-lesson-guide__button {
 	margin-top: 3.75rem;
+	text-align: center;
 }
 
 .home-lesson-layout {
@@ -509,6 +511,7 @@ a {
 
 .home-reservation__button {
 	margin-top: 3.75rem;
+	text-align: center;
 }
 
 .home-reservation__image {
@@ -673,7 +676,6 @@ body.is-loaded .mv {
 }
 
 .not-found__code {
-	font-family: "Lato", serif;
 	font-size: 5rem;
 	letter-spacing: 0.5em;
 	line-height: 1;
@@ -870,6 +872,24 @@ body.is-loaded .mv {
 	position: relative;
 }
 
+.blog-card__body {
+	position: relative;
+}
+
+.blog-card__body::after {
+	background: rgba(255, 255, 255, 0.25);
+	bottom: 0;
+	content: "";
+	left: 0;
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	-webkit-transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease;
+}
+
 .blog-card__meta {
 	-webkit-box-align: end;
 	-ms-flex-align: end;
@@ -914,21 +934,10 @@ body.is-loaded .mv {
 	-o-object-fit: cover;
 	height: 100%;
 	object-fit: cover;
-	-webkit-transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
-	transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
-	transition: opacity 0.6s ease, transform 0.6s ease;
-	transition: opacity 0.6s ease, transform 0.6s ease, -webkit-transform 0.6s ease;
-	width: 100%;
-}
-
-.blog-card__mask {
-	background: rgba(255, 255, 255, 0.2);
-	border-radius: 2em;
-	height: 100%;
-	left: 0;
-	opacity: 0;
-	position: absolute;
-	top: 0;
+	-webkit-transition: opacity 0.3s ease, -webkit-transform 0.6s ease;
+	transition: opacity 0.3s ease, -webkit-transform 0.6s ease;
+	transition: opacity 0.3s ease, transform 0.6s ease;
+	transition: opacity 0.3s ease, transform 0.6s ease, -webkit-transform 0.6s ease;
 	width: 100%;
 }
 
@@ -950,10 +959,6 @@ body.is-loaded .mv {
 
 .blog-card--sidebar .blog-card__image {
 	border-radius: 0.8em;
-}
-
-.blog-card--sidebar .blog-card__mask {
-	border-radius: 1em;
 }
 
 .breadcrumb {
@@ -1013,8 +1018,8 @@ body.is-loaded .mv {
 	line-height: 1;
 	padding: 1.25rem 2.5rem;
 	position: relative;
-	-webkit-transition: 0.3s;
-	transition: 0.3s;
+	-webkit-transition: color 0.3s ease, background-color 0.3s ease;
+	transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .button span {
@@ -1236,7 +1241,7 @@ body.is-loaded .mv {
 	font-weight: 400;
 	letter-spacing: 0.4em;
 	margin-left: 0.5rem;
-	padding: 0.125rem 0.6875rem 0.125rem 1rem;
+	padding: 0.125rem 0.5rem 0.125rem 0.75rem;
 }
 
 .form__input {
@@ -1503,8 +1508,10 @@ textarea {
 	height: 0.0625rem;
 	position: absolute;
 	right: 0;
-	-webkit-transition: 0.3s;
-	transition: 0.3s;
+	-webkit-transition: opacity 0.3s ease, background 0.3s ease, -webkit-transform 0.3s ease;
+	transition: opacity 0.3s ease, background 0.3s ease, -webkit-transform 0.3s ease;
+	transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+	transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease, -webkit-transform 0.3s ease;
 	width: 76%;
 }
 
@@ -1525,7 +1532,7 @@ textarea {
 	background: #C47C6B;
 }
 
-.hamburger.is-color.hamburger.is-active span {
+.hamburger.is-color.is-active span {
 	background: #fff;
 }
 
@@ -1555,8 +1562,8 @@ textarea {
 	color: #fff;
 	height: 5rem;
 	position: fixed;
-	-webkit-transition: 0.3s;
-	transition: 0.3s;
+	-webkit-transition: opacity 0.3s ease, background 0.3s ease, color 0.3s ease;
+	transition: opacity 0.3s ease, background 0.3s ease, color 0.3s ease;
 	width: 100%;
 	z-index: 1000;
 }
@@ -1785,6 +1792,8 @@ textarea {
 	border-radius: 2rem 2rem 0 0;
 	height: 100%;
 	object-fit: cover;
+	-webkit-transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease;
 	width: 100%;
 }
 
@@ -1825,17 +1834,6 @@ textarea {
 .lesson-card--sidebar .lesson-card__badge {
 	left: auto;
 	right: -0.625rem;
-}
-
-.lesson-card__mask {
-	background: rgba(255, 255, 255, 0.2);
-	border-radius: 2em;
-	height: 100%;
-	left: 0;
-	opacity: 0;
-	position: absolute;
-	top: 0;
-	width: 100%;
 }
 
 .lesson-cards {
@@ -2123,7 +2121,7 @@ body.is-loading {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	gap: 2rem;
+	gap: 1.5rem;
 	height: inherit;
 }
 
@@ -2172,7 +2170,6 @@ body.is-loading {
 	border-radius: 0 0 0 1.5em;
 	color: #5A3E2B;
 	height: 8.75rem;
-	padding: 0 2rem;
 }
 
 .pc-nav__cta a {
@@ -2185,6 +2182,7 @@ body.is-loading {
 	font-size: 1.25rem;
 	font-weight: 500;
 	height: inherit;
+	padding: 0 2rem;
 	position: relative;
 }
 
@@ -2193,8 +2191,9 @@ body.is-loading {
 	bottom: 2.75rem;
 	content: "";
 	height: 1px;
-	left: 0;
+	left: 15%;
 	position: absolute;
+	right: 15%;
 	-webkit-transform: scale(0, 1);
 	transform: scale(0, 1);
 	-webkit-transform-origin: center top;
@@ -2203,7 +2202,6 @@ body.is-loading {
 	transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
 	transition: transform 0.3s, -webkit-transform 0.3s;
-	width: 100%;
 }
 
 .pc-nav__cta a:hover::after {
@@ -2250,7 +2248,7 @@ body.is-loading {
 }
 
 .profile__image {
-	aspect-ratio: 300/450;
+	aspect-ratio: 4/3;
 	border-radius: 2em;
 	margin-left: auto;
 	margin-right: auto;
@@ -2260,8 +2258,10 @@ body.is-loading {
 
 .profile__image img {
 	-o-object-fit: cover;
+	-o-object-position: center 10%;
 	height: 100%;
 	object-fit: cover;
+	object-position: center 10%;
 	width: 100%;
 }
 
@@ -2294,10 +2294,6 @@ body.is-loading {
 
 .section-header--center {
 	text-align: center;
-}
-
-.section-header span {
-	display: block;
 }
 
 .section-header__ja {
@@ -2725,24 +2721,24 @@ html {
 	-moz-column-gap: 3.75rem;
 	-webkit-column-gap: 3.75rem;
 	column-gap: 3.75rem;
-	grid-template-columns: 43.75rem auto;
+	grid-template-columns: auto 43.75rem;
 	row-gap: 0;
 }
 
 .home-blog__cards {
-	grid-column: 1;
+	grid-column: 2;
 	grid-row: 1/span 2;
 }
 
 .home-blog__intro {
-	grid-column: 2;
+	grid-column: 1;
 	padding-top: 0;
 	-webkit-transform: translateY(40%);
 	transform: translateY(40%);
 }
 
 .home-blog__button {
-	grid-column: 2;
+	grid-column: 1;
 }
 
 .home-concept-layout {
@@ -2975,11 +2971,12 @@ html {
 	margin-top: 1rem;
 }
 
-.blog-card a:hover .blog-card__mask {
+.blog-card a:hover .blog-card__body::after {
 	opacity: 1;
 }
 
-.blog-card a:hover .blog-card__image img {
+.blog-card a:hover img {
+	opacity: 0.8;
 	-webkit-transform: scale(1.05);
 	transform: scale(1.05);
 }
@@ -2989,7 +2986,7 @@ html {
 	padding: 1rem;
 }
 
-.blog-card--sidebar a:hover .blog-card__image img {
+.blog-card--sidebar a:hover img {
 	-webkit-transform: none;
 	transform: none;
 }
@@ -3090,7 +3087,6 @@ html {
 
 .faq-item summary {
 	border-radius: 1.5rem;
-	font-size: 1.25rem;
 	padding: 1.5rem 5rem 1.5rem 2.5rem;
 }
 
@@ -3144,6 +3140,22 @@ html {
 .form__row {
 	grid-template-columns: 1fr 30rem;
 	padding: 2.5rem 0;
+}
+
+.form__label {
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-transform: translateY(0.25rem);
+	transform: translateY(0.25rem);
+}
+
+.form__label span {
+	margin-left: auto;
+	padding: 0.25rem 0.5rem 0.25rem 0.75rem;
 }
 
 .form__input-wrapper::after {
@@ -3208,7 +3220,7 @@ html {
 }
 
 .header__logo {
-	max-width: 8.75rem;
+	max-width: 7.5rem;
 }
 
 .header__drawer {
@@ -3273,13 +3285,13 @@ html {
 	right: -1.25rem;
 }
 
-.lesson-card:hover .lesson-card__mask {
-	opacity: 1;
-}
-
 .lesson-card:hover {
 	-webkit-transform: translateY(-0.25rem);
 	transform: translateY(-0.25rem);
+}
+
+.lesson-card:hover img {
+	opacity: 0.8;
 }
 
 .lesson-cards {
@@ -3374,6 +3386,7 @@ html {
 }
 
 .profile__image {
+	aspect-ratio: 300/450;
 	width: 100%;
 }
 

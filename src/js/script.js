@@ -213,7 +213,7 @@ jQuery(function ($) {
       slidesPerView: "auto",
       loop: true,
       loopedSlides: 4,
-      speed: 1500,
+      speed: 800,
       autoHeight: false,
       navigation: {
         nextEl: ".swiper-button-next",

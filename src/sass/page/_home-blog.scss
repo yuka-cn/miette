@@ -34,7 +34,7 @@
   align-items: end;
   grid-template-columns: 1fr;
   @include mq("md") {
-    grid-template-columns: rem(700) auto;
+    grid-template-columns: auto rem(700);
     row-gap: 0;
     column-gap: rem(60);
   }
@@ -45,7 +45,7 @@
   gap: rem(40);
   grid-template-columns: 1fr;
   @include mq("md"){
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1 / span 2;
   }
 }
@@ -54,7 +54,7 @@
   padding-top: rem(40);
   @include mq("md"){
     padding-top: 0;
-    grid-column: 2;
+    grid-column: 1;
     transform: translateY(40%);
   }
 }
@@ -67,6 +67,6 @@
   margin-top: rem(20);
   text-align: center;
   @include mq(md) {
-    grid-column: 2;
+    grid-column: 1;
   }
 }

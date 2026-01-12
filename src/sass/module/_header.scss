@@ -6,7 +6,7 @@
   z-index: 1000;
   position: fixed;
   width: 100%;
-  transition: 0.3s;
+  transition: opacity .3s ease, background .3s ease, color .3s ease;
   color: $white;
   @include mq(md) {
     height: rem(90);
@@ -54,7 +54,7 @@
   height: inherit;
   z-index: 100;
   @include mq(md) {
-    max-width: rem(140);
+    max-width: rem(120);
   }
 }
 

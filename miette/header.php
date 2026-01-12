@@ -16,29 +16,16 @@ extract($links, EXTR_SKIP);
 <!-- ヘッダー -->
 <header class="header header-layout <?php echo is_front_page() ? 'header--top' : ''; ?>">
   <div class="header__inner">
-    <?php if ( is_front_page() ) : ?>
-      <h1 class="header__logo">
-        <a href="<?php echo $home; ?>" class="header__logolink">
-          <img
-            src="<?php echo get_theme_file_uri('/assets/images/common/miette.png'); ?>"
-            data-color="<?php echo get_theme_file_uri('/assets/images/common/miette-color.png'); ?>"
-            data-white="<?php echo get_theme_file_uri('/assets/images/common/miette.png'); ?>"
-            alt="やさしいおやつ教室Miette"
-          >
-        </a>
-      </h1>
-    <?php else : ?>
-      <div class="header__logo">
-        <a href="<?php echo $home; ?>" class="header__logolink">
-          <img
-            src="<?php echo get_theme_file_uri('/assets/images/common/miette.png'); ?>"
-            data-color="<?php echo get_theme_file_uri('/assets/images/common/miette-color.png'); ?>"
-            data-white="<?php echo get_theme_file_uri('/assets/images/common/miette.png'); ?>"
-            alt="やさしいおやつ教室Miette"
-          >
-        </a>
-      </div>
-    <?php endif; ?>
+    <div class="header__logo">
+      <a href="<?php echo $home; ?>" class="header__logolink">
+        <img
+          src="<?php echo get_theme_file_uri('/assets/images/common/miette.png'); ?>"
+          data-color="<?php echo get_theme_file_uri('/assets/images/common/miette-color.png'); ?>"
+          data-white="<?php echo get_theme_file_uri('/assets/images/common/miette.png'); ?>"
+          alt="やさしいおやつ教室Miette"
+        >
+      </a>
+    </div>
 
     <!-- ハンバーガー -->
     <button class="header__drawer hamburger js-hamburger" aria-expanded="false" aria-label="メニューを開く">

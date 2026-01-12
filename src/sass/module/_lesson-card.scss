@@ -8,7 +8,7 @@
   flex-direction: column;
   border-radius: 2rem;
   box-shadow: 0.16em 0.16em 0.8em rgba(90, 62, 43, 0.25);
-  transition: transform 0.3s cubic-bezier(.25,.46,.45,.94);
+  transition: transform .3s cubic-bezier(.25,.46,.45,.94);
 }
 
 .lesson-card__badge{
@@ -45,6 +45,7 @@
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: 2rem 2rem 0 0;
+  transition: opacity .3s ease;
 }
 
 .lesson-card__body {
@@ -85,25 +86,14 @@
   }
 }
 
-.lesson-card__mask{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 2em;
-}
-
-.lesson-card:hover .lesson-card__mask {
-  @include mq("md"){
-    opacity: 1;
-  }
-}
-
 .lesson-card:hover{
   @include mq("md"){
     transform: translateY(rem(-4));
+  }
+}
+
+.lesson-card:hover img {
+  @include mq("md"){
+    opacity: 0.8;
   }
 }

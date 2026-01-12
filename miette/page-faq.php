@@ -19,8 +19,8 @@ $faqs = array_filter(SCF::get('faq'), function($faq){
         <p class="faq__no-post no-post">ただいま準備中です。<br>公開までしばらくお待ちください。</p>
       <?php else: ?>
         <div class="faq__items">
-          <?php foreach ($faqs as $faq): ?>
-            <details class="faq__item faq-item js-fadeIn" open>
+          <?php foreach ($faqs as $index => $faq): ?>
+            <details class="faq__item faq-item js-fadeIn" <?php if ($index === 0) echo 'open'; ?>>
               <summary><?php echo esc_html($faq['question']); ?></summary>
               <p><?php echo nl2br(esc_html($faq['answer'])); ?></p>
             </details>

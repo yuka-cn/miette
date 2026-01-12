@@ -10,10 +10,10 @@ extract($links, EXTR_SKIP);
   <!-- コンセプト -->
   <section class="about__concept concept">
     <div class="concept__inner inner">
-      <h2 class="concept__header section-header section-header--center js-fadeIn">
-        <span class="section-header__ja">コンセプト</span>
-        <span class="section-header__en">concept</span>
-      </h2>
+      <hgroup class="concept__header section-header section-header--center js-fadeIn">
+        <h2 class="section-header__ja">コンセプト</h2>
+        <p class="section-header__en">concept</p>
+      </hgroup>
       <p class="concept__text js-fadeIn">
         毎日の暮らしに寄り添う<br>
         やさしいおやつづくりを
@@ -45,10 +45,10 @@ extract($links, EXTR_SKIP);
   <!-- プロフィール -->
   <section class="about__profile profile">
     <div class="profile__inner inner">
-      <h2 class="profile__header section-header js-fadeIn">
-        <span class="section-header__ja">プロフィール</span>
-        <span class="section-header__en">profile</span>
-      </h2>
+      <hgroup class="profile__header section-header js-fadeIn">
+        <h2 class="section-header__ja">プロフィール</h2>
+        <p class="section-header__en">profile</p>
+      </hgroup>
       <div class="profile__body">
         <div class="profile__image js-fadeIn">
           <img src="<?php echo get_theme_file_uri('/assets/images/common/profile.jpg'); ?>" alt="">

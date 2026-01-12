@@ -19,17 +19,26 @@
 
 .form__label {
   line-height: 1;
+  @include mq("md"){
+    display: flex;
+    align-items: flex-start;
+    transform: translateY(rem(4));
+  }
 }
 
 .form__label span{
   margin-left: rem(8);
-  padding: rem(2) rem(11) rem(2) rem(16);
+  padding: rem(2) rem(8) rem(2) rem(12);
   font-size: rem(12);
   font-weight: $regular;
   letter-spacing: 0.4em;
   color: $white;
   background: #E08A94;
   border-radius: 0.5em;
+  @include mq("md"){
+    margin-left: auto;
+    padding: rem(4) rem(8) rem(4) rem(12);
+  }
 }
 
 .form__input{
@@ -71,7 +80,7 @@
   border-top: 8px solid $sub-color;
   pointer-events: none;
   opacity: 1;
-  transition: opacity 0.2s;
+  transition: opacity .2s;
   @include mq("md"){
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;

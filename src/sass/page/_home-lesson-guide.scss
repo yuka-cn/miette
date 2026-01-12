@@ -15,6 +15,7 @@
 
 .home-lesson-guide__button{
   margin-top: rem(60);
+  text-align: center;
   @include mq("md"){
     margin-top: rem(80);
   }

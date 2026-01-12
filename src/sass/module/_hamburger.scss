@@ -13,7 +13,7 @@
   width: 76%;
   height: rem(1);
   background: $white;
-  transition: 0.3s;
+  transition: transform .3s ease, opacity .3s ease, background .3s ease;
 }
 
 .hamburger span:nth-child(1){
@@ -33,7 +33,7 @@
   background: #C47C6B;
 }
 
-.hamburger.is-color.hamburger.is-active span{
+.hamburger.is-color.is-active span{
   background: $white;
 }
 

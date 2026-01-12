@@ -93,10 +93,10 @@ extract($links, EXTR_SKIP);
 
   <div class="lesson-guide__gallery gallery">
     <div class="gallery__inner inner">
-      <h2 class="gallery__header section-header js-fadeIn">
-        <span class="section-header__ja">ギャラリー</span>
-        <span class="section-header__en">gallery</span>
-      </h2>
+      <hgroup class="gallery__header section-header js-fadeIn">
+        <h2 class="section-header__ja">ギャラリー</h2>
+        <p class="section-header__en">gallery</p>
+      </hgroup>
       <div class="gallery__body js-fadeIn">
         <?php if (empty($gallery)): ?>
           <p class="gallery__no-post no-post">ただいま準備中です。<br>掲載までしばらくお待ちください。</p>

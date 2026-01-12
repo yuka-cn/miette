@@ -9,7 +9,6 @@
   background: $sub-color;
   border-radius: 1rem;
   @include mq("md"){
-    font-size: rem(20);
     padding: rem(24) rem(80) rem(24) rem(40);
     border-radius: 1.5rem;
   }
@@ -29,7 +28,7 @@
   border-left: rem(2) solid;
   border-bottom: rem(2) solid;
   transform: translateY(-50%) rotate(-45deg);
-  transition: transform 0.4s ease-in-out;
+  transition: transform .4s ease-in-out;
   @include mq("md"){
     right: rem(40);
     width: rem(16);

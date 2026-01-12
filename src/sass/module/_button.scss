@@ -16,7 +16,7 @@
   border: 0.08em solid transparent;
   border-radius: 5em;  
   box-sizing: border-box;
-  transition: .3s;
+  transition: color .3s ease, background-color .3s ease;
 }
 
 .button span{
