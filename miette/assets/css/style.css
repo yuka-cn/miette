@@ -1393,15 +1393,19 @@ body.is-loaded .mv {
 }
 
 .form__participants {
+	grid-gap: 0.75rem;
 	display: grid;
-	grid-template-columns: 50% 50%;
+	gap: 0.75rem;
+	width: 50%;
 }
 
 .form__participant {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	gap: 0.75rem;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
 }
 
 .form__participant select {
@@ -3191,6 +3195,19 @@ html {
 .form__agreement input[type=checkbox]:checked::after {
 	height: 12px;
 	width: 6px;
+}
+
+.form__participants {
+	gap: 0;
+	grid-template-columns: 50% 50%;
+	width: 100%;
+}
+
+.form__participant {
+	gap: 0.75rem;
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
 }
 
 .form__participant select {

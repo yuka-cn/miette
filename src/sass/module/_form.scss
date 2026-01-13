@@ -208,12 +208,22 @@
 
 .form__participants{
   display: grid;
-  grid-template-columns: 50% 50%;
+  width: 50%;
+  gap: rem(12);
+  @include mq("md"){
+    width: 100%;
+    grid-template-columns: 50% 50%;
+    gap: 0;
+  }
 }
 
 .form__participant{
   display: flex;
-  gap: rem(12);
+  justify-content: space-between;
+  @include mq("md"){
+    justify-content: flex-start;
+    gap: rem(12);
+  }
 }
 
 .form__participant select{
