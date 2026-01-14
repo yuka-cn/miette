@@ -165,6 +165,7 @@ a {
 	display: grid;
 	gap: 2.5rem;
 	grid-template-columns: 1fr;
+	position: relative;
 }
 
 .access__table {
@@ -353,6 +354,10 @@ a {
 	margin-top: 12.5rem;
 }
 
+.home-concept {
+	position: relative;
+}
+
 .home-concept__content {
 	grid-gap: 3.75rem;
 	display: grid;
@@ -371,6 +376,7 @@ a {
 
 .home-concept__text {
 	line-height: 2;
+	position: relative;
 	text-align: center;
 }
 
@@ -596,6 +602,16 @@ body.is-loaded .mv {
 	opacity: 1;
 }
 
+.mv::after {
+	aspect-ratio: 360/280;
+	background: url(../images/common/shape_1.png) center center/contain no-repeat;
+	content: "";
+	left: 0;
+	position: absolute;
+	top: calc(100vh - 6.25rem);
+	width: 50%;
+}
+
 .mv__logo {
 	left: 0.9375rem;
 	max-width: 6.75rem;
@@ -644,6 +660,7 @@ body.is-loaded .mv {
 	font-size: clamp(2rem, 1.648rem + 1.502vi, 3rem);
 	font-weight: 400;
 	line-height: 2.5;
+	position: relative;
 	-webkit-transform: translateY(-20%);
 	transform: translateY(-20%);
 }
@@ -653,8 +670,50 @@ body.is-loaded .mv {
 }
 
 .mv__title span:last-child {
+	position: relative;
 	text-indent: clamp(4.375rem, 3.055rem + 5.634vw, 8.125rem);
 	text-indent: clamp(4.375rem, 3.055rem + 5.634vi, 8.125rem);
+}
+
+.mv__title::before,
+.mv__title::after,
+.mv__title span:last-child::after {
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	background: #5A3E2B;
+	content: "";
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	position: absolute;
+}
+
+.mv__title::before {
+	-webkit-mask-image: url(../images/common/decor_5.png);
+	aspect-ratio: 144/164;
+	left: 0;
+	mask-image: url(../images/common/decor_5.png);
+	top: -3.75rem;
+	width: 3.75rem;
+}
+
+.mv__title::after {
+	-webkit-mask-image: url(../images/common/decor_6.png);
+	aspect-ratio: 250/256;
+	bottom: -6.25rem;
+	mask-image: url(../images/common/decor_6.png);
+	right: 0;
+	width: 6.25rem;
+}
+
+.mv__title span:last-child::after {
+	-webkit-mask-image: url(../images/common/decor_7.png);
+	aspect-ratio: 655/157;
+	mask-image: url(../images/common/decor_7.png);
+	right: 0;
+	top: -1.25rem;
+	width: 11.25rem;
 }
 
 .not-found {
@@ -2625,6 +2684,26 @@ html {
 	grid-template-columns: 34.375rem 1fr;
 }
 
+.access__items::after {
+	-webkit-mask-image: url(../images/common/decor_9.png);
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	aspect-ratio: 403/165;
+	background: #5A3E2B;
+	bottom: 0;
+	content: "";
+	left: 0;
+	mask-image: url(../images/common/decor_9.png);
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	position: absolute;
+	-webkit-transform: rotate(-20deg);
+	transform: rotate(-20deg);
+	width: 10rem;
+}
+
 .access__button {
 	margin-top: 5rem;
 }
@@ -2749,6 +2828,16 @@ html {
 	margin-top: 18.75rem;
 }
 
+.home-concept::before {
+	aspect-ratio: 727/645;
+	background: url(../images/common/shape_2.png) center center/contain no-repeat;
+	content: "";
+	position: absolute;
+	right: 0;
+	top: -10rem;
+	width: 20%;
+}
+
 .home-concept__content {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
@@ -2760,6 +2849,24 @@ html {
 .home-concept__image {
 	max-width: 25rem;
 	width: 100%;
+}
+
+.home-concept__text::after {
+	-webkit-mask-image: url(../images/common/decor_8.png);
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	aspect-ratio: 125/130;
+	background: #5A3E2B;
+	content: "";
+	mask-image: url(../images/common/decor_8.png);
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	position: absolute;
+	right: calc(50% - min(37.5rem, 80%));
+	top: -6.25rem;
+	width: 6.25rem;
 }
 
 .home-concept__button {
@@ -2861,6 +2968,11 @@ html {
 	grid-template-rows: auto;
 }
 
+.mv::after {
+	top: calc(100vh - 13.75rem);
+	width: 30%;
+}
+
 .mv__logo {
 	left: 2.5rem;
 	max-width: 8.75rem;
@@ -2875,6 +2987,23 @@ html {
 	line-height: 3;
 	-webkit-transform: none;
 	transform: none;
+}
+
+.mv__title::before {
+	top: 1.25rem;
+	width: 4.5rem;
+}
+
+.mv__title::after {
+	bottom: -6.25rem;
+	right: -12.5rem;
+	width: 7.8125rem;
+}
+
+.mv__title span:last-child::after {
+	right: -4.25rem;
+	top: -0.625rem;
+	width: 18.75rem;
 }
 
 .not-found {

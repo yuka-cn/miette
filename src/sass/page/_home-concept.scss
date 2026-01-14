@@ -1,5 +1,21 @@
 @use "global" as *;
 
+.home-concept{
+  position: relative;
+}
+
+.home-concept::before{
+  @include mq("md"){
+  content: "";
+  position: absolute;
+  top: rem(-160);
+  right: 0;
+  width: 20%;
+  aspect-ratio: 727 / 645;
+  background: url(../images/common/shape_2.png) center center /contain no-repeat;
+  }
+}
+
 .home-concept__content{
   display: grid;
   gap: rem(60);
@@ -25,8 +41,25 @@
 }
 
 .home-concept__text{
+  position: relative;
   text-align: center;
   line-height: 2;
+}
+
+.home-concept__text::after{
+  @include mq("md"){
+    content: "";
+    position: absolute;
+    top: rem(-100);
+    right: calc(50% - min(rem(600),80%));
+    width: rem(100);
+    aspect-ratio: 125 / 130;
+    background: $font-color;
+    mask-image: url(../images/common/decor_8.png);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
 }
 
 .home-concept__button{

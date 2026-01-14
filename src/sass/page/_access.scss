@@ -2,12 +2,30 @@
 
 
 .access__items{
+  position: relative;
   display: grid;
   gap: rem(40);
   grid-template-columns: 1fr;
   align-items: start;
   @include mq("md"){
     grid-template-columns: rem(550) 1fr;
+  }
+}
+
+.access__items::after{
+  @include mq("md"){
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: rem(160);
+    aspect-ratio: 403 / 165;
+    background: $font-color;
+    mask-image: url(../images/common/decor_9.png);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    transform: rotate(-20deg);
   }
 }
 

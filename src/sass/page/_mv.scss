@@ -36,6 +36,20 @@ body.is-loaded .mv{
   animation: none;
 }
 
+.mv::after{
+  content: "";
+  position: absolute;
+  top: calc(100vh - rem(100));
+  left: 0;
+  width: 50%;
+  aspect-ratio: 360 / 280;
+  background: url(../images/common/shape_1.png) center center /contain no-repeat;
+  @include mq("md"){
+    top: calc(100vh - rem(220));
+    width: 30%;
+  }
+}
+
 .mv__logo{
   position: absolute;
   top:rem(20);
@@ -76,6 +90,7 @@ body.is-loaded .mv{
 }
 
 .mv__title{
+  position: relative;
   display:grid;
   font-size: clamp(2rem, 1.648rem + 1.502vi, 3rem); //32px-48px
   font-family: $second-font-family;
@@ -93,5 +108,55 @@ body.is-loaded .mv{
 }
 
 .mv__title span:last-child{
+  position: relative;
   text-indent: clamp(4.375rem, 3.055rem + 5.634vi, 8.125rem);
+}
+
+.mv__title::before,
+.mv__title::after,
+.mv__title span:last-child::after {
+  content: "";
+  position: absolute;
+  background: $font-color;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.mv__title::before {
+  top: rem(-60);
+  left: 0;
+  width: rem(60);
+  aspect-ratio: 144 / 164;
+  mask-image: url(../images/common/decor_5.png);
+  @include mq("md"){
+    top: rem(20);
+    width: rem(72);
+  }
+}
+
+.mv__title::after {
+  bottom: rem(-100);
+  right: 0;
+  width: rem(100);
+  aspect-ratio: 250 / 256;
+  mask-image: url(../images/common/decor_6.png);
+  @include mq("md"){
+    bottom: rem(-100);
+    right: rem(-200);  
+    width: rem(125);
+  }
+}
+
+.mv__title span:last-child::after{
+  top: rem(-20);
+  right: 0;
+  width: rem(180);
+  aspect-ratio: 655 / 157;
+  mask-image: url(../images/common/decor_7.png);
+  @include mq("md"){
+    top: rem(-10);
+    right: rem(-68);
+    width: rem(300);
+  }
 }
