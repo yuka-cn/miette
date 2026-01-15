@@ -3,25 +3,23 @@
 .nav {
   display: grid;
   gap: rem(10);
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   align-items: start;
   @include mq("md") {
-   grid-template-columns: repeat(3, 1fr);
+   grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .nav__items {
- display: grid;
- grid-template-columns: repeat(2, 1fr);
- @include mq("md") {
+  display: grid;
   grid-template-columns: 1fr;
- }
 }
 
 .nav__item a {
   display: flex;
   align-items: center;
   padding: rem(9) 0;
+  font-weight: $medium;
 }
 
 .nav__item a:hover {
@@ -30,37 +28,15 @@
   }
 }
 
-.nav__subitem{
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: 0;
-  color: $font-color;
-  background: $sub-color;
-  width: rem(180);
-  z-index: 10;
-}
-
 .nav__subitem a{
-  padding: rem(9);
-}
-
-.nav__item--has-subitem{
+  font-weight: $regular;
   position: relative;
+  padding-left: 1em;
 }
 
-.nav__item--has-subitem:hover .nav__subitem{
-  @include mq("md"){
-    display: block;
-  }
-}
-
-.nav__item--has-subitem:hover > a::after{
-  @include mq("md"){
-    position: absolute;
-    right: rem(9);
-    content: "▶︎";
-    font-size: 0.8em;
-    margin-left: rem(9);
-  }
+.nav__subitem a::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
 }

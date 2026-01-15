@@ -26,23 +26,16 @@ extract($links, EXTR_SKIP);
 
       <nav class="footer__nav nav js-nav">
         <ul class="nav__items">
-          <li class="nav__item nav__item--has-subitem">
-            <a href="<?php echo $lesson_guide; ?>">レッスン案内</a>
-            <ul class="nav__subitem">
-              <li><a href="<?php echo $lesson_guide; ?>#tab-basic">ベーシッククラス</a></li>
-              <li><a href="<?php echo $lesson_guide; ?>#tab-seasonal">季節のおやつクラス</a></li>
-              <li><a href="<?php echo $lesson_guide; ?>#tab-parent-child">親子クラス</a></li>
-            </ul>
-          </li>
-          <li class="nav__item nav__item--has-subitem">
-            <a href="<?php echo $lesson; ?>">レッスンメニュー</a>
-            <ul class="nav__subitem">
-              <li><a href="<?php echo $lesson_basic; ?>">ベーシッククラス</a></li>
-              <li><a href="<?php echo $lesson_seasonal; ?>">季節のおやつクラス</a></li>
-              <li><a href="<?php echo $lesson_parent_child; ?>">親子クラス</a></li>
-            </ul>
-          </li>
-          <li class="nav__item"><a href="<?php echo $reservation; ?>">レッスン予約</a></li>
+          <li class="nav__item"><a href="<?php echo $lesson_guide; ?>">レッスン案内</a></li>
+          <li class="nav__item nav__subitem"><a href="<?php echo $lesson_guide; ?>#tab-basic">ベーシッククラス</a></li>
+          <li class="nav__item nav__subitem"><a href="<?php echo $lesson_guide; ?>#tab-seasonal">季節のおやつクラス</a></li>
+          <li class="nav__item nav__subitem"><a href="<?php echo $lesson_guide; ?>#tab-parent-child">親子クラス</a></li>
+        </ul>
+        <ul class="nav__items">
+          <li class="nav__item"><a href="<?php echo $lesson; ?>">レッスンメニュー</a></li>
+          <li class="nav__item nav__subitem"><a href="<?php echo $lesson_basic; ?>">ベーシッククラス</a></li>
+          <li class="nav__item nav__subitem"><a href="<?php echo $lesson_seasonal; ?>">季節のおやつクラス</a></li>
+          <li class="nav__item nav__subitem"><a href="<?php echo $lesson_parent_child; ?>">親子クラス</a></li>
         </ul>
         <ul class="nav__items">
           <li class="nav__item"><a href="<?php echo $about; ?>">教室について</a></li>
@@ -51,6 +44,7 @@ extract($links, EXTR_SKIP);
           <li class="nav__item"><a href="<?php echo $blog; ?>">ブログ</a></li>
         </ul>
         <ul class="nav__items">
+          <li class="nav__item"><a href="<?php echo $reservation; ?>">レッスン予約</a></li>
           <li class="nav__item"><a href="<?php echo $contact; ?>">お問い合わせ</a></li>
           <li class="nav__item"><a href="<?php echo $privacy; ?>">プライバシーポリシー</a></li>
         </ul>
