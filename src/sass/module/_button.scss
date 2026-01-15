@@ -37,6 +37,22 @@
 
 .button--green{
   background: linear-gradient(to top, rgba(255,255,255,0.18), transparent),#A9BEA0;
+  padding-left: rem(68);
+}
+
+.button--green::before {
+  content: "";
+  position: absolute;
+  width: rem(20);
+  aspect-ratio: 1;
+  left: rem(40);
+  top: 50%;
+  transform: translateY(-50%);
+  background: currentColor;
+  mask-image: url(../images/common/mail.png);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }
 
 .button--green:hover{

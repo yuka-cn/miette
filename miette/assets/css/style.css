@@ -1095,6 +1095,27 @@ body.is-loaded .mv {
 .button--green {
 	background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.18)), to(transparent)), #A9BEA0;
 	background: linear-gradient(to top, rgba(255, 255, 255, 0.18), transparent), #A9BEA0;
+	padding-left: 4.25rem;
+}
+
+.button--green::before {
+	-webkit-mask-image: url(../images/common/mail.png);
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	aspect-ratio: 1;
+	background: currentColor;
+	content: "";
+	left: 2.5rem;
+	mask-image: url(../images/common/mail.png);
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	width: 1.25rem;
 }
 
 .category-button {
