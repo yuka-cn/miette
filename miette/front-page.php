@@ -55,6 +55,9 @@ extract($links, EXTR_SKIP);
               }
               $image = get_field('lesson_image');
               $month = get_field('lesson_month');
+
+              $lesson_details = get_field('lesson_details');
+              $lesson_schedule = $lesson_details['lesson_schedule'] ?? '';
             ?>
               <div class="home-lesson__slide swiper-slide">
                 <a href="<?php the_permalink(); ?>" class="home-lesson__card lesson-card">
@@ -71,6 +74,7 @@ extract($links, EXTR_SKIP);
                   <div class="lesson-card__body">
                     <p class="lesson-card__category"><?php echo esc_html($term_name); ?></p>
                     <h3 class="lesson-card__title"><?php the_title(); ?></h3>
+                    <p class="lesson-card__schedule"><?php echo nl2br( wp_kses( $lesson_schedule, array() ) ); ?></p>
                   </div>
                 </a>
               </div>
@@ -119,7 +123,8 @@ extract($links, EXTR_SKIP);
         <p class="section-header__en">lesson</p>
       </hgroup>
       <p class="home-lesson-guide__text">
-        家庭でも作りやすい人気のおやつを中心に、<span>基本の技術や材料選びを丁寧に学べる「ベーシッククラス」</span>と、旬の素材や行事に合わせた<span>季節感あふれるメニューに挑戦する「季節のおやつクラス」</span>、そして<span>小さなお子さまと一緒に</span>“作る楽しさ”を感じていただける<span>「親子クラス」</span>の3つをご用意しています。それぞれのクラスで、出来たてのおいしさと手作りならではの温かみを楽しんでいただけます。
+        家庭でも作りやすい人気のおやつを中心に、<span>基本の技術や材料選びを丁寧に学べる「ベーシッククラス」</span>と、旬の素材や行事に合わせた<span>季節感あふれるメニューに挑戦する「季節のおやつクラス」</span>、そして<span>小さなお子さまと一緒に</span>“作る楽しさ”を感じていただける<span>「親子クラス」</span>の3つをご用意しています。<br>
+        それぞれのクラスで、出来たてのおいしさと手作りならではの温かみを楽しんでいただけます。
       </p>
       <div class="home-lesson-guide__button">
         <a href="<?php echo $lesson_guide; ?>" class="button button--outline">

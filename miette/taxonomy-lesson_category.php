@@ -47,9 +47,7 @@ extract($links, EXTR_SKIP);
 
         <!-- lessonカード -->
         <div class="lesson__cards lesson-cards">
-
           <?php while (have_posts()): the_post(); ?>
-
             <?php
               $terms = get_the_terms(get_the_ID(), 'lesson_category');
               $term_name = '';
@@ -61,6 +59,9 @@ extract($links, EXTR_SKIP);
 
               $image = get_field('lesson_image');
               $month = get_field('lesson_month');
+
+              $lesson_details = get_field('lesson_details');
+              $lesson_schedule = $lesson_details['lesson_schedule'] ?? '';
             ?>
 
             <a href="<?php the_permalink(); ?>" class="lesson-cards__item lesson-card js-fadeIn">
@@ -77,6 +78,7 @@ extract($links, EXTR_SKIP);
               <div class="lesson-card__body">
                 <p class="lesson-card__category"><?php echo esc_html($term_name); ?></p>
                 <h2 class="lesson-card__title"><?php the_title(); ?></h2>
+                <p class="lesson-card__schedule"><?php echo nl2br( wp_kses( $lesson_schedule, array() ) ); ?></p>
               </div>
               <span class="lesson-card__mask"></span>
             </a>

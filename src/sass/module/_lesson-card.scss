@@ -73,9 +73,14 @@
 
 .lesson-card__title {
   margin-top: rem(8);
-  flex-grow: 1;
+  padding-bottom: rem(4);
   font-size: rem(20);
   font-weight: $regular;
+  border-bottom: 0.08em dotted;
+}
+
+.lesson-card__schedule {
+  margin-top: rem(8);
 }
 
 .lesson-card--sidebar .lesson-card__badge{
@@ -84,6 +89,11 @@
   @include mq("md"){
     right: rem(-20);
   }
+}
+
+.lesson-card--sidebar .lesson-card__title{
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .lesson-card:hover{
