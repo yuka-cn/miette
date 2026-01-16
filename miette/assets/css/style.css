@@ -553,6 +553,19 @@ a {
 	z-index: 1;
 }
 
+.home-schedule-layout {
+	margin-top: 8.75rem;
+}
+
+.home-schedule__table {
+	margin-top: 2.5rem;
+}
+
+.home-schedule__button {
+	margin-top: 3.75rem;
+	text-align: center;
+}
+
 .lesson-guide-layout {
 	margin-top: 3rem;
 }
@@ -2380,6 +2393,113 @@ body.is-loading {
 	margin-top: 1.5rem;
 }
 
+.schedule-table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.schedule-table thead {
+	display: none;
+}
+
+.schedule-table th,
+.schedule-table td {
+	display: block;
+	font-weight: 400;
+	line-height: 1;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+	text-align: left;
+}
+
+.schedule-table tbody tr:not(:last-child) .schedule-table__menu,
+.schedule-table td[rowspan] {
+	background-image: url("../images/common/line-thin_360.png");
+	background-position: bottom left;
+	background-repeat: no-repeat;
+	background-size: 100% 0.1em;
+}
+
+.schedule-table tbody:not(:first-of-type) td[rowspan] {
+	padding-top: 1.875rem;
+}
+
+.schedule-table td:not([rowspan]) {
+	margin-left: 1em;
+}
+
+.schedule-table__date {
+	margin-top: 0.5rem;
+}
+
+.schedule-table td.schedule-table__menu {
+	padding-bottom: 1rem;
+}
+
+.schedule-table__status,
+.schedule-table__menu {
+	padding-left: 5.5em;
+	position: relative;
+}
+
+.schedule-table__status::before,
+.schedule-table__menu::before {
+	left: 0;
+	position: absolute;
+	top: 0.5em;
+}
+
+.schedule-table__status::before {
+	content: "空き状況：";
+}
+
+.schedule-table__menu::before {
+	content: "メニュー：";
+}
+
+.schedule-table td[rowspan] {
+	position: relative;
+}
+
+.schedule-table td[rowspan]::after {
+	border-bottom: 0.08em solid;
+	border-right: 0.08em solid;
+	content: "";
+	height: 0.625rem;
+	position: absolute;
+	right: 1rem;
+	top: 50%;
+	-webkit-transform: translateY(-50%) rotate(45deg);
+	transform: translateY(-50%) rotate(45deg);
+	-webkit-transition: -webkit-transform 0.3s ease;
+	transition: -webkit-transform 0.3s ease;
+	transition: transform 0.3s ease;
+	transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+	width: 0.625rem;
+}
+
+.schedule-table tbody.is-open td[rowspan]::after {
+	-webkit-transform: translateY(-50%) rotate(-135deg);
+	transform: translateY(-50%) rotate(-135deg);
+}
+
+.schedule-table tbody.is-open td {
+	display: block;
+	height: auto;
+	opacity: 1;
+	-webkit-transition: height 0.6s ease, opacity 0.4s ease 0.2s;
+	transition: height 0.6s ease, opacity 0.4s ease 0.2s;
+}
+
+.schedule-table tbody:not(.is-open) td:not([rowspan]) {
+	display: block;
+	height: 0;
+	opacity: 0;
+	overflow: hidden;
+	-webkit-transition: height 0.6s ease, opacity 0.4s ease 0.2s;
+	transition: height 0.6s ease, opacity 0.4s ease 0.2s;
+}
+
 .section-header {
 	text-align: left;
 }
@@ -2956,6 +3076,14 @@ html {
 
 .home-reservation__image::after {
 	border-radius: 2rem;
+}
+
+.home-schedule-layout {
+	margin-top: 12.5rem;
+}
+
+.home-schedule__button {
+	margin-top: 5rem;
 }
 
 .lesson-guide-layout {
@@ -3539,6 +3667,61 @@ html {
 
 .profile__message {
 	margin-top: 2.5rem;
+}
+
+.schedule-table thead {
+	display: table-row-group;
+}
+
+.schedule-table thead,
+.schedule-table tbody {
+	background-image: url("../images/common/line-thin_550.png");
+	background-position: bottom left;
+	background-repeat: no-repeat;
+	background-size: 100% 0.1em;
+}
+
+.schedule-table th,
+.schedule-table td {
+	display: table-cell;
+	padding-bottom: 0.75rem;
+	padding-top: 0.75rem;
+}
+
+.schedule-table tbody tr:not(:last-child) .schedule-table__menu,
+.schedule-table td[rowspan] {
+	background: none;
+}
+
+.schedule-table tbody:not(:first-of-type) td[rowspan] {
+	padding-top: 0;
+}
+
+.schedule-table__status,
+.schedule-table__menu {
+	padding-left: 0;
+}
+
+.schedule-table__status::before {
+	content: none;
+}
+
+.schedule-table__menu::before {
+	content: none;
+}
+
+.schedule-table td[rowspan]::after {
+	display: none;
+}
+
+.schedule-table tbody.is-open td {
+	display: table-cell;
+}
+
+.schedule-table tbody:not(.is-open) td:not([rowspan]) {
+	display: table-cell;
+	height: auto;
+	opacity: 1;
 }
 
 .section-header__ja {

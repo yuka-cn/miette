@@ -364,30 +364,82 @@ jQuery(function ($) {
     }
   }
 
-/* サイドバーのアーカイブ開閉 */
-  document.querySelectorAll('.archive-list__year-button').forEach(button => {
-    const year = button.closest('.archive-list__year');
-    const months = year.querySelector('.archive-list__months');
+// /* サイドバーのアーカイブ開閉 */
+//   document.querySelectorAll('.archive-list__year-button').forEach(button => {
+//     const year = button.closest('.archive-list__year');
+//     const months = year.querySelector('.archive-list__months');
 
-    // 初期状態
-    const isOpen = year.classList.contains('is-open');
-    months.style.height = isOpen ? months.scrollHeight + 'px' : '0';
-    button.setAttribute('aria-expanded', isOpen);
+//     // 初期状態
+//     const isOpen = year.classList.contains('is-open');
+//     months.style.height = isOpen ? months.scrollHeight + 'px' : '0';
+//     button.setAttribute('aria-expanded', isOpen);
 
-    // クリックイベント
-    button.addEventListener('click', () => {
-      const expanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', String(!expanded));
-      year.classList.toggle('is-open');
+//     // クリックイベント
+//     button.addEventListener('click', () => {
+//       const expanded = button.getAttribute('aria-expanded') === 'true';
+//       button.setAttribute('aria-expanded', String(!expanded));
+//       year.classList.toggle('is-open');
 
-      if (!expanded) {
-        months.style.height = months.scrollHeight + 'px';
-        months.style.opacity = '1';
-      } else {
-        months.style.height = '0';
-        months.style.opacity = '0';
+//       if (!expanded) {
+//         months.style.height = months.scrollHeight + 'px';
+//         months.style.opacity = '1';
+//       } else {
+//         months.style.height = '0';
+//         months.style.opacity = '0';
+//       }
+//     });
+//   });
+
+/* トグル開閉 */
+  function setupToggle({
+    triggerSelector,
+    groupSelector,
+    contentSelector,
+    openClass = 'is-open',
+    enabled = () => true
+  }) {
+    document.querySelectorAll(triggerSelector).forEach(trigger => {
+      const group = trigger.closest(groupSelector);
+      const content = group.querySelector(contentSelector);
+
+      if (!group) return;
+
+      const applyState = (isOpen) => {
+        group.classList.toggle(openClass, isOpen);
+        trigger.setAttribute('aria-expanded', isOpen);
+        if (content) {
+          content.style.height = isOpen ? content.scrollHeight + 'px' : '0';
+          content.style.opacity = isOpen ? '1' : '0';
+        }
+      };
+
+      // 初期状態
+      if (enabled()) {
+        applyState(group.classList.contains(openClass));
       }
+
+      trigger.addEventListener('click', () => {
+        if (!enabled()) return;
+
+        const expanded = trigger.getAttribute('aria-expanded') === 'true';
+        applyState(!expanded);
+      });
     });
+  }
+
+  //ブログサイドバーのアーカイブ
+  setupToggle({
+    triggerSelector: '.archive-list__year-button',
+    groupSelector: '.archive-list__year',
+    contentSelector: '.archive-list__months'
+  });
+
+  //トップページのレッスン日程表
+  setupToggle({
+    triggerSelector: '.schedule-table td[rowspan]',
+    groupSelector: '.schedule-table tbody',
+    contentSelector: null,
+    enabled: () => window.innerWidth < 768
   });
 
 /* お問い合わせとレッスン予約の送信 */

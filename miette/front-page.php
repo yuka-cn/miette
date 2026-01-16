@@ -38,12 +38,12 @@ extract($links, EXTR_SKIP);
     $lessons = new WP_Query($args);
   if ($lessons->have_posts()): ?>
   <section class="home-lesson home-lesson-layout">
-    <div class="home-lesson__inner inner">
-      <hgroup class="home-lesson__header section-header js-fadeIn">
+    <div class="home-lesson__inner inner js-fadeIn">
+      <hgroup class="home-lesson__header section-header">
         <h2 class="section-header__ja">レッスンメニュー</h2>
         <p class="section-header__en">Monthly Menu</p>
       </hgroup>
-      <div class="home-lesson__body js-fadeIn">
+      <div class="home-lesson__body">
         <div class="home-lesson__cards swiper js-lessonSwiper">
           <div class="home-lesson__flex swiper-wrapper">
             <?php while ($lessons->have_posts()): $lessons->the_post();
@@ -90,6 +90,72 @@ extract($links, EXTR_SKIP);
   </section>
   <?php endif; ?>
   <?php wp_reset_postdata();?>
+
+  <!-- 予約可能レッスン -->
+  <section class="home-schedule home-schedule-layout">
+    <div class="home-schedule__inner inner js-fadeIn">
+      <hgroup class="home-schedule__header section-header">
+        <h2 class="section-header__ja">予約可能レッスン</h2>
+        <p class="section-header__en">Lesson Schedule</p>
+      </hgroup>
+      <table class="home-schedule__table schedule-table">
+        <thead>
+          <tr>
+            <th>クラス</th>
+            <th>日程</th>
+            <th>空き状況</th>
+            <th>メニュー</th>
+          </tr>
+        </thead>           
+        <tbody>
+          <tr>
+            <td rowspan="2">ベーシッククラス</td>
+            <td class="schedule-table__date">11/15(土)10:00〜</td>
+            <td class="schedule-table__status">キャンセル待ち</td>
+            <td class="schedule-table__menu">ごま＆抹茶のスコーン</td>
+          </tr>
+          <tr>
+            <td class="schedule-table__date">11/22(土)10:00〜</td>
+            <td class="schedule-table__status">残わずか</td>
+            <td class="schedule-table__menu">ごま＆抹茶のスコーン</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td rowspan="2">季節のおやつクラス</td>
+            <td class="schedule-table__date">11/15(土)10:00〜</td>
+            <td class="schedule-table__status">キャンセル待ち</td>
+            <td class="schedule-table__menu">ベリーブリュレ</td>
+          </tr>
+          <tr>
+            <td class="schedule-table__date">11/22(土)10:00〜</td>
+            <td class="schedule-table__status">残わずか</td>
+            <td class="schedule-table__menu">ベリーブリュレ</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td rowspan="2">親子クラス</td>
+            <td class="schedule-table__date">11/15(土)10:00〜</td>
+            <td class="schedule-table__status">キャンセル待ち</td>
+            <td class="schedule-table__menu">チョコマフィン</td>
+          </tr>
+          <tr>
+            <td class="schedule-table__date">11/22(土)10:00〜</td>
+            <td class="schedule-table__status">残わずか</td>
+            <td class="schedule-table__menu">チョコマフィン</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="home-schedule__button">
+        <a href="<?php echo $reservation; ?>" class="button button--green button--outline">
+          ご予約はこちら
+          <span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+  
 
   <!-- コンセプト -->
   <div class="home-concept home-concept-layout">

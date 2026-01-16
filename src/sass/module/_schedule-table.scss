@@ -1,0 +1,145 @@
+@use "global" as *;
+
+.schedule-table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.schedule-table thead{
+  display: none;
+  @include mq("md"){
+    display: table-row-group;
+  }
+}
+
+.schedule-table thead,
+.schedule-table tbody{
+  @include mq("md"){
+  background-image: url('../images/common/line-thin_550.png');
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 100% 0.1em;
+  }
+}
+
+.schedule-table th,
+.schedule-table td{
+  display: block;
+  padding-top: rem(8);
+  padding-bottom: rem(8);
+  text-align: left;
+  font-weight: $regular;
+  line-height: 1;
+  @include mq("md"){
+    display: table-cell;
+    padding-top: rem(12);
+    padding-bottom: rem(12);
+  }
+}
+
+.schedule-table tbody tr:not(:last-child) .schedule-table__menu,
+.schedule-table td[rowspan]{
+  background-image: url('../images/common/line-thin_360.png');
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 100% 0.1em;
+  @include mq("md"){
+    background: none;
+  }
+}
+
+.schedule-table tbody:not(:first-of-type) td[rowspan]{
+  padding-top: rem(30);
+  @include mq("md"){
+    padding-top: 0;
+  }
+}
+
+.schedule-table td:not([rowspan]) {
+  margin-left: 1em;
+}
+
+.schedule-table__date{
+  margin-top: rem(8);
+}
+
+.schedule-table td.schedule-table__menu{
+  padding-bottom: rem(16);
+}
+
+.schedule-table__status,
+.schedule-table__menu{
+  position: relative;
+  padding-left: 5.5em;
+  @include mq("md"){
+    padding-left: 0;
+  }
+}
+
+.schedule-table__status::before,
+.schedule-table__menu::before{
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+}
+
+.schedule-table__status::before{
+  content: "空き状況：";
+  @include mq("md"){
+    content: none;
+  }
+}
+
+.schedule-table__menu::before{
+  content: "メニュー：";
+  @include mq("md"){
+    content: none;
+  }
+}
+
+.schedule-table td[rowspan] {
+  position: relative;
+}
+
+.schedule-table td[rowspan]::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: rem(16);
+  width: rem(10);
+  height: rem(10);
+  border-right: 0.08em solid;
+  border-bottom: 0.08em solid;
+  transform: translateY(-50%) rotate(45deg); 
+  transition: transform .3s ease;
+  @include mq("md"){
+    display: none;
+  }
+}
+
+.schedule-table tbody.is-open td[rowspan]::after {
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+.schedule-table tbody.is-open td{
+  display: block;
+  height: auto;
+  opacity: 1;
+  transition: height .6s ease, opacity .4s ease .2s;
+  @include mq("md"){
+    display: table-cell;
+  }
+}
+
+.schedule-table tbody:not(.is-open) td:not([rowspan]) {
+  display: block;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height .6s ease, opacity .4s ease .2s;
+  @include mq("md"){
+    display: table-cell;
+    height: auto;
+    opacity: 1;
+  }
+}

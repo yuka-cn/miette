@@ -1,0 +1,14 @@
+@use "global" as *;
+
+.home-schedule__table{
+  margin-top: rem(40);
+}
+
+
+.home-schedule__button{
+  margin-top: rem(60);
+  text-align: center;
+  @include mq("md"){
+    margin-top: rem(80);
+  }
+}
