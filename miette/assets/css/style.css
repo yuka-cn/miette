@@ -1925,11 +1925,9 @@ textarea {
 }
 
 .lesson-card__title {
-	border-bottom: 0.08em dotted;
 	font-size: 1.25rem;
 	font-weight: 400;
 	margin-top: 0.5rem;
-	padding-bottom: 0.25rem;
 }
 
 .lesson-card__schedule {
@@ -2438,13 +2436,13 @@ body.is-loading {
 
 .schedule-table__status,
 .schedule-table__menu {
-	padding-left: 5.5em;
+	padding-left: 6.5em;
 	position: relative;
 }
 
 .schedule-table__status::before,
 .schedule-table__menu::before {
-	left: 0;
+	left: 1em;
 	position: absolute;
 	top: 0.5em;
 }
@@ -3071,6 +3069,10 @@ html {
 
 .home-schedule__button {
 	margin-top: 5rem;
+}
+
+.home-schedule__no-post.no-post {
+	padding-top: 2.5rem;
 }
 
 .lesson-guide-layout {

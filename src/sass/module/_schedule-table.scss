@@ -70,7 +70,7 @@
 .schedule-table__status,
 .schedule-table__menu{
   position: relative;
-  padding-left: 5.5em;
+  padding-left: 6.5em;
   @include mq("md"){
     padding-left: 0;
   }
@@ -80,7 +80,7 @@
 .schedule-table__menu::before{
   position: absolute;
   top: 0.5em;
-  left: 0;
+  left: 1em;
 }
 
 .schedule-table__status::before{

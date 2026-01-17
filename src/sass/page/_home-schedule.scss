@@ -12,3 +12,9 @@
     margin-top: rem(80);
   }
 }
+
+.home-schedule__no-post.no-post{
+  @include mq("md"){
+    padding-top: rem(40);
+  }
+}

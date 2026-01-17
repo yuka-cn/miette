@@ -74,7 +74,6 @@ extract($links, EXTR_SKIP);
                   <div class="lesson-card__body">
                     <p class="lesson-card__category"><?php echo esc_html($term_name); ?></p>
                     <h3 class="lesson-card__title"><?php the_title(); ?></h3>
-                    <p class="lesson-card__schedule"><?php echo nl2br( wp_kses( $lesson_schedule, array() ) ); ?></p>
                   </div>
                 </a>
               </div>
@@ -91,70 +90,90 @@ extract($links, EXTR_SKIP);
   <?php endif; ?>
   <?php wp_reset_postdata();?>
 
-  <!-- 予約可能レッスン -->
+  <!-- 予約できるレッスン -->
   <section class="home-schedule home-schedule-layout">
     <div class="home-schedule__inner inner js-fadeIn">
       <hgroup class="home-schedule__header section-header">
-        <h2 class="section-header__ja">予約可能レッスン</h2>
+        <h2 class="section-header__ja">予約できるレッスン</h2>
         <p class="section-header__en">Lesson Schedule</p>
       </hgroup>
-      <table class="home-schedule__table schedule-table">
-        <thead>
-          <tr>
-            <th>クラス</th>
-            <th>日程</th>
-            <th>空き状況</th>
-            <th>メニュー</th>
-          </tr>
-        </thead>           
-        <tbody>
-          <tr>
-            <td rowspan="2">ベーシッククラス</td>
-            <td class="schedule-table__date">11/15(土)10:00〜</td>
-            <td class="schedule-table__status">キャンセル待ち</td>
-            <td class="schedule-table__menu">ごま＆抹茶のスコーン</td>
-          </tr>
-          <tr>
-            <td class="schedule-table__date">11/22(土)10:00〜</td>
-            <td class="schedule-table__status">残わずか</td>
-            <td class="schedule-table__menu">ごま＆抹茶のスコーン</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td rowspan="2">季節のおやつクラス</td>
-            <td class="schedule-table__date">11/15(土)10:00〜</td>
-            <td class="schedule-table__status">キャンセル待ち</td>
-            <td class="schedule-table__menu">ベリーブリュレ</td>
-          </tr>
-          <tr>
-            <td class="schedule-table__date">11/22(土)10:00〜</td>
-            <td class="schedule-table__status">残わずか</td>
-            <td class="schedule-table__menu">ベリーブリュレ</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td rowspan="2">親子クラス</td>
-            <td class="schedule-table__date">11/15(土)10:00〜</td>
-            <td class="schedule-table__status">キャンセル待ち</td>
-            <td class="schedule-table__menu">チョコマフィン</td>
-          </tr>
-          <tr>
-            <td class="schedule-table__date">11/22(土)10:00〜</td>
-            <td class="schedule-table__status">残わずか</td>
-            <td class="schedule-table__menu">チョコマフィン</td>
-          </tr>
-        </tbody>
-      </table>
+      
+      <?php
+      $page = get_page_by_path('reservation');
+      $all_dates = [];
+      
+      if ($page):
+        $page_id = $page->ID;
+        $classes = [
+          'ベーシッククラス'       => 'reservation_basic',
+          '季節のおやつクラス'     => 'reservation_seasonal',
+          '親子クラス'             => 'reservation_parent_child',
+        ];
+      
+        foreach ($classes as $class_label => $class_field):
+          $class_data = get_field($class_field, $page_id);
+          if (!$class_data) continue;
+          
+          $dates = [];
+          for ($i = 1; $i <= 4; $i++) {
+            if (!empty($class_data['date_'.$i]['date'])) {
+              $dates[] = [
+                'date'   => $class_data['date_'.$i]['date'],
+                'status' => $class_data['date_'.$i]['status'],
+                'menu'   => $class_data['date_'.$i]['menu'] ?? '',
+              ];
+            }
+          }
+          
+          if (!empty($dates)) {
+            $all_dates[$class_label] = $dates;
+          }
+          $rowspan = count($dates);
+        endforeach;
+      endif;
+      ?>
+      
+      <?php if (empty($all_dates)): ?>
+        <p class="home-schedule__no-post no-post">ただいま日程を調整中です。</p>
+      <?php else: ?>
+        <table class="home-schedule__table schedule-table">
+          <thead>
+            <tr>
+              <th>クラス</th>
+              <th>日程</th>
+              <th>空き状況</th>
+              <th>メニュー</th>
+            </tr>
+          </thead>
+          <?php foreach ($all_dates as $class_label => $dates): ?>
+            <tbody>
+              <?php foreach ($dates as $index => $d): ?>
+                <tr>
+                  <?php if ($index === 0): ?>
+                    <td rowspan="<?= esc_attr($rowspan) ?>"><?= esc_html($class_label) ?></td>
+                  <?php endif; ?>
+                  <td class="schedule-table__date"><?= date_i18n('Y/m/j(D) H:i〜', strtotime($d['date'])) ?></td>
+                  <td class="schedule-table__status"><?= esc_html($d['status']) ?></td>
+                  <td class="schedule-table__menu"><?= esc_html($d['menu']) ?></td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          <?php endforeach; ?>
+        </table>
+      <?php endif; ?>
+
       <div class="home-schedule__button">
-        <a href="<?php echo $reservation; ?>" class="button button--green button--outline">
+        <a href="<?php echo esc_url($reservation); ?>" class="button button--green button--outline">
           ご予約はこちら
           <span></span>
         </a>
       </div>
     </div>
   </section>
+
+
+
+
   
 
   <!-- コンセプト -->

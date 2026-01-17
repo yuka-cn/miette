@@ -364,32 +364,6 @@ jQuery(function ($) {
     }
   }
 
-// /* サイドバーのアーカイブ開閉 */
-//   document.querySelectorAll('.archive-list__year-button').forEach(button => {
-//     const year = button.closest('.archive-list__year');
-//     const months = year.querySelector('.archive-list__months');
-
-//     // 初期状態
-//     const isOpen = year.classList.contains('is-open');
-//     months.style.height = isOpen ? months.scrollHeight + 'px' : '0';
-//     button.setAttribute('aria-expanded', isOpen);
-
-//     // クリックイベント
-//     button.addEventListener('click', () => {
-//       const expanded = button.getAttribute('aria-expanded') === 'true';
-//       button.setAttribute('aria-expanded', String(!expanded));
-//       year.classList.toggle('is-open');
-
-//       if (!expanded) {
-//         months.style.height = months.scrollHeight + 'px';
-//         months.style.opacity = '1';
-//       } else {
-//         months.style.height = '0';
-//         months.style.opacity = '0';
-//       }
-//     });
-//   });
-
 /* トグル開閉 */
   function setupToggle({
     triggerSelector,
@@ -427,13 +401,6 @@ jQuery(function ($) {
     });
   }
 
-  //ブログサイドバーのアーカイブ
-  setupToggle({
-    triggerSelector: '.archive-list__year-button',
-    groupSelector: '.archive-list__year',
-    contentSelector: '.archive-list__months'
-  });
-
   //トップページのレッスン日程表
   setupToggle({
     triggerSelector: '.schedule-table td[rowspan]',
@@ -441,6 +408,14 @@ jQuery(function ($) {
     contentSelector: null,
     enabled: () => window.innerWidth < 768
   });
+  
+  //ブログサイドバーのアーカイブ
+  setupToggle({
+    triggerSelector: '.archive-list__year-button',
+    groupSelector: '.archive-list__year',
+    contentSelector: '.archive-list__months'
+  });
+
 
 /* お問い合わせとレッスン予約の送信 */
   //エラー時の処理

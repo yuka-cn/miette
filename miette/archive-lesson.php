@@ -78,7 +78,6 @@ extract($links, EXTR_SKIP);
               <div class="lesson-card__body">
                 <p class="lesson-card__category"><?php echo esc_html($term_name); ?></p>
                 <h2 class="lesson-card__title"><?php the_title(); ?></h2>
-                <p class="lesson-card__schedule"><?php echo nl2br( wp_kses( $lesson_schedule, array() ) ); ?></p>
               </div>
               <span class="lesson-card__mask"></span>
             </a>
