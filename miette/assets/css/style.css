@@ -350,25 +350,42 @@ a {
 	text-align: center;
 }
 
-.home-concept-layout {
-	margin-top: 12.5rem;
+.home-blog-bg {
+	background-image: url(../images/common/blog_1.jpg);
+	background-position: center left;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: -1;
 }
 
-.home-concept {
+.home-concept-layout {
+	margin-top: 5rem;
+}
+
+.home-concept__content {
+	grid-gap: 8.75rem;
+	display: grid;
+	gap: 8.75rem;
+	grid-template-columns: 1fr;
 	position: relative;
 }
 
-.home-concept::before {
+.home-concept__content::before {
 	aspect-ratio: 727/645;
 	background: url(../images/common/shape_2.png) center center/contain no-repeat;
 	content: "";
 	position: absolute;
 	right: 0;
-	top: -7.5rem;
+	top: 72vw;
 	width: 40%;
 }
 
-.home-concept::after {
+.home-concept__content::after {
 	-webkit-mask-image: url(../images/common/decor_8.png);
 	-webkit-mask-size: contain;
 	-webkit-mask-repeat: no-repeat;
@@ -382,15 +399,8 @@ a {
 	mask-size: contain;
 	position: absolute;
 	right: 21.3333333333vw;
-	top: -8vw;
+	top: 85.3333333333vw;
 	width: 3.75rem;
-}
-
-.home-concept__content {
-	grid-gap: 3.75rem;
-	display: grid;
-	gap: 3.75rem;
-	grid-template-columns: 1fr;
 }
 
 .home-concept__image {
@@ -2453,7 +2463,8 @@ body.is-loading {
 	margin-left: 1em;
 }
 
-.schedule-table__date {
+.schedule-table td.schedule-table__date {
+	font-weight: 500;
 	margin-top: 0.5rem;
 }
 
@@ -2989,24 +3000,24 @@ html {
 	margin-top: 18.75rem;
 }
 
-.home-concept::before {
-	right: 0;
-	top: -10rem;
-	width: 20%;
-}
-
-.home-concept::after {
-	right: 12.5vw;
-	top: 0.6944444444vw;
-	width: 6.25rem;
-}
-
 .home-concept__content {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
 	gap: 0;
 	grid-template-columns: 25% 50% auto;
+}
+
+.home-concept__content::before {
+	right: 0;
+	top: -10rem;
+	width: 20%;
+}
+
+.home-concept__content::after {
+	right: 12.5vw;
+	top: 0.6944444444vw;
+	width: 6.25rem;
 }
 
 .home-concept__image {
@@ -3695,6 +3706,10 @@ html {
 
 .schedule-table tbody:not(:first-of-type) td[rowspan] {
 	padding-top: 0;
+}
+
+.schedule-table td.schedule-table__date {
+	font-weight: 400;
 }
 
 .schedule-table__status,

@@ -1,7 +1,7 @@
 @use "global" as *;
 
 .home-concept-layout{
-  margin-top: rem(200);
+  margin-top: rem(80);
   @include mq("md"){
     margin-top: rem(300);
   }

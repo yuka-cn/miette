@@ -1,13 +1,21 @@
 @use "global" as *;
 
-.home-concept{
+.home-concept__content{
   position: relative;
+  display: grid;
+  gap: rem(140);
+  grid-template-columns: 1fr;
+  @include mq("md") {
+    gap: 0;
+    grid-template-columns: 25% 50% auto;
+    align-items: center;
+  }
 }
 
-.home-concept::before{
+.home-concept__content::before{
   content: "";
   position: absolute;
-  top: rem(-120);
+  top: calc(270 / 375 * 100vw);
   right: 0;
   width: 40%;
   aspect-ratio: 727 / 645;
@@ -19,10 +27,10 @@
   }
 }
 
-.home-concept::after{
+.home-concept__content::after{
   content: "";
   position: absolute;
-  top: calc(-30 / 375 * 100vw);
+  top: calc(320 / 375 * 100vw);
   right: calc(80 / 375 * 100vw);
   width: rem(60);
   aspect-ratio: 125 / 130;
@@ -35,17 +43,6 @@
     top: calc(10 / 1440 * 100vw);
     right: calc(180 / 1440 * 100vw);
     width: rem(100);
-  }
-}
-
-.home-concept__content{
-  display: grid;
-  gap: rem(60);
-  grid-template-columns: 1fr;
-  @include mq("md") {
-    gap: 0;
-    grid-template-columns: 25% 50% auto;
-    align-items: center;
   }
 }
 
