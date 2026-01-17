@@ -250,11 +250,13 @@ function scrollToHash() {
     });
     targetTabButton.classList.add('is-active');
     targetPanel.classList.add('is-active');
-    var buttonTop = targetTabButton.getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({
-      top: buttonTop - headerHeight,
-      behavior: 'smooth'
-    });
+    setTimeout(function () {
+      var buttonTop = targetTabButton.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: buttonTop - headerHeight,
+        behavior: 'smooth'
+      });
+    }, 100);
   }
 
   //sp-navが開いていたら閉じる
