@@ -7,7 +7,7 @@ extract($links, EXTR_SKIP);
 
 <div id="loading" class="loading">
   <div class="loading__logo">
-    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/miette-color.png" alt="miette">
+    <img src="<?= get_template_directory_uri(); ?>/assets/images/common/miette-color.png" alt="miette">
   </div>
 </div>
 
@@ -15,11 +15,11 @@ extract($links, EXTR_SKIP);
   <!-- ファーストビュー -->
   <section class="mv">
     <div class="mv__logo">
-      <img src="<?php echo get_theme_file_uri('/assets/images/common/miette-color.png'); ?>" alt="やさしいおやつ教室Miette">
+      <img src="<?= get_theme_file_uri('/assets/images/common/miette-color.png'); ?>" alt="やさしいおやつ教室Miette">
     </div>
     <picture class="mv__image" style="grid-area: image;">
-      <source srcset="<?php echo get_theme_file_uri('/assets/images/common/mv_pc.png'); ?>" media="(min-width: 768px)">
-      <img src="<?php echo get_theme_file_uri('/assets/images/common/mv_pc.png'); ?>" alt="">
+      <source srcset="<?= get_theme_file_uri('/assets/images/common/mv_pc.png'); ?>" media="(min-width: 768px)">
+      <img src="<?= get_theme_file_uri('/assets/images/common/mv_pc.png'); ?>" alt="">
     </picture>
     <div class="mv__inner inner" style="grid-area: title;">
       <h1 class="mv__title">
@@ -62,17 +62,17 @@ extract($links, EXTR_SKIP);
               <div class="home-lesson__slide swiper-slide">
                 <a href="<?php the_permalink(); ?>" class="home-lesson__card lesson-card">
                   <div class="lesson-card__badge">
-                    <p class="lesson-card__month"><?php echo esc_html($month); ?>月</p>
+                    <p class="lesson-card__month"><?= esc_html($month); ?>月</p>
                   </div>
                   <div class="lesson-card__image">
                     <?php if ($image): ?>
-                      <?php echo wp_get_attachment_image($image, 'large', false, ['alt' => '']); ?>
+                      <?= wp_get_attachment_image($image, 'large', false, ['alt' => '']); ?>
                     <?php else: ?>
-                      <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
+                      <img src="<?= get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
                     <?php endif; ?>
                   </div>
                   <div class="lesson-card__body">
-                    <p class="lesson-card__category"><?php echo esc_html($term_name); ?></p>
+                    <p class="lesson-card__category"><?= esc_html($term_name); ?></p>
                     <h3 class="lesson-card__title"><?php the_title(); ?></h3>
                   </div>
                 </a>
@@ -128,7 +128,6 @@ extract($links, EXTR_SKIP);
           if (!empty($dates)) {
             $all_dates[$class_label] = $dates;
           }
-          $rowspan = count($dates);
         endforeach;
       endif;
       ?>
@@ -147,6 +146,7 @@ extract($links, EXTR_SKIP);
           </thead>
           <?php foreach ($all_dates as $class_label => $dates): ?>
             <tbody>
+              <?php $rowspan = count($dates); ?>
               <?php foreach ($dates as $index => $d): ?>
                 <tr>
                   <?php if ($index === 0): ?>
@@ -154,7 +154,7 @@ extract($links, EXTR_SKIP);
                   <?php endif; ?>
                   <td class="schedule-table__date"><?= date_i18n('Y/m/j(D) H:i〜', strtotime($d['date'])) ?></td>
                   <td class="schedule-table__status"><?= esc_html($d['status']) ?></td>
-                  <td class="schedule-table__menu"><?= esc_html($d['menu']) ?></td>
+                  <td class="schedule-table__menu"><?= esc_html($d['menu'] ?: 'ただいま準備中です'); ?></td>
                 </tr>
               <?php endforeach; ?>
             </tbody>
@@ -163,18 +163,13 @@ extract($links, EXTR_SKIP);
       <?php endif; ?>
 
       <div class="home-schedule__button">
-        <a href="<?php echo esc_url($reservation); ?>" class="button button--green button--outline">
+        <a href="<?= esc_url($reservation); ?>" class="button button--green button--outline">
           ご予約はこちら
           <span></span>
         </a>
       </div>
     </div>
   </section>
-
-
-
-
-  
 
   <!-- コンセプト -->
   <div class="home-concept home-concept-layout">
@@ -190,7 +185,7 @@ extract($links, EXTR_SKIP);
           やさしいおやつづくりを<br>
         </p>
         <div class="home-concept__button">
-          <a href="<?php echo $about; ?>" class="button">
+          <a href="<?= $about; ?>" class="button">
             もっと知る
             <span></span>
           </a>
@@ -212,7 +207,7 @@ extract($links, EXTR_SKIP);
         それぞれのクラスで、出来たてのおいしさと手作りならではの温かみを楽しんでいただけます。
       </p>
       <div class="home-lesson-guide__button">
-        <a href="<?php echo $lesson_guide; ?>" class="button button--outline">
+        <a href="<?= $lesson_guide; ?>" class="button button--outline">
           もっと見る
           <span></span>
         </a>
@@ -255,8 +250,8 @@ extract($links, EXTR_SKIP);
                       }
                     ?>
                   </p>
-                  <time datetime="<?php echo get_the_date('Y-m-d'); ?>" class="blog-card__date">
-                    <?php echo get_the_date('Y.m.d'); ?>
+                  <time datetime="<?= get_the_date('Y-m-d'); ?>" class="blog-card__date">
+                    <?= get_the_date('Y.m.d'); ?>
                   </time>
                 </div>
                 <h3 class="blog-card__title"><?php the_title(); ?></h3>
@@ -278,7 +273,7 @@ extract($links, EXTR_SKIP);
                 <?php if (has_post_thumbnail()): ?>
                   <?php the_post_thumbnail('medium'); ?>
                 <?php else: ?>
-                  <img src="<?php echo get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
+                  <img src="<?= get_theme_file_uri('/assets/images/common/placeholder-default.jpg'); ?>" alt="">
                 <?php endif; ?>
               </div>
             </a>
@@ -286,7 +281,7 @@ extract($links, EXTR_SKIP);
         <?php endwhile; ?>
       </div>
       <div class="home-blog__button js-fadeIn">
-        <a href="<?php echo $blog; ?>" class="button">
+        <a href="<?= $blog; ?>" class="button">
           もっと見る
           <span></span>
         </a>
@@ -311,14 +306,14 @@ extract($links, EXTR_SKIP);
           定員になり次第締め切りとなります。
         </p>
         <div class="home-reservation__button">
-          <a href="<?php echo $reservation; ?>" class="button button--green button--outline">
+          <a href="<?= $reservation; ?>" class="button button--green button--outline">
             ご予約はこちら
             <span></span>
           </a>
         </div>
       </div>
       <div class="home-reservation__image js-fadeIn">
-        <img src="<?php echo get_theme_file_uri('/assets/images/common/reservation_1.png'); ?>" alt="">
+        <img src="<?= get_theme_file_uri('/assets/images/common/reservation_1.png'); ?>" alt="">
       </div>
     </div>
 

@@ -358,6 +358,34 @@ a {
 	position: relative;
 }
 
+.home-concept::before {
+	aspect-ratio: 727/645;
+	background: url(../images/common/shape_2.png) center center/contain no-repeat;
+	content: "";
+	position: absolute;
+	right: 0;
+	top: -7.5rem;
+	width: 40%;
+}
+
+.home-concept::after {
+	-webkit-mask-image: url(../images/common/decor_8.png);
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	aspect-ratio: 125/130;
+	background: #5A3E2B;
+	content: "";
+	mask-image: url(../images/common/decor_8.png);
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	position: absolute;
+	right: 21.3333333333vw;
+	top: -8vw;
+	width: 3.75rem;
+}
+
 .home-concept__content {
 	grid-gap: 3.75rem;
 	display: grid;
@@ -376,7 +404,6 @@ a {
 
 .home-concept__text {
 	line-height: 2;
-	position: relative;
 	text-align: center;
 }
 
@@ -2963,13 +2990,15 @@ html {
 }
 
 .home-concept::before {
-	aspect-ratio: 727/645;
-	background: url(../images/common/shape_2.png) center center/contain no-repeat;
-	content: "";
-	position: absolute;
 	right: 0;
 	top: -10rem;
 	width: 20%;
+}
+
+.home-concept::after {
+	right: 12.5vw;
+	top: 0.6944444444vw;
+	width: 6.25rem;
 }
 
 .home-concept__content {
@@ -2983,24 +3012,6 @@ html {
 .home-concept__image {
 	max-width: 25rem;
 	width: 100%;
-}
-
-.home-concept__text::after {
-	-webkit-mask-image: url(../images/common/decor_8.png);
-	-webkit-mask-size: contain;
-	-webkit-mask-repeat: no-repeat;
-	-webkit-mask-position: center;
-	aspect-ratio: 125/130;
-	background: #5A3E2B;
-	content: "";
-	mask-image: url(../images/common/decor_8.png);
-	mask-position: center;
-	mask-repeat: no-repeat;
-	mask-size: contain;
-	position: absolute;
-	right: calc(50% - min(37.5rem, 80%));
-	top: -6.25rem;
-	width: 6.25rem;
 }
 
 .home-concept__button {
