@@ -121,25 +121,9 @@
   transform: translateY(-50%) rotate(-135deg);
 }
 
-.schedule-table tbody.is-open td{
-  display: block;
-  height: auto;
-  opacity: 1;
-  transition: height .6s ease, opacity .4s ease .2s;
-  @include mq("md"){
-    display: table-cell;
-  }
-}
-
 .schedule-table tbody:not(.is-open) td:not([rowspan]) {
-  display: block;
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: height .6s ease, opacity .4s ease .2s;
+  display: none;
   @include mq("md"){
     display: table-cell;
-    height: auto;
-    opacity: 1;
   }
 }
