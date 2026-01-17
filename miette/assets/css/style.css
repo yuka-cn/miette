@@ -2463,6 +2463,10 @@ body.is-loading {
 	margin-left: 1em;
 }
 
+.schedule-table td[rowspan] {
+	font-weight: 500;
+}
+
 .schedule-table td.schedule-table__date {
 	font-weight: 500;
 	margin-top: 0.5rem;
@@ -3706,6 +3710,10 @@ html {
 
 .schedule-table tbody:not(:first-of-type) td[rowspan] {
 	padding-top: 0;
+}
+
+.schedule-table td[rowspan] {
+	font-weight: 400;
 }
 
 .schedule-table td.schedule-table__date {

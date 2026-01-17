@@ -59,6 +59,13 @@
   margin-left: 1em;
 }
 
+.schedule-table td[rowspan]{
+  font-weight: $medium;
+  @include mq("md"){
+  font-weight: $regular;
+  }
+}
+
 .schedule-table td.schedule-table__date{
   margin-top: rem(8);
   font-weight: $medium;
