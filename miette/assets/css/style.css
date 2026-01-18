@@ -438,6 +438,14 @@ a {
 	background: linear-gradient(transparent 60%, rgba(232, 180, 184, 0.4) 60%);
 }
 
+.home-lesson-guide__cards {
+	grid-gap: 1.5rem;
+	display: grid;
+	gap: 1.5rem;
+	grid-template-columns: repeat(1, 1fr);
+	margin-top: 1.5rem;
+}
+
 .home-lesson-guide__button {
 	margin-top: 3.75rem;
 	text-align: center;
@@ -1208,6 +1216,34 @@ body.is-loaded .mv {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	row-gap: 1rem;
+}
+
+.class-card {
+	border: 0.08em solid #A89484;
+	border-radius: 1rem;
+}
+
+.class-card__title {
+	background: #A89484;
+	border-radius: 1rem 1rem 0 0;
+	color: #fff;
+	padding: 0.5rem 1.5rem;
+	text-align: center;
+}
+
+.class-card__body {
+	padding: 1rem 1.5rem;
+}
+
+.class-card__level,
+.class-card__duration {
+	grid-column-gap: 0.5em;
+	-moz-column-gap: 0.5em;
+	-webkit-column-gap: 0.5em;
+	column-gap: 0.5em;
+	display: grid;
+	grid-template-columns: 5em 1fr;
+	margin-top: 0.5rem;
 }
 
 .concept {
@@ -3038,6 +3074,12 @@ html {
 	padding: 15.625rem 0 10rem;
 }
 
+.home-lesson-guide__cards {
+	gap: 2.5rem;
+	grid-template-columns: repeat(3, 1fr);
+	margin-top: 2.5rem;
+}
+
 .home-lesson-guide__button {
 	margin-top: 5rem;
 }
@@ -3326,6 +3368,10 @@ html {
 	-webkit-column-gap: 2rem;
 	column-gap: 2rem;
 	grid-template-columns: repeat(auto-fit, 10.625rem);
+}
+
+.class-card__title {
+	font-size: 1.25rem;
 }
 
 .concept::before,

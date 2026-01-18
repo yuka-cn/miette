@@ -206,6 +206,56 @@ extract($links, EXTR_SKIP);
         家庭でも作りやすい人気のおやつを中心に、<span>基本の技術や材料選びを丁寧に学べる「ベーシッククラス」</span>と、旬の素材や行事に合わせた<span>季節感あふれるメニューに挑戦する「季節のおやつクラス」</span>、そして<span>小さなお子さまと一緒に</span>“作る楽しさ”を感じていただける<span>「親子クラス」</span>の3つをご用意しています。<br>
         それぞれのクラスで、出来たてのおいしさと手作りならではの温かみを楽しんでいただけます。
       </p>
+      <div class="home-lesson-guide__cards">
+        <div class="home-lesson-guide__card class-card">
+          <p class="class-card__title">ベーシッククラス</p>
+          <div class="class-card__body">
+            <p class="class-card__text">毎日に寄り添う、基本のおやつ作り</p>
+            <dl class="class-card__meta">
+              <div class="class-card__level">
+                <dt>難易度</dt>
+                <dd>★★</dd>
+              </div>
+              <div class="class-card__duration">
+                <dt>所要時間</dt>
+                <dd>90〜120分</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="home-lesson-guide__card class-card">
+          <p class="class-card__title">季節のおやつクラス</p>
+          <div class="class-card__body">
+            <p class="class-card__text">季節を味わう、旬のおやつ作り</p>
+            <dl class="class-card__meta">
+              <div class="class-card__level">
+                <dt>難易度</dt>
+                <dd>★★★</dd>
+              </div>
+              <div class="class-card__duration">
+                <dt>所要時間</dt>
+                <dd>90〜120分</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="home-lesson-guide__card class-card">
+          <p class="class-card__title">親子クラス</p>
+          <div class="class-card__body">
+            <p class="class-card__text">親子で楽しむ、やさしいおやつ作り</p>
+            <dl class="class-card__meta">
+              <div class="class-card__level">
+                <dt>難易度</dt>
+                <dd>★</dd>
+              </div>
+              <div class="class-card__duration">
+                <dt>所要時間</dt>
+                <dd>60分</dd>
+              </div>
+            </dl>
+          </div>
+        </div>  
+      </div>
       <div class="home-lesson-guide__button">
         <a href="<?= $lesson_guide; ?>" class="button button--outline">
           もっと見る

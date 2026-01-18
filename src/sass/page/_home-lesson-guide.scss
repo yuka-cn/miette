@@ -17,6 +17,18 @@
   background: linear-gradient(transparent 60%, rgba(232, 180, 184, 0.4) 60%);
 }
 
+.home-lesson-guide__cards{
+  margin-top: rem(24);
+  display: grid;
+  gap: rem(24);
+  grid-template-columns: repeat(1, 1fr);
+  @include mq("md") {
+    margin-top: rem(40);
+    gap: rem(40);
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .home-lesson-guide__button{
   margin-top: rem(60);
   text-align: center;
