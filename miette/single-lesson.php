@@ -67,7 +67,7 @@ extract($links, EXTR_SKIP);
                 </tr>
                 <tr>
                   <th scope="row">定員</th>
-                  <td><?php echo esc_html($lesson_duration); ?></td>
+                  <td><?php echo esc_html($lesson_capacity); ?></td>
                 </tr>
                 <tr>
                   <th scope="row">持ち物</th>
